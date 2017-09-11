@@ -19685,3 +19685,2322 @@ Stack Trace:
 #1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
 #2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2017-09-07 03:17:40 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/img/assets/images/logo-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 03:24:58 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/img/assets/images/logo-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 03:24:58 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 03:24:58 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 03:24:58 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 03:24:58 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 03:35:42 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/img/assets/images/logo-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 03:35:42 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 03:35:42 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 03:35:42 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 03:35:42 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 03:43:14 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/img/assets/images/logo-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 03:43:14 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 03:43:14 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 03:43:14 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 03:43:14 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 03:56:04 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/img/assets/images/logo-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 03:56:04 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 03:56:04 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 03:56:04 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 03:56:04 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:08:59 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/img/assets/images/logo-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:08:59 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:09:00 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:09:00 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:09:00 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:10:19 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/img/assets/images/logo-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:10:19 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:10:19 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:10:19 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:10:19 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:10:23 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:29:12 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/img/assets/images/logo-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:29:12 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/js/funciones.js
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:29:12 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:29:12 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:29:12 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:29:12 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:29:14 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/js/funciones.js
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:29:20 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:30:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/js/funciones.js
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:30:12 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/js/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:30:12 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/js/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:30:12 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/img/assets/images/logo-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:30:12 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/js/funciones.js
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:30:12 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/js/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:30:12 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/js/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:30:14 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/js/funciones.js
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:38:25 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/js/funciones.js
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:38:25 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/img/assets/images/logo-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:38:25 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:38:26 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/js/funciones.js
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:38:34 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/js/funciones.js
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:38:34 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/img/assets/images/logo-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:38:34 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:38:36 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/js/funciones.js
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:39:58 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/js/funciones.js
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:39:58 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/img/assets/images/logo-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:39:58 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/js/funciones.js
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:39:59 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:41:28 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/img/assets/images/logo-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:41:29 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:41:51 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/img/assets/images/logo-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:41:52 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:44:12 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:44:17 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:44:38 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:45:16 Error: [MissingControllerException] Controller class AssetsController could not be found.
+Exception Attributes: array (
+  'class' => 'AssetsController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/assets/images/users/1
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:45:16 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:45:44 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:46:10 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:46:10 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:46:10 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:46:11 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:46:11 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:46:11 Error: [MissingActionException] Action AvisosController::lib() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'lib',
+)
+Request URL: /licitar/avisos/lib/css/wysiwyg-color.css
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:47:05 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:47:05 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:47:05 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:47:05 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-07 04:47:05 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-07 04:47:06 Error: [MissingActionException] Action AvisosController::lib() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'lib',
+)
+Request URL: /licitar/avisos/lib/css/wysiwyg-color.css
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:23:21 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:23:22 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:23:22 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:23:22 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:23:22 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:23:22 Error: [MissingActionException] Action AvisosController::lib() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'lib',
+)
+Request URL: /licitar/avisos/lib/css/wysiwyg-color.css
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:23:36 Error: [MissingActionException] Action AvisosController::lib() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'lib',
+)
+Request URL: /licitar/avisos/lib/css/wysiwyg-color.css
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:23:37 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 15:23:38 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:23:38 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:23:38 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:23:38 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:23:38 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 15:23:39 Error: [MissingActionException] Action AvisosController::lib() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'lib',
+)
+Request URL: /licitar/avisos/lib/css/wysiwyg-color.css
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:51:56 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:51:57 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:51:57 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:51:57 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:51:57 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:51:57 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:51:57 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:51:57 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:51:57 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 15:51:58 Error: [MissingActionException] Action AvisosController::lib() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'lib',
+)
+Request URL: /licitar/avisos/lib/css/wysiwyg-color.css
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:11 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:11 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:11 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:12 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:12 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:12 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:12 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:12 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 15:52:14 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:14 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:14 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:14 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:14 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:14 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:14 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:15 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:15 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 15:52:36 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:36 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:36 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:36 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:37 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:37 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:37 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:37 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:52:37 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 15:52:38 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/plugins/x-editable/dist/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysiwyg-color.css
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:55:55 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:55:55 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:55:55 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:55:55 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:55:55 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:55:55 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:55:56 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:55:56 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 15:55:56 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:00:22 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:00:22 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:00:23 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:00:23 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:00:23 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:00:23 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:00:23 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:00:23 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:00:24 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:05:36 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:05:36 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:05:36 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:05:36 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:05:37 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:05:38 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:05:38 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:05:38 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:05:38 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:05:39 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:12:45 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/img/assets/images/logo-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:12:45 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:12:45 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:12:45 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:12:45 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:12:45 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:13:09 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:13:09 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:13:09 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:13:09 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:13:09 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:13:10 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:13:10 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:13:10 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:13:10 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:15:17 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:15:17 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:15:17 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:15:17 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:15:17 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:15:17 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:15:17 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:15:17 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:15:18 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:15:20 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:15:20 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:15:20 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:15:20 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:15:20 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:15:20 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/logo-light-text.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:15:21 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:15:21 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:17:44 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:17:44 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:17:44 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:22:38 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:22:39 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:22:39 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:22:39 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:22:56 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:22:56 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:23:23 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:23:24 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:24:09 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:24:09 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/img/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:24:09 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:24:45 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:24:45 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:25:18 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:25:18 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:25:37 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:25:37 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:25:48 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:25:48 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/img/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:25:49 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:26:03 Error: [MissingActionException] Action AvisosController::assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'AvisosController',
+  'action' => 'assets',
+)
+Request URL: /licitar/avisos/assets/images/users/1.jpg
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AvisosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-09-10 16:26:04 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-10 16:29:57 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-11 00:34:52 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-11 00:56:15 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-11 01:00:22 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-11 01:08:54 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-11 13:50:48 Error: [MissingControllerException] Controller class Assets-monsterController could not be found.
+Exception Attributes: array (
+  'class' => 'Assets-monsterController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/assets-monster/images/favicon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-11 14:28:47 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

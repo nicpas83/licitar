@@ -3,7 +3,7 @@
     <head>
 
         <?php echo $this->element('head') ?>
-
+        <script type="text/javascript">var baseUrl = '<?php echo $this->Html->url('/'); ?>';</script>
     </head>
 
     <body class="fix-header fix-sidebar card-no-border">
@@ -16,13 +16,27 @@
         </div>
 
         <?php echo $this->element('header') ?>
-        
+
         <?php echo $this->element('sidebar') ?>
-
-        <?php echo $this->fetch('content') ?>
-
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <?php echo $this->Flash->render(); ?>
+                <?php echo $this->fetch('content') ?>
+            </div>
+        </div>
         <?php echo $this->element('footer') ?>
+        <?php
+        //debug($this->params['controller']); die;
 
+        echo $this->Html->script('funciones');
+
+        if (is_file(WWW_ROOT . 'js' . DS . $this->params['controller'] . '.js')) {
+            echo $this->Html->script($this->params['controller']);
+        }
+        if (is_file(WWW_ROOT . 'js' . DS . $this->params['controller'] . DS . $this->params['action'] . '.js')) {
+            echo $this->Html->script($this->params['controller'] . '/' . $this->params['action']);
+        }
+        ?>
 
     </body>
 </html>

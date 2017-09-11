@@ -32,6 +32,12 @@
 <?php echo $this->Html->script('/assets/plugins/sticky-kit-master/dist/sticky-kit.min') ?>
 <!--Custom JavaScript -->
 <?php echo $this->Html->script('/js/custom') ?>
+<!-- wysuhtml5 Plugin JavaScript -->
+<?php echo $this->Html->script('/assets/plugins/html5-editor/wysihtml5-0.3.0') ?>
+<?php echo $this->Html->script('/assets/plugins/html5-editor/bootstrap-wysihtml5') ?>
+<!-- Date Picker Plugin JavaScript -->
+<?php echo $this->Html->script('/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min') ?>
+
 <!-- ============================================================== -->
 <!-- This page plugins -->
 <!-- ============================================================== -->

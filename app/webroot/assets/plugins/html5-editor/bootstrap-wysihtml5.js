@@ -433,7 +433,7 @@
                 "div": 1
             }
         },
-        stylesheets: ["./lib/css/wysiwyg-color.css"], // (path_to_project/lib/css/wysiwyg-color.css)
+        stylesheets: [baseUrl+"assets/plugins/x-editable/dist/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysiwyg-color.css"], // (path_to_project/lib/css/wysiwyg-color.css)
         locale: "en"
     };
 
