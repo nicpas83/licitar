@@ -4,9 +4,9 @@ App::uses('AppController', 'Controller');
 
 // Ejemplo para pasar variables a la vista:   $this->set('posts', $this->Post->find('all'));
 
-class AvisosController extends AppController {
+class ProcesosController extends AppController {
 
-    public function publicar() {
+    public function nuevo() {
 
 //        $this->set('combo_seccion', $this->Contenido->combo_seccion());
 //        $this->set('combo_descripcion', $this->Contenido->crear_combo('descripcion', 'Home'));

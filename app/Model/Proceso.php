@@ -2,7 +2,7 @@
 
 App::uses('AppModel', 'Model');
 
-class Aviso extends AppModel {
+class Proceso extends AppModel {
 
     public $validate = array(
         'titulo' => array(

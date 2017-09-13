@@ -22004,3 +22004,48 @@ Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesigni
 Stack Trace:
 #0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2017-09-13 13:06:10 Error: [MissingControllerException] Controller class AvisosController could not be found.
+Exception Attributes: array (
+  'class' => 'AvisosController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/avisos/publicar
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-13 13:06:41 Error: [MissingControllerException] Controller class AvisosController could not be found.
+Exception Attributes: array (
+  'class' => 'AvisosController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/avisos/publicar
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-13 13:07:40 Error: [MissingControllerException] Controller class AvisosController could not be found.
+Exception Attributes: array (
+  'class' => 'AvisosController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/avisos/publicar
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-13 13:07:41 Error: [MissingControllerException] Controller class AvisosController could not be found.
+Exception Attributes: array (
+  'class' => 'AvisosController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/avisos/publicar
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-09-13 13:28:27 Error: [MissingControllerException] Controller class Assets-monsterController could not be found.
+Exception Attributes: array (
+  'class' => 'Assets-monsterController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/assets-monster/images/favicon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

@@ -47,7 +47,7 @@ Cache::config('default', array('engine' => 'File'));
 Inflector::rules('singular', array(
     'rules' => array(),
     'irregular' => array(
-        'avisos' => 'Aviso',
+        'procesos' => 'Proceso',
     ),
     'uninflected' => array()
     )
@@ -56,7 +56,7 @@ Inflector::rules('singular', array(
 Inflector::rules('plural', array(
     'rules' => array(),
     'irregular' => array(
-        'aviso' => 'Avisos',
+        'proceso' => 'Procesos',
     ),
     'uninflected' => array()
     )

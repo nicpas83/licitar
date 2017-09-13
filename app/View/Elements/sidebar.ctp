@@ -28,7 +28,7 @@
                 <li>
                     <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Comprador</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="<?php echo $this->Html->url(['controller' => 'avisos', 'action' => 'publicar']) ?>">Publicar Aviso</a></li>
+                        <li><a href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'nuevo']) ?>">Nuevo Proceso</a></li>
                         <li><a href="<?php echo $this->Html->url(['controller' => 'publicaciones', 'action' => 'index']) ?>">Administrar Publicaciones</a></li>
                         <li><a href="<?php echo $this->Html->url(['controller' => 'users', 'action' => 'mi_perfil']) ?>">Editar mi Perfil</a></li>
                     </ul>
@@ -36,7 +36,7 @@
                 <li>
                     <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-email"></i><span class="hide-menu">Vendedor</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="">Buscar Publicaciones</a></li>
+                        <li><a href="">Buscar Procesos</a></li>
                         <li><a href="">Mis Favoritos</a></li>
                         <li><a href="">Ofertas en Curso</a></li>
                         <li><a href="">Editar mi Perfil</a></li>
