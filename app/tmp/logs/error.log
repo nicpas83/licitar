@@ -22049,3 +22049,12 @@ Request URL: /licitar/assets-monster/images/favicon.png
 Stack Trace:
 #0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2017-09-15 05:32:47 Error: [MissingControllerException] Controller class Assets-monsterController could not be found.
+Exception Attributes: array (
+  'class' => 'Assets-monsterController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/assets-monster/images/favicon.png
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
