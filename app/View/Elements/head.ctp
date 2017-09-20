@@ -11,6 +11,8 @@
 <?php echo $this->Html->css('/assets/plugins/html5-editor/bootstrap-wysihtml5') ?>
 <!-- Date picker plugins css -->
 <?php echo $this->Html->css('/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min') ?>
+<!-- Clock picker plugins css -->
+<?php echo $this->Html->css('/assets/plugins/clockpicker/dist/bootstrap-clockpicker.min') ?>
 <!-- chartist CSS -->
 <?php echo $this->Html->css('/assets/plugins/chartist-js/dist/chartist.min') ?>
 <?php echo $this->Html->css('/assets/plugins/chartist-js/dist/chartist-init') ?>
@@ -29,4 +31,4 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<?php echo $this->Html->meta('favicon.ico', 'assets-monster/images/favicon.png', array('type' => 'icon')); ?>
+<?php echo $this->Html->meta('favicon.ico', '/assets/images/favicon.png', array('type' => 'icon')); ?>

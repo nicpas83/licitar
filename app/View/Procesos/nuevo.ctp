@@ -99,9 +99,18 @@
                             <span class="input-group-addon"><i class="icon-calender"></i></span> 
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label>Recibir ofertas hasta las: </label>
+                        <div class="input-group clockpicker " data-placement="left" data-align="top" data-autoclose="true">
+                            <input type="text" class="form-control"> 
+                            <span class="input-group-addon"> <span class="fa fa-clock-o"></span> </span>
+                        </div>
+                    </div>
 
                 </div>
                 <!-- col 2/2 -->
+
+                <div class="clearfix"></div>
 
                 <div class="form-group">
                     <label>Requisitos para presentar una oferta.  (*) opcional</label>

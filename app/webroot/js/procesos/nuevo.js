@@ -14,6 +14,12 @@ $(document).ready(function () {
         format: 'hh:mm',
     });
 
+    $('.clockpicker').clockpicker({
+        donetext: 'Done',
+    }).find('input').change(function () {
+        console.log(this.value);
+    });
+
 
 });
 
