@@ -8,7 +8,7 @@
 <title>Comprando Mejor</title>
 <!-- Bootstrap Core CSS -->
 <?php echo $this->Html->css('/assets/plugins/bootstrap/css/bootstrap.min') ?>
-<?php echo $this->Html->css('/assets/plugins/html5-editor/bootstrap-wysihtml5') ?>
+<?php echo $this->Html->css('/assets/plugins/wizard/steps') ?>
 <!-- Date picker plugins css -->
 <?php echo $this->Html->css('/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min') ?>
 <!-- Clock picker plugins css -->
