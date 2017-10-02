@@ -1,24 +1,23 @@
 $(document).ready(function () {
 
-
-    $('#datepicker-autoclose').datepicker({
-        autoclose: true,
-        todayHighlight: true,
-        format: 'dd/mm/yyyy'
-    });
-//    $('#datepicker-autoclose').datepicker({
-//        pickDate: false,
-//        pickTime: true,
-//        useSeconds: false,
-//        format: 'hh:mm',
-//    });
+    $("#dia_subasta").val(inicio_subasta);
     
+    $('#addItem').click(function () {
+        clonElementAfter('div', 'rowItem-');
+    });
 
-//    $('.clockpicker').clockpicker({
-//        donetext: 'Done',
-//    }).find('input').change(function () {
-//        console.log(this.value);
-//    });
+    $(document).on('click', 'button.removeItem', function () {
+        var elem = $(this).closest('div[id^="rowItem"]');
+        var num = getNumberId(elem);
+        console.log(num);
+        if (num > 1) {
+            $(this).closest("div[id^='rowItem']").remove();
+        } else {
+            $(this).closest("div[id^='rowItem']").find("input").val("");
+        }
+    });
+
+    
 
 
 });

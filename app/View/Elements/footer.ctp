@@ -39,6 +39,8 @@
 <?php echo $this->Html->script('/assets/plugins/clockpicker/dist/bootstrap-clockpicker.min') ?>
 <!-- Steps  -->
 <?php echo $this->Html->script('/assets/plugins/wizard/jquery.steps.min') ?>
+<!-- Moment Parse, validate, manipulate, and display dates and times in JavaScript.  -->
+<?php echo $this->Html->script('/assets/plugins/moment/min/moment.min') ?>
 <!-- Validate  -->
 <?php echo $this->Html->script('/assets/plugins/wizard/jquery.validate.min') ?>
 <!-- Sweet-Alert  -->
