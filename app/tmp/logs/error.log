@@ -22935,3 +22935,310 @@ Stack Trace:
 #4 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RubrosController), Object(CakeRequest))
 #5 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #6 {main}
+2017-10-03 18:47:09 Error: Fatal Error (1): Call to a member function options() on null in [C:\xampp\htdocs\licitar\app\Controller\ProcesosController.php, line 11]
+2017-10-03 18:47:09 Error: [FatalErrorException] Call to a member function options() on null
+Request URL: /licitar/procesos/nuevo
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-03 18:52:22 Error: Fatal Error (1): Call to a member function options() on null in [C:\xampp\htdocs\licitar\app\Controller\ProcesosController.php, line 11]
+2017-10-03 18:52:22 Error: [FatalErrorException] Call to a member function options() on null
+Request URL: /licitar/procesos/nuevo
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-03 18:53:18 Error: Fatal Error (1): Call to a member function options() on null in [C:\xampp\htdocs\licitar\app\Controller\ProcesosController.php, line 11]
+2017-10-03 18:53:18 Error: [FatalErrorException] Call to a member function options() on null
+Request URL: /licitar/procesos/nuevo
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-03 18:53:19 Error: Fatal Error (1): Call to a member function options() on null in [C:\xampp\htdocs\licitar\app\Controller\ProcesosController.php, line 11]
+2017-10-03 18:53:19 Error: [FatalErrorException] Call to a member function options() on null
+Request URL: /licitar/procesos/nuevo
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-03 18:53:21 Error: Fatal Error (1): Call to a member function options() on null in [C:\xampp\htdocs\licitar\app\Controller\ProcesosController.php, line 11]
+2017-10-03 18:53:21 Error: [FatalErrorException] Call to a member function options() on null
+Request URL: /licitar/procesos/nuevo
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-03 18:53:21 Error: Fatal Error (1): Call to a member function options() on null in [C:\xampp\htdocs\licitar\app\Controller\ProcesosController.php, line 11]
+2017-10-03 18:53:21 Error: [FatalErrorException] Call to a member function options() on null
+Request URL: /licitar/procesos/nuevo
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-03 18:55:41 Error: Fatal Error (1): Call to a member function options() on null in [C:\xampp\htdocs\licitar\app\Controller\ProcesosController.php, line 11]
+2017-10-03 18:55:41 Error: [FatalErrorException] Call to a member function options() on null
+Request URL: /licitar/procesos/nuevo
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-03 18:55:43 Error: Fatal Error (1): Call to a member function options() on null in [C:\xampp\htdocs\licitar\app\Controller\ProcesosController.php, line 11]
+2017-10-03 18:55:43 Error: [FatalErrorException] Call to a member function options() on null
+Request URL: /licitar/procesos/nuevo
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-03 18:56:01 Error: Fatal Error (1): Call to a member function options() on null in [C:\xampp\htdocs\licitar\app\Controller\ProcesosController.php, line 11]
+2017-10-03 18:56:01 Error: [FatalErrorException] Call to a member function options() on null
+Request URL: /licitar/procesos/nuevo
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-03 19:03:51 Error: Fatal Error (1): Call to a member function options() on null in [C:\xampp\htdocs\licitar\app\Controller\ProcesosController.php, line 11]
+2017-10-03 19:03:51 Error: [FatalErrorException] Call to a member function options() on null
+Request URL: /licitar/procesos/nuevo
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 11, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-03 19:05:06 Error: Fatal Error (1): Call to a member function find() on null in [C:\xampp\htdocs\licitar\app\Controller\ProcesosController.php, line 12]
+2017-10-03 19:05:06 Error: [FatalErrorException] Call to a member function find() on null
+Request URL: /licitar/procesos/nuevo
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 12, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 12, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-03 19:27:51 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-10-03 19:28:27 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-10-03 19:28:55 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-10-04 04:25:28 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-10-04 19:05:10 Error: [MissingActionException] Action ProcesosController::borradores() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProcesosController',
+  'action' => 'borradores',
+)
+Request URL: /licitar/procesos/borradores
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ProcesosController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-10-04 19:16:48 Error: Fatal Error (1): Call to a member function allow() on null in [C:\xampp\htdocs\licitar\app\Controller\UsersController.php, line 10]
+2017-10-04 19:16:48 Error: [FatalErrorException] Call to a member function allow() on null
+Request URL: /licitar/users/mi_perfil
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-04 19:21:38 Error: Fatal Error (1): Call to a member function allow() on null in [C:\xampp\htdocs\licitar\app\Controller\UsersController.php, line 10]
+2017-10-04 19:21:38 Error: [FatalErrorException] Call to a member function allow() on null
+Request URL: /licitar/users/mi_perfil
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-04 19:29:59 Error: Fatal Error (1): Call to a member function allow() on null in [C:\xampp\htdocs\licitar\app\Controller\UsersController.php, line 10]
+2017-10-04 19:29:59 Error: [FatalErrorException] Call to a member function allow() on null
+Request URL: /licitar/users/mi_perfil
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-04 19:31:46 Error: Fatal Error (1): Call to a member function allow() on null in [C:\xampp\htdocs\licitar\app\Controller\UsersController.php, line 10]
+2017-10-04 19:31:46 Error: [FatalErrorException] Call to a member function allow() on null
+Request URL: /licitar/users/mi_perfil
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-04 19:31:48 Error: Fatal Error (1): Call to a member function allow() on null in [C:\xampp\htdocs\licitar\app\Controller\UsersController.php, line 10]
+2017-10-04 19:31:48 Error: [FatalErrorException] Call to a member function allow() on null
+Request URL: /licitar/users/mi_perfil
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-04 19:31:48 Error: Fatal Error (1): Call to a member function allow() on null in [C:\xampp\htdocs\licitar\app\Controller\UsersController.php, line 10]
+2017-10-04 19:31:48 Error: [FatalErrorException] Call to a member function allow() on null
+Request URL: /licitar/users/mi_perfil
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-04 19:31:58 Error: Fatal Error (1): Call to a member function allow() on null in [C:\xampp\htdocs\licitar\app\Controller\UsersController.php, line 10]
+2017-10-04 19:31:58 Error: [FatalErrorException] Call to a member function allow() on null
+Request URL: /licitar/users/mi_perfil
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-04 19:33:56 Error: Fatal Error (1): Call to a member function allow() on null in [C:\xampp\htdocs\licitar\app\Controller\UsersController.php, line 10]
+2017-10-04 19:33:56 Error: [FatalErrorException] Call to a member function allow() on null
+Request URL: /licitar/users/mi_perfil
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-04 19:34:03 Error: Fatal Error (1): Call to a member function allow() on null in [C:\xampp\htdocs\licitar\app\Controller\UsersController.php, line 10]
+2017-10-04 19:34:03 Error: [FatalErrorException] Call to a member function allow() on null
+Request URL: /licitar/users/mi_perfil
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-04 19:35:25 Error: Fatal Error (1): Call to a member function allow() on null in [C:\xampp\htdocs\licitar\app\Controller\UsersController.php, line 10]
+2017-10-04 19:35:25 Error: [FatalErrorException] Call to a member function allow() on null
+Request URL: /licitar/users/mi_perfil
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-04 19:46:33 Error: Fatal Error (1): Call to a member function allow() on null in [C:\xampp\htdocs\licitar\app\Controller\UsersController.php, line 10]
+2017-10-04 19:46:33 Error: [FatalErrorException] Call to a member function allow() on null
+Request URL: /licitar/users/add
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-04 19:48:28 Error: Fatal Error (1): Call to a member function allow() on null in [C:\xampp\htdocs\licitar\app\Controller\UsersController.php, line 10]
+2017-10-04 19:48:28 Error: [FatalErrorException] Call to a member function allow() on null
+Request URL: /licitar/users/mi_perfil
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-04 19:49:07 Error: Fatal Error (1): Call to a member function allow() on null in [C:\xampp\htdocs\licitar\app\Controller\UsersController.php, line 10]
+2017-10-04 19:49:07 Error: [FatalErrorException] Call to a member function allow() on null
+Request URL: /licitar/users/mi_perfil
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 10, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-10-04 20:40:48 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /licitar/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-10-04 20:41:51 Error: [MissingActionException] Action UsersController::profile.html() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'profile.html',
+)
+Request URL: /licitar/users/profile.html
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#2 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}

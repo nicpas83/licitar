@@ -5,11 +5,10 @@ App::uses('AppController', 'Controller');
 
 class UsersController extends AppController {
 
-    public function beforeFilter() {
-        parent::beforeFilter();
-        $this->Auth->allow('add', 'logout');
-        
-    }
+//    public function beforeFilter() {
+//        parent::beforeFilter();
+//        $this->Auth->allow('add', 'logout', 'mi_perfil');
+//    }
 
     public function login() {
         if ($this->request->is('post')) {
@@ -85,6 +84,10 @@ class UsersController extends AppController {
         }
         $this->Session->setFlash(__('User was not deleted'));
         return $this->redirect(array('action' => 'index'));
+    }
+
+    public function mi_perfil() {
+        
     }
 
 }

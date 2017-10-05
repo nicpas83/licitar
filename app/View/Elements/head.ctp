@@ -22,6 +22,7 @@
 <?php echo $this->Html->css('/assets/plugins/toast-master/css/jquery.toast') ?>
 <!-- Custom CSS -->
 <?php echo $this->Html->css('/css/style') ?>
+<?php echo $this->Html->css('/css/modif') ?>
 <!-- You can change the theme colors from here -->
 <?php echo $this->Html->css('/css/colors/blue') ?>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

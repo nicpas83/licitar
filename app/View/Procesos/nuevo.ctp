@@ -11,7 +11,9 @@
             <div class="card-block">
                 <h2 class="card-title text-center">¡Comprá en 3 simples pasos!</h2>
 
-                <form action="#" class="form-horizontal validation-wizard wizard-circle" style="font-size: 14px;">
+                <?php echo $this->Form->create(array('class'=>'form-horizontal validation-wizard wizard-circle')); ?>
+                
+                <!--<form action="#" class="form-horizontal validation-wizard wizard-circle" style="font-size: 14px;">-->
                     <!-- Step 1 -->
                     <h6 id="steps-uid-0-h-0" tabindex="-1" class="title current">Datos Generales</h6>
                     <section id="steps-uid-0-p-0" role="tabpanel" aria-labelledby="steps-uid-0-h-0" class="body current" aria-hidden="false" style="">
@@ -58,7 +60,7 @@
                             </div>  
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Visibilidad? <span class="danger">*</span></label>
+                                    <label>Tipo de Subasta? <span class="danger">*</span></label>
                                     <select class="custom-select col-12" id="inlineFormCustomSelect">
                                         <option selected></option>
                                         <option value="1">Pública</option>

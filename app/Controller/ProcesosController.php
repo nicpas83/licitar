@@ -7,12 +7,8 @@ App::uses('AppController', 'Controller');
 class ProcesosController extends AppController {
 
     public function nuevo() {
-
-//        $this->set('combo_seccion', $this->Contenido->combo_seccion());
-//        $this->set('combo_descripcion', $this->Contenido->crear_combo('descripcion', 'Home'));
-
+        $this->set('rubros', $this->Rubro->options());
         if ($this->request->is('post')) {
-            
 //            $this->request->data['Contenido']['user_id'] = $this->Auth->user('id');
 //            $this->Contenido->create();
 //            if ($this->Contenido->save($this->request->data)) {
@@ -23,7 +19,12 @@ class ProcesosController extends AppController {
 //            }
         }
     }
-
     
+    public function activos(){
+        
+    }
+    public function borradores(){
+        
+    }
 
 }

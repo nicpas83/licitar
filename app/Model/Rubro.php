@@ -21,9 +21,10 @@ class Rubro extends AppModel {
         return true;
     }
 
-    public function combo_rubros() {
+    public function options() { 
         return $this->find('list', [
                     'fields' => ['id', 'nombre'],
+                    'conditions' => ['estado' => 1],
                     'group' => ['nombre'],
                     'order' => ['nombre ASC']
         ]);
