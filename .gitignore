@@ -3,4 +3,5 @@
 /app/Config/database.php
 /vendors/*
 app/tmp/cache/*
+app/tmp/cache/persistent/*
 app/tmp/logs/error.log
