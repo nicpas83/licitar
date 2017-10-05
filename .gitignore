@@ -3,9 +3,9 @@
 /vendor/*
 /config/app.php
 
-/tmp/cache/models/*
+app/tmp/cache/models/*
 !/tmp/cache/models/empty
-/tmp/cache/persistent/*
+app/tmp/cache/persistent/*
 !/tmp/cache/persistent/empty
 /tmp/cache/views/*
 !/tmp/cache/views/empty
@@ -14,7 +14,7 @@
 /tmp/tests/*
 !/tmp/tests/empty
 
-/logs/*
+/app/tmp/logs/*
 !/logs/empty
 
 # CakePHP 2
