@@ -33,26 +33,8 @@ File: scss
 }
 
 .topbar {
-  background: #363d4a;
-}
-
-.topbar .navbar-header {
-  background: #ffffff;
-  box-shadow: 4px -4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.logo-center .topbar .navbar-header {
-  background: transparent;
-  box-shadow: none;
-}
-
-.logo-center .topbar .top-navbar .navbar-header .navbar-brand .dark-logo {
-  display: none;
-}
-
-.logo-center .topbar .top-navbar .navbar-header .navbar-brand .light-logo {
-  display: inline-block;
-  color: rgba(255, 255, 255, 0.8);
+  background: #fff;
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
 }
 
 /*******************
@@ -145,21 +127,12 @@ a.link:hover, a.link:focus {
   color: #90a4ae;
 }
 
-.sidebar-nav > ul > li.active > a {
-  border-left: 3px solid #009efb;
+.sidebar-nav > ul > li.active > a, .sidebar-nav > ul > li:hover > a {
   color: #009efb;
 }
 
-.sidebar-nav > ul > li.active > a i {
+.sidebar-nav > ul > li.active > a i, .sidebar-nav > ul > li:hover > a i {
   color: #009efb;
-}
-
-.sidebar-nav > ul > li > a {
-  border-left: 3px solid #fff;
-}
-
-.sidebar-nav > ul > li > a.active, .sidebar-nav > ul > li > a:hover {
-  border-left: 3px solid #009efb;
 }
 
 .sidebar-nav > ul > li > a.active i, .sidebar-nav > ul > li > a:hover i {

@@ -1,9 +1,3 @@
-/*
-Template Name: Monster Admin
-Author: Themedesigner
-Email: niravjoshi87@gmail.com
-File: css
-*/
 /**
  * Table Of Content
  *
@@ -15,9 +9,6 @@ File: css
  *	6. Posts
  *	7. Widgets
  *	8. Custom Templates
- *	9. Shop
- *	10. Archive
- *	11. Checkout Page
  */
 
 @import 'https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900';
@@ -372,58 +363,58 @@ html body .b-all {
 html body .text-muted {
     color: #90a4ae
 }
-html body .bg-primary {
+.bg-primary {
     background-color: #7460ee 
 }
-html body .bg-success {
+.bg-success {
     background-color: #55ce63 
 }
-html body .bg-info {
+.bg-info {
     background-color: #009efb 
 }
-html body .bg-warning {
+.bg-warning {
     background-color: #ffbc34 
 }
-html body .bg-danger {
+.bg-danger {
     background-color: #f62d51 
 }
-html body .bg-megna {
+.bg-megna {
     background-color: #01c0c8
 }
-html body .bg-theme {
+.bg-theme {
     background-color: #009efb
 }
-html body .bg-inverse {
-    background-color: #2f3d4a
+.bg-inverse {
+    background-color: #2f3d4a 
 }
-html body .bg-purple {
+.bg-purple {
     background-color: #7460ee
 }
-html body .bg-light-primary {
+.bg-light-primary {
     background-color: #f1effd
 }
-html body .bg-light-success {
+.bg-light-success {
     background-color: #e8fdeb
 }
-html body .bg-light-info {
+.bg-light-info {
     background-color: #cfecfe
 }
-html body .bg-light-extra {
+.bg-light-extra {
     background-color: #ebf3f5
 }
-html body .bg-light-warning {
+.bg-light-warning {
     background-color: #fff8ec
 }
-html body .bg-light-danger {
+.bg-light-danger {
     background-color: #f9e7eb
 }
-html body .bg-light-inverse {
+.bg-light-inverse {
     background-color: #f6f6f6
 }
-html body .bg-light {
-    background-color: #f2f7f8
+.bg-light {
+    background-color: #f2f4f8
 }
-html body .bg-white {
+.bg-white {
     background-color: #fff
 }
 .round {
@@ -497,7 +488,7 @@ html body .bg-white {
     background-color: #2f3d4a
 }
 .label-default {
-    background-color: #f2f7f8
+    background-color: #f2f4f8
 }
 .label-white {
     background-color: #fff
@@ -548,7 +539,7 @@ html body .bg-white {
 .pagination>li>span:hover,
 .pagination>li>a:focus,
 .pagination>li>span:focus {
-    background-color: #f2f7f8
+    background-color: #f2f4f8
 }
 .pagination-split li {
     margin-left: 5px;
@@ -599,7 +590,7 @@ html body .bg-white {
     font-weight: 500
 }
 .table-hover tbody tr:hover {
-    background: #f2f7f8
+    background: #f2f4f8
 }
 html body .jqstooltip {
     width: auto;
@@ -745,7 +736,7 @@ html body .waves-notransition {
     background-color: #2f3d4a
 }
 .text-white {
-    color: #fff
+    color: #fff 
 }
 .text-danger {
     color: #f62d51 
@@ -763,7 +754,7 @@ html body .waves-notransition {
     color: #009efb 
 }
 .text-inverse {
-    color: #2f3d4a 
+    color: #2f3d4a
 }
 .text-blue {
     color: #02bec9
@@ -1015,7 +1006,7 @@ html body .waves-notransition {
 .btn-outline-default:hover,
 .btn-outline-default:focus,
 .btn-outline-default.focus {
-    background: #f2f7f8
+    background: #f2f4f8
 }
 .btn-outline-primary {
     color: #7460ee;
@@ -1392,7 +1383,7 @@ html body .waves-notransition {
     font-family: 'FontAwesome'
 }
 .checkbox input[type="checkbox"]:disabled+label::before {
-    background-color: #f2f7f8;
+    background-color: #f2f4f8;
     cursor: not-allowed
 }
 .checkbox.checkbox-circle label::before {
@@ -1711,20 +1702,10 @@ form label {
     border: 0px
 }
 .card-no-border .sidebar-footer {
-    background: #fff
-}
-.card-no-border .page-wrapper {
-    background: #f2f7f8
-}
-.card-no-border .left-sidebar {
-    box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08)
-}
-.card-no-border .left-sidebar,
-.card-no-border .sidebar-nav {
-    background: #fff
+    background: #e5edef
 }
 .card-no-border .sidebar-nav>ul>li>a.active {
-    background: #f2f7f8
+    background: #fff
 }
 .card-no-border .shadow-none {
     box-shadow: none
@@ -1754,17 +1735,6 @@ form label {
 .single-column .page-wrapper {
     margin-left: 0px
 }
-.fix-width {
-    width: 100%;
-    max-width: 1170px;
-    margin: 0 auto
-}
-ul.common li {
-    display: inline-block;
-    line-height: 40px;
-    list-style: outside none none;
-    width: 48%
-}
 #main-wrapper {
     width: 100%
 }
@@ -1781,11 +1751,16 @@ ul.common li {
     display: none
 }
 .page-wrapper {
-    background: #fff;
-    padding-bottom: 60px
+    background: #f2f7f8;
+    padding-bottom: 60px;
+    padding-top: 60px
 }
 .container-fluid {
-    padding: 25px 30px
+    padding: 25px 0px;
+    max-width: 1280px
+}
+.sidebartoggler {
+    display: none
 }
 .topbar {
     position: relative;
@@ -1793,14 +1768,15 @@ ul.common li {
 }
 .topbar .top-navbar {
     min-height: 70px;
-    padding: 0px 15px 0 0
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 0px
 }
 .topbar .top-navbar .dropdown-toggle::after {
     display: none
 }
 .topbar .top-navbar .navbar-header {
-    line-height: 65px;
-    text-align: center
+    line-height: 65px
 }
 .topbar .top-navbar .navbar-header .navbar-brand {
     margin-right: 0px;
@@ -1913,7 +1889,7 @@ ul.common li {
     color: #54667a
 }
 .topbar ul.dropdown-user li a:hover {
-    background: #f2f7f8;
+    background: #f2f4f8;
     color: #009efb;
     text-decoration: none
 }
@@ -2149,6 +2125,7 @@ ul#themecolors li a.working:before {
     bottom: 0;
     color: #54667a;
     left: 0px;
+    text-align: center;
     padding: 17px 15px;
     position: absolute;
     right: 0;
@@ -2523,7 +2500,7 @@ html body .flotTip {
     stroke: #55ce63
 }
 .ct-chart .ct-series-b .ct-slice-donut {
-    stroke: #f2f7f8
+    stroke: #f2f4f8
 }
 .ct-chart .ct-series-c .ct-slice-donut {
     stroke: #009efb
@@ -2686,7 +2663,7 @@ html body .flotTip {
 }
 .bootstrap-select .dropdown-menu li a:hover {
     color: #009efb;
-    background: #f2f7f8
+    background: #f2f4f8
 }
 .bootstrap-touchspin .input-group-btn-vertical>.btn {
     padding: 9px 10px
@@ -2871,7 +2848,7 @@ html body .flotTip {
 .pagination-circle li a {
     width: 40px;
     height: 40px;
-    background: #f2f7f8;
+    background: #f2f4f8;
     border: 0px;
     text-align: center;
     border-radius: 100%
@@ -2885,7 +2862,7 @@ html body .flotTip {
     color: #fff
 }
 .pagination-circle li.disabled a {
-    background: #f2f7f8;
+    background: #f2f4f8;
     color: rgba(120, 130, 140, 0.13)
 }
 .dropzone {
@@ -3010,7 +2987,7 @@ table th {
     color: #fff
 }
 .table-striped tbody tr:nth-of-type(odd) {
-    background: #f2f7f8
+    background: #f2f4f8
 }
 .color-table.success-table thead th {
     background-color: #55ce63;
@@ -3411,7 +3388,7 @@ table.dataTable thead .sorting:after {
     border-radius: 4px
 }
 .footable-odd {
-    background: #f2f7f8
+    background: #f2f4f8
 }
 .icon-list-demo div {
     cursor: pointer;
@@ -3501,7 +3478,7 @@ table.dataTable thead .sorting:after {
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default,
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default {
     color: #263238;
-    background: #f2f7f8
+    background: #f2f4f8
 }
 .onoffswitch {
     position: relative;
@@ -3593,7 +3570,7 @@ table.dataTable thead .sorting:after {
     padding-top: 10px;
     padding-bottom: 10px;
     border: 1px solid #d9d9d9;
-    background-color: #f2f7f8
+    background-color: #f2f4f8
 }
 .vtabs {
     display: table
@@ -3710,7 +3687,7 @@ table.dataTable thead .sorting:after {
     border-radius: 60px
 }
 .list-group a.list-group-item:hover {
-    background: #f2f7f8
+    background: #f2f4f8
 }
 .list-group-item.active,
 .list-group .list-group-item.active:hover {
@@ -3719,7 +3696,7 @@ table.dataTable thead .sorting:after {
 }
 .list-group-item.disabled {
     color: #90a4ae;
-    background: #f2f7f8
+    background: #f2f4f8
 }
 .media {
     border: 1px solid rgba(120, 130, 140, 0.13);
@@ -3849,7 +3826,7 @@ table.dataTable thead .sorting:after {
     left: 50%;
     width: 3px;
     margin-left: -1.5px;
-    background-color: #f2f7f8
+    background-color: #f2f4f8
 }
 .timeline>li {
     position: relative;
@@ -4714,7 +4691,7 @@ a.mytooltip {
 .gmaps,
 .gmaps-panaroma {
     height: 300px;
-    background: #f2f7f8;
+    background: #f2f4f8;
     border-radius: 3px
 }
 .gmaps-overlay {
@@ -4968,7 +4945,7 @@ a.mytooltip {
 }
 .inbox-panel .list-group .list-group-item.active,
 .inbox-panel .list-group .list-group-item:hover {
-    background: #f2f7f8;
+    background: #f2f4f8;
     border-left: 3px solid #009efb
 }
 .inbox-center .unread td {
@@ -5043,114 +5020,20 @@ a.mytooltip {
     z-index: 10 
 }
 .left-sidebar {
-    position: absolute;
-    width: 240px;
-    height: 100%;
+    position: fixed;
+    width: 100%;
     top: 0px;
     z-index: 20;
     padding-top: 70px;
-    background: #fff
+    background: #fff;
+    box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08)
 }
 .fix-sidebar .left-sidebar {
     position: fixed
 }
-.user-profile {
-    text-align: center;
-    position: relative
-}
-.user-profile .profile-img {
-    width: 50px;
-    margin: 0 auto;
-    border-radius: 100%
-}
-.user-profile .profile-img::before {
-    -webkit-animation: 2.5s blow 0s linear infinite;
-    animation: 2.5s blow 0s linear infinite;
-    position: absolute;
-    content: '';
-    width: 50px;
-    height: 50px;
-    top: 0;
-    margin: 0 auto;
-    border-radius: 50%;
-    z-index: 0
-}
-@-webkit-keyframes blow {
-    0% {
-        box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.1);
-        opacity: 1;
-        -webkit-transform: scale3d(1, 1, 0.5);
-        transform: scale3d(1, 1, 0.5)
-    }
-    50% {
-        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
-        opacity: 1;
-        -webkit-transform: scale3d(1, 1, 0.5);
-        transform: scale3d(1, 1, 0.5)
-    }
-    100% {
-        box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.1);
-        opacity: 0;
-        -webkit-transform: scale3d(1, 1, 0.5);
-        transform: scale3d(1, 1, 0.5)
-    }
-}
-@keyframes blow {
-    0% {
-        box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.1);
-        opacity: 1;
-        -webkit-transform: scale3d(1, 1, 0.5);
-        transform: scale3d(1, 1, 0.5)
-    }
-    50% {
-        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
-        opacity: 1;
-        -webkit-transform: scale3d(1, 1, 0.5);
-        transform: scale3d(1, 1, 0.5)
-    }
-    100% {
-        box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.1);
-        opacity: 0;
-        -webkit-transform: scale3d(1, 1, 0.5);
-        transform: scale3d(1, 1, 0.5)
-    }
-}
-.user-profile .profile-img img {
-    width: 100%;
-    border-radius: 100%
-}
-.user-profile .profile-text {
-    padding: 5px 0;
-    position: relative
-}
-.user-profile .profile-text a {
-    color: #54667a
-}
-.user-profile .dropdown-menu {
-    left: 0px;
-    right: 0px;
-    width: 180px;
-    margin: 0 auto
-}
-.sidebar-footer {
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    transition: 0.2s ease-out;
-    width: 240px;
-    background: #e8eff0;
-    border-top: 1px solid rgba(120, 130, 140, 0.13)
-}
-.sidebar-footer a {
-    padding: 15px;
-    width: 33.333337%;
-    float: left;
-    text-align: center;
-    font-size: 18px
-}
 .scroll-sidebar {
-    padding-bottom: 60px;
-    padding-top: 30px
+    margin: 0 auto;
+    max-width: 1280px
 }
 .collapse.in {
     display: block
@@ -5167,7 +5050,7 @@ a.mytooltip {
 }
 .sidebar-nav ul li a {
     color: #54667a;
-    padding: 14px 35px 14px 15px;
+    padding: 15px;
     display: block;
     font-size: 15px;
     white-space: nowrap
@@ -5181,39 +5064,23 @@ a.mytooltip {
     color: #263238
 }
 .sidebar-nav ul li ul {
-    padding-left: 30px
+    padding: 15px
 }
 .sidebar-nav ul li ul li a {
     padding: 10px 35px 10px 15px
 }
 .sidebar-nav ul li ul ul {
-    padding-left: 20px
+    padding: 0px 0 0 15px
 }
-.sidebar-nav ul li.nav-small-cap {
-    font-size: 12px;
-    padding: 14px 14px 14px 20px;
-    color: #90a4ae;
-    font-weight: 500
-}
+.sidebar-nav ul li.nav-small-cap,
 .sidebar-nav ul li.nav-devider {
-    height: 1px;
-    background: rgba(120, 130, 140, 0.13);
-    display: block;
-    margin: 20px 0
+    display: none
 }
 .sidebar-nav>ul>li.active>a {
-    border-left: 3px solid #009efb;
     color: #009efb
 }
 .sidebar-nav>ul>li.active>a i {
     color: #009efb
-}
-.sidebar-nav>ul>li>a {
-    border-left: 3px solid #fff
-}
-.sidebar-nav>ul>li>a.active,
-.sidebar-nav>ul>li>a:hover {
-    border-left: 3px solid #009efb
 }
 .sidebar-nav>ul>li>a.active i,
 .sidebar-nav>ul>li>a:hover i {
@@ -5234,6 +5101,56 @@ a.mytooltip {
     font-weight: 400;
     background: #fff;
     color: #009efb
+}
+@media (min-width: 768px) {
+    .sidebar-nav>ul>li {
+        display: inline-block
+    }
+    .sidebar-nav>ul>li:hover>a,
+    .sidebar-nav>ul>li:hover>a i {
+        color: #009efb
+    }
+    .sidebar-nav>ul>li:last-child ul {
+        right: 0px
+    }
+    .sidebar-nav #sidebarnav li.two-column>ul {
+        width: 400px
+    }
+    .sidebar-nav #sidebarnav li.two-column>ul li {
+        width: 49%;
+        vertical-align: top;
+        display: inline-block
+    }
+    .sidebar-nav #sidebarnav li.three-column>ul {
+        width: 600px
+    }
+    .sidebar-nav #sidebarnav li.three-column>ul li {
+        width: 32.5%;
+        vertical-align: top;
+        display: inline-block
+    }
+    .sidebar-nav #sidebarnav>li>a.has-arrow:after {
+        display: none
+    }
+    .sidebar-nav #sidebarnav li {
+        position: relative
+    }
+    .sidebar-nav #sidebarnav>li>ul {
+        position: absolute;
+        z-index: 1001;
+        width: 260px;
+        background: #fff;
+        display: none;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.09)
+    }
+    .sidebar-nav #sidebarnav>li:hover>ul {
+        height: auto ;
+        overflow: auto
+    }
+    .sidebar-nav #sidebarnav>li:hover>ul,
+    .sidebar-nav #sidebarnav>li:hover>ul.collapse {
+        display: block
+    }
 }
 .sidebar-nav .has-arrow {
     position: relative
@@ -5268,88 +5185,27 @@ a.mytooltip {
     -o-transform: rotate(-135deg) translate(0, -50%);
     transform: rotate(-135deg) translate(0, -50%)
 }
-@media (min-width: 768px) {
-    .mini-sidebar .sidebar-nav #sidebarnav li {
-        position: relative
-    }
-    .mini-sidebar .sidebar-nav #sidebarnav>li>ul {
-        position: absolute;
-        left: 60px;
-        top: 59px;
-        width: 200px;
-        z-index: 1001;
-        background: #e8eff0;
-        display: none;
-        padding-left: 1px
-    }
-    .mini-sidebar .sidebar-nav #sidebarnav>li:hover>ul {
-        height: auto ;
-        overflow: auto
-    }
-    .mini-sidebar .sidebar-nav #sidebarnav>li:hover>ul,
-    .mini-sidebar .sidebar-nav #sidebarnav>li:hover>ul.collapse {
-        display: block
-    }
-    .mini-sidebar .sidebar-nav #sidebarnav>li>a.has-arrow:after {
+@media (max-width: 1024px) and (min-width: 700px) {
+    .sidebar-nav ul li a i {
         display: none
-    }
-    .mini-sidebar .left-sidebar {
-        width: 60px
-    }
-    .mini-sidebar .user-profile {
-        padding-bottom: 30px;
-        width: 60px
-    }
-    .mini-sidebar .scroll-sidebar {
-        padding-bottom: 0px;
-        position: absolute
-    }
-    .mini-sidebar .hide-menu,
-    .mini-sidebar .nav-small-cap,
-    .mini-sidebar .sidebar-footer,
-    .mini-sidebar .user-profile .profile-text {
-        display: none
-    }
-    .mini-sidebar .nav-devider {
-        width: 60px
-    }
-    .mini-sidebar .sidebar-nav {
-        background: transparent
-    }
-    .mini-sidebar .sidebar-nav #sidebarnav>li>a {
-        padding: 14px 15px;
-        width: 60px
-    }
-    .mini-sidebar .sidebar-nav #sidebarnav>li:hover>a {
-        width: 260px;
-        background: #009efb;
-        color: #fff;
-        border-color: #009efb
-    }
-    .mini-sidebar .sidebar-nav #sidebarnav>li:hover>a i {
-        color: #fff
-    }
-    .mini-sidebar .sidebar-nav #sidebarnav>li:hover>a .hide-menu {
-        display: inline
-    }
-    .mini-sidebar .sidebar-nav #sidebarnav>li.active>a {
-        border-color: transparent
-    }
-    .mini-sidebar .sidebar-nav #sidebarnav>li.active>a.active {
-        border-color: #009efb
     }
 }
 @media (max-width: 767px) {
     .mini-sidebar .left-sidebar {
-        position: fixed
-    }
-    .mini-sidebar .left-sidebar,
-    .mini-sidebar .sidebar-footer {
-        left: -240px
+        position: fixed;
+        display: none;
+        height: 100%;
+        overflow: auto
     }
     .mini-sidebar.show-sidebar .left-sidebar,
     .mini-sidebar.show-sidebar .sidebar-footer {
-        left: 0px
+        display: block
+    }
+    .mini-sidebar .sidebar-nav #sidebarnav>li>ul {
+        padding: 0 10px
+    }
+    .mini-sidebar .sidebar-nav #sidebarnav>li>ul li a {
+        padding: 10px 15px 10px 35px
     }
 }
 .topbar .top-navbar .mailbox {
@@ -5382,7 +5238,7 @@ a.mytooltip {
     padding: 9px 15px
 }
 .mailbox .message-center a:hover {
-    background: #f2f7f8
+    background: #f2f4f8
 }
 .mailbox .message-center a div {
     white-space: normal
@@ -5619,7 +5475,7 @@ a.mytooltip {
     padding: 9px 15px
 }
 .message-box .message-widget a:hover {
-    background: #f2f7f8
+    background: #f2f4f8
 }
 .message-box .message-widget a:last-child {
     border-bottom: 0px
@@ -5660,7 +5516,7 @@ a.mytooltip {
 }
 .message-box .message-widget a .mail-contnet {
     display: inline-block;
-    width: 75%;
+    width: 71%;
     vertical-align: middle
 }
 .message-box .message-widget a .mail-contnet h5 {
@@ -5745,7 +5601,7 @@ a.mytooltip {
     text-transform: capitalize
 }
 .fc-button:hover {
-    background: #f2f7f8;
+    background: #f2f4f8;
     opacity: 0.8
 }
 .fc-text-arrow {
@@ -5757,7 +5613,7 @@ a.mytooltip {
 }
 .fc-unthemed .fc-today {
     border: 1px solid #f62d51;
-    background: #f2f7f8 
+    background: #f2f4f8 
 }
 .fc-state-highlight {
     background: #f0f0f0
@@ -6279,21 +6135,9 @@ a.mytooltip {
         column-count: 2
     }
 }
-@media (min-width: 1024px) {
-    .page-wrapper {
-        margin-left: 240px
-    }
-    .footer {
-        left: 240px
-    }
-}
 @media (max-width: 1023px) {
-    .page-wrapper {
-        margin-left: 60px;
-        transition: 0.2s ease-in
-    }
-    .footer {
-        left: 60px
+    .container-fluid {
+        padding: 25px 20px
     }
     .widget-app-columns {
         column-count: 1
@@ -6315,12 +6159,6 @@ a.mytooltip {
         padding: 15px;
         display: inline-block;
         line-height: 40px
-    }
-    .mini-sidebar .page-wrapper {
-        margin-left: 60px
-    }
-    .mini-sidebar .footer {
-        left: 60px
     }
     .flex-wrap {
         flex-wrap: no-wrap ;

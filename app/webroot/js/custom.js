@@ -21,7 +21,6 @@ $(function () {
             if (width < 1170) {
                 $("body").addClass("mini-sidebar");
                 $('.navbar-brand span').hide();
-                $(".scroll-sidebar, .slimScrollDiv").css("overflow-x", "visible").parent().css("overflow", "visible");
                 $(".sidebartoggler i").addClass("ti-menu");
             }
             else {
@@ -46,14 +45,14 @@ $(function () {
     $(".sidebartoggler").on('click', function () {
         if ($("body").hasClass("mini-sidebar")) {
             $("body").trigger("resize");
-            $(".scroll-sidebar, .slimScrollDiv").css("overflow", "hidden").parent().css("overflow", "visible");
+            
             $("body").removeClass("mini-sidebar");
             $('.navbar-brand span').show();
             $(".sidebartoggler i").addClass("ti-menu");
         }
         else {
             $("body").trigger("resize");
-            $(".scroll-sidebar, .slimScrollDiv").css("overflow-x", "visible").parent().css("overflow", "visible");
+            
             $("body").addClass("mini-sidebar");
             $('.navbar-brand span').hide();
             $(".sidebartoggler i").removeClass("ti-menu");
@@ -72,9 +71,7 @@ $(function () {
         $(".nav-toggler i").toggleClass("ti-menu");
         $(".nav-toggler i").addClass("ti-close");
     });
-    $(".sidebartoggler").on('click', function () {
-        $(".sidebartoggler i").toggleClass("ti-menu");
-    });    
+        
     // ============================================================== 
     // Right sidebar options
     // ============================================================== 
@@ -123,12 +120,7 @@ $(function () {
     // ============================================================== 
     // Slimscrollbars
     // ============================================================== 
-    $('.scroll-sidebar').slimScroll({
-        position: 'left'
-        , size: "5px"
-        , height: '100%'
-        , color: '#dcdcdc'
-     }); 
+    
     $('.message-center').slimScroll({
         position: 'right'
         , size: "5px"

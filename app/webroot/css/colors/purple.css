@@ -46,9 +46,13 @@ File: scss
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
-.topbar .navbar-header {
-  background: #ffffff;
-  box-shadow: 4px -4px 10px rgba(0, 0, 0, 0.05);
+.topbar .top-navbar .navbar-header .navbar-brand .dark-logo {
+  display: none;
+}
+
+.topbar .top-navbar .navbar-header .navbar-brand .light-logo {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .topbar .navbar-light .navbar-nav .nav-item > a.nav-link {
@@ -57,20 +61,6 @@ File: scss
 
 .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:hover, .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:focus {
   color: #ffffff !important;
-}
-
-.logo-center .topbar .navbar-header {
-  background: transparent;
-  box-shadow: none;
-}
-
-.logo-center .topbar .top-navbar .navbar-header .navbar-brand .dark-logo {
-  display: none;
-}
-
-.logo-center .topbar .top-navbar .navbar-header .navbar-brand .light-logo {
-  display: inline-block;
-  color: rgba(255, 255, 255, 0.8);
 }
 
 /*******************
@@ -167,21 +157,12 @@ a.link:hover, a.link:focus {
   color: #90a4ae;
 }
 
-.sidebar-nav > ul > li.active > a {
-  border-left: 3px solid #7460ee;
+.sidebar-nav > ul > li.active > a, .sidebar-nav > ul > li:hover > a {
   color: #7460ee;
 }
 
-.sidebar-nav > ul > li.active > a i {
+.sidebar-nav > ul > li.active > a i, .sidebar-nav > ul > li:hover > a i {
   color: #7460ee;
-}
-
-.sidebar-nav > ul > li > a {
-  border-left: 3px solid #fff;
-}
-
-.sidebar-nav > ul > li > a.active, .sidebar-nav > ul > li > a:hover {
-  border-left: 3px solid #7460ee;
 }
 
 .sidebar-nav > ul > li > a.active i, .sidebar-nav > ul > li > a:hover i {

@@ -20,7 +20,10 @@ File: scss
 @media(max-width:1370px) {
     .widget-app-columns {
       column-count:2;
-    }  
+    }
+    .container-fluid, .topbar .top-navbar, .scroll-sidebar{
+        max-width: 1170px; 
+    }
 }
 
 
@@ -28,25 +31,18 @@ File: scss
  Small Desktop & above all (1024px) 
  ============================================================== */
 
-@media(min-width:1024px) {
-   .page-wrapper{
-        margin-left:240px;
-        
-    }  
-   .footer{
-            left: 240px;
-      } 
+@media(max-width:1024px) {
+   .container-fluid, .topbar .top-navbar, .scroll-sidebar{
+        max-width: 980px; 
+    }
     
 }
 
 @media(max-width:1023px) {
-   .page-wrapper{
-        margin-left:60px;
-        transition: 0.2s ease-in;
-    }  
-   .footer{
-            left: 60px;
-      }
+    .container-fluid {
+        padding: 25px 20px;
+        
+    }
     .widget-app-columns {
         column-count:1;
     }
@@ -73,14 +69,6 @@ File: scss
         padding: 15px;
         display: inline-block;
         line-height: 40px;
-    }
-   .mini-sidebar {
-        .page-wrapper{
-            margin-left:60px;
-        }
-        .footer{
-            left: 60px;
-        }
     }
     .flex-wrap{
         flex-wrap:no-wrap!important;

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
         <?php echo $this->element('head') ?>
         <script type="text/javascript">var baseUrl = '<?php echo $this->Html->url('/'); ?>';</script>
     </head>

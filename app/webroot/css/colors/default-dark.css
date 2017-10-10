@@ -40,34 +40,6 @@ File: scss
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-.topbar .navbar-header {
-  background: #272c33;
-  box-shadow: 4px -4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.topbar .top-navbar .navbar-header .navbar-brand .dark-logo {
-  display: none;
-}
-
-.topbar .top-navbar .navbar-header .navbar-brand .light-logo {
-  display: inline-block;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.logo-center .topbar .navbar-header {
-  background: transparent;
-  box-shadow: none;
-}
-
-.logo-center .topbar .top-navbar .navbar-header .navbar-brand .dark-logo {
-  display: inline-block;
-}
-
-.logo-center .topbar .top-navbar .navbar-header .navbar-brand .light-logo {
-  display: none;
-  color: rgba(255, 255, 255, 0.8);
-}
-
 /*******************
 /*General Elements
 *******************/
@@ -169,7 +141,7 @@ a.link:hover, a.link:focus {
 }
 
 .sidebar-nav ul li a.active {
-  color: #ffffff;
+  color: #263238;
 }
 
 .sidebar-nav ul li.nav-small-cap {
@@ -177,20 +149,11 @@ a.link:hover, a.link:focus {
 }
 
 .sidebar-nav > ul > li.active > a {
-  border-left: 3px solid #009efb;
   color: #009efb;
 }
 
 .sidebar-nav > ul > li.active > a i {
   color: #009efb;
-}
-
-.sidebar-nav > ul > li > a {
-  border-left: 3px solid #272c33;
-}
-
-.sidebar-nav > ul > li > a.active, .sidebar-nav > ul > li > a:hover {
-  border-left: 3px solid #009efb;
 }
 
 .sidebar-nav > ul > li > a.active i, .sidebar-nav > ul > li > a:hover i {

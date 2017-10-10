@@ -60,7 +60,7 @@ $(function () {
         , xaxis: {
             show: false
         }
-        , colors: ["#26c6da"]
+        , colors: ["#55ce63"]
         , grid: {
             color: "#AFAFAF"
             , hoverable: true
@@ -234,7 +234,7 @@ option = {
             }
         }
     }
-    , color: ["#745af2", "#f62d51", "#26c6da", "#dadada"]
+    , color: ["#745af2", "#f62d51", "#55ce63", "#dadada"]
     , calculable: true
     , series: [
         {

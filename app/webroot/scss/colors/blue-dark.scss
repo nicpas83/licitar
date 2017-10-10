@@ -26,10 +26,7 @@ $sidebar-dark: #181c22;
     /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to right, #0178bc 0%, #00bdda 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    .navbar-header {
-        background: $sidebar;
-        box-shadow: 4px -4px 10px rgba(0, 0, 0, 0.05);
-    }
+    
     .top-navbar .navbar-header .navbar-brand .dark-logo{
         display: none;
     }
@@ -47,6 +44,7 @@ $sidebar-dark: #181c22;
         }
     }
 }
+
 .logo-center .topbar {
     .navbar-header {
         background: transparent;
@@ -60,7 +58,6 @@ $sidebar-dark: #181c22;
         color:rgba(255, 255, 255, 0.8);
     }
 }
-
 /*******************
 /*General Elements
 *******************/
@@ -167,7 +164,7 @@ a.link {
                     color: $themecolor;
                 }
                 &.active {
-                    color: $white;
+                    color: $dark;
                 }
             }
             &.nav-small-cap {
@@ -176,19 +173,20 @@ a.link {
         }
     }
     > ul > li {
-        &.active > a {
-            border-left: 3px solid $themecolor;
+        &.active > a, &:hover > a {
+           
             color: $themecolor;
+           
             i {
                 color: $themecolor;
             }
         }
     }
     > ul > li > a {
-        border-left: 3px solid $sidebar;
+        
         &.active,
         &:hover {
-            border-left: 3px solid $themecolor;
+           
             i {
                 color: $themecolor;
             }

@@ -23,9 +23,12 @@ $topbar: #55ce63;
     /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to right, #318f94 0%, #5ec58c 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    .navbar-header {
-        background: $white;
-        box-shadow: 4px -4px 10px rgba(0, 0, 0, 0.05);
+    .top-navbar .navbar-header .navbar-brand .dark-logo{
+        display: none;
+    }
+    .top-navbar .navbar-header .navbar-brand .light-logo{
+        display: inline-block;
+        color:rgba(255, 255, 255, 0.8);
     }
     .navbar-light .navbar-nav .nav-item > {
         a.nav-link {
@@ -37,19 +40,7 @@ $topbar: #55ce63;
         }
     }
 }
-.logo-center .topbar {
-    .navbar-header {
-        background: transparent;
-        box-shadow: none;
-    }
-    .top-navbar .navbar-header .navbar-brand .dark-logo{
-        display: none;
-    }
-    .top-navbar .navbar-header .navbar-brand .light-logo{
-        display: inline-block;
-        color:rgba(255, 255, 255, 0.8);
-    }
-}
+
 
 /*******************
 /*General Elements
@@ -156,19 +147,20 @@ a.link {
         }
     }
     > ul > li {
-        &.active > a {
-            border-left: 3px solid $themecolor;
+        &.active > a, &:hover > a {
+            
             color: $themecolor;
+            
             i {
                 color: $themecolor;
             }
         }
     }
     > ul > li > a {
-        border-left: 3px solid $sidebar;
+        
         &.active,
         &:hover {
-            border-left: 3px solid $themecolor;
+            
             i {
                 color: $themecolor;
             }
