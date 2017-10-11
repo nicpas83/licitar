@@ -8,7 +8,9 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 <li class="nav-small-cap">MENU</li>
-                
+                <?php
+                if ($this->Session->check('Auth.User')) {
+                ?>    
                 <li>
                     <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-cart-outline"></i><span class="hide-menu">Comprar</span></a>
                     <ul aria-expanded="false" class="collapse">
@@ -18,6 +20,7 @@
                     </ul>
                 </li>
                 <li class="nav-devider"></li>
+                
                 <li>
                     <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Vender</span></a>
                     <ul aria-expanded="false" class="collapse">
@@ -25,10 +28,14 @@
                         <li><a href="">Mis Favoritos</a></li>
                         <li><a href="">Ofertas en Curso</a></li>
                         <li><a href="">Editar mi Perfil</a></li>
-  
+
                     </ul>
                 </li>
                 
+                <?php
+                }
+                ?>
+
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

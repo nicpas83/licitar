@@ -12,32 +12,29 @@ class AppController extends Controller {
     public $components = array(
         'Flash',
         'Session',
-//        'Auth' => array(
-//            'loginRedirect' => array(
-//                'controller' => 'pages'    
-//            ),
-//            'logoutRedirect' => array(
-//                'controller' => 'pages',
-//                'action' => 'display',
-//                'home'
-//            ),
-//            'authenticate' => array(
-//                'Form' => array(
-//                    'passwordHasher' => 'Blowfish'
-//                )
-//            )
-//        )
+        'Auth' => array(
+            'loginRedirect' => array(
+                'controller' => 'pages'    
+            ),
+            'logoutRedirect' => array(
+                'controller' => 'pages',
+                'action' => 'display',
+                'home'
+            ),
+            'authenticate' => array(
+                'Form' => array(
+                    'passwordHasher' => 'Blowfish'
+                )
+            )
+        )
     );
     
 
     public function beforeFilter() {
         
-//        $this->Auth->allow('display');   // permitimos la accion display.  (home page)
-//        $this->Auth->authError = __('Para ingresar debes estar loggeado.');
+        $this->Auth->allow('display','registro');   // permitimos la accion display.  (home page)
+        $this->Auth->authError = __('Para ingresar debes estar loggeado.');
 
-        
-        
-        
         $guardar = array(
             'div' => false,
             'label' => 'Guardar',
@@ -51,7 +48,6 @@ class AppController extends Controller {
         $cancelar = array(
             'class' => 'btn btn-default pull-right',
         );
-
         
         $this->set('guardar', $guardar);
         $this->set('aceptar', $aceptar);

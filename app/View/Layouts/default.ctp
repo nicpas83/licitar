@@ -15,8 +15,8 @@
         </div>
 
         <?php echo $this->element('header') ?>
-
         <?php echo $this->element('sidebar') ?>
+      
         <div class="page-wrapper">
             <div class="container-fluid">
                 <?php echo $this->Flash->render(); ?>

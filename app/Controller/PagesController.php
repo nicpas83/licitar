@@ -24,11 +24,9 @@ class PagesController extends AppController {
      */
     public function display() {
         $path = func_get_args();
-        
         //PASO EL CONTENIDO DINAMICO 
 //        $landing = $this->Contenido->landing_page();
 //        $this->set('contenidos', $landing);
-        
 
         $count = count($path);
         if (!$count) {
@@ -58,11 +56,23 @@ class PagesController extends AppController {
             }
             throw new NotFoundException();
         }
+        
+        $this->autoRender = false;
+        
+        if($this->Session->check('Auth.User')){
+//            debug("hoass"); die; 
+            $this->render('inicio');
+        }else{
+            $this->render('home');
+        }
+        
     }
 
     public function home() {
-
         
+    }
+
+    public function inicio() {
         
     }
 

@@ -13,9 +13,9 @@ class UsersController extends AppController {
     public function login() {
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
-                return $this->redirect($this->Auth->redirectUrl());
+                return $this->redirect(['controller' => 'pages', 'action' => 'display']);                
             }
-            $this->Session->setFlash(__('Invalid username or password, try again'));
+            $this->Flash->error(__('Error de usuario o contraseña.'));
         }
     }
 
@@ -36,16 +36,14 @@ class UsersController extends AppController {
         $this->set('user', $this->User->findById($id));
     }
 
-    public function add() {
+    public function registro() {
         if ($this->request->is('post')) {
             $this->User->create();
             if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The user has been saved'));
-                return $this->redirect(array('action' => 'index'));
+                $this->Flash->success(__('El usuario fue creado correctamente. Ya puede ingresar al sistema.'), 'success');
+                return $this->redirect(array('action' => 'login'));
             }
-            $this->Session->setFlash(
-                    __('The user could not be saved. Please, try again.')
-            );
+            $this->Flash->error(__('El usuario no pudo ser creado.'));
         }
     }
 
