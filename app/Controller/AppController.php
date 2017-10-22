@@ -7,7 +7,7 @@ class AppController extends Controller {
     /** 
      * Modelos que estarán disponibles en todos los controladores. 
      */
-    var $uses = array('Rubro');
+    var $uses = array('Rubro','Provincia');
     
     public $components = array(
         'Flash',
@@ -38,20 +38,29 @@ class AppController extends Controller {
         $guardar = array(
             'div' => false,
             'label' => 'Guardar',
-            'class' => 'btn btn-default pull-right',
+            'class' => 'btn btn-info pull-right',
+        );
+        $buscar = array(
+            'div' => false,
+            'label' => 'Buscar',
+            'class' => 'btn btn-info pull-right',
         );
         $aceptar = array(
             'div' => false,
             'label' => 'Aceptar',
-            'class' => 'btn btn-default pull-right',
+            'class' => 'btn btn-info pull-right',
         );
         $cancelar = array(
-            'class' => 'btn btn-default pull-right',
+            'class' => 'btn btn-info pull-right',
         );
         
         $this->set('guardar', $guardar);
+        $this->set('buscar', $buscar);
         $this->set('aceptar', $aceptar);
         $this->set('cancelar', $cancelar);
+        
+        $this->set('rubros', $this->Rubro->options());
+        $this->set('provincias', $this->Provincia->options());
     }
 
     

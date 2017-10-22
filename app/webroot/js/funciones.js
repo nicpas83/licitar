@@ -1,3 +1,4 @@
+
 // set a variable
 var hoy = moment().format('DD/MM/YYYY');
 var inicio_subasta = moment().add(7,'days').format('DD/MM/YYYY');

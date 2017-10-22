@@ -10,29 +10,29 @@
                 <li class="nav-small-cap">MENU</li>
                 <?php
                 if ($this->Session->check('Auth.User')) {
-                ?>    
-                <li>
-                    <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-cart-outline"></i><span class="hide-menu">Comprar</span></a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'nuevo']) ?>">Nuevo Proceso</a></li>
-                        <li><a href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'activos']) ?>">Procesos Activos</a></li>
-                        <li><a href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'borradores']) ?>">Borradores</a></li>
-                    </ul>
-                </li>
-                <li class="nav-devider"></li>
-                
-                <li>
-                    <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Vender</span></a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="">Buscar Procesos</a></li>
-                        <li><a href="">Mis Favoritos</a></li>
-                        <li><a href="">Ofertas en Curso</a></li>
-                        <li><a href="">Editar mi Perfil</a></li>
 
-                    </ul>
-                </li>
-                
-                <?php
+                    if ($this->Session->read('Auth.User.role') === '1') {
+                        ?>    
+                        <li>
+                            <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'nuevo']) ?>" aria-expanded="false"><i class="mdi mdi-cart-outline"></i><span class="hide-menu">Nuevo Proceso</span></a>
+                        </li>
+                        <li class="nav-devider"></li>
+                        <li>
+                            <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'activos']) ?>" aria-expanded="false"><i class="fa fa-list-alt"></i><span class="hide-menu">Mis Publicaciones</span></a>
+                        </li>
+                        <li class="nav-devider"></li>
+                        <li>
+                            <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'borradores']) ?>" aria-expanded="false"><i class="mdi mdi-table-edit"></i><span class="hide-menu">Mis Borradores</span></a>
+                        </li>
+                        <li class="nav-devider"></li>
+                        <li>
+                            <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'users', 'action' => 'configuracion']) ?>" aria-expanded="false"><i class="ti-settings"></i><span class="hide-menu">Configuración</span></a>
+                        </li>
+                        <li class="nav-devider"></li>
+
+
+                        <?php
+                    }
                 }
                 ?>
 
