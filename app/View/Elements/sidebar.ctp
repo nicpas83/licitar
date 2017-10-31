@@ -14,13 +14,14 @@
                     if ($this->Session->read('Auth.User.role') === '1') {
                         ?>    
                         <li>
+                            <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'pages', 'action' => 'display']) ?>" aria-expanded="false"><i class="mdi mdi-home"></i><span class="hide-menu">Inicio</span></a>
+                        </li>
+                        <li class="nav-devider"></li>        
+                        <li>
                             <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'nuevo']) ?>" aria-expanded="false"><i class="mdi mdi-cart-outline"></i><span class="hide-menu">Nuevo Proceso</span></a>
                         </li>
                         <li class="nav-devider"></li>
-                        <li>
-                            <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'activos']) ?>" aria-expanded="false"><i class="fa fa-list-alt"></i><span class="hide-menu">Mis Publicaciones</span></a>
-                        </li>
-                        <li class="nav-devider"></li>
+
                         <li>
                             <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'borradores']) ?>" aria-expanded="false"><i class="mdi mdi-table-edit"></i><span class="hide-menu">Mis Borradores</span></a>
                         </li>

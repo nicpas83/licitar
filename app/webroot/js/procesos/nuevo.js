@@ -16,9 +16,8 @@ $(document).ready(function () {
             $(this).closest("div[id^='rowItem']").find("input").val("");
         }
     });
-
     
-
+    $(".select2").select2();
 
 });
 

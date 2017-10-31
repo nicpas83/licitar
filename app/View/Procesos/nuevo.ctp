@@ -29,7 +29,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <?php echo $this->Form->input('A qué Rubro corresponde?', ['name' => 'rubro', 'type' => 'select', 'options' => $rubros, 'class' => 'form-control', 'div' => false]); ?>
+                                <?php echo $this->Form->input('A qué Rubro corresponde?', ['name' => 'rubro', 'type' => 'select', 'options' => $rubros, 'class' => 'form-control select2', 'div' => false]); ?>
                             </div>
                         </div>
                     </div>
@@ -118,7 +118,7 @@
                         </div>
                         <div class="col-sm-2">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="" value="">
+                                <?php echo $this->Form->input('', ['name' => 'unidad', 'type' => 'select', 'options' => $unidades, 'default' => '6', 'class' => 'form-control', 'div' => false, 'label' => false]); ?>
                             </div>
                         </div>
                         <div class="col-sm-2">

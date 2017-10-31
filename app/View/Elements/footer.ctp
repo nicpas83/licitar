@@ -2,7 +2,7 @@
 <!-- footer -->
 <!-- ============================================================== -->
 <footer class="footer">
-    © 2017 sistema inteligente de compras
+    © 2017 Sistema Integral de Compras
 </footer>
 <!-- ============================================================== -->
 <!-- End footer -->
