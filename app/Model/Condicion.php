@@ -2,18 +2,12 @@
 
 App::uses('AppModel', 'Model');
 
-class Rubro extends AppModel {
+class Condicion extends AppModel {
 
-    public $useTable = 'rubros';
+    public $useTable = 'condiciones';
     public $virtualFields = array(
         'str_estado' => 'IF(estado = 1, "Activo", "Inactivo")'
     );
-    public $belongsTo = [
-        'Producto' => [
-            'className' => 'Producto',
-            'foreignKey' => 'producto_id'
-        ]
-    ];
 
     public function activar($id) {
         $this->id = $id;
@@ -27,12 +21,9 @@ class Rubro extends AppModel {
         return true;
     }
 
-    public function options() {
+    public function options() { 
         return $this->find('list', [
-                    'fields' => ['id', 'nombre'],
-                    'conditions' => ['estado' => 1],
-                    'group' => ['nombre'],
-                    'order' => ['nombre ASC']
+                    'fields' => ['id', 'nombre']
         ]);
     }
 

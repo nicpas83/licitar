@@ -6,3 +6,13 @@
     padding: 10px;
     margin-right: 10px;
 }
+
+
+ /*Make Select2 boxes match Bootstrap3 heights:*/ 
+.select2-selection__rendered {
+  line-height: 32px !important;
+}
+
+.select2-selection {
+  height: 36px !important;
+}

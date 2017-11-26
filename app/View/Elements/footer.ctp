@@ -37,6 +37,7 @@
 
 <!-- Date Picker Plugin JavaScript -->
 <?php echo $this->Html->script('/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min') ?>
+<?php echo $this->Html->script('/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.es') ?>
 <!-- Clock Picker Plugin JavaScript -->
 <?php echo $this->Html->script('/assets/plugins/clockpicker/dist/bootstrap-clockpicker.min') ?>
 <!-- Steps  -->

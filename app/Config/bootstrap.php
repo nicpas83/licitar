@@ -49,6 +49,7 @@ Inflector::rules('singular', array(
     'irregular' => array(
         'procesos' => 'Proceso',
         'rubros' => 'Rubro',
+        'productos' => 'Producto',
     ),
     'uninflected' => array()
     )
@@ -59,6 +60,7 @@ Inflector::rules('plural', array(
     'irregular' => array(
         'proceso' => 'Procesos',
         'rubro' => 'Rubros',
+        'producto' => 'Productos',
     ),
     'uninflected' => array()
     )

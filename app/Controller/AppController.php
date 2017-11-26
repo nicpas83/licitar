@@ -7,7 +7,7 @@ class AppController extends Controller {
     /** 
      * Modelos que estarán disponibles en todos los controladores. 
      */
-    var $uses = array('Rubro','Provincia','Unidad');
+    var $uses = array('Rubro','Provincia','Unidad', 'Condicion');
     
     public $components = array(
         'Flash',
@@ -61,6 +61,7 @@ class AppController extends Controller {
         
         $this->set('rubros', $this->Rubro->options());
         $this->set('unidades', $this->Unidad->options());
+        $this->set('condiciones', $this->Condicion->options());
         $this->set('provincias', $this->Provincia->options());
     }
 
