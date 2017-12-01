@@ -10,10 +10,80 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-10-31 06:43:53
+Date: 2017-12-01 08:21:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `condiciones`
+-- ----------------------------
+DROP TABLE IF EXISTS `condiciones`;
+CREATE TABLE `condiciones` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` date DEFAULT NULL,
+  `modified` date DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `nombre` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `descripcion` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `estado` int(1) DEFAULT NULL,
+  `orden` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- ----------------------------
+-- Records of condiciones
+-- ----------------------------
+INSERT INTO `condiciones` VALUES ('1', null, null, null, 'Contado', null, '1', null);
+INSERT INTO `condiciones` VALUES ('2', null, null, null, '30 dias', null, '1', null);
+INSERT INTO `condiciones` VALUES ('3', null, null, null, '30-60 dias', null, '1', null);
+INSERT INTO `condiciones` VALUES ('4', null, null, null, '30-60-90 dias', null, '1', null);
+
+-- ----------------------------
+-- Table structure for `items`
+-- ----------------------------
+DROP TABLE IF EXISTS `items`;
+CREATE TABLE `items` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` date DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `proceso_id` int(11) DEFAULT NULL,
+  `rubro_id` int(3) DEFAULT NULL,
+  `nombre` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `unidad` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `fecha_entrega` date DEFAULT NULL,
+  `especificaciones` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `precio_max` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- ----------------------------
+-- Records of items
+-- ----------------------------
+INSERT INTO `items` VALUES ('1', '2017-11-26', '2017-11-26 00:00:00', null, null, '4', 'LISTONES', '1', '0000-00-00', null, '200X40', null);
+INSERT INTO `items` VALUES ('2', '2017-11-26', '2017-11-26 00:00:00', null, null, '4', 'tablones', '5', '0000-00-00', null, '200X300', null);
+INSERT INTO `items` VALUES ('3', '2017-11-26', '2017-11-26 21:56:44', null, null, '1', 'ijij', '1', ' unidades', null, 'ijij', null);
+INSERT INTO `items` VALUES ('4', '2017-11-26', '2017-11-26 21:56:44', null, null, '1', 'hiuhuihuihui', '1', ' unidades', null, 'uuhuihiuhuih', null);
+INSERT INTO `items` VALUES ('5', '2017-11-26', '2017-11-26 22:08:20', null, null, '1', 'ijij', '1', ' unidades', null, 'ijij', null);
+INSERT INTO `items` VALUES ('6', '2017-11-26', '2017-11-26 22:08:20', null, null, '1', 'hiuhuihuihui', '1', ' unidades', null, 'uuhuihiuhuih', null);
+INSERT INTO `items` VALUES ('7', '2017-11-26', '2017-11-26 22:14:34', null, null, '1', 'ijij', '1', ' unidades', null, 'ijij', null);
+INSERT INTO `items` VALUES ('8', '2017-11-26', '2017-11-26 22:14:34', null, null, '1', 'hiuhuihuihui', '1', ' unidades', null, 'uuhuihiuhuih', null);
+INSERT INTO `items` VALUES ('9', '2017-11-26', '2017-11-26 22:17:21', null, '12', '1', 'ijij', '1', ' unidades', null, 'ijij', null);
+INSERT INTO `items` VALUES ('10', '2017-11-26', '2017-11-26 22:17:21', null, '12', '1', 'hiuhuihuihui', '1', ' unidades', null, 'uuhuihiuhuih', null);
+INSERT INTO `items` VALUES ('11', '2017-11-26', '2017-11-26 22:18:04', null, '13', '1', 'ijij', '1', ' unidades', null, 'ijij', null);
+INSERT INTO `items` VALUES ('12', '2017-11-26', '2017-11-26 22:18:04', null, '13', '1', 'hiuhuihuihui', '1', ' unidades', null, 'uuhuihiuhuih', null);
+INSERT INTO `items` VALUES ('13', '2017-11-26', '2017-11-26 22:21:30', null, '14', '1', 'ijij', '1', ' unidades', null, 'ijij', null);
+INSERT INTO `items` VALUES ('14', '2017-11-26', '2017-11-26 22:21:30', null, '14', '1', 'hiuhuihuihui', '1', ' unidades', null, 'uuhuihiuhuih', null);
+INSERT INTO `items` VALUES ('15', '2017-11-26', '2017-11-26 22:23:23', null, '15', '1', 'ijij', '1', ' unidades', null, 'ijij', null);
+INSERT INTO `items` VALUES ('16', '2017-11-26', '2017-11-26 22:23:23', null, '15', '1', 'hiuhuihuihui', '1', ' unidades', null, 'uuhuihiuhuih', null);
+INSERT INTO `items` VALUES ('17', '2017-11-26', '2017-11-26 22:25:44', null, '16', '4', 'uguhuh', '2', ' unidades', null, 'uyhguygyug', null);
+INSERT INTO `items` VALUES ('18', '2017-11-26', '2017-11-26 22:25:44', null, '16', '4', 'n jbhbhbhj', '1', ' unidades', null, 'jggygyug', null);
+INSERT INTO `items` VALUES ('19', '2017-11-26', '2017-11-26 22:27:11', null, '17', '1', 'yugyugyug', '1', ' unidades', null, 'ygyugyug', null);
+INSERT INTO `items` VALUES ('20', '2017-11-26', '2017-11-26 22:27:11', null, '17', '4', 'uygyugyugyu', '1', ' unidades', null, 'uihguygug', null);
+INSERT INTO `items` VALUES ('21', '2017-11-30', '2017-11-30 10:43:08', null, '18', '4', 'AEEERIAOS', '500', ' unidades', null, 'SS 65', null);
+INSERT INTO `items` VALUES ('22', '2017-11-30', '2017-11-30 10:43:08', null, '18', '7', 'NADUF', '1', ' unidades', null, '888U89U', null);
 
 -- ----------------------------
 -- Table structure for `procesos`
@@ -24,44 +94,38 @@ CREATE TABLE `procesos` (
   `created` date DEFAULT NULL,
   `modified` date DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
+  `proceso_nro` int(11) DEFAULT NULL,
   `referencia` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `rubro_id` int(3) DEFAULT NULL,
-  `fecha_publicacion` date DEFAULT NULL,
-  `fecha_inicio_subasta` date DEFAULT NULL,
-  `hora_inicio_subasta` time DEFAULT NULL,
-  `visibilidad` int(1) DEFAULT NULL,
-  `descripcion` text COLLATE utf8_spanish_ci,
-  `requisitos` text COLLATE utf8_spanish_ci,
+  `fecha_fin` date DEFAULT NULL,
+  `visibilidad` int(1) DEFAULT '1',
+  `detalles` text COLLATE utf8_spanish_ci,
+  `condiciones` text COLLATE utf8_spanish_ci,
+  `condicion_pago` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of procesos
 -- ----------------------------
-
--- ----------------------------
--- Table structure for `productos`
--- ----------------------------
-DROP TABLE IF EXISTS `productos`;
-CREATE TABLE `productos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `created` date DEFAULT NULL,
-  `modified` date DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `referencia` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `rubro_id` int(3) DEFAULT NULL,
-  `fecha_publicacion` date DEFAULT NULL,
-  `fecha_inicio_subasta` date DEFAULT NULL,
-  `hora_inicio_subasta` time DEFAULT NULL,
-  `visibilidad` int(1) DEFAULT NULL,
-  `descripcion` text COLLATE utf8_spanish_ci,
-  `requisitos` text COLLATE utf8_spanish_ci,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
--- ----------------------------
--- Records of productos
--- ----------------------------
+INSERT INTO `procesos` VALUES ('1', '2017-11-26', '2017-11-26', '1', '1', 'proidjiojas', '0000-00-00', null, null, null, null);
+INSERT INTO `procesos` VALUES ('2', '2017-11-26', '2017-11-26', '1', '2', 'proidjiojas', '0000-00-00', null, 'sadiodjioj', 'iohiuhiu', '1');
+INSERT INTO `procesos` VALUES ('3', '2017-11-26', '2017-11-26', '1', '3', 'proidjiojas', '0000-00-00', null, 'sadiodjioj', 'iohiuhiu', '1');
+INSERT INTO `procesos` VALUES ('4', '2017-11-26', '2017-11-26', '1', '3', 'proidjiojas', '0000-00-00', null, 'sadiodjioj', 'iohiuhiu', '1');
+INSERT INTO `procesos` VALUES ('5', '2017-11-26', '2017-11-26', '1', '4', 'proidjiojas', '0000-00-00', null, 'sadiodjioj', 'iohiuhiu', '1');
+INSERT INTO `procesos` VALUES ('6', '2017-11-26', '2017-11-26', '1', '5', 'proidjiojas', '0000-00-00', '1', 'sadiodjioj', 'iohiuhiu', '1');
+INSERT INTO `procesos` VALUES ('7', '2017-11-26', '2017-11-26', '1', '6', 'proidjiojas', '2017-03-12', '1', 'sadiodjioj', 'iohiuhiu', '1');
+INSERT INTO `procesos` VALUES ('8', '2017-11-26', '2017-11-26', '1', '7', 'maderas para muebles', '2017-03-12', '1', 'el precio debe incluir costos de envio', 'factura A ', '1');
+INSERT INTO `procesos` VALUES ('9', '2017-11-26', '2017-11-26', '1', '8', 'probando asoci', '2017-03-12', '1', 'ijoij', 'oijioj', '1');
+INSERT INTO `procesos` VALUES ('10', '2017-11-26', '2017-11-26', '1', '9', 'probando asoci', '2017-03-12', '1', 'ijoij', 'oijioj', '1');
+INSERT INTO `procesos` VALUES ('11', '2017-11-26', '2017-11-26', '1', '10', 'probando asoci', '2017-03-12', '1', 'ijoij', 'oijioj', '1');
+INSERT INTO `procesos` VALUES ('12', '2017-11-26', '2017-11-26', '1', '11', 'probando asoci', '2017-03-12', '1', 'ijoij', 'oijioj', '1');
+INSERT INTO `procesos` VALUES ('13', '2017-11-26', '2017-11-26', '1', '12', 'probando asoci', '2017-03-12', '1', 'ijoij', 'oijioj', '1');
+INSERT INTO `procesos` VALUES ('14', '2017-11-26', '2017-11-26', '1', '13', 'probando asoci', '2017-03-12', '1', 'ijoij', 'oijioj', '1');
+INSERT INTO `procesos` VALUES ('15', '2017-11-26', '2017-11-26', '1', '14', 'probando asoci', '2017-03-12', '1', 'ijoij', 'oijioj', '1');
+INSERT INTO `procesos` VALUES ('16', '2017-11-26', '2017-11-26', '1', '15', 'juihuihiu', '2017-03-12', '1', 'yfgtyftyf', 'tyftyftyf', '1');
+INSERT INTO `procesos` VALUES ('17', '2017-11-26', '2017-11-26', '1', '16', 'ujhuihuih', '2017-03-12', '1', 'uihuihuih', 'iuhuihuih', '1');
+INSERT INTO `procesos` VALUES ('18', '2017-11-30', '2017-11-30', '6', '1', 'Probando usuario 2', '2017-07-12', '1', 'precios al paoskd de la vista superior', 'entrega en deposito ', '3');
+INSERT INTO `procesos` VALUES ('19', '2017-12-01', '2017-12-01', '6', '2', 'comprark dsijids kk', '2017-07-12', '1', 'aiuhsfdiuh  uihiuh', ' hiuhiuhuih  uihiuh', '2');
 
 -- ----------------------------
 -- Table structure for `provincias`
@@ -277,7 +341,7 @@ CREATE TABLE `users` (
   `modified` datetime DEFAULT NULL,
   `estado` int(1) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of users
@@ -287,3 +351,4 @@ INSERT INTO `users` VALUES ('2', 'daniel', 'segu@dsf', '$2a$10$ZRgjJVtuznys3F5Ix
 INSERT INTO `users` VALUES ('3', 'asdasdf', 'ojoij@zdzfsd', '$2a$10$4/aMVocxilm4zcZBA2zU5OL9Ecw9ZFhUwIUo/eK6/x5lHih7OIZru', '1', '2017-10-10 23:54:43', '2017-10-10 23:54:43', '1');
 INSERT INTO `users` VALUES ('4', 'dsfsd', 'ojoij@zddsffd', '$2a$10$BazTBRnUKU7BlMbw6tbK9emvS065UY74wDBnaOcWOxZp1Pi5qsaJ.', '1', '2017-10-10 23:58:39', '2017-10-10 23:58:39', '1');
 INSERT INTO `users` VALUES ('5', 'huhu', 'nicp@sdfsd', '$2a$10$lis6iK4oL.B/NWXcFWT7NemloCOcecFiKUjeJSI80T0c1q5SVW6W6', '1', '2017-10-11 03:11:56', '2017-10-11 03:11:56', '1');
+INSERT INTO `users` VALUES ('6', 'nicpas2', 'nicpas@gmail.com', '$2a$10$OzlxItpDq3cMANvyg8xNeOkBCXFUZVFoD/oi.HEy9cz5SQEf681da', '1', '2017-11-30 10:36:23', '2017-11-30 10:36:23', '1');
