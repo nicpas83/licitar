@@ -5,14 +5,13 @@
  * This file will render views from views/pages/
  * App::uses('AppController', 'Controller');
  */
-class PagesController extends AppController {
 
+class PagesController extends AppController {
     /**
      * This controller does not use a model
-     *
      * @var array
      */
-    public $uses = array('');
+    public $uses = array('Proceso');
 
     /**
      * Displays a view
@@ -24,10 +23,6 @@ class PagesController extends AppController {
      */
     public function display() {
         $path = func_get_args();
-        //PASO EL CONTENIDO DINAMICO 
-//        $landing = $this->Contenido->landing_page();
-//        $this->set('contenidos', $landing);
-
         $count = count($path);
         if (!$count) {
             return $this->redirect('/');
@@ -60,19 +55,12 @@ class PagesController extends AppController {
         $this->autoRender = false;
         
         if($this->Session->check('Auth.User')){
-//            debug("hoass"); die; 
+           
+            $this->set('procesos',$this->Proceso->misProcesos($this->Auth->user('id')));
             $this->render('inicio');
         }else{
             $this->render('home');
         }
-        
-    }
-
-    public function home() {
-        
-    }
-
-    public function inicio() {
         
     }
 

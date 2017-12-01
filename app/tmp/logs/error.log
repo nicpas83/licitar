@@ -33694,3 +33694,96 @@ Request URL: /display
 Stack Trace:
 #0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2017-11-26 22:36:52 Error: [MissingControllerException] Controller class SadController could not be found.
+Exception Attributes: array (
+  'class' => 'SadController',
+  'plugin' => NULL,
+)
+Request URL: /sad
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-30 10:26:16 Error: Fatal Error (1): Call to a member function misProcesos() on null in [C:\xampp\htdocs\licitar\app\Controller\PagesController.php, line 59]
+2017-11-30 10:26:16 Error: [FatalErrorException] Call to a member function misProcesos() on null
+Request URL: /
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 59)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 59, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 59, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-11-30 10:30:13 Error: Fatal Error (1): Call to a member function misProcesos() on null in [C:\xampp\htdocs\licitar\app\Controller\PagesController.php, line 61]
+2017-11-30 10:30:13 Error: [FatalErrorException] Call to a member function misProcesos() on null
+Request URL: /
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 61)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 61, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 61, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-11-30 10:35:55 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-30 10:35:55 Error: [MissingControllerException] Controller class AssetsController could not be found.
+Exception Attributes: array (
+  'class' => 'AssetsController',
+  'plugin' => NULL,
+)
+Request URL: /assets/plugins/bootstrap-select/bootstrap-select.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-30 10:36:00 Error: [MissingControllerException] Controller class AssetsController could not be found.
+Exception Attributes: array (
+  'class' => 'AssetsController',
+  'plugin' => NULL,
+)
+Request URL: /assets/plugins/bootstrap-select/bootstrap-select.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-30 10:36:00 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-30 10:49:27 Error: Fatal Error (1): Call to a member function read() on null in [C:\xampp\htdocs\licitar\app\Model\Proceso.php, line 42]
+2017-11-30 10:49:27 Error: [FatalErrorException] Call to a member function read() on null
+Request URL: /
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 42)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 42, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 42, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-12-01 02:55:11 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-01 02:55:12 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

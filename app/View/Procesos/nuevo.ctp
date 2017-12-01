@@ -96,18 +96,18 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="form-group pull-right">
+                        <div class="form-group pull-right"> 
                             <button id="addItem" type="button" class="btn btn-info">Agregar</button>
                         </div>
                     </div>
                 </div>
-                <!--<td><button type="button" class="btn btn-danger removeItem"><i class="fa fa-times"></i> </button></td>-->
+
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
                             <table class="table" id="items_proceso">
                                 <tbody>
-
+                                    <!-- contenido por js -->
                                 </tbody>
                             </table>
                         </div>

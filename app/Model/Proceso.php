@@ -36,5 +36,14 @@ class Proceso extends AppModel {
     public function dateFormat($dateString) {
         return date('Y-m-d', strtotime($dateString));
     }
+    
+    public function misProcesos($id){
+        
+        $procesos = $this->find('all',['conditions' => ['user_id' => $id]]);
+        
+        debug($procesos);die;
+        return $procesos;
+    }
+    
 
 }
