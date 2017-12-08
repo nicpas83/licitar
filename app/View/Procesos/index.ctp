@@ -90,19 +90,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php ?>
+                            <?php foreach($procesos as $proceso){ ?>
                             <tr>
-                                <td>Materiales para construccion en seco</td>
-                                <td>7</td>
-                                <td>680</td>
+                                <td><?php echo $proceso['referencia'] ?></td>
+                                <td><?php echo $proceso['total_items'] ?></td>
+                                <td><?php echo $proceso['total_unidades'] ?></td>
                                 <td>2</td>
-                                <td>15/12/2017</td>
+                                <td><?php echo $proceso['fecha_fin'] ?></td>
                                 <td>
                                     <a href="" title="Editar" class="btn btn-info fa fa-edit pull-right pad-5"></a>
                                     <a href="" title="Pausar" class="btn btn-info fa fa-pause pull-right pad-5"></a>
                                 </td>
                             </tr>
-                            
+                            <?php } ?>
 
                         </tbody>
                     </table>

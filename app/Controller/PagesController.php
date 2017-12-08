@@ -54,10 +54,8 @@ class PagesController extends AppController {
         
         $this->autoRender = false;
         
-        if($this->Session->check('Auth.User')){
-           
-            $this->set('procesos',$this->Proceso->misProcesos($this->Auth->user('id')));
-            $this->render('inicio');
+        if($this->Session->check('Auth.User')){ 
+            $this->render('Procesos/index');
         }else{
             $this->render('home');
         }

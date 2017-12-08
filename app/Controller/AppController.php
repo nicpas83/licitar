@@ -4,10 +4,10 @@ App::uses('Controller', 'Controller');
 
 class AppController extends Controller {
     
-    /** 
-     * Modelos que estarán disponibles en todos los controladores. 
-     */
+    /** Modelos que estarán disponibles en todos los controladores. */
     var $uses = array('Rubro','Provincia','Unidad', 'Condicion');
+    
+    
     
     public $components = array(
         'Flash',

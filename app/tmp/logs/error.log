@@ -33787,3 +33787,163 @@ Request URL: /favicon.ico
 Stack Trace:
 #0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2017-12-06 03:02:16 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-06 03:34:15 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-06 04:05:47 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'misIndicadores' at line 1
+Request URL: /
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Model\Datasource\DboSource.php(470): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\licitar\lib\Cake\Model\Datasource\DboSource.php(436): DboSource->_execute('misIndicadores', Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Model\Datasource\DboSource.php(673): DboSource->execute('misIndicadores', Array, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Model\Datasource\DboSource.php(616): DboSource->fetchAll('misIndicadores', Array, Array)
+#4 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(834): DboSource->query('misIndicadores', Array, Object(Proceso))
+#5 C:\xampp\htdocs\licitar\app\Controller\PagesController.php(58): Model->__call('misIndicadores', Array)
+#6 C:\xampp\htdocs\licitar\app\Controller\PagesController.php(58): Proceso->misIndicadores('6')
+#7 [internal function]: PagesController->display('home')
+#8 C:\xampp\htdocs\licitar\lib\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#9 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest))
+#11 C:\xampp\htdocs\licitar\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2017-12-06 23:10:24 Error: Fatal Error (1): Using $this when not in object context in [C:\xampp\htdocs\licitar\app\Config\routes.php, line 29]
+2017-12-06 23:10:24 Error: [FatalErrorException] Using $this when not in object context
+Request URL: /
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Using $this whe...', 'C:\\xampp\\htdocs...', 29)
+#1 [internal function]: ErrorHandler::handleError(1, 'Using $this whe...', 'C:\\xampp\\htdocs...', 29, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Using $this whe...', 'C:\\xampp\\htdocs...', 29, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-12-06 23:15:15 Error: Fatal Error (1): Call to undefined method ProcesosController::find() in [C:\xampp\htdocs\licitar\app\Controller\ProcesosController.php, line 10]
+2017-12-06 23:15:15 Error: [FatalErrorException] Call to undefined method ProcesosController::find()
+Request URL: /
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\xampp\\htdocs...', 10)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\xampp\\htdocs...', 10, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\xampp\\htdocs...', 10, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-12-06 23:16:11 Error: Fatal Error (1): Call to undefined method ProcesosController::find() in [C:\xampp\htdocs\licitar\app\Controller\ProcesosController.php, line 10]
+2017-12-06 23:16:11 Error: [FatalErrorException] Call to undefined method ProcesosController::find()
+Request URL: /
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\xampp\\htdocs...', 10)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\xampp\\htdocs...', 10, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\xampp\\htdocs...', 10, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-12-06 23:42:53 Error: Fatal Error (1): Call to a member function find() on null in [C:\xampp\htdocs\licitar\app\Model\Proceso.php, line 24]
+2017-12-06 23:42:53 Error: [FatalErrorException] Call to a member function find() on null
+Request URL: /
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 24)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 24, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 24, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-12-07 06:09:14 Error: Fatal Error (1): Call to a member function user() on null in [C:\xampp\htdocs\licitar\app\Model\Proceso.php, line 79]
+2017-12-07 06:09:14 Error: [FatalErrorException] Call to a member function user() on null
+Request URL: /procesos/nuevo
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 79)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 79, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 79, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-12-07 06:17:16 Error: Fatal Error (1): Call to a member function user() on null in [C:\xampp\htdocs\licitar\app\Model\Proceso.php, line 80]
+2017-12-07 06:17:16 Error: [FatalErrorException] Call to a member function user() on null
+Request URL: /procesos/nuevo
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 80)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 80, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 80, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-12-07 06:24:48 Error: Fatal Error (1): Call to a member function user() on null in [C:\xampp\htdocs\licitar\app\Model\Proceso.php, line 80]
+2017-12-07 06:24:48 Error: [FatalErrorException] Call to a member function user() on null
+Request URL: /procesos/nuevo
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 80)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 80, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 80, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-12-07 06:25:58 Error: Fatal Error (1): Call to a member function user() on null in [C:\xampp\htdocs\licitar\app\Model\Proceso.php, line 80]
+2017-12-07 06:25:58 Error: [FatalErrorException] Call to a member function user() on null
+Request URL: /procesos/nuevo
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 80)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 80, Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 80, Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-12-08 13:50:35 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [1049] Unknown database \'licitar\'',
+  'enabled' => true,
+)
+Request URL: /
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Model\Datasource\DboSource.php(269): Mysql->connect()
+#1 C:\xampp\htdocs\licitar\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(3640): ConnectionManager::getDataSource('default')
+#3 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(1162): Model->setDataSource('default')
+#4 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(3667): Model->setSource('rubros')
+#5 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(3038): Model->getDataSource()
+#6 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(3010): Model->_readDataSource('list', Array)
+#7 C:\xampp\htdocs\licitar\app\Model\Rubro.php(32): Model->find('list', Array)
+#8 C:\xampp\htdocs\licitar\app\Controller\AppController.php(62): Rubro->options()
+#9 C:\xampp\htdocs\licitar\lib\Cake\Event\CakeEventManager.php(243): AppController->beforeFilter(Object(CakeEvent))
+#10 C:\xampp\htdocs\licitar\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#11 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#12 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ProcesosController), Object(CakeRequest))
+#13 C:\xampp\htdocs\licitar\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2017-12-08 14:29:44 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [1049] Unknown database \'licitar\'',
+  'enabled' => true,
+)
+Request URL: /
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Model\Datasource\DboSource.php(269): Mysql->connect()
+#1 C:\xampp\htdocs\licitar\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(3640): ConnectionManager::getDataSource('default')
+#3 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(1162): Model->setDataSource('default')
+#4 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(3667): Model->setSource('rubros')
+#5 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(3038): Model->getDataSource()
+#6 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(3010): Model->_readDataSource('list', Array)
+#7 C:\xampp\htdocs\licitar\app\Model\Rubro.php(32): Model->find('list', Array)
+#8 C:\xampp\htdocs\licitar\app\Controller\AppController.php(62): Rubro->options()
+#9 C:\xampp\htdocs\licitar\lib\Cake\Event\CakeEventManager.php(243): AppController->beforeFilter(Object(CakeEvent))
+#10 C:\xampp\htdocs\licitar\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#11 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#12 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ProcesosController), Object(CakeRequest))
+#13 C:\xampp\htdocs\licitar\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}

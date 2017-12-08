@@ -61,35 +61,35 @@
                         <div class="form-group">
                             <label>Rubro o Categoría?<span class="danger"></span></label>
                             <?php echo $this->Form->input('TmpRubro', ['name' => false, 'type' => 'select', 'options' => $rubros, 'class' => 'form-control select2', 'data-width' => "100%", 'label' => false, 'div' => false]); ?>
-                            <?php echo $this->Form->input('Item.rubros', ['type' => 'hidden', 'div' => false, 'label' => false]) ?>
+                            <?php echo $this->Form->input('rubros', ['type' => 'hidden', 'div' => false, 'label' => false]) ?>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label>Nombre, Modelo o Referencia <span class="text-danger"></span></label>
                             <?php echo $this->Form->input('TmpNombre', ['name' => false, 'type' => 'text', 'class' => 'form-control', 'div' => false, 'label' => false]) ?>
-                            <?php echo $this->Form->input('Item.nombres', ['type' => 'hidden', 'div' => false, 'label' => false]) ?>
+                            <?php echo $this->Form->input('nombres', ['type' => 'hidden', 'div' => false, 'label' => false]) ?>
                         </div>
                     </div>
                     <div class="col-sm-1">
                         <div class="form-group">
                             <label>Cantidad<span class="danger"></span></label>
                             <?php echo $this->Form->input('TmpCantidad', ['name' => false, 'value' => '1', 'type' => 'number', 'class' => 'form-control', 'div' => false, 'label' => false]) ?>
-                            <?php echo $this->Form->input('Item.cantidades', ['type' => 'hidden', 'div' => false, 'label' => false]) ?>
+                            <?php echo $this->Form->input('cantidades', ['type' => 'hidden', 'div' => false, 'label' => false]) ?>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="form-group">
                             <label>Unidad<span class="danger"></span></label>
                             <?php echo $this->Form->input('TmpUnidad', ['name' => false, 'type' => 'select', 'options' => $unidades, 'default' => '6', 'class' => 'form-control', 'div' => false, 'label' => false]); ?>
-                            <?php echo $this->Form->input('Item.unidades', ['type' => 'hidden', 'div' => false, 'label' => false]) ?>
+                            <?php echo $this->Form->input('unidades', ['type' => 'hidden', 'div' => false, 'label' => false]) ?>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label>Especificaciones<span class="danger"></span></label>
                             <?php echo $this->Form->input('TmpEspecificaciones', ['name' => false, 'type' => 'text', 'class' => 'form-control', 'div' => false, 'label' => false]) ?>
-                            <?php echo $this->Form->input('Item.especificaciones', ['type' => 'hidden', 'div' => false, 'label' => false]) ?>
+                            <?php echo $this->Form->input('especificaciones', ['type' => 'hidden', 'div' => false, 'label' => false]) ?>
                         </div>
                     </div>
 
