@@ -90,19 +90,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($procesos as $proceso){ ?>
-                            <tr>
-                                <td><?php echo $proceso['referencia'] ?></td>
-                                <td><?php echo $proceso['total_items'] ?></td>
-                                <td><?php echo $proceso['total_unidades'] ?></td>
-                                <td>2</td>
-                                <td><?php echo $proceso['fecha_fin'] ?></td>
-                                <td>
-                                    <a href="" title="Editar" class="btn btn-info fa fa-edit pull-right pad-5"></a>
-                                    <a href="" title="Pausar" class="btn btn-info fa fa-pause pull-right pad-5"></a>
-                                </td>
-                            </tr>
-                            <?php } ?>
+                            <?php
+                            if (!empty($procesos)) {
+
+                                foreach ($procesos as $proceso) {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $proceso['referencia'] ?></td>
+                                        <td><?php echo $proceso['total_items'] ?></td>
+                                        <td><?php echo $proceso['total_unidades'] ?></td>
+                                        <td>2</td>
+                                        <td><?php echo $proceso['fecha_fin'] ?></td>
+                                        <td>
+                                            <a href="" title="Editar" class="btn btn-info fa fa-edit pull-right pad-5"></a>
+                                            <a href="" title="Pausar" class="btn btn-info fa fa-pause pull-right pad-5"></a>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
+                            }
+                            ?>
 
                         </tbody>
                     </table>
