@@ -52,13 +52,14 @@ class Proceso extends AppModel {
     }
 
     public function beforeSave($options = array()) {
-        debug($this->data['Item']['nombres']); die;
+//        $nombres = json_decode($this->data['Item']['nombres']['Item'][0]);
+//        debug($this->data); die;
         
-        $rubros = json_decode($this->data['Item']['rubros']);
-        $nombres = json_decode($this->data['Item']['nombres']);
-        $cantidades = json_decode($this->data['Item']['cantidades']);
-        $unidades = json_decode($this->data['Item']['unidades']);
-        $especificaciones = !empty($this->data['Item']['especificaciones']) ? json_decode($this->data['Item']['especificaciones']) : null;
+        $rubros = json_decode($this->data['Item']['rubros']['Item'][0]);
+        $nombres = json_decode($this->data['Item']['nombres']['Item'][0]);
+        $cantidades = json_decode($this->data['Item']['cantidades']['Item'][0]);
+        $unidades = json_decode($this->data['Item']['unidades']['Item'][0]);
+        $especificaciones = !empty($this->data['Item']['especificaciones']['Item'][0]) ? json_decode($this->data['Item']['especificaciones']['Item'][0]) : null;
         $arr = array();
 
         foreach ($rubros as $key => $val) {
@@ -88,11 +89,12 @@ class Proceso extends AppModel {
         $this->data['Proceso']['proceso_nro'] = $ultimo_proceso[0]['nro'] + 1;
         $this->data['Proceso']['fecha_fin'] = $this->dateFormat($this->data['Proceso']['fecha_fin']);
 
-        debug($this->data); die;
+//        debug($this->data); die;
         return true;
     }
 
     public function dateFormat($dateString) {
+        $dateString = str_replace('/', '-', $dateString);
         return date('Y-m-d', strtotime($dateString));
     }
 

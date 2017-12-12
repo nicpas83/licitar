@@ -4,8 +4,8 @@ function icheckfirstinit() {
     }
 
     $('.check').each(function() {
-        var ck = $(this).attr('data-checkbox') ? $(this).attr('data-checkbox') : 'icheckbox_minimal-red';
-        var rd = $(this).attr('data-radio') ? $(this).attr('data-radio') : 'iradio_minimal-red';
+        var ck = $(this).attr('data-checkbox') ? $(this).attr('data-checkbox') : 'icheckbox_minimal-yellow';
+        var rd = $(this).attr('data-radio') ? $(this).attr('data-radio') : 'iradio_minimal-yellow';
 
         if (ck.indexOf('_line') > -1 || rd.indexOf('_line') > -1) {
             $(this).iCheck({
@@ -45,7 +45,7 @@ var iCheckcontrol = function () {
 
                     var skin = self.closest('.skin'),
                         c = self.attr('class') ? '-' + self.attr('class') : '',
-                        ct = skin.data('color') ? '-' + skin.data('color') : '-red',
+                        ct = skin.data('color') ? '-' + skin.data('color') : '-yellow',
                         ct = (ct === '-black' ? '' : ct);
 
                         checkbox_default = 'icheckbox_minimal',

@@ -12,9 +12,8 @@ class ProcesosController extends AppController {
     }
 
     public function nuevo() {
-
         if ($this->request->is('post')) {
-            $this->data['Proceso']['user_id'] = $this->Auth->user('id');
+            $this->request->data['Proceso']['user_id'] = $this->Auth->user('id');
 //            debug($this->request->data);die;
             if ($this->Proceso->saveAll($this->request->data)) {
                 $this->Flash->success('El registro fue guardado.');

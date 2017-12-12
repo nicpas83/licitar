@@ -9,6 +9,7 @@
 <!-- Bootstrap Core CSS -->
 <?php echo $this->Html->css('/assets/plugins/bootstrap/css/bootstrap.min') ?>
 <?php echo $this->Html->css('/assets/plugins/wizard/steps') ?>
+<?php echo $this->Html->css('/assets/plugins/icheck/skins/all') ?>
 <!-- Date picker plugins css -->
 <?php echo $this->Html->css('/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min') ?>
 <!-- Clock picker plugins css -->

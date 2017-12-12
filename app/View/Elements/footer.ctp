@@ -74,3 +74,6 @@
 <!-- Style switcher -->
 <!-- ============================================================== -->
 <?php echo $this->Html->script('/assets/plugins/styleswitcher/jQuery.style.switcher') ?>
+<!-- icheck -->
+<?php echo $this->Html->script('/assets/plugins/icheck/icheck.min') ?>
+<?php echo $this->Html->script('/assets/plugins/icheck/icheck.init') ?>

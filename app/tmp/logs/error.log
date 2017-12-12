@@ -33947,3 +33947,98 @@ Stack Trace:
 #12 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ProcesosController), Object(CakeRequest))
 #13 C:\xampp\htdocs\licitar\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #14 {main}
+2017-12-10 05:00:39 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [1049] Unknown database \'licitar\'',
+  'enabled' => true,
+)
+Request URL: /
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Model\Datasource\DboSource.php(269): Mysql->connect()
+#1 C:\xampp\htdocs\licitar\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
+#2 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(3640): ConnectionManager::getDataSource('default')
+#3 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(1162): Model->setDataSource('default')
+#4 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(3667): Model->setSource('rubros')
+#5 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(3038): Model->getDataSource()
+#6 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(3010): Model->_readDataSource('list', Array)
+#7 C:\xampp\htdocs\licitar\app\Model\Rubro.php(32): Model->find('list', Array)
+#8 C:\xampp\htdocs\licitar\app\Controller\AppController.php(62): Rubro->options()
+#9 C:\xampp\htdocs\licitar\lib\Cake\Event\CakeEventManager.php(243): AppController->beforeFilter(Object(CakeEvent))
+#10 C:\xampp\htdocs\licitar\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#11 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#12 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ProcesosController), Object(CakeRequest))
+#13 C:\xampp\htdocs\licitar\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2017-12-12 09:32:41 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-12 09:34:17 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-12 09:34:17 Error: [MissingControllerException] Controller class AssetsController could not be found.
+Exception Attributes: array (
+  'class' => 'AssetsController',
+  'plugin' => NULL,
+)
+Request URL: /assets/plugins/bootstrap-select/bootstrap-select.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-12 09:34:36 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-12 09:34:36 Error: [MissingControllerException] Controller class AssetsController could not be found.
+Exception Attributes: array (
+  'class' => 'AssetsController',
+  'plugin' => NULL,
+)
+Request URL: /assets/plugins/bootstrap-select/bootstrap-select.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-12 09:41:44 Error: [MissingControllerException] Controller class ScssController could not be found.
+Exception Attributes: array (
+  'class' => 'ScssController',
+  'plugin' => NULL,
+)
+Request URL: /scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-12 09:41:44 Error: [MissingControllerException] Controller class AssetsController could not be found.
+Exception Attributes: array (
+  'class' => 'AssetsController',
+  'plugin' => NULL,
+)
+Request URL: /assets/plugins/bootstrap-select/bootstrap-select.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-12 10:02:06 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
