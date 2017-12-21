@@ -18,68 +18,58 @@ class Proceso extends AppModel {
         ]
     ];
 
-    public function misIndicadores($id) {
-        //return $this->Proceso->find('all', ['conditions' => ['user_id' => $id]]);
-    }
-
-    public function misProcesos($id) {
-
-        $result = $this->find('all', ['conditions' => ['user_id' => $id]]);
+    public function misProcesosActivos($user_id) {
+        $procesos = array();
+        $result = $this->find('all', [
+            'conditions' => ['user_id' => $user_id, 'estado' => 1]
+        ]);
 
         foreach ($result as $key => $val) {
-            //debug($val['Proceso']['referencia']);die;
-            
-            $procesos[$key]['proceso_id'] = $val['Proceso']['id'];
-            $procesos[$key]['referencia'] = $val['Proceso']['referencia'];
-            $procesos[$key]['fecha_fin'] = $val['Proceso']['fecha_fin'];
-
             $q_items = $q_unidades = 0;
+            $procesos['Procesos'][$key]['id'] = $val['Proceso']['id'];
+            $procesos['Procesos'][$key]['proceso_nro'] = $val['Proceso']['proceso_nro'];
+            $procesos['Procesos'][$key]['referencia'] = $val['Proceso']['referencia'];
+            $procesos['Procesos'][$key]['fecha_fin'] = $val['Proceso']['fecha_fin'];
+
             foreach ($val['Item'] as $item) {
                 $q_items++;
                 $q_unidades += $item['cantidad'];
             }
-
-            $procesos[$key]['total_items'] = $q_items;
-            $procesos[$key]['total_unidades'] = $q_unidades;
+            $procesos['Procesos'][$key]['total_items'] = $q_items;
+            $procesos['Procesos'][$key]['total_unidades'] = $q_unidades;
         }
-
+        
+        //Indicadores:
+        $procesos['Indicadores']['q_procesos_activos'] = count($result);
+        
         return $procesos;
     }
 
     public function afterFind($results, $primary = false) {
 
+        if (isset($results[0]['Proceso'])) {
+            $results[0]['Proceso']['created'] = $this->dateFormatDMY($results[0]['Proceso']['created']);
+            $results[0]['Proceso']['modified'] = $this->dateFormatDMY($results[0]['Proceso']['modified']);
+            $results[0]['Proceso']['fecha_fin'] = $this->dateFormatDMY($results[0]['Proceso']['fecha_fin']);
+
+            $requisitos = array();
+            if ($results[0]['Proceso']['excluyente_factura'] == 1) {
+                array_push($requisitos, 'Factura A');
+            }
+            if ($results[0]['Proceso']['excluyente_gestion_envio'] == 1) {
+                array_push($requisitos, 'Gestión del Envío por cuenta del Proveedor');
+            }
+            if ($results[0]['Proceso']['excluyente_costo_envio'] == 1) {
+                array_push($requisitos, 'Es requisito cotizar el Envío');
+            }
+            $results[0]['Proceso']['requisitos'] = $requisitos;
+        }
+//        debug($results);die;
+
         return $results;
     }
 
     public function beforeSave($options = array()) {
-//        $nombres = json_decode($this->data['Item']['nombres']['Item'][0]);
-//        debug($this->data); die;
-        
-        $rubros = json_decode($this->data['Item']['rubros']['Item'][0]);
-        $nombres = json_decode($this->data['Item']['nombres']['Item'][0]);
-        $cantidades = json_decode($this->data['Item']['cantidades']['Item'][0]);
-        $unidades = json_decode($this->data['Item']['unidades']['Item'][0]);
-        $especificaciones = !empty($this->data['Item']['especificaciones']['Item'][0]) ? json_decode($this->data['Item']['especificaciones']['Item'][0]) : null;
-        $arr = array();
-
-        foreach ($rubros as $key => $val) {
-            $arr[$key]['rubro_id'] = $val;
-        }
-        foreach ($nombres as $key => $val) {
-            $arr[$key]['nombre'] = $val;
-        }
-        foreach ($cantidades as $key => $val) {
-            $arr[$key]['cantidad'] = $val;
-        }
-        foreach ($unidades as $key => $val) {
-            $arr[$key]['unidad'] = $val;
-        }
-        foreach ($especificaciones as $key => $val) {
-            $arr[$key]['especificaciones'] = $val;
-        }
-        $this->data['Item'] = $arr;
-        
-
         //busco ultimo proceso publicado por el usuario.
         $user = $this->data['Proceso']['user_id'];
         $ultimo_proceso = $this->find('first', array(
@@ -87,15 +77,9 @@ class Proceso extends AppModel {
             'conditions' => array('user_id' => $user)
         ));
         $this->data['Proceso']['proceso_nro'] = $ultimo_proceso[0]['nro'] + 1;
-        $this->data['Proceso']['fecha_fin'] = $this->dateFormat($this->data['Proceso']['fecha_fin']);
+        $this->data['Proceso']['fecha_fin'] = $this->dateFormatYMD($this->data['Proceso']['fecha_fin']);
 
-//        debug($this->data); die;
         return true;
-    }
-
-    public function dateFormat($dateString) {
-        $dateString = str_replace('/', '-', $dateString);
-        return date('Y-m-d', strtotime($dateString));
     }
 
 }

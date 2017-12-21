@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group m-b-0">
                     <div class="col-sm-12 text-center">
-                        <p>no te registraste? <a href="<?php echo $this->Html->url(['controller' => 'users', 'action' => 'registar']) ?>" class="text-info m-l-5"><b>Crear Cuenta Gratis</b></a></p>
+                        <p>no te registraste? <a href="<?php echo $this->Html->url(['controller' => 'users', 'action' => 'registrar']) ?>" class="text-info m-l-5"><b>Crear Cuenta Gratis</b></a></p>
                     </div>
                 </div>
         </form>

@@ -45,6 +45,7 @@ function agregarItemListado()
 }
 function agregarItemHidden()
 {
+    console.log(JSON.stringify(nombres));
     $('#ItemRubros').val(JSON.stringify(rubros));
     $('#ItemNombres').val(JSON.stringify(nombres));
     $('#ItemCantidades').val(JSON.stringify(cantidades));

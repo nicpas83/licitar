@@ -1,115 +1,47 @@
 <div class="row">
-    <!-- Column -->
-    <div class="col-lg-12">
-        <!-- Row -->
-        <div class="row">
-            <!-- Column -->
-            <div class="col-sm-3">
-                <div class="card card-block">
-                    <!-- Row -->
-                    <div class="row p-t-10 p-b-10">
-                        <!-- Column -->
-                        <div class="col p-r-0">
-                            <h1 class="font-light">86</h1>
-                            <h6 class="text-muted">Procesos Activos</h6></div>
-                        <!-- Column -->
-                        <div class="col text-right align-self-center">
-                            <div data-label="20%" class="css-bar m-b-0 css-bar-primary css-bar-20"><i class="mdi mdi-account-circle"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Column -->
-            <div class="col-sm-3">
-                <div class="card card-block">
-                    <!-- Row -->
-                    <div class="row p-t-10 p-b-10">
-                        <!-- Column -->
-                        <div class="col p-r-0">
-                            <h1 class="font-light">28</h1>
-                            <h6 class="text-muted">Con Inicio Próx 15 días</h6></div>
-                        <!-- Column -->
-                        <div class="col text-right align-self-center">
-                            <div data-label="30%" class="css-bar m-b-0 css-bar-danger css-bar-20"><i class="mdi mdi-briefcase-check"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Column -->
-            <div class="col-sm-3">
-                <div class="card card-block">
-                    <!-- Row -->
-                    <div class="row p-t-10 p-b-10">
-                        <!-- Column -->
-                        <div class="col p-r-0">
-                            <h1 class="font-light">352</h1>
-                            <h6 class="text-muted">New Items</h6></div>
-                        <!-- Column -->
-                        <div class="col text-right align-self-center">
-                            <div data-label="40%" class="css-bar m-b-0 css-bar-warning css-bar-40"><i class="mdi mdi-star-circle"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Column -->
-            <div class="col-sm-3">
-                <div class="card card-block">
-                    <!-- Row -->
-                    <div class="row p-t-10 p-b-10">
-                        <!-- Column -->
-                        <div class="col p-r-0">
-                            <h1 class="font-light">159</h1>
-                            <h6 class="text-muted">Invoices</h6></div>
-                        <!-- Column -->
-                        <div class="col text-right align-self-center">
-                            <div data-label="60%" class="css-bar m-b-0 css-bar-info css-bar-60"><i class="mdi mdi-receipt"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-block">
-                <h4 class="card-title">Mis Procesos</h4>
+                <div class="ribbon-wrapper card">
+                    <div class="ribbon ribbon-warning">Procesos de Compra Abriertos</div>
+                    <p class="ribbon-content">Los siguientes procesos son de visibilidad pública. Podés sumarte y formar un <span class="text-info" id="infoPoolCompras">Pool de Compras.</span> </p>
+                    <p class="ribbon-content">Al publicar tu proceso podrás elegir si querés que sea visible a todos los usuarios o no. </p>
+                </div>
+                <h4 class="card-title"> </h4>
+                <h6 class="card-subtitle">Inicia Sesión para ver todo el contenido.</h6>
                 <div class="table-responsive m-t-40">
                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
+                                <th>Rubro</th>
                                 <th>Referencia</th>
                                 <th>Total Productos</th>
                                 <th>Total Unidades</th>
-                                <th>Ofertas Recibidas</th>
-                                <th>Finaliza</th>
-                                <th>Acciones</th>
+                                <th>Fecha Inicio Subasta</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                            if (!empty($procesos)) {
-
-                                foreach ($procesos as $proceso) {
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $proceso['referencia'] ?></td>
-                                        <td><?php echo $proceso['total_items'] ?></td>
-                                        <td><?php echo $proceso['total_unidades'] ?></td>
-                                        <td>2</td>
-                                        <td><?php echo $proceso['fecha_fin'] ?></td>
-                                        <td>
-                                            <a href="" title="Editar" class="btn btn-info fa fa-edit pull-right pad-5"></a>
-                                            <a href="" title="Pausar" class="btn btn-info fa fa-pause pull-right pad-5"></a>
-                                        </td>
-                                    </tr>
-                                    <?php
-                                }
-                            }
-                            ?>
+                            <tr>
+                                <td>CONSTRUCCION</td>
+                                <td><a href="">Materiales para construccion en seco</a></td>
+                                <td>7</td>
+                                <td>680</td>
+                                <td>15/12/2017</td>
+                            </tr>
+                            <tr>
+                                <td>FERRETERIA</td>
+                                <td><a href="">Tornillos y Repuestos varios</a></td>
+                                <td>4</td>
+                                <td>250</td>
+                                <td>10/11/2017</td>
+                            </tr>
+                            <tr>
+                                <td>PINTURAS</td>
+                                <td><a href="">Latex interior y exterior</a></td>
+                                <td>4</td>
+                                <td>4</td>
+                                <td>10/11/2017</td>
+                            </tr>
 
                         </tbody>
                     </table>

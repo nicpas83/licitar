@@ -12,13 +12,11 @@ class User extends AppModel {
                 'message' => 'Debe ingresar un nombre de usuario'
             ),
             'length' => array(
-                'rule' => array('between', 3, 15),
-                'message' => 'El nombre de usuario debe tener entre 3 y 15 caracteres.'
+                'rule' => array('between', 4, 15),
+                'message' => 'El usuario debe tener entre 4 y 15 caracteres.'
             ),
-            'unique' => array(
-                'rule' => 'isUnique',
-                'message' => 'El nombre de usuario ya existe.'
-            )
+            'rule' => array('isUnique', array('username'), true),
+            'message' => 'El nombre de usuario ya existe.',
         ),
         'password' => array(
             'required' => array(
@@ -30,12 +28,13 @@ class User extends AppModel {
                 'message' => 'La contraseña debe tener al menos 4 caracteres.'
             )
         ),
-        'role' => array(
-            'valid' => array(
-                'rule' => array('inList', array('admin', 'author')),
-                'message' => 'Please enter a valid role',
-                'allowEmpty' => false
-            )
+        'email' => array(
+            'required' => array(
+                'rule' => 'notBlank',
+                'message' => 'Debe ingresar un nombre de usuario'
+            ),
+            'rule' => array('isUnique', array('email'), true),
+            'message' => 'El email ya existe.'
         )
     );
 

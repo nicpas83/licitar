@@ -3,11 +3,8 @@
 App::uses('Controller', 'Controller');
 
 class AppController extends Controller {
-    
     /** Modelos que estarán disponibles en todos los controladores. */
     var $uses = array('Rubro','Provincia','Unidad', 'Condicion');
-    
-    
     
     public $components = array(
         'Flash',
@@ -29,12 +26,25 @@ class AppController extends Controller {
         )
     );
     
+    public function fecha($fecha){
+        return $fecha+1;
+    }
+    
 
-    public function beforeFilter() {
-        
-        $this->Auth->allow('display','registro');   // permitimos la accion display.  (home page)
+    public function beforeFilter() {        
+        // permitimos accion display y registrar (sin login).
+        $this->Auth->allow('display','registrar');   
         $this->Auth->authError = __('Para ingresar debes estar loggeado.');
-
+        
+        //variables disponibles en todo el sistema. 
+        $this->set('loggedInId', AuthComponent::user('id'));
+        $this->set('loggedInUserName', AuthComponent::user('username'));
+        $this->set('loggedInEmail', AuthComponent::user('email'));
+        $this->set('loggedInRole', AuthComponent::user('role'));
+        $this->set('loggedInRazonSocial', AuthComponent::user('razon_social'));
+        $this->set('loggedInCuit', AuthComponent::user('cuit'));
+        
+        
         $guardar = array(
             'div' => false,
             'label' => 'Guardar',
@@ -59,9 +69,6 @@ class AppController extends Controller {
         $this->set('aceptar', $aceptar);
         $this->set('cancelar', $cancelar);
         
-        $this->set('rubros', $this->Rubro->options());
-        $this->set('unidades', $this->Unidad->options());
-        $this->set('condiciones', $this->Condicion->options());
         $this->set('provincias', $this->Provincia->options());
     }
 

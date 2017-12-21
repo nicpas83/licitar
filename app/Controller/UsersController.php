@@ -5,15 +5,15 @@ App::uses('AppController', 'Controller');
 
 class UsersController extends AppController {
 
-//    public function beforeFilter() {
-//        parent::beforeFilter();
-//        $this->Auth->allow('add', 'logout', 'mi_perfil');
-//    }
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('add', 'logout', 'mi_perfil');
+    }
 
     public function login() {
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
-                return $this->redirect(['controller' => 'pages', 'action' => 'display']);                
+                return $this->redirect(['controller' => 'pages', 'action' => 'display']);
             }
             $this->Flash->error(__('Error de usuario o contraseña.'));
         }
@@ -36,14 +36,30 @@ class UsersController extends AppController {
         $this->set('user', $this->User->findById($id));
     }
 
-    public function registro() {
+    public function registrar() {
         if ($this->request->is('post')) {
+//            debug($this->request->data);die;
+            
+            if ($this->request->data['User']['comprador'] == 1 && $this->request->data['User']['vendedor'] == 1) {
+                $this->request->data['User']['role'] = 3;
+            } elseif ($this->request->data['User']['vendedor'] == 1) {
+                $this->request->data['User']['role'] = 2;
+            } elseif ($this->request->data['User']['comprador'] == 1) {
+                $this->request->data['User']['role'] = 1;
+            }else{
+                return $this->Flash->error(__('Debe seleccionar un Tipo de Cuenta (o ambas).'));
+            }
+            unset($this->request->data['User']['comprador']);
+            unset($this->request->data['User']['vendedor']);
+            
+            
             $this->User->create();
             if ($this->User->save($this->request->data)) {
                 $this->Flash->success(__('El usuario fue creado correctamente. Ya puede ingresar al sistema.'), 'success');
                 return $this->redirect(array('action' => 'login'));
             }
-            $this->Flash->error(__('El usuario no pudo ser creado.'));
+
+            //$this->Flash->error(__('El usuario no pudo ser creado.'));
         }
     }
 
