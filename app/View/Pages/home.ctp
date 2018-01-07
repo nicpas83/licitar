@@ -1,4 +1,4 @@
-<div class="row">
+ <div class="row">
     <div class="col-lg-6">
         <div class="row justify-content-center banner-text">
             <div class="col-md-10 m-b-20">

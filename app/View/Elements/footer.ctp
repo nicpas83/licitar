@@ -43,7 +43,7 @@
 <!-- Steps  -->
 <?php echo $this->Html->script('/assets/plugins/wizard/jquery.steps.min') ?>
 <!-- Moment Parse, validate, manipulate, and display dates and times in JavaScript.  -->
-<?php echo $this->Html->script('/assets/plugins/moment/min/moment.min') ?>
+<?php echo $this->Html->script('/assets/plugins/moment/min/moment-with-locales.min') ?>
 <!-- Validate  -->
 <?php echo $this->Html->script('/assets/plugins/wizard/jquery.validate.min') ?>
 <!-- Sweet-Alert  -->

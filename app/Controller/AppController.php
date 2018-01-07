@@ -3,15 +3,17 @@
 App::uses('Controller', 'Controller');
 
 class AppController extends Controller {
+
     /** Modelos que estarán disponibles en todos los controladores. */
-    var $uses = array('Rubro','Provincia','Unidad', 'Condicion');
+    var $uses = array('Rubro', 'Provincia', 'Unidad', 'Condicion');
+    Public $phpNow;
     
     public $components = array(
         'Flash',
         'Session',
         'Auth' => array(
             'loginRedirect' => array(
-                'controller' => 'pages'    
+                'controller' => 'pages'
             ),
             'logoutRedirect' => array(
                 'controller' => 'pages',
@@ -25,17 +27,18 @@ class AppController extends Controller {
             )
         )
     );
-    
-    public function fecha($fecha){
-        return $fecha+1;
-    }
-    
 
-    public function beforeFilter() {        
+    public function fecha($fecha) {
+        return $fecha + 1;
+    }
+
+    public function beforeFilter() {
+        $this->phpNow =  (new DateTime())->format('Y-m-d'); 
+
         // permitimos accion display y registrar (sin login).
-        $this->Auth->allow('display','registrar');   
+        $this->Auth->allow('display', 'registrar');
         $this->Auth->authError = __('Para ingresar debes estar loggeado.');
-        
+
         //variables disponibles en todo el sistema. 
         $this->set('loggedInId', AuthComponent::user('id'));
         $this->set('loggedInUserName', AuthComponent::user('username'));
@@ -43,8 +46,9 @@ class AppController extends Controller {
         $this->set('loggedInRole', AuthComponent::user('role'));
         $this->set('loggedInRazonSocial', AuthComponent::user('razon_social'));
         $this->set('loggedInCuit', AuthComponent::user('cuit'));
+//        $this->set('phpNow', $this->phpNow->format('Y-m-d'));
         
-        
+
         $guardar = array(
             'div' => false,
             'label' => 'Guardar',
@@ -63,15 +67,13 @@ class AppController extends Controller {
         $cancelar = array(
             'class' => 'btn btn-info pull-right',
         );
-        
+
         $this->set('guardar', $guardar);
         $this->set('buscar', $buscar);
         $this->set('aceptar', $aceptar);
         $this->set('cancelar', $cancelar);
-        
+
         $this->set('provincias', $this->Provincia->options());
     }
-
-    
 
 }

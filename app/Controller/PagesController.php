@@ -52,13 +52,13 @@ class PagesController extends AppController {
             throw new NotFoundException();
         }
         
-        $this->autoRender = false;
-        
-        if($this->Session->check('Auth.User')){ 
-            $this->render('Procesos/index');
-        }else{
-            $this->render('home');
-        }
+//        $this->autoRender = false;
+//        
+//        if($this->Session->check('Auth.User')){ 
+//            $this->redirect(array('controller'=>'procesos','action'=>'index'));
+//        }else{
+//            $this->render('home');
+//        }
         
     }
 

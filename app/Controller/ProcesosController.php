@@ -6,22 +6,37 @@ App::uses('AppController', 'Controller');
 
 class ProcesosController extends AppController {
 
-    public function index(){
-        
+    public function index() {
+        $procesos = $this->Proceso->procesosActivos($this->phpNow);
+        $this->set('rubros', $procesos['rubros']);
+        $this->set('compradores', $procesos['compradores']);
+        $this->set('procesos', $procesos['procesos']);
     }
-    public function mis_procesos() {
-        if($this->Auth->user('role') == 1){
-            $procesos = $this->Proceso->misProcesosActivos($this->Auth->user('id'));
-            $this->set('indicadores', $procesos['Indicadores']);
-            $this->set('procesos',$procesos['Procesos']);
-            $this->render('comprador_index');
+
+    public function ver($id) {
+        $rubros = $this->Rubro->options();
+        $proceso = $this->Proceso->find('all',[
+            'conditions' => ['Proceso.id' => $id]
+        ]);
         
-            
-        }elseif($this->Auth->user('role') == 2){
-            $this->set('procesos', $this->Proceso->find('all', ['conditions' => ['user_id' => $this->Auth->user('id')]]));
-            $this->render('vendedor_index');
+        foreach($proceso[0]['Item'] as $key => $item){
+            $proceso[0]['Item'][$key]['rubro'] = $rubros[$item['rubro_id']];
         }
         
+        //valido que por URL solo se pueda acceder a procesos activos.
+        if ($proceso[0]['Proceso']['estado'] == 1) {
+            $this->set('proceso', $proceso[0]['Proceso']);
+            $this->set('items', $proceso[0]['Item']);
+        } else {
+            $this->flash(__("El proceso al que intenta acceder no es un proceso activo."), array("action" => "index"));
+            //$this->Flash->error('El proceso al que intenta acceder no es un proceso activo.');
+        }
+    }
+
+    public function mis_procesos() {
+        $procesos = $this->Proceso->misProcesosActivos($this->Auth->user('id'));
+        $this->set('indicadores', $procesos['Indicadores']);
+        $this->set('procesos', $procesos['Procesos']);
     }
 
     public function nuevo() {
@@ -68,22 +83,6 @@ class ProcesosController extends AppController {
             } else {
                 $this->Flash->error(__('Error al guardar el registro.'));
             }
-        }
-    }
-
-    public function ver($id) {
-        $this->Proceso->unbindModel(array('hasMany' => array('Item')));
-        $proceso = $this->Proceso->find('first', ['conditions' => ['id' => $id]]);
-        $this->Proceso->Item->unbindModel(array('belongsTo' => array('Proceso')));
-        $items = $this->Proceso->Item->find('all', ['conditions' => ['Item.proceso_id' => $id]]);
-
-        //valido que por URL solo se pueda acceder a procesos activos.
-        if ($proceso['Proceso']['estado'] == 1) {
-            $this->set('proceso', $proceso['Proceso']);
-            $this->set('items', $items);
-        } else {
-            $this->flash(__("El proceso al que intenta acceder no es un proceso activo."), array("action" => "index"));
-            //$this->Flash->error('El proceso al que intenta acceder no es un proceso activo.');
         }
     }
 

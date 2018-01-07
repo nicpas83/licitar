@@ -1,4 +1,4 @@
-<?php // debug($proceso);die;                 ?>
+<?php // debug($proceso);die;?>
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -73,11 +73,11 @@
                                 foreach ($items as $item) {
                                     ?>
                                     <tr>
-                                        <td><?php echo $item['Rubro']['nombre'] ?></td>
-                                        <td><?php echo $item['Item']['nombre'] ?></td>
-                                        <td><?php echo $item['Item']['cantidad'] ?></td>
-                                        <td><?php echo $item['Item']['unidad'] ?></td>
-                                        <td><?php echo $item['Item']['especificaciones'] ?></td>
+                                        <td><?php echo $item['rubro'] ?></td>
+                                        <td><?php echo $item['nombre'] ?></td>
+                                        <td><?php echo $item['cantidad'] ?></td>
+                                        <td><?php echo $item['unidad'] ?></td>
+                                        <td><?php echo $item['especificaciones'] ?></td>
                                         
                                         <td>
                                             

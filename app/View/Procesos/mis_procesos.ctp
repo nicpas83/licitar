@@ -12,7 +12,7 @@
                         <!-- Column -->
                         <div class="col p-r-0">
                             <h1 class="font-light"><?php echo $indicadores['q_procesos_activos'] ?></h1>
-                            <h6 class="text-muted">Procesos Activos</h6></div>
+                            <h6 class="text-muted">Activos</h6></div>
                         <!-- Column -->
                         <div class="col text-right align-self-center">
                             <div data-label="20%" class="css-bar m-b-0 css-bar-primary css-bar-20"><i class="mdi mdi-account-circle"></i></div>
@@ -28,7 +28,7 @@
                         <!-- Column -->
                         <div class="col p-r-0">
                             <h1 class="font-light">28</h1>
-                            <h6 class="text-muted">Con Inicio Próx 15 días</h6></div>
+                            <h6 class="text-muted">Próx 15 días</h6></div>
                         <!-- Column -->
                         <div class="col text-right align-self-center">
                             <div data-label="30%" class="css-bar m-b-0 css-bar-danger css-bar-20"><i class="mdi mdi-briefcase-check"></i></div>

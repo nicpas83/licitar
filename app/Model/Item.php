@@ -17,12 +17,11 @@ class Item extends AppModel {
             'foreignKey' => 'proceso_id',
             'dependent' => true
         ],
-        'Rubro' => [
-            'className' => 'Rubro',
-            'condition' => 'rubro_id = Rubro.id',
-            'fields' => 'nombre'
-        ]
+        
     ];
     
+    public function beforeFind($query){
+
+    }
 
 }

@@ -36,6 +36,8 @@
                     }
                 }
                 ?>
+<!--                        <li class="text-muted" id="time"></li>
+                        <li class="nav-devider"></li>-->
 
             </ul>
         </nav>
@@ -43,7 +45,7 @@
     </div>
     <!-- End Sidebar scroll-->
 </aside>
-
+<span style="display:none;" id="unixVal"><?php echo time(); ?></span>
 
 <!-- ============================================================== -->
 <!-- End Left Sidebar - style you can find in sidebar.scss  -->

@@ -6,6 +6,7 @@
     </head>
 
     <body class="fix-header fix-sidebar card-no-border">
+        <?php date_default_timezone_set('America/Argentina/Buenos_Aires');?>
         <!-- ============================================================== -->
         <!-- Preloader - style you can find in spinners.css -->
         <!-- ============================================================== -->
@@ -16,7 +17,7 @@
 
         <?php echo $this->element('header') ?>
         <?php echo $this->element('sidebar') ?>
-      
+
         <div class="page-wrapper">
             <div class="container-fluid">
                 <?php echo $this->Flash->render(); ?>
@@ -26,10 +27,8 @@
         <?php echo $this->element('footer') ?>
         <?php
 //        debug($this->params['action']); die;
-
         echo $this->Html->script('funciones');
         
-
         if (is_file(WWW_ROOT . 'js' . DS . $this->params['controller'] . '.js')) {
             echo $this->Html->script($this->params['controller']);
         }

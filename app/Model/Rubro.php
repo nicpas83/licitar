@@ -5,15 +5,22 @@ App::uses('AppModel', 'Model');
 class Rubro extends AppModel {
 
     public $useTable = 'rubros';
+    public $displayField = 'nombre';
     
+    /*public $belongsTo = array(
+        'Item' => [
+            'className' => 'Item',
+            'foreignKey' => 'rubro_id'
+        ]
+    );*/
     
     public function options() {
-        return $this->find('list', [
-                    'fields' => ['id', 'nombre'],
+        $result = $this->find('list', [
                     'conditions' => ['estado' => 1],
-                    'group' => ['nombre'],
                     'order' => ['nombre ASC']
         ]);
+        $arr = array('0'=>'')+$result;
+        return $arr;
     }
     
 }

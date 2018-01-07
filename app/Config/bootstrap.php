@@ -52,7 +52,7 @@ Inflector::rules('singular', array(
         'productos' => 'Producto',
     ),
     'uninflected' => array()
-    )
+        )
 );
 
 Inflector::rules('plural', array(
@@ -63,7 +63,7 @@ Inflector::rules('plural', array(
         'producto' => 'Productos',
     ),
     'uninflected' => array()
-    )
+        )
 );
 /**
  * Plugins need to be loaded manually, you can either load them one by one or all of them in a single call
@@ -115,3 +115,15 @@ CakeLog::config('error', array(
     'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
     'file' => 'error',
 ));
+
+
+// include the Session Component to our application
+App::uses('SessionComponent', 'Controller/Component');
+// now create new SessionComponent instance
+$Session = new SessionComponent(new ComponentCollection());
+// check if the user logged in
+if ($Session->read('Auth.User')) {
+    Configure::write('Route.default', array('controller' => 'procesos', 'action' => 'index'));
+} else {
+    Configure::write('Route.default', array('controller' => 'pages', 'action' => 'display','home'));
+}
