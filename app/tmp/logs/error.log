@@ -36256,3 +36256,23 @@ Stack Trace:
 #8 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ProcesosController), Object(CakeRequest))
 #9 C:\xampp\htdocs\licitar\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #10 {main}
+2018-01-08 03:32:44 Error: [Error] Call to undefined function debuuug()
+Request URL: /procesos/nuevo
+Stack Trace:
+#0 C:\xampp\htdocs\licitar\lib\Cake\Event\CakeEventManager.php(241): Proceso->afterFind(Array, true)
+#1 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(3352): CakeEventManager->dispatch(Object(CakeEvent))
+#2 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(3042): Model->_filterResults(Array)
+#3 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(3010): Model->_readDataSource('first', Array)
+#4 C:\xampp\htdocs\licitar\app\Model\Proceso.php(113): Model->find('first', Array)
+#5 C:\xampp\htdocs\licitar\lib\Cake\Event\CakeEventManager.php(241): Proceso->beforeSave(Array)
+#6 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(1871): CakeEventManager->dispatch(Object(CakeEvent))
+#7 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(1752): Model->_doSave(Array, Array)
+#8 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(2513): Model->save(Array, Array)
+#9 C:\xampp\htdocs\licitar\lib\Cake\Model\Model.php(2285): Model->saveAssociated(Array, Array)
+#10 C:\xampp\htdocs\licitar\app\Controller\ProcesosController.php(80): Model->saveAll(Array)
+#11 [internal function]: ProcesosController->nuevo()
+#12 C:\xampp\htdocs\licitar\lib\Cake\Controller\Controller.php(491): ReflectionMethod->invokeArgs(Object(ProcesosController), Array)
+#13 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#14 C:\xampp\htdocs\licitar\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ProcesosController), Object(CakeRequest))
+#15 C:\xampp\htdocs\licitar\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}

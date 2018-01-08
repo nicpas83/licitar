@@ -33,7 +33,7 @@ class Proceso extends AppModel {
                 'visibilidad' => 1,
                 'Proceso.estado' => 1
             ],
-            'order' => ['Proceso.fecha_fin' => 'ASC'] 
+            'order' => ['Proceso.fecha_fin' => 'ASC']
         ));
 //        debug($result);die;    
         foreach ($result as $key => $value) {
@@ -45,7 +45,7 @@ class Proceso extends AppModel {
             $procesos[$key]['q_items'] = count($value['Item']);
             $procesos[$key]['q_unidades'] = array_sum(array_column($value['Item'], 'cantidad'));
             $procesos[$key]['fecha_fin'] = $value['Proceso']['fecha_fin'];
-            
+
             /* FILTROS DE BUSQUEDA */
             //listado compradores con proceso activo
             $compradores[$value['User']['id']] = $value['User']['razon_social'];
@@ -93,14 +93,18 @@ class Proceso extends AppModel {
         //Agrego el nombre del rubro para cada Item.
         $rubrosObj = new Rubro();
         $rubros = $rubrosObj->options();
-        foreach ($results as $keyPr => $result) {
-            $results[$keyPr]['Proceso']['fecha_fin'] = $this->dateDMY($result['Proceso']['fecha_fin']);
-            if (!empty($result['Item'])) {
-                foreach($result['Item'] as $keyIt => $item){
-                    $results[$keyPr]['Item'][$keyIt]['rubro'] = $rubros[$item['rubro_id']];
+        
+        if (isset($results[0]['Proceso'])) {
+            foreach ($results as $keyPr => $result) {
+                $results[$keyPr]['Proceso']['fecha_fin'] = $this->dateDMY($result['Proceso']['fecha_fin']);
+                if (!empty($result['Item'])) {
+                    foreach ($result['Item'] as $keyIt => $item) {
+                        $results[$keyPr]['Item'][$keyIt]['rubro'] = $rubros[$item['rubro_id']];
+                    }
                 }
             }
         }
+
         return $results;
     }
 
