@@ -16,6 +16,7 @@
                 <?php echo $this->Form->create(); ?>
                 <?php echo $this->Form->input('comprador', ['type' => 'select', 'options' => $compradores, 'class' => 'form-control select2', 'data-width' => "100%", 'label' => false, 'div' => false]); ?>
                 <?php echo $this->Form->input('rubro', ['type' => 'select', 'options' => $rubros, 'class' => 'form-control select2', 'data-width' => "100%", 'label' => false, 'div' => false]); ?>
+                <?php echo $this->Form->button('Buscar', ['class' => 'btn btn-info', 'div' => false]);?>
                 <?php echo $this->Form->end(); ?>
             </div>
         </div>    
@@ -32,7 +33,6 @@
                             <tr>
                                 <th>Comprador</th>
                                 <th>Referencia</th>
-                                <th>Proceso Nro</th>
                                 <th>Items</th>
                                 <th>Unidades</th>
                                 <th>Cierra el</th>
@@ -43,7 +43,6 @@
                                 <tr>
                                     <td><?php echo $proceso['comprador'] ?></td>
                                     <td><a href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'ver',$proceso['proceso_id']]) ?>"><?php echo $proceso['referencia'] ?></a></td>
-                                    <td><?php echo $proceso['proceso_nro'] ?></td>
                                     <td><?php echo $proceso['q_items'] ?></td>
                                     <td><?php echo $proceso['q_unidades'] ?></td>
                                     <td><?php echo $proceso['fecha_fin'] ?></td>

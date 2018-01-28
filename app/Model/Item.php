@@ -20,8 +20,5 @@ class Item extends AppModel {
         
     ];
     
-    public function beforeFind($query){
-
-    }
 
 }

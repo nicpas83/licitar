@@ -58,15 +58,15 @@
                                 <ul class="icheck-list">
                                     <li>
                                         <?php echo $this->Form->input('excluyente_factura', ['type' => 'checkbox', 'class' => 'form-control check', 'data-checkbox' => 'icheckbox_flat-yellow', 'div' => false, 'label' => false]) ?>
-                                        <label for="flat-checkbox-1">Factura A</label>
+                                        <label for="flat-checkbox-1">Que el Proveedor emita Factura A.</label>
                                     </li>
                                     <li>
                                         <?php echo $this->Form->input('excluyente_gestion_envio', ['type' => 'checkbox', 'class' => 'form-control check', 'data-checkbox' => 'icheckbox_flat-yellow', 'div' => false, 'label' => false]) ?>
-                                        <label for="flat-checkbox-2">Gestión del Envío por cuenta del Proveedor</label>
+                                        <label for="flat-checkbox-2">Que el proveedor gestione el envío.</label>
                                     </li>
                                     <li>
-                                        <?php echo $this->Form->input('excluyente_costo_envio', ['type' => 'checkbox', 'class' => 'form-control check', 'data-checkbox' => 'icheckbox_flat-yellow', 'div' => false, 'label' => false]) ?>
-                                        <label for="flat-checkbox-2">Costo de Envío incluído en el precio</label>
+                                        <?php echo $this->Form->input('excluyente_oferta_completa', ['type' => 'checkbox', 'class' => 'form-control check', 'data-checkbox' => 'icheckbox_flat-yellow', 'div' => false, 'label' => false]) ?>
+                                        <label for="flat-checkbox-2">Que el Proveedor oferte en todos los Items.</label>
                                     </li>
                                 </ul>
                                 

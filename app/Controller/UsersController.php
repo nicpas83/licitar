@@ -38,8 +38,6 @@ class UsersController extends AppController {
 
     public function registrar() {
         if ($this->request->is('post')) {
-//            debug($this->request->data);die;
-            
             if ($this->request->data['User']['comprador'] == 1 && $this->request->data['User']['vendedor'] == 1) {
                 $this->request->data['User']['role'] = 3;
             } elseif ($this->request->data['User']['vendedor'] == 1) {
@@ -52,13 +50,11 @@ class UsersController extends AppController {
             unset($this->request->data['User']['comprador']);
             unset($this->request->data['User']['vendedor']);
             
-            
             $this->User->create();
             if ($this->User->save($this->request->data)) {
                 $this->Flash->success(__('El usuario fue creado correctamente. Ya puede ingresar al sistema.'), 'success');
                 return $this->redirect(array('action' => 'login'));
             }
-
             //$this->Flash->error(__('El usuario no pudo ser creado.'));
         }
     }

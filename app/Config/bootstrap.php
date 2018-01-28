@@ -50,6 +50,8 @@ Inflector::rules('singular', array(
         'procesos' => 'Proceso',
         'rubros' => 'Rubro',
         'productos' => 'Producto',
+        'participaciones' => 'Participacion',
+        'ofertas' => 'Oferta',
     ),
     'uninflected' => array()
         )
@@ -61,6 +63,8 @@ Inflector::rules('plural', array(
         'proceso' => 'Procesos',
         'rubro' => 'Rubros',
         'producto' => 'Productos',
+        'participacion' => 'Participaciones',
+        'oferta' => 'Ofertas',
     ),
     'uninflected' => array()
         )

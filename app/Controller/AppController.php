@@ -7,7 +7,6 @@ class AppController extends Controller {
     /** Modelos que estarán disponibles en todos los controladores. */
     var $uses = array('Rubro', 'Provincia', 'Unidad', 'Condicion');
     Public $phpNow;
-    
     public $components = array(
         'Flash',
         'Session',
@@ -33,13 +32,17 @@ class AppController extends Controller {
     }
 
     public function beforeFilter() {
-        $this->phpNow =  (new DateTime())->format('Y-m-d'); 
+        $this->phpNow = (new DateTime())->format('Y-m-d');
 
         // permitimos accion display y registrar (sin login).
         $this->Auth->allow('display', 'registrar');
         $this->Auth->authError = __('Para ingresar debes estar loggeado.');
 
-        //variables disponibles en todo el sistema. 
+        $loggedInId = AuthComponent::user('id');
+
+//        debug($loggedInId);die;
+
+        //variables disponibles en las vistas. 
         $this->set('loggedInId', AuthComponent::user('id'));
         $this->set('loggedInUserName', AuthComponent::user('username'));
         $this->set('loggedInEmail', AuthComponent::user('email'));
@@ -47,7 +50,7 @@ class AppController extends Controller {
         $this->set('loggedInRazonSocial', AuthComponent::user('razon_social'));
         $this->set('loggedInCuit', AuthComponent::user('cuit'));
 //        $this->set('phpNow', $this->phpNow->format('Y-m-d'));
-        
+
 
         $guardar = array(
             'div' => false,
