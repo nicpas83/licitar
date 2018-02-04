@@ -18,7 +18,7 @@
                         </li>
                         <li class="nav-devider"></li>        
                         <li>
-                            <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'nuevo']) ?>" aria-expanded="false"><i class="mdi mdi-cart-outline"></i><span class="hide-menu">Nuevo Proceso</span></a>
+                            <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'add']) ?>" aria-expanded="false"><i class="mdi mdi-cart-outline"></i><span class="hide-menu">Nuevo Proceso</span></a>
                         </li>
                         <li class="nav-devider"></li>
 

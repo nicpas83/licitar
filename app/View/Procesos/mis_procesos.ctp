@@ -1,4 +1,4 @@
-<?php // debug($procesos);die;  ?>
+<?php // debug($procesos);die;    ?>
 <div class="row">
     <!-- Column -->
     <div class="col-lg-12">
@@ -92,7 +92,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php 
+                            <?php
                             if (!empty($procesos)) {
 
                                 foreach ($procesos as $proceso) {
@@ -105,9 +105,9 @@
                                         <td></td>
                                         <td><?php echo $proceso['fecha_fin'] ?></td>
                                         <td>
-                                            <a href="<?php echo $this->Html->url(['controller'=>'procesos','action'=>'eliminar',$proceso['id']]) ?>" title="Eliminar" class="btn btn-info fa fa-trash-o pull-right"></a>
-                                            <a href="<?php echo $this->Html->url(['controller'=>'procesos','action'=>'editar',$proceso['id']]) ?>" title="Editar" class="btn btn-info fa fa-edit pull-right"></a>
-                                            <a href="<?php echo $this->Html->url(['controller'=>'procesos','action'=>'ver',$proceso['id']]) ?>" title="Ver" class="btn btn-info fa fa-search-plus pull-right"></a>
+                                            <?php echo $this->Form->postLink('', array('action' => 'delete', $proceso['id']), $deleteBtn); ?>
+                                            <?php echo $this->Html->link('', array('action' => 'view', $proceso['id']), $viewBtn); ?>
+                                            <?php echo $this->Html->link('', array('action' => 'edit', $proceso['id']), $editBtn); ?>
                                         </td>
                                     </tr>
                                     <?php

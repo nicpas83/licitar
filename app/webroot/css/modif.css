@@ -1,12 +1,51 @@
- /*Make Select2 boxes match Bootstrap3 heights:*/ 
+/*Make Select2 boxes match Bootstrap3 heights:*/ 
 .select2-selection__rendered {
-  line-height: 32px !important;
+    line-height: 32px !important;
 }
 
 .select2-selection {
-  height: 36px !important;
+    height: 36px !important;
 }
 
 .error-message{
     color:#FF0000;
 }
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #2c2b2e;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400
+}
+h1 {
+    line-height: 15px;
+    font-size: 18px;
+}
+h2 {
+    line-height: 28px;
+    font-size: 14px
+}
+h3 {
+    line-height: 30px;
+    font-size: 21px
+}
+h4 {
+    line-height: 22px;
+    font-size: 18px
+}
+h5 {
+    line-height: 18px;
+    font-size: 16px;
+    font-weight: 400
+}
+h6 {
+    line-height: 16px;
+    font-size: 14px;
+    font-weight: 400
+}
+

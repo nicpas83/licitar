@@ -8,6 +8,7 @@ class AppController extends Controller {
     var $uses = array('Rubro', 'Provincia', 'Unidad', 'Condicion');
     Public $phpNow;
     public $components = array(
+//        'Security',
         'Flash',
         'Session',
         'Auth' => array(
@@ -41,7 +42,6 @@ class AppController extends Controller {
         $loggedInId = AuthComponent::user('id');
 
 //        debug($loggedInId);die;
-
         //variables disponibles en las vistas. 
         $this->set('loggedInId', AuthComponent::user('id'));
         $this->set('loggedInUserName', AuthComponent::user('username'));
@@ -52,6 +52,23 @@ class AppController extends Controller {
 //        $this->set('phpNow', $this->phpNow->format('Y-m-d'));
 
 
+
+        $delete = array(
+            'div' => false,
+            'title' => 'Eliminar',
+            'class' => 'btn btn-info fa fa-trash-o pull-right',
+            'confirm' => 'Está seguro que desea eliminar?',
+        );
+        $edit = array(
+            'div' => false,
+            'title' => 'Eliminar',
+            'class' => 'btn btn-info fa fa-edit pull-right',
+        );
+        $view = array(
+            'div' => false,
+            'title' => 'Eliminar',
+            'class' => 'btn btn-info fa fa-search-plus pull-right',
+        );
         $guardar = array(
             'div' => false,
             'label' => 'Guardar',
@@ -71,6 +88,9 @@ class AppController extends Controller {
             'class' => 'btn btn-info pull-right',
         );
 
+        $this->set('deleteBtn', $delete);
+        $this->set('editBtn', $edit);
+        $this->set('viewBtn', $view);
         $this->set('guardar', $guardar);
         $this->set('buscar', $buscar);
         $this->set('aceptar', $aceptar);

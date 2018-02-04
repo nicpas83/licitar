@@ -1,11 +1,33 @@
-<?php // debug($condiciones);die; ?>
+<?php // debug($condiciones);die;       ?>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-block">
-                <div class="ribbon-wrapper card">
-                    <div class="ribbon ribbon-warning">Nuevo Proceso de Compra</div>
-                    <p class="ribbon-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel tellus vulputate risus finibus tristique. In ultrices tempor enim et vestibulum. Quisque in lacus nec nisl rutrum porttitor. Aliquam non turpis urna. Fusce placerat mi accumsan viverra scelerisque.</span> </p>                    
+                <div id="accordion2" class="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingOne">
+                            <h1>Nuevo Proceso de Compra</h1>
+                        </div>
+                        <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true" style="">
+                            <div class="card-block">
+                                <h2 class="text-justify"> 
+                                    La fecha de fin que elijas para tu proceso será el día donde 
+                                    podrás ver los datos del proveedor que resultó ganador del proceso.
+                                    <br/>
+                                    El proveedor que resulte ganador es el que menor Costo Total haya ofrecido.
+                                    En los casos donde haya algún otro provedor que haya mejorado la oferta en 
+                                    algún Ítem de tu proceso, también te mostraremos sus datos. 
+                                    <br/>
+                                    Será tu elección cerrar la negociación completa con el proveedor ganador o, 
+                                    si éste acepta mantenerte el resto de la oferta, podrás comprar ese Item al 
+                                    otro proveedor. 
+                                </h2>
+                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapse1" aria-expanded="true" aria-controls="collapseOne" class="btn btn-sm btn-success">
+                                    Entendido
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -48,7 +70,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Comenta cualquier detalle que consideres relevante.</label>
-                            <?php echo $this->Form->input('detalles', ['type' => 'textarea', 'class' => 'form-control', 'div' => false, 'label' => false]) ?>
+                            <?php echo $this->Form->input('detalles', ['type' => 'textarea', 'rows' => '4', 'class' => 'form-control', 'div' => false, 'label' => false]) ?>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -69,10 +91,10 @@
                                         <label for="flat-checkbox-2">Que el Proveedor oferte en todos los Items.</label>
                                     </li>
                                 </ul>
-                                
+
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
 
                 <h4 class="card-title">3. Agrega los Productos o Servicios que necesites.</h4>
@@ -119,7 +141,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group pull-right">
-                            <button id="addItem" type="button" class="btn btn-info">Agregar</button>
+                            <button id="addItem" type="button" class="btn btn-info">Agregar Item</button>
                         </div>
                     </div>
                 </div>
@@ -141,8 +163,6 @@
                     <div class="col-sm-12">
                         <div class="form-group pull-right">
                             <?php echo $this->Form->button('Finalizar', ['class' => 'btn btn-info', 'div' => false]); ?>
-                            <!--<button id="Finalizar" type="button" class="btn btn-info">Finalizar</button>-->
-                            <button type="button" class="btn btn-info">Guardar Borrador</button>
                         </div>
                     </div>
                 </div>

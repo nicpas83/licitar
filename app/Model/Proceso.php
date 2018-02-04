@@ -16,7 +16,8 @@ class Proceso extends AppModel {
     public $hasMany = [
         'Item' => [
             'className' => 'Item',
-            'foreignKey' => 'proceso_id'
+            'foreignKey' => 'proceso_id',
+            'dependent' => true
         ],
         'Participacion' => [
             'className' => 'Participacion',
@@ -164,7 +165,8 @@ class Proceso extends AppModel {
         $result = $this->find('all', [
             'conditions' => ['user_id' => $user_id, 'Proceso.estado' => 1]
         ]);
-
+        
+        //Armo un array sólo con los datos necesarios para la vista.
         foreach ($result as $key => $val) {
             $q_items = $q_unidades = 0;
             $procesos['Procesos'][$key]['id'] = $val['Proceso']['id'];

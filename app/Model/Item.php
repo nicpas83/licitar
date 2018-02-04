@@ -17,8 +17,6 @@ class Item extends AppModel {
             'foreignKey' => 'proceso_id',
             'dependent' => true
         ],
-        
     ];
-    
 
 }
