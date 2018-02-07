@@ -27,29 +27,37 @@ class ProcesosController extends AppController {
     }
 
     public function edit($id = null) {
+
+        $proceso = $this->Proceso->findByIdAndUserId($id, $this->Auth->user('id'));
+        //valido que por URL solo se pueda acceder a procesos activos y propios.
+        if ($proceso && $proceso['Proceso']['estado'] == 1) {
+            $this->set('rubros', $this->Rubro->options());
+            $this->set('unidades', $this->Unidad->options());
+            $this->set('condiciones', [
+                'Contado' => 'Contado',
+                '30 dias' => '30 dias',
+                '30-60 dias' => '30-60 dias',
+                '30-60-90 dias' => '30-60-90 dias',
+            ]);
+
+            $this->set('proceso', $proceso['Proceso']);
+            $this->set('items', $proceso['Item']);
+        } else {
+            $this->Flash->error('El proceso al que intenta acceder no es válido.');
+            return $this->redirect(array('controller' => 'procesos', 'action' => 'mis_procesos'));
+        }
+
+
         if ($this->request->is('post')) {
-//            debug($this->request->data);die;
             //actualizo proceso   
             if ($this->Proceso->saveAll($this->request->data)) {
                 $this->Flash->success('El Proceso fue editado con éxio.');
                 return $this->redirect(array('controller' => 'pages', 'action' => 'display'));
             } else {
-                $this->Flash->error(__('Error al grabar el Proceso.'));
+                $this->Flash->error('Error al grabar el Proceso.');
+                return $this->redirect(array('controller' => 'pages', 'action' => 'display'));
             }
         }
-        $proceso = $this->Proceso->findById($id);
-
-        $this->set('rubros', $this->Rubro->options());
-        $this->set('unidades', $this->Unidad->options());
-        $this->set('condiciones', [
-            'Contado' => 'Contado',
-            '30 dias' => '30 dias',
-            '30-60 dias' => '30-60 dias',
-            '30-60-90 dias' => '30-60-90 dias',
-        ]);
-
-        $this->set('proceso', $proceso['Proceso']);
-        $this->set('items', $proceso['Item']);
     }
 
     public function delete($id) {

@@ -30,6 +30,11 @@
 
 <!-- You can change the theme colors from here -->
 <?php echo $this->Html->css('/css/colors/blue') ?>
+
+
+<link href="https://fonts.googleapis.com/css?family=Audiowide|Encode+Sans+Expanded|Rammetto+One|Special+Elite" rel="stylesheet">
+
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>

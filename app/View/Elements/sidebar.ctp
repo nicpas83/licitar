@@ -6,7 +6,7 @@
     <div class="scroll-sidebar">
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
-            <ul id="sidebarnav">
+            <ul id="sidebarnav" style="font-family: 'Audiowide', cursive;">
                 <li class="nav-small-cap">MENU</li>
                 <?php
                 if ($this->Session->check('Auth.User')) {

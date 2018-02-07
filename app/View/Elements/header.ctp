@@ -13,20 +13,17 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="<?php echo $this->Html->url(['controller' => 'pages']) ?>">
                     <!-- Logo icon -->
-                    <b>
-                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                        <!-- Dark Logo icon -->
-                        <?php echo $this->Html->image('/assets/images/logo-icon.png', ['class' => 'dark-logo', 'alt' => 'homepage']) ?>
-                        <!-- Light Logo icon -->
-                        <?php echo $this->Html->image('/assets/images/logo-light-icon.png', ['class' => 'light-logo', 'alt' => 'homepage']) ?> 
-                    </b>
-                    <!--End Logo icon -->
-                    <!-- Logo text -->
-                    <span>
-                        <!-- dark Logo text -->
-                        <?php echo $this->Html->image('/assets/images/logo-text.png', ['class' => 'dark-logo', 'alt' => 'homepage']) ?>  
-                        <!-- Light Logo text -->    
-                        <?php echo $this->Html->image('/assets/images/logo-light-text.png', ['class' => 'light-logo', 'alt' => 'homepage']) ?>  
+                    <h1 style="font-family: 'Special Elite', cursive; font-size: 35px">
+                    
+                        <i class="icon icon-options-vertical"></i>
+                        wadaboo.
+                    
+                    </h1>
+
+                    <!-- dark Logo text -->
+                    <?php //echo $this->Html->image('/assets/images/logo-text.png', ['class' => 'dark-logo', 'alt' => 'homepage']) ?>  
+                    <!-- Light Logo text -->    
+                    <?php //echo $this->Html->image('/assets/images/logo-light-text.png', ['class' => 'light-logo', 'alt' => 'homepage']) ?>  
                 </a>
             </div>
             <!-- ============================================================== -->

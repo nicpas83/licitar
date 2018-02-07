@@ -61,12 +61,12 @@ class AppController extends Controller {
         );
         $edit = array(
             'div' => false,
-            'title' => 'Eliminar',
+            'title' => 'Editar',
             'class' => 'btn btn-info fa fa-edit pull-right',
         );
         $view = array(
             'div' => false,
-            'title' => 'Eliminar',
+            'title' => 'Ver',
             'class' => 'btn btn-info fa fa-search-plus pull-right',
         );
         $guardar = array(

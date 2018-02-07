@@ -18,7 +18,7 @@
         <?php echo $this->element('header') ?>
         <?php echo $this->element('sidebar') ?>
 
-        <div class="page-wrapper">
+        <div class="page-wrapper" style="">
             <div class="container-fluid">
                 <?php echo $this->Flash->render(); ?>
                 <?php echo $this->fetch('content') ?>

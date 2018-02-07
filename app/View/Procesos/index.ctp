@@ -42,7 +42,7 @@
                             <?php foreach ($procesos as $proceso) { ?>
                                 <tr>
                                     <td><?php echo $proceso['comprador'] ?></td>
-                                    <td><a href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'ver',$proceso['proceso_id']]) ?>"><?php echo $proceso['referencia'] ?></a></td>
+                                    <td><a href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'view',$proceso['proceso_id']]) ?>"><?php echo $proceso['referencia'] ?></a></td>
                                     <td><?php echo $proceso['q_items'] ?></td>
                                     <td><?php echo $proceso['q_unidades'] ?></td>
                                     <td><?php echo $proceso['fecha_fin'] ?></td>
