@@ -21,5 +21,12 @@ class AppModel extends Model {
             $this->controllerAction = $action;
         }
     }
+    
+    public function quitarClavesDelArray($array, $claves) {
+        foreach ($claves as $clave) {
+            unset($array[$clave]);
+        }
+        return $array;
+    }
 
 }

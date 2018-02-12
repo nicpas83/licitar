@@ -13,9 +13,9 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="<?php echo $this->Html->url(['controller' => 'pages']) ?>">
                     <!-- Logo icon -->
-                    <h1 style="font-family: 'Special Elite', cursive; font-size: 35px">
+                    <h1 style="font-size: 40px;">
                     
-                        <i class="icon icon-options-vertical"></i>
+                        <!--<i class="ti ti-announcement"></i>-->
                         wadaboo.
                     
                     </h1>

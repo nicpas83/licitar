@@ -30,7 +30,9 @@ function agregarItemListado()
     cantidades.push($('#ProcesoTmpCantidad').val());
     unidades.push($('#ProcesoTmpUnidad option:selected').text());
     especificaciones.push($('#ProcesoTmpEspecificaciones').val());
-
+    
+    console.log(rubros);
+    
     nuevoItem = "<tr id='item-" + key + "'>";
     nuevoItem += "<td class='index'>" + (key + 1) + "</td>";
     nuevoItem += "<td>" + rubrosTxt[key] + "</td>";
@@ -62,11 +64,21 @@ function limpiarTmpForm()
 function actualizarNumeracionTabla(tablaId)
 {
     $("#" + tablaId + " > tbody > tr").each(function (index) {
-        var x = $(this).find('.index').text(index+1);
+        var x = $(this).find('.index').text(index + 1);
     });
 }
 
 $(document).ready(function () {
+
+
+    $("#nuevoProceso").hide();
+    $("#aceptar").click(function () {
+        $("#mensajeInicio").html('<h1 class="text-center">¡Comprá en 3 simples pasos!</h1>');
+        $("#nuevoProceso").show();
+        $("h2.ribbon-content, #aceptar").hide();
+
+    });
+
 
     var hoy = moment().format('DD/MM/YYYY');
     var fin_subasta = moment().add(7, 'days').format('DD/MM/YYYY');
@@ -86,6 +98,7 @@ $(document).ready(function () {
         key = $('#items_proceso tr').length;
         if ($('#ProcesoTmpNombre').val()) {
             agregarItemListado();
+            agregarItemHidden();
             limpiarTmpForm();
         } else {
             console.log("error");

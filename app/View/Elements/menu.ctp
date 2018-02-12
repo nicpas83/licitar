@@ -21,9 +21,11 @@
                             <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'add']) ?>" aria-expanded="false"><i class="mdi mdi-cart-outline"></i><span class="hide-menu">Nuevo Proceso</span></a>
                         </li>
                         <li class="nav-devider"></li>
-
                         <li>
                             <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'mis_procesos']) ?>" aria-expanded="false"><i class="mdi mdi-table-edit"></i><span class="hide-menu">Mis Procesos</span></a>
+                        </li>
+                        <li>
+                            <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'participaciones', 'action' => 'index']) ?>" aria-expanded="false"><i class="mdi mdi-cash-multiple"></i><span class="hide-menu">Mis Participaciones</span></a>
                         </li>
                         <li class="nav-devider"></li>
                         <li>
@@ -36,8 +38,8 @@
                     }
                 }
                 ?>
-<!--                        <li class="text-muted" id="time"></li>
-                        <li class="nav-devider"></li>-->
+                <!--                        <li class="text-muted" id="time"></li>
+                                        <li class="nav-devider"></li>-->
 
             </ul>
         </nav>

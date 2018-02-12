@@ -39,7 +39,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($procesos as $proceso) { ?>
+                            <?php foreach ($participaciones as $proceso) { ?>
                                 <tr>
                                     <td><?php echo $proceso['comprador'] ?></td>
                                     <td><a href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'view',$proceso['proceso_id']]) ?>"><?php echo $proceso['referencia'] ?></a></td>

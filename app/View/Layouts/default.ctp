@@ -16,7 +16,7 @@
         </div>
 
         <?php echo $this->element('header') ?>
-        <?php echo $this->element('sidebar') ?>
+        <?php echo $this->element('menu') ?>
 
         <div class="page-wrapper" style="">
             <div class="container-fluid">

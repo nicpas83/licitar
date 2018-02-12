@@ -6,6 +6,11 @@ App::uses('AppController', 'Controller');
 
 class ParticipacionesController extends AppController {
 
-    
+    public function index() {
+        
+        $participaciones = $this->Participacion->misParticipacionesActivas($this->Auth->user('id'));
+        
+        $this->set('participaciones', $participaciones);
+    }
 
 }

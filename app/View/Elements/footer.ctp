@@ -32,31 +32,27 @@
 <?php echo $this->Html->script('/assets/plugins/select2/dist/js/select2.full.min') ?>
 <!--stickey kit -->
 <?php echo $this->Html->script('/assets/plugins/sticky-kit-master/dist/sticky-kit.min') ?>
-<!--Custom JavaScript -->
-<?php echo $this->Html->script('/js/custom') ?>
-
 <!-- Date Picker Plugin JavaScript -->
 <?php echo $this->Html->script('/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min') ?>
 <?php echo $this->Html->script('/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.es') ?>
 <!-- Clock Picker Plugin JavaScript -->
 <?php echo $this->Html->script('/assets/plugins/clockpicker/dist/bootstrap-clockpicker.min') ?>
-<!-- Steps  -->
-<?php echo $this->Html->script('/assets/plugins/wizard/jquery.steps.min') ?>
 <!-- Moment Parse, validate, manipulate, and display dates and times in JavaScript.  -->
 <?php echo $this->Html->script('/assets/plugins/moment/min/moment-with-locales.min') ?>
-<!-- Validate  -->
-<?php echo $this->Html->script('/assets/plugins/wizard/jquery.validate.min') ?>
 <!-- Sweet-Alert  -->
 <?php echo $this->Html->script('/assets/plugins/sweetalert/sweetalert.min') ?>
-<?php echo $this->Html->script('/assets/plugins/wizard/steps') ?>
 <!-- This is data table -->
 <?php echo $this->Html->script('/assets/plugins/datatables/jquery.dataTables.min') ?>
-
 <!-- Footable -->
 <?php echo $this->Html->script('/assets/plugins/footable/js/footable.all.min') ?>
 <?php echo $this->Html->script('/assets/plugins/bootstrap-select/bootstrap-select.min') ?>
 <!--FooTable init-->
 <?php echo $this->Html->script('footable-init') ?>
+
+<!--Custom JavaScript -->
+<?php echo $this->Html->script('/js/custom') ?>
+
+
 <!-- ============================================================== -->
 <!-- This page plugins -->
 <!-- ============================================================== -->

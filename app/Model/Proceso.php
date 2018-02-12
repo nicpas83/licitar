@@ -111,12 +111,6 @@ class Proceso extends AppModel {
         return $mensajes;
     }
 
-    public function quitarClavesDelArray($array, $claves) {
-        foreach ($claves as $clave) {
-            unset($array[$clave]);
-        }
-        return $array;
-    }
 
     public function procesosActivos($fechaHoy) {
         $data = $procesos = array();
@@ -187,6 +181,8 @@ class Proceso extends AppModel {
 
         return $procesos;
     }
+    
+    
 
     public function registrarParticipacion($proceso_id, $user_id) {
 
@@ -214,7 +210,7 @@ class Proceso extends AppModel {
     }
 
     public function decodeItems($items) {
-
+                
         $rubros = json_decode($items['rubros']);
         $nombres = json_decode($items['nombres']);
         $cantidades = json_decode($items['cantidades']);

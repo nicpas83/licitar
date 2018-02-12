@@ -33,10 +33,12 @@ class Oferta extends AppModel {
 
         $this->create();
         $result = $this->saveAll($data);
-       
+
         if ($result) {
             return true;
         }
     }
+
+    
 
 }
