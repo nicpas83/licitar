@@ -93,9 +93,9 @@
                         </thead>
                         <tbody>
                             <?php
-                            if (!empty($participaciones)) {
+                            if (!empty($procesos)) {
 
-                                foreach ($participaciones as $proceso) {
+                                foreach ($procesos as $proceso) {
                                     ?>
                                     <tr>
                                         <td><?php echo $proceso['proceso_nro'] ?></td>

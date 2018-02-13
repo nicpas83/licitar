@@ -13,7 +13,24 @@ class Oferta extends AppModel {
 //            'message' => 'El campo es obligatorio'
 //        )
     );
-    public $belongsTo = array('User', 'Participacion', 'Proceso');
+    public $belongsTo = array(
+        'Participacion' => [
+            'className' => 'Participacion',
+            'foreignKey' => 'participacion_id',
+            'dependent' => true
+        ],
+        'Proceso' => [
+            'className' => 'Proceso',
+            'foreignKey' => 'proceso_id',
+            'dependent' => true
+        ],
+        'Item' => [
+            'className' => 'Item',
+            'foreignKey' => 'item_id',
+            'dependent' => true
+        ],
+        
+    );
 
     public function registrarOferta($proceso_id, $user_id, $participacion_id, $oferta) {
         $data = array();
@@ -38,7 +55,10 @@ class Oferta extends AppModel {
             return true;
         }
     }
-
     
+    public function actualizarOferta($oferta){
+        
+        
+    }
 
 }

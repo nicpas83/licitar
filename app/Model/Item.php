@@ -11,6 +11,13 @@ class Item extends AppModel {
             'message' => 'El campo es obligatorio'
         )
     );
+    public $hasMany = [
+        'Oferta' => [
+            'className' => 'Oferta',
+            'foreignKey' => 'item_id',
+            'dependent' => true
+        ]
+    ];
     public $belongsTo = [
         'Proceso' => [
             'className' => 'Proceso',

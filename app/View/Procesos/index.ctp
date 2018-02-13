@@ -14,9 +14,8 @@
             <div class="card-block">
                 <h4 class="card-title">Filtros de búsqueda: </h4>
                 <?php echo $this->Form->create(); ?>
-                <?php echo $this->Form->input('comprador', ['type' => 'select', 'options' => $compradores, 'class' => 'form-control select2', 'data-width' => "100%", 'label' => false, 'div' => false]); ?>
                 <?php echo $this->Form->input('rubro', ['type' => 'select', 'options' => $rubros, 'class' => 'form-control select2', 'data-width' => "100%", 'label' => false, 'div' => false]); ?>
-                <?php echo $this->Form->button('Buscar', ['class' => 'btn btn-info', 'div' => false]);?>
+                <?php echo $this->Form->button('Buscar', $buscar);?>
                 <?php echo $this->Form->end(); ?>
             </div>
         </div>    
@@ -31,21 +30,21 @@
                     <table id="procesosIndex" class="table table-bordered table-striped" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>Comprador</th>
                                 <th>Referencia</th>
-                                <th>Items</th>
-                                <th>Unidades</th>
-                                <th>Cierra el</th>
+                                <th>Finaliza</th>
+                                <th>Cant Items</th>
+                                <th>Cant Unidades</th>
+                                <th>Condicion de Pago</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($participaciones as $proceso) { ?>
+                            <?php foreach ($procesos as $proceso) { ?>
                                 <tr>
-                                    <td><?php echo $proceso['comprador'] ?></td>
                                     <td><a href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'view',$proceso['proceso_id']]) ?>"><?php echo $proceso['referencia'] ?></a></td>
+                                    <td><?php echo $proceso['fecha_fin'] ?></td>
                                     <td><?php echo $proceso['q_items'] ?></td>
                                     <td><?php echo $proceso['q_unidades'] ?></td>
-                                    <td><?php echo $proceso['fecha_fin'] ?></td>
+                                    <td><?php echo $proceso['condicion_pago'] ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>

@@ -14,8 +14,9 @@ class Participacion extends AppModel {
     public $hasMany = [
         'Oferta' => [
             'className' => 'Oferta',
-            'foreignKey' => 'participacion_id'
-        ]
+            'foreignKey' => 'participacion_id',
+            'dependent' => true
+        ],
     ];
 
     public function grabarActualizar($data, $proceso_id, $user_id) {
@@ -60,24 +61,60 @@ class Participacion extends AppModel {
             ],
         ]);
 
-        if ($participaciones) {
-            foreach ($participaciones as $key => $participacion) {
-                $participaciones[$key]['Participacion']['referencia'] = $participacion['Proceso']['referencia'];
-                $participaciones[$key]['Participacion']['fecha_fin'] = $participacion['Proceso']['fecha_fin'];
-                $participaciones[$key]['Participacion']['detalles'] = $participacion['Proceso']['detalles'];
-                $participaciones[$key]['Participacion']['condicion_pago'] = $participacion['Proceso']['condicion_pago'];
-                $participaciones[$key]['Participacion']['q_items'] = 0;
-                $participaciones[$key]['Participacion']['total_oferta'] = 0;
+        if (!$participaciones) {
+            return false;
+        }
+        foreach ($participaciones as $key => $participacion) {
+            $participaciones[$key]['Participacion']['referencia'] = $participacion['Proceso']['referencia'];
+            $participaciones[$key]['Participacion']['fecha_fin'] = $participacion['Proceso']['fecha_fin'];
+            $participaciones[$key]['Participacion']['detalles'] = $participacion['Proceso']['detalles'];
+            $participaciones[$key]['Participacion']['condicion_pago'] = $participacion['Proceso']['condicion_pago'];
+            $participaciones[$key]['Participacion']['q_items'] = 0;
+            $participaciones[$key]['Participacion']['total_oferta'] = 0;
 
-                foreach ($participacion['Oferta'] as $oferta) {
-                    $participaciones[$key]['Participacion']['q_items'] ++;
-                    $participaciones[$key]['Participacion']['total_oferta'] += $oferta['valor_oferta'];
-                }
-                $participaciones[$key] = $this->quitarClavesDelArray($participaciones[$key], array('Oferta', 'Proceso'));
+            foreach ($participacion['Oferta'] as $oferta) {
+                $participaciones[$key]['Participacion']['q_items'] ++;
+                $participaciones[$key]['Participacion']['total_oferta'] += $oferta['valor_oferta'];
             }
+            $participaciones[$key] = $this->quitarClavesDelArray($participaciones[$key], array('Oferta', 'Proceso'));
         }
 
         return $participaciones;
+    }
+
+    public function miParticipacion($participacion_id, $user_id) {
+        //preparar array con los items del proceso y las ofertas que haya realizado el usuario        
+        $participacion = $this->find('first', [
+            'conditions' => [
+                'Participacion.id' => $participacion_id,
+                'Participacion.user_id' => $user_id,
+                'Participacion.estado_actual' => 1
+            ]
+        ]);
+        if (!$participacion) {
+            return false;
+        }
+        //obtengo los items ofertados.
+        $items = $this->Proceso->Item->find('all', [
+            'conditions' => [
+                'Item.id' => array_column($participacion['Oferta'], 'item_id'),
+            ],
+            'recursive' => -1
+        ]);
+
+        foreach ($participacion['Oferta'] as $key => $oferta) {
+
+            foreach ($items as $item) {
+                if ($oferta['item_id'] == $item['Item']['id']) {
+                    $participacion['Oferta'][$key]['item_nombre'] = $item['Item']['nombre'];
+                    $participacion['Oferta'][$key]['item_cantidad'] = $item['Item']['cantidad'];
+                    $participacion['Oferta'][$key]['item_unidad'] = $item['Item']['unidad'];
+                    $participacion['Oferta'][$key]['item_especificaciones'] = $item['Item']['especificaciones'];
+                    continue;
+                }
+            }
+        }
+        return $participacion;
     }
 
 }

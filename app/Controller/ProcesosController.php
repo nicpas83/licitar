@@ -7,14 +7,13 @@ App::uses('AppController', 'Controller');
 class ProcesosController extends AppController {
 
     public function index() {
-        $procesos = $this->Proceso->procesosActivos($this->phpNow);
+        $procesos = $this->Proceso->procesosActivos();
         $this->set('rubros', $procesos['rubros']);
         $this->set('compradores', $procesos['compradores']);
         $this->set('procesos', $procesos['procesos']);
     }
 
     public function view($id = null) {
-
         $proceso = $this->Proceso->verProcesoActivo($id, $this->Auth->user('id'));
         //valido que por URL solo se pueda acceder a procesos activos.
         if ($proceso && $proceso['Proceso']['estado'] == 1) {
@@ -49,6 +48,8 @@ class ProcesosController extends AppController {
 
 
         if ($this->request->is('post')) {
+            debug($this->request->data);
+            die;
             //actualizo proceso   
             if ($this->Proceso->saveAll($this->request->data)) {
                 $this->Flash->success('El Proceso fue editado con éxio.');
@@ -100,6 +101,11 @@ class ProcesosController extends AppController {
 
     public function mis_procesos() {
         $procesos = $this->Proceso->misProcesosActivos($this->Auth->user('id'));
+
+        if (!$procesos) {
+            $this->Flash->success('No tenés procesos publicados. Publicá uno!');
+            return $this->redirect(array('controller' => 'procesos', 'action' => 'add'));
+        }
         $this->set('indicadores', $procesos['Indicadores']);
         $this->set('procesos', $procesos['Procesos']);
     }

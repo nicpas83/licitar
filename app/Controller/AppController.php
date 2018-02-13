@@ -72,17 +72,17 @@ class AppController extends Controller {
         $guardar = array(
             'div' => false,
             'label' => 'Guardar',
-            'class' => 'btn btn-info pull-right',
+            'class' => 'btn btn-info pull-right m-t-5',
         );
         $buscar = array(
             'div' => false,
             'label' => 'Buscar',
-            'class' => 'btn btn-info pull-right',
+            'class' => 'btn btn-info pull-right m-t-5',
         );
         $aceptar = array(
             'div' => false,
             'label' => 'Aceptar',
-            'class' => 'btn btn-info pull-right',
+            'class' => 'btn btn-info pull-right m-t-5',
         );
         $cancelar = array(
             'class' => 'btn btn-info pull-right',

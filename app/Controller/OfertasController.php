@@ -14,10 +14,26 @@ class OfertasController extends AppController {
 
             if ($result) {
                 $this->Flash->success('La Oferta fue realizada con éxito.');
-                return $this->redirect(array('controller' => 'procesos', 'action' => 'mis_ofertas'));
+                return $this->redirect(array('controller' => 'participaciones', 'action' => 'index'));
             } else {
                 $this->Flash->error(__('Error al realizar la Oferta.'));
             }
+        }
+    }
+
+    public function edit() {
+        $this->autoRender = false;  // no tiene vista asociada. 
+        if ($this->request->is('post')) {
+
+            if ($this->Oferta->saveMany($this->request->data['Oferta'])) {
+                $this->Flash->success('Tu Oferta fue actuallizada con éxio.');
+                return $this->redirect(array('controller' => 'participaciones'));
+            } else {
+                $this->Flash->error('Error al actualizar tu Oferta.');
+                return $this->redirect(array('controller' => 'participaciones'));
+            }
+        } else {
+            return $this->redirect(array('controller' => 'procesos'));
         }
     }
 
@@ -33,7 +49,9 @@ class OfertasController extends AppController {
             'group' => ['proceso_id']
         ]);
         
-        debug($ofertas);die;
+        if(!$ofertas){
+            return false;
+        }
 
         foreach ($ofertas as $oferta) {
             array_push($procesos_ids, $oferta['Oferta']['proceso_id']);

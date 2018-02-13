@@ -111,29 +111,22 @@ class Proceso extends AppModel {
         return $mensajes;
     }
 
-
-    public function procesosActivos($fechaHoy) {
+    public function procesosActivos() {
         $data = $procesos = array();
         $compradores = array('0' => 'Compradores con procesos activos');
         $rubrosActivos = array('0' => 'Rubros con procesos activos');
-        $rubrosObj = new Rubro();
-        $rubros = $rubrosObj->options();
+        $rubros = (new Rubro())->options();
 
         $result = $this->find('all', array(
-            'conditions' => [
-                'fecha_fin >=' => $fechaHoy,
-                'visibilidad' => 1,
-                'Proceso.estado' => 1
-            ],
+            'conditions' => ['Proceso.estado' => 1],
             'order' => ['Proceso.fecha_fin' => 'ASC']
         ));
 //        debug($result);die;    
         foreach ($result as $key => $value) {
             //listado general.
             $procesos[$key]['proceso_id'] = $value['Proceso']['id'];
-            $procesos[$key]['comprador'] = $value['User']['username'];
             $procesos[$key]['referencia'] = $value['Proceso']['referencia'];
-            $procesos[$key]['proceso_nro'] = $value['Proceso']['proceso_nro'];
+            $procesos[$key]['condicion_pago'] = $value['Proceso']['condicion_pago'];
             $procesos[$key]['q_items'] = count($value['Item']);
             $procesos[$key]['q_unidades'] = array_sum(array_column($value['Item'], 'cantidad'));
             $procesos[$key]['fecha_fin'] = $value['Proceso']['fecha_fin'];
@@ -159,7 +152,10 @@ class Proceso extends AppModel {
         $result = $this->find('all', [
             'conditions' => ['user_id' => $user_id, 'Proceso.estado' => 1]
         ]);
-        
+        if(!$result){
+            return false;
+        }
+
         //Armo un array sólo con los datos necesarios para la vista.
         foreach ($result as $key => $val) {
             $q_items = $q_unidades = 0;
@@ -181,8 +177,6 @@ class Proceso extends AppModel {
 
         return $procesos;
     }
-    
-    
 
     public function registrarParticipacion($proceso_id, $user_id) {
 
@@ -210,7 +204,7 @@ class Proceso extends AppModel {
     }
 
     public function decodeItems($items) {
-                
+
         $rubros = json_decode($items['rubros']);
         $nombres = json_decode($items['nombres']);
         $cantidades = json_decode($items['cantidades']);
@@ -235,15 +229,15 @@ class Proceso extends AppModel {
         }
         return $data;
     }
-    
-    public function buscarUltimoProcesoUsuario($user_id){
+
+    public function buscarUltimoProcesoUsuario($user_id) {
         $ultimo_proceso = $this->find('first', array(
             'fields' => array('MAX(proceso_nro) AS nro'),
             'conditions' => array('user_id' => $user_id)
         ));
-        
+
         $nro = $ultimo_proceso[0]['nro'] == null ? 0 : $ultimo_proceso[0]['nro'];
-        
+
         return $nro;
     }
 
