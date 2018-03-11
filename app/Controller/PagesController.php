@@ -5,8 +5,8 @@
  * This file will render views from views/pages/
  * App::uses('AppController', 'Controller');
  */
-
 class PagesController extends AppController {
+
     /**
      * This controller does not use a model
      * @var array
@@ -22,6 +22,8 @@ class PagesController extends AppController {
      *   or MissingViewException in debug mode.
      */
     public function display() {
+        $this->layout = 'landing';
+
         $path = func_get_args();
         $count = count($path);
         if (!$count) {
@@ -51,15 +53,6 @@ class PagesController extends AppController {
             }
             throw new NotFoundException();
         }
-        
-//        $this->autoRender = false;
-//        
-//        if($this->Session->check('Auth.User')){ 
-//            $this->redirect(array('controller'=>'procesos','action'=>'index'));
-//        }else{
-//            $this->render('home');
-//        }
-        
     }
 
 }
