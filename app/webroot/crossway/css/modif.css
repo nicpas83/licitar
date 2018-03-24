@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Klavika';
-    src: url('/css/fonts/klavika/Klavika_Medium_Italic.otf') format("truetype");
+    src: url('../../css/fonts/klavika/Klavika_Medium_Italic.otf') format("truetype");
 }
 
 h1.logo {
@@ -10,6 +10,6 @@ h1.logo {
 }
 
 #intro {
-    background-image: url(/img/texturas/11948.jpg);
+    background-image: url(../../img/texturas/11948.jpg);
     color:#001f3f;
 }
