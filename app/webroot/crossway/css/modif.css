@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Klavika';
+    src: url('/css/fonts/klavika/Klavika_Medium_Italic.otf') format("truetype");
+}
+
+h1.logo {
+    font-family: 'Klavika';
+    font-size: 58px;
+    padding-top: 35px;
+}
+
+#intro {
+    background-image: url(/img/texturas/11948.jpg);
+    color:#001f3f;
+}

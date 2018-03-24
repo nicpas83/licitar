@@ -23,12 +23,12 @@
 <?php echo $this->Html->css('/assets/plugins/toast-master/css/jquery.toast') ?>
 <!-- Footable CSS -->
 <?php echo $this->Html->css('/assets/plugins/footable/css/footable.core') ?>
+<!-- You can change the theme colors from here -->
+<?php echo $this->Html->css('/css/colors/blue') ?>
 <!-- Custom CSS -->
 <?php echo $this->Html->css('/css/style') ?>
 <?php echo $this->Html->css('/css/modif') ?>
 
-<!-- You can change the theme colors from here -->
-<?php echo $this->Html->css('/css/colors/blue') ?>
 
 
 <link href="https://fonts.googleapis.com/css?family=Audiowide|Encode+Sans+Expanded|Rammetto+One|Special+Elite" rel="stylesheet">

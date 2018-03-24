@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <?php echo $this->Form->input('Seleccionar Categorías / Rubros de interés', ['name' => 'rubro', 'type' => 'select', 'options' => $rubros, 'class' => 'form-control select2 select2-multiple', 'multiple' => 'multiple', 'div' => false]); ?>                    
+                        <?php echo $this->Form->input('Seleccionar Categorías / Categorias de interés', ['name' => 'categoria', 'type' => 'select', 'options' => $categorias, 'class' => 'form-control select2 select2-multiple', 'multiple' => 'multiple', 'div' => false]); ?>                    
                     </div>
                 </div>
 

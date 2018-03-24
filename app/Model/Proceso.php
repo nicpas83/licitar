@@ -1,7 +1,7 @@
 <?php
 
 App::uses('AppModel', 'Model');
-App::uses('Rubro', 'Model');
+App::uses('Categoria', 'Model');
 
 class Proceso extends AppModel {
 
@@ -72,9 +72,6 @@ class Proceso extends AppModel {
         ];
         $ofertasDelProceso = $ofertas->find('all', $options);
 
-//        debug($ofertasDelProceso);die;
-
-
         foreach ($items as $key => $item) {
             foreach ($ofertasDelProceso as $oferta) {
                 if ($item['id'] == $oferta['Oferta']['item_id']) {
@@ -114,8 +111,8 @@ class Proceso extends AppModel {
     public function procesosActivos() {
         $data = $procesos = array();
         $compradores = array('0' => 'Compradores con procesos activos');
-        $rubrosActivos = array('0' => 'Rubros con procesos activos');
-        $rubros = (new Rubro())->options();
+        $categoriasActivas = array('0' => 'Categorias con procesos activos');
+        $categorias = (new Categoria())->options();
 
         $result = $this->find('all', array(
             'conditions' => ['Proceso.estado' => 1],
@@ -134,15 +131,15 @@ class Proceso extends AppModel {
             /* FILTROS DE BUSQUEDA */
             //listado compradores con proceso activo
             $compradores[$value['User']['id']] = $value['User']['username'];
-            //listado rubros en procesos activos (incluye items)
+            //listado categorias en procesos activos (incluye items)
             foreach ($value['Item'] as $item) {
-                $rubrosActivos[$item['rubro_id']] = $item['rubro'];
+                $categoriasActivas[$item['categoria_id']] = $item['categoria'];
             }
         }
         //compilo 3 listados
         $data['procesos'] = $procesos;
         $data['compradores'] = array_unique($compradores);
-        $data['rubros'] = $rubrosActivos;
+        $data['categorias'] = $categoriasActivas;
 
         return $data;
     }
@@ -205,15 +202,15 @@ class Proceso extends AppModel {
 
     public function decodeItems($items) {
 
-        $rubros = json_decode($items['rubros']);
+        $categorias = json_decode($items['categorias']);
         $nombres = json_decode($items['nombres']);
         $cantidades = json_decode($items['cantidades']);
         $unidades = json_decode($items['unidades']);
         $especificaciones = json_decode($items['especificaciones']);
         $data = array();
-
-        foreach ($rubros as $key => $val) {
-            $data[$key]['rubro_id'] = $val;
+        
+        foreach ($categorias as $key => $val) {
+            $data[$key]['categoria_id'] = $val;
         }
         foreach ($nombres as $key => $val) {
             $data[$key]['nombre'] = $val;
@@ -225,6 +222,7 @@ class Proceso extends AppModel {
             $data[$key]['unidad'] = $val;
         }
         foreach ($especificaciones as $key => $val) {
+            
             $data[$key]['especificaciones'] = $val;
         }
         return $data;
@@ -243,16 +241,16 @@ class Proceso extends AppModel {
 
     public function afterFind($results, $primary = false) {
 
-        //Agrego el nombre del rubro para cada Item.
-        $rubrosObj = new Rubro();
-        $rubros = $rubrosObj->options();
+        //Agrego el nombre del categoria para cada Item.
+        $categoriasObj = new Categoria();
+        $categorias = $categoriasObj->options();
 
         if (isset($results[0]['Proceso']) || isset($results['Proceso'])) {
             foreach ($results as $keyPr => $result) {
                 $results[$keyPr]['Proceso']['fecha_fin'] = $this->dateDMY($result['Proceso']['fecha_fin']);
                 if (!empty($result['Item'])) {
                     foreach ($result['Item'] as $keyIt => $item) {
-                        $results[$keyPr]['Item'][$keyIt]['rubro'] = $rubros[$item['rubro_id']];
+                        $results[$keyPr]['Item'][$keyIt]['categoria'] = $categorias[$item['categoria_id']];
                     }
                 }
             }

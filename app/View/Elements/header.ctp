@@ -13,9 +13,9 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="<?php echo $this->Html->url(['controller' => 'pages']) ?>">
                     <!-- Logo icon -->
-                    <h1 style="font-size: 40px;">
+                    <h1 class="logo">
                         <!--<i class="ti ti-announcement"></i>-->
-                        wadaboo
+                        Wadaboo
                     </h1>
 
                     <!-- dark Logo text -->

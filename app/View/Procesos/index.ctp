@@ -14,7 +14,7 @@
             <div class="card-block">
                 <h4 class="card-title">Filtros de búsqueda: </h4>
                 <?php echo $this->Form->create(); ?>
-                <?php echo $this->Form->input('rubro', ['type' => 'select', 'options' => $rubros, 'class' => 'form-control select2', 'data-width' => "100%", 'label' => false, 'div' => false]); ?>
+                <?php echo $this->Form->input('categoria', ['type' => 'select', 'options' => $categorias, 'class' => 'form-control select2', 'data-width' => "100%", 'label' => false, 'div' => false]); ?>
                 <?php echo $this->Form->button('Buscar', $buscar);?>
                 <?php echo $this->Form->end(); ?>
             </div>

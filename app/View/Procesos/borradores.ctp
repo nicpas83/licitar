@@ -15,7 +15,7 @@
                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>Rubro</th>
+                                <th>Categoria</th>
                                 <th>Referencia</th>
                                 <th>Total Productos</th>
                                 <th>Total Unidades</th>

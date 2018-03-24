@@ -27,6 +27,7 @@
  */
 	
         Router::connect('/', Configure::read('Route.default'));
+        Router::connect('/landing', array('controller' => 'pages', 'action' => 'display', 'landing'));
         Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 	Router::connect('/nuevo_usuario', array('controller' => 'users', 'action' => 'registro'));

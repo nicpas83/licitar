@@ -8,7 +8,7 @@ class ProcesosController extends AppController {
 
     public function index() {
         $procesos = $this->Proceso->procesosActivos();
-        $this->set('rubros', $procesos['rubros']);
+        $this->set('categorias', $procesos['categorias']);
         $this->set('compradores', $procesos['compradores']);
         $this->set('procesos', $procesos['procesos']);
     }
@@ -30,7 +30,7 @@ class ProcesosController extends AppController {
         $proceso = $this->Proceso->findByIdAndUserId($id, $this->Auth->user('id'));
         //valido que por URL solo se pueda acceder a procesos activos y propios.
         if ($proceso && $proceso['Proceso']['estado'] == 1) {
-            $this->set('rubros', $this->Rubro->options());
+            $this->set('categorias', $this->Categoria->options());
             $this->set('unidades', $this->Unidad->options());
             $this->set('condiciones', [
                 'Contado' => 'Contado',
@@ -48,8 +48,7 @@ class ProcesosController extends AppController {
 
 
         if ($this->request->is('post')) {
-            debug($this->request->data);
-            die;
+            
             //actualizo proceso   
             if ($this->Proceso->saveAll($this->request->data)) {
                 $this->Flash->success('El Proceso fue editado con éxio.');
@@ -75,7 +74,7 @@ class ProcesosController extends AppController {
 
         if ($this->request->is('post')) {
             $this->request->data['Proceso']['user_id'] = $this->Auth->user('id');
-
+            
             $items = $this->Proceso->decodeItems($this->request->data['Item']);
             $this->request->data['Item'] = $items;
             $procesoNro = $this->Proceso->buscarUltimoProcesoUsuario($this->Auth->user('id'));
@@ -88,7 +87,7 @@ class ProcesosController extends AppController {
                 $this->Flash->error(__('Error al grabar el Proceso.'));
             }
         } else {
-            $this->set('rubros', $this->Rubro->options());
+            $this->set('categorias', $this->Categoria->options());
             $this->set('unidades', $this->Unidad->options());
             $this->set('condiciones', [
                 'Contado' => 'Contado',

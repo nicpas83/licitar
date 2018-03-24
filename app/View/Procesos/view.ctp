@@ -55,7 +55,7 @@
                     <table id="itemsDelProceso" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>Rubro</th>
+                                <th>Categoria</th>
                                 <th>Nombre - Descripción</th>
                                 <th>Cantidad</th>
                                 <th>Unidad</th>
@@ -74,7 +74,7 @@
                                 foreach ($items as $item) {
                                     ?>
                                     <tr>
-                                        <td><?php echo $item['rubro'] ?></td>
+                                        <td><?php echo $item['categoria'] ?></td>
                                         <td><?php echo $item['nombre'] ?></td>
                                         <td><?php echo $item['cantidad'] ?></td>
                                         <td><?php echo $item['unidad'] ?></td>

@@ -14,7 +14,7 @@
     </div>
     <br/>
     <div class="table-responsive">
-        <table id="rubros" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <table id="categorias" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th>#</th>
@@ -27,26 +27,26 @@
 
             <tbody>
                 <?php
-                foreach ($rubros as $val) {
+                foreach ($categorias as $val) {
                     ?>
                     <tr>
-                        <td><?php echo $val['Rubro']['orden']; ?></td>
-                        <td><?php echo $val['Rubro']['nombre']; ?></td>
-                        <td><?php echo $val['Rubro']['descripcion']; ?></td>
-                        <td><?php echo $val['Rubro']['str_estado']; ?></td>
+                        <td><?php echo $val['Categoria']['orden']; ?></td>
+                        <td><?php echo $val['Categoria']['nombre']; ?></td>
+                        <td><?php echo $val['Categoria']['descripcion']; ?></td>
+                        <td><?php echo $val['Categoria']['str_estado']; ?></td>
                         
                         <td>
                             <?php
                             if (isset($configView['accion']['activar'])) {
-                                echo $this->Html->link('', array('action' => 'activar', $val['Rubro']['id']), array('title' => 'Activar', 'class' => $configView['accion']['activar']));
+                                echo $this->Html->link('', array('action' => 'activar', $val['Categoria']['id']), array('title' => 'Activar', 'class' => $configView['accion']['activar']));
                             }
                             if (isset($configView['accion']['desactivar'])) {
-                                echo $this->Html->link('', array('action' => 'desactivar', $val['Rubro']['id']), array('title' => 'Desactivar', 'class' => $configView['accion']['desactivar']));
+                                echo $this->Html->link('', array('action' => 'desactivar', $val['Categoria']['id']), array('title' => 'Desactivar', 'class' => $configView['accion']['desactivar']));
                             }
                             if (isset($configView['accion']['eliminar'])) {
-                                echo $this->Form->postLink('', array('action' => 'eliminar', $val['Rubro']['id']), array('confirm' => 'Estás seguro?', 'title' => 'Eliminar', 'class' => $configView['accion']['eliminar']));
+                                echo $this->Form->postLink('', array('action' => 'eliminar', $val['Categoria']['id']), array('confirm' => 'Estás seguro?', 'title' => 'Eliminar', 'class' => $configView['accion']['eliminar']));
                             }
-                            echo $this->Html->link('', array('action' => 'editar', $val['Rubro']['id']), array('title' => 'Editar', 'class' => $configView['accion']['editar']));
+                            echo $this->Html->link('', array('action' => 'editar', $val['Categoria']['id']), array('title' => 'Editar', 'class' => $configView['accion']['editar']));
                             ?> 
                         </td>
                     </tr>

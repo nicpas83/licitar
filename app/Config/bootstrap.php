@@ -48,7 +48,7 @@ Inflector::rules('singular', array(
     'rules' => array(),
     'irregular' => array(
         'procesos' => 'Proceso',
-        'rubros' => 'Rubro',
+        'categorias' => 'Categoria',
         'productos' => 'Producto',
         'participaciones' => 'Participacion',
         'ofertas' => 'Oferta',
@@ -61,7 +61,7 @@ Inflector::rules('plural', array(
     'rules' => array(),
     'irregular' => array(
         'proceso' => 'Procesos',
-        'rubro' => 'Rubros',
+        'categoria' => 'Categorias',
         'producto' => 'Productos',
         'participacion' => 'Participaciones',
         'oferta' => 'Ofertas',

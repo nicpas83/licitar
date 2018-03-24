@@ -15,8 +15,8 @@ function getNumberId(element)
 
 var key = 0;
 var nuevoItem = "";
-var rubros = [];
-var rubrosTxt = [];
+var categorias = [];
+var categoriasTxt = [];
 var nombres = [];
 var cantidades = [];
 var unidades = [];
@@ -24,18 +24,18 @@ var especificaciones = [];
 
 function agregarItemListado()
 {
-    rubros.push($('#ProcesoTmpRubro').val());
-    rubrosTxt.push($('#ProcesoTmpRubro option:selected').text());
+    categorias.push($('#ProcesoTmpCategoria').val());
+    categoriasTxt.push($('#ProcesoTmpCategoria option:selected').text());
     nombres.push($('#ProcesoTmpNombre').val());
     cantidades.push($('#ProcesoTmpCantidad').val());
     unidades.push($('#ProcesoTmpUnidad option:selected').text());
     especificaciones.push($('#ProcesoTmpEspecificaciones').val());
     
-    console.log(rubros);
+    console.log(categorias);
     
     nuevoItem = "<tr id='item-" + key + "'>";
     nuevoItem += "<td class='index'>" + (key + 1) + "</td>";
-    nuevoItem += "<td>" + rubrosTxt[key] + "</td>";
+    nuevoItem += "<td>" + categoriasTxt[key] + "</td>";
     nuevoItem += "<td>" + nombres[key] + "</td>";
     nuevoItem += "<td>" + cantidades[key] + "</td>";
     nuevoItem += "<td>" + unidades[key] + "</td>";
@@ -48,7 +48,7 @@ function agregarItemListado()
 function agregarItemHidden()
 {
     console.log(JSON.stringify(nombres));
-    $('#ItemRubros').val(JSON.stringify(rubros));
+    $('#ItemCategorias').val(JSON.stringify(categorias));
     $('#ItemNombres').val(JSON.stringify(nombres));
     $('#ItemCantidades').val(JSON.stringify(cantidades));
     $('#ItemUnidades').val(JSON.stringify(unidades));
@@ -81,18 +81,38 @@ $(document).ready(function () {
 
 
     var hoy = moment().format('DD/MM/YYYY');
-    var fin_subasta = moment().add(7, 'days').format('DD/MM/YYYY');
+    var dateToday = new Date();
+    var fin_subasta = new Date(dateToday.setDate(dateToday.getDate() + 3));
+    var fecha_entrega = moment().add(7, 'days').format('DD/MM/YYYY');
 
-    $("#fechaFinSubasta").val(fin_subasta);
-    $("#fechaFinSubasta").datepicker({
+    $("#ProcesoFechaFin").datepicker({
         autoclose: true,
         todayHighlight: true,
         format: 'dd/mm/yyyy',
         daysOfWeekDisabled: [0, 6],
         weekStart: [1],
-        language: 'es'
-
+        language: 'es',
+        orientation: "bottom",
+        startDate: fin_subasta
     });
+     $("#ProcesoFechaFin").datepicker().on('changeDate', function(e){
+        var fechaEntrega = new Date(e.date.setDate(e.date.getDate() + 1));
+        
+        $("#ProcesoFechaEntrega").val('');
+        $("#ProcesoFechaEntrega").datepicker('destroy');
+        $("#ProcesoFechaEntrega").datepicker({
+            autoclose: true,
+            format: 'dd/mm/yyyy',
+            daysOfWeekDisabled: [0, 6],
+            weekStart: [1],
+            language: 'es',
+            orientation: "bottom",
+            startDate: fechaEntrega
+        });
+     });
+     
+    
+    
 
     $('#addItem').click(function () {
         key = $('#items_proceso tr').length;
@@ -112,7 +132,7 @@ $(document).ready(function () {
         // console.log(num);
         if (num > -1) {
             $(this).closest("tr[id^='item']").remove();
-            rubros.splice(num, 1);
+            categorias.splice(num, 1);
             nombres.splice(num, 1);
             cantidades.splice(num, 1);
             unidades.splice(num, 1);

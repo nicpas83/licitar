@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'Klavika';
+    src: url('fonts/klavika/Klavika_Medium_Italic.otf') format("truetype");
+}
+
+h1.logo {
+    font-family: 'Klavika';
+    font-size: 38px;
+    padding-top: 35px;
+}
+
+.topbar {
+    background-image: url(/img/texturas/11948.jpg);
+    /*color:#001f3f;*/
+}
+
 /*Make Select2 boxes match Bootstrap3 heights:*/ 
 .select2-selection__rendered {
     line-height: 32px !important;
@@ -48,3 +64,9 @@ h6 {
     font-weight: 400
 }
 
+.ribbon-warning {
+    background-image: url('/img/texturas/halftone-yellow.png');
+    color:#001f3f;
+    font-family: 'Klavika';
+    font-size: 18px;
+}

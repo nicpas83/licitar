@@ -1,6 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
-App::uses('Rubro', 'Model');
+App::uses('Categoria', 'Model');
 
 class Pregunta extends AppModel {
 

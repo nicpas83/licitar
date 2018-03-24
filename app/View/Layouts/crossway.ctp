@@ -29,6 +29,7 @@
 
         <!-- Template CSS -->
         <?php echo $this->Html->css('/crossway/css/style') ?>
+        <?php echo $this->Html->css('/crossway/css/modif') ?>
 
         <!-- Responsive CSS -->
         <?php echo $this->Html->css('/crossway/css/responsive') ?>
@@ -38,9 +39,6 @@
         <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $this->Html->url('/crossway/img/icons/apple-touch-icon-114x114.png') ?>">
         <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $this->Html->url('/crossway/img/icons/apple-touch-icon-72x72.png') ?>">
         <link rel="apple-touch-icon" href="<?php echo $this->Html->url('/crossway/img/icons/apple-touch-icon.png') ?>">
-
-        <!-- Google Fonts -->	
-        <link href='http://fonts.googleapis.com/css?family=Lato:400,900italic,900,700italic,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
 
     </head>
 
@@ -82,7 +80,7 @@
         <?php echo $this->Html->script('/crossway/js/waypoints.min') ?>
         <?php echo $this->Html->script('/crossway/js/animations') ?>
         <?php echo $this->Html->script('/crossway/js/custom') ?>
-        
+
 
 
         <!--[if lt IE 9]>

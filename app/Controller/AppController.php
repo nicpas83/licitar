@@ -5,7 +5,7 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 
     /** Modelos que estarán disponibles en todos los controladores. */
-    var $uses = array('Rubro', 'Provincia', 'Unidad', 'Condicion');
+    var $uses = array('Categoria', 'Provincia', 'Unidad', 'Condicion');
     Public $phpNow;
     public $components = array(
 //        'Security',
@@ -18,7 +18,7 @@ class AppController extends Controller {
             'logoutRedirect' => array(
                 'controller' => 'pages',
                 'action' => 'display',
-                'home'
+                'landing'
             ),
             'authenticate' => array(
                 'Form' => array(
