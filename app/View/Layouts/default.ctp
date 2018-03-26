@@ -2,9 +2,9 @@
 <html lang="en">
     <head>
         <?php echo $this->element('head') ?>
+        <script type="text/javascript">var baseUrl = '<?php echo $this->Html->url('/'); ?>';</script>
         <?php echo $this->fetch('script'); ?>
         <?php echo $this->fetch('css'); ?>
-        <script type="text/javascript">var baseUrl = '<?php echo $this->Html->url('/'); ?>';</script>
     </head>
 
     <body class="fix-header fix-sidebar card-no-border">
