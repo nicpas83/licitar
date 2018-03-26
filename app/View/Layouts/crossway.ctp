@@ -80,6 +80,7 @@
         <?php echo $this->Html->script('/crossway/js/waypoints.min') ?>
         <?php echo $this->Html->script('/crossway/js/animations') ?>
         <?php echo $this->Html->script('/crossway/js/custom') ?>
+        <?php echo $this->Html->script('/js/validation') ?>
 
 
 

@@ -61,7 +61,7 @@
                                 <th>Unidad</th>
                                 <th>Especificaciones</th>
                                 <?php if (!isset($proceso['propio'])) { ?>
-                                    <th>Tu Oferta</th>
+                                    <th>Precio Unitario</th>
                                 <?php } else { ?>
                                     <th>Mejor Oferta</th>
                                 <?php }
@@ -157,9 +157,7 @@
         <div class="card">
             <div class="card-block">
                 <h4 class="card-title m-t-15">Últimas preguntas:</h4>
-
             </div>
-
         </div>    
     </div>
 </div>

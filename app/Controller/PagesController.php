@@ -22,8 +22,7 @@ class PagesController extends AppController {
      *   or MissingViewException in debug mode.
      */
     public function display() {
-        $this->layout = 'crossway';
-
+        
         $path = func_get_args();
         $count = count($path);
         if (!$count) {
@@ -53,6 +52,11 @@ class PagesController extends AppController {
             }
             throw new NotFoundException();
         }
+    }
+    
+    public function landing_general(){
+        $this->layout = 'crossway';
+        
     }
 
 }

@@ -31,6 +31,7 @@ class ProcesosController extends AppController {
         //valido que por URL solo se pueda acceder a procesos activos y propios.
         if ($proceso && $proceso['Proceso']['estado'] == 1) {
             $this->set('categorias', $this->Categoria->options());
+            $this->set('sub_categorias', $this->Categoria->options());
             $this->set('unidades', $this->Unidad->options());
             $this->set('condiciones', [
                 'Contado' => 'Contado',
@@ -48,7 +49,7 @@ class ProcesosController extends AppController {
 
 
         if ($this->request->is('post')) {
-            
+
             //actualizo proceso   
             if ($this->Proceso->saveAll($this->request->data)) {
                 $this->Flash->success('El Proceso fue editado con éxio.');
@@ -71,30 +72,35 @@ class ProcesosController extends AppController {
     }
 
     public function add() {
+        
+        $this->set('categorias', $this->Categoria->options());
+        $this->set('sub_categorias', $this->Categoria->options());
+        $this->set('unidades', $this->Unidad->options());
+        $this->set('condiciones', [
+            'Contado' => 'Contado',
+            '30 dias' => '30 dias',
+            '30-60 dias' => '30-60 dias',
+            '30-60-90 dias' => '30-60-90 dias',
+        ]);
 
         if ($this->request->is('post')) {
             $this->request->data['Proceso']['user_id'] = $this->Auth->user('id');
-            
-            $items = $this->Proceso->decodeItems($this->request->data['Item']);
-            $this->request->data['Item'] = $items;
-            $procesoNro = $this->Proceso->buscarUltimoProcesoUsuario($this->Auth->user('id'));
-            $this->request->data['Proceso']['proceso_nro'] = $procesoNro + 1;
+            $items = $this->request->data['Item'];
 
-            if ($this->Proceso->saveAll($this->request->data)) {
-                $this->Flash->success('El Proceso fue creado con éxio.');
-                return $this->redirect(array('controller' => 'pages', 'action' => 'display'));
+            if (empty($items['categorias']) || empty($items['nombres']) || empty($items['cantidades'])) {
+                $this->Flash->error(__('Faltan datos en los Item del proceso.'));
             } else {
-                $this->Flash->error(__('Error al grabar el Proceso.'));
+                $this->request->data['Item'] = $this->Proceso->decodeItems($this->request->data['Item']);
+                $procesoNro = $this->Proceso->buscarUltimoProcesoUsuario($this->Auth->user('id'));
+                $this->request->data['Proceso']['proceso_nro'] = $procesoNro + 1;
+
+                if ($this->Proceso->saveAll($this->request->data)) {
+                    $this->Flash->success('El Proceso fue creado con éxio.');
+                    return $this->redirect(array('controller' => 'pages', 'action' => 'display'));
+                } else {
+                    $this->Flash->error(__('Error al grabar el Proceso.'));
+                }
             }
-        } else {
-            $this->set('categorias', $this->Categoria->options());
-            $this->set('unidades', $this->Unidad->options());
-            $this->set('condiciones', [
-                'Contado' => 'Contado',
-                '30 dias' => '30 dias',
-                '30-60 dias' => '30-60 dias',
-                '30-60-90 dias' => '30-60-90 dias',
-            ]);
         }
     }
 

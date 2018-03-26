@@ -17,8 +17,7 @@ class AppController extends Controller {
             ),
             'logoutRedirect' => array(
                 'controller' => 'pages',
-                'action' => 'display',
-                'landing'
+                'action' => 'subastas_de_compras',
             ),
             'authenticate' => array(
                 'Form' => array(
@@ -36,7 +35,7 @@ class AppController extends Controller {
         $this->phpNow = (new DateTime())->format('Y-m-d');
 
         // permitimos accion display y registrar (sin login).
-        $this->Auth->allow('display', 'registrar');
+        $this->Auth->allow('display', 'registrar', 'landing_general');
         $this->Auth->authError = __('Para ingresar debes estar loggeado.');
 
         $loggedInId = AuthComponent::user('id');
@@ -52,7 +51,16 @@ class AppController extends Controller {
 //        $this->set('phpNow', $this->phpNow->format('Y-m-d'));
 
 
-
+        $formHorizontal = [
+            'class' => 'form-horizontal',
+            'inputDefaults' => array(
+                'class' => 'form-control',
+                'div' => false,
+                'label' => false,
+            ),
+            'novalidate'
+        ];
+        $inputDefaults = "'inputDefaults' => array('class' => 'form-control','div' => false,'label' => false,),'novalidate'";
         $delete = array(
             'div' => false,
             'title' => 'Eliminar',
@@ -95,6 +103,8 @@ class AppController extends Controller {
         $this->set('buscar', $buscar);
         $this->set('aceptar', $aceptar);
         $this->set('cancelar', $cancelar);
+        $this->set('formHorizontal', $formHorizontal);
+        $this->set('inputDefaults', $inputDefaults);
 
         $this->set('provincias', $this->Provincia->options());
     }

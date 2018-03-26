@@ -7,11 +7,20 @@ class Proceso extends AppModel {
 
     public $useTable = 'procesos';
     public $validate = array(
-        'titulo' => array(
+        'referencia' => array(
             'rule' => 'notBlank',
-            'message' => 'El campo es obligatorio'
-        )
+            'message' => 'El campo Titulo o Referencia es obligatorio'
+        ),
+        'fecha_fin' => array(
+            'rule' => 'notBlank',
+            'message' => 'El campo Fin de la Subasta es obligatorio'
+        ),
+        'fecha_entrega' => array(
+            'rule' => 'notBlank',
+            'message' => 'El campo Fecha de Entrega es obligatorio'
+        ),
     );
+    
     public $belongsTo = array('User');
     public $hasMany = [
         'Item' => [
@@ -200,8 +209,8 @@ class Proceso extends AppModel {
         return $participacion_id;
     }
 
-    public function decodeItems($items) {
-
+    public function decodeItems($items = null) {
+ 
         $categorias = json_decode($items['categorias']);
         $nombres = json_decode($items['nombres']);
         $cantidades = json_decode($items['cantidades']);
@@ -222,7 +231,6 @@ class Proceso extends AppModel {
             $data[$key]['unidad'] = $val;
         }
         foreach ($especificaciones as $key => $val) {
-            
             $data[$key]['especificaciones'] = $val;
         }
         return $data;
@@ -244,13 +252,16 @@ class Proceso extends AppModel {
         //Agrego el nombre del categoria para cada Item.
         $categoriasObj = new Categoria();
         $categorias = $categoriasObj->options();
+        $subcategorias = $categoriasObj->options();
 
         if (isset($results[0]['Proceso']) || isset($results['Proceso'])) {
-            foreach ($results as $keyPr => $result) {
-                $results[$keyPr]['Proceso']['fecha_fin'] = $this->dateDMY($result['Proceso']['fecha_fin']);
+            foreach ($results as $key => $result) {
+                $results[$key]['Proceso']['fecha_fin'] = $this->dateDMY($result['Proceso']['fecha_fin']);
+                $results[$key]['Proceso']['fecha_entrega'] = $this->dateDMY($result['Proceso']['fecha_entrega']);
                 if (!empty($result['Item'])) {
-                    foreach ($result['Item'] as $keyIt => $item) {
-                        $results[$keyPr]['Item'][$keyIt]['categoria'] = $categorias[$item['categoria_id']];
+                    foreach ($result['Item'] as $keyItem => $item) {
+                        $results[$key]['Item'][$keyItem]['categoria'] = $categorias[$item['categoria_id']];
+                        $results[$key]['Item'][$keyItem]['subcategoria'] = $subcategorias[$item['subcategoria_id']];
                     }
                 }
             }
@@ -263,6 +274,7 @@ class Proceso extends AppModel {
     public function beforeSave($options = array()) {
 
         $this->data['Proceso']['fecha_fin'] = $this->dateYMD($this->data['Proceso']['fecha_fin']);
+        $this->data['Proceso']['fecha_entrega'] = $this->dateYMD($this->data['Proceso']['fecha_entrega']);
 
         return true;
     }

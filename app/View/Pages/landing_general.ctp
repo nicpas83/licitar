@@ -93,7 +93,6 @@
                 <!--Register form -->
                 <div class="form_register">
                     <h2>Creá tu cuenta gratis!</h2>
-
                     <?php echo $this->element('form_register'); ?>	
 
                 </div>							

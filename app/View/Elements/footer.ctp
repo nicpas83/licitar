@@ -27,7 +27,7 @@
 <!--Wave Effects -->
 <?php echo $this->Html->script('/js/waves') ?>
 <!--Menu sidebar -->
-<?php echo $this->Html->script('/js/sidebarmenu.js') ?>
+<?php echo $this->Html->script('/js/sidebarmenu') ?>
 <!--Select 2 -->
 <?php echo $this->Html->script('/assets/plugins/select2/dist/js/select2.full.min') ?>
 <!--stickey kit -->
@@ -49,8 +49,18 @@
 <!--FooTable init-->
 <?php echo $this->Html->script('footable-init') ?>
 
+<!-- ============================================================== -->
+<!-- Style switcher -->
+<!-- ============================================================== -->
+<?php echo $this->Html->script('/assets/plugins/styleswitcher/jQuery.style.switcher') ?>
+<!-- icheck -->
+<?php echo $this->Html->script('/assets/plugins/icheck/icheck.min') ?>
+<?php echo $this->Html->script('/assets/plugins/icheck/icheck.init') ?>
 <!--Custom JavaScript -->
 <?php echo $this->Html->script('/js/custom') ?>
+<!--Validation -->
+<?php echo $this->Html->script('/js/validation') ?>
+
 
 
 <!-- ============================================================== -->
@@ -66,10 +76,3 @@
 <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
 <!-- end - This is for export functionality only -->
 
-<!-- ============================================================== -->
-<!-- Style switcher -->
-<!-- ============================================================== -->
-<?php echo $this->Html->script('/assets/plugins/styleswitcher/jQuery.style.switcher') ?>
-<!-- icheck -->
-<?php echo $this->Html->script('/assets/plugins/icheck/icheck.min') ?>
-<?php echo $this->Html->script('/assets/plugins/icheck/icheck.init') ?>
