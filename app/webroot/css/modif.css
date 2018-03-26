@@ -65,7 +65,7 @@ h6 {
 }
 
 .ribbon-warning {
-    background-image: url('/img/texturas/halftone-yellow.png');
+    background-image: url('../img/texturas/halftone-yellow.png');
     color:#001f3f;
     font-family: 'Klavika';
     font-size: 18px;
