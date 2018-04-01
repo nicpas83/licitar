@@ -1,9 +1,11 @@
 <?php
 echo $this->Html->script('procesos/add_edit', array('inline' => false));
-// debug($proceso);die;
+$op = "A";
 $id = $referencia = $fechaFin = $condicionPago = $detalles = $fechaEntrega = $excFactura = $excGestionEnvio = $excOfertaCompleta = "";
+$itemIds = $itemCategorias = $itemCategoriasTxt = $itemSubcategorias = $itemSubcategoriasTxt = $itemNombres = $itemCantidades = $itemUnidades = $itemEspecificaciones = "";
 $estado = 1;
-if (isset($proceso) && isset($items)) {
+if (isset($proceso)) {
+    $op = "E";
     $id = $proceso['id'];
     $estado = $proceso['estado'];
     $referencia = $proceso['referencia'];
@@ -15,8 +17,19 @@ if (isset($proceso) && isset($items)) {
     $excGestionEnvio = $proceso['excluyente_gestion_envio'];
     $excOfertaCompleta = $proceso['excluyente_oferta_completa'];
 }
+if (isset($hidden)) {
+    $itemIds = $hidden['itemIds'];
+    $itemCategorias = $hidden['categorias'];
+    $itemCategoriasTxt = $hidden['categoriasTxt'];
+    $itemSubcategorias = $hidden['subcategorias'];
+    $itemSubcategoriasTxt = $hidden['subcategoriasTxt'];
+    $itemNombres = $hidden['nombres'];
+    $itemCantidades = $hidden['cantidades'];
+    $itemUnidades = $hidden['unidades'];
+    $itemEspecificaciones = $hidden['especificaciones'];
+}
 ?>
-
+<input id="op" type="hidden" value="<?php echo $op ?>" />
 <h4 class="card-title">1. Datos Generales del proceso.</h4>
 <div class="row">
     <div class="col-lg-5">
@@ -52,7 +65,7 @@ if (isset($proceso) && isset($items)) {
     <div class="col-lg-5">
         <div class="form-group">
             <label>Comentá cualquier detalle importante.</label>
-            <?php echo $this->Form->input('detalles', ['value' => $detalles, 'rows' => '4', 'type' => 'textarea']) ?>
+            <?php echo $this->Form->input('detalles', ['value' => $detalles, 'rows' => '4', 'type' => 'textarea', 'placeholder' => '(opcional)',]) ?>
         </div>
     </div>
 
@@ -109,7 +122,7 @@ if (isset($proceso) && isset($items)) {
     <div class="col-lg-3">
         <div class="form-group">
             <label>Marca, Modelo o Referencia <span class="text-danger">*</span></label>
-            <?php echo $this->Form->input('tmp_nombre', ['name' => false, 'type' => 'text']) ?>
+            <?php echo $this->Form->input('tmp_nombre', ['name' => false, 'type' => 'text', 'maxlength' => '50']) ?>
         </div>
     </div>
     <div class="col-lg-1 col-sm-6">
@@ -124,25 +137,78 @@ if (isset($proceso) && isset($items)) {
             <?php echo $this->Form->input('tmp_unidad', ['name' => false, 'type' => 'select', 'options' => $unidades, 'default' => '6']); ?>
         </div>
     </div>
-    <div class="col-lg-12">
+    <div class="col-lg-6">
         <div class="form-group">
             <label>Especificaciones o Detalles especiales del producto<span class="danger"></span></label>
-                <?php echo $this->Form->input('tmp_especificaciones', ['name' => false, 'type' => 'text']) ?>
+            <?php echo $this->Form->input('tmp_especificaciones', ['name' => false, 'type' => 'textarea', 'placeholder' => '(opcional)', 'maxlength' => '500']) ?>
         </div>
     </div>
 
-</div>
 
+</div>
 
 <?php
 //Campos hidden para add y/o edit
 echo $this->Form->input('id', ['value' => $id, 'type' => 'hidden',]);
 echo $this->Form->input('estado', ['value' => $estado, 'type' => 'hidden',]);
-
-echo $this->Form->input('Item.categorias', ['type' => 'hidden',]);
-echo $this->Form->input('Item.subcategorias', ['type' => 'hidden']);
-echo $this->Form->input('Item.nombres', ['type' => 'hidden']);
-echo $this->Form->input('Item.cantidades', ['type' => 'hidden']);
-echo $this->Form->input('Item.unidades', ['type' => 'hidden']);
-echo $this->Form->input('Item.especificaciones', ['type' => 'hidden']);
+echo $this->Form->input('Item.ids', ['value' => $itemIds, 'type' => 'hidden',]);
+echo $this->Form->input('Item.categorias', ['value' => $itemCategorias, 'type' => 'hidden',]);
+echo $this->Form->input('Item.tmp_categoriasTxt', ['value' => $itemCategoriasTxt, 'type' => 'hidden',]);
+echo $this->Form->input('Item.subcategorias', ['value' => $itemSubcategorias, 'type' => 'hidden']);
+echo $this->Form->input('Item.tmp_subcategoriasTxt', ['value' => $itemSubcategoriasTxt, 'type' => 'hidden']);
+echo $this->Form->input('Item.nombres', ['value' => $itemNombres, 'type' => 'hidden']);
+echo $this->Form->input('Item.cantidades', ['value' => $itemCantidades, 'type' => 'hidden']);
+echo $this->Form->input('Item.unidades', ['value' => $itemUnidades, 'type' => 'hidden']);
+echo $this->Form->input('Item.especificaciones', ['value' => $itemEspecificaciones, 'type' => 'hidden']);
 ?>
+
+<div class="row">
+    <div class="col-sm-12">
+        <button id="addItem" type="button" class="btn btn-info pull-right">Agregar Item</button>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="row">
+    <div class="col-md-12">
+        <h5 class="card-subtitle">Vista Previa</h5>
+        <div class="table-responsive">
+            <table class="table" id="items_proceso">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Categoría</th>
+                        <th>Subcategoría</th>
+                        <th>Referencia</th>
+                        <th>Cantidad</th>
+                        <th>Unidad</th>
+                        <th>Especificaciones</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if (isset($items)) {
+                        foreach ($items as $key => $item) {
+                            ?>
+                            <tr id='item-<?php echo $key ?>'>
+                                <td class="index"><?php echo $key + 1 ?></td>
+                                <td><?php echo $item['categoria'] ?></td>
+                                <td><?php echo $item['subcategoria'] ?></td>
+                                <td><?php echo $item['nombre'] ?></td>
+                                <td><?php echo $item['cantidad'] ?></td>
+                                <td><?php echo $item['unidad'] ?></td>
+                                <td><?php echo $item['especificaciones'] ?></td>
+                                <td class='actions'>
+                                    <button type='button' class='btn btn-warning edit'><i class='fa fa-edit'></i></button>
+                                    <button type='button' class='btn btn-danger m-l-5 remove'><i class='fa fa-times'></i></button>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

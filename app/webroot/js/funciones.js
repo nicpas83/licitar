@@ -1,5 +1,12 @@
 $(function () {
-
+    
+    $(window).keydown(function (event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+        }
+    });
+    
     $(document).on('focus click', 'input.datepicker', function () {
         $(this).datepicker({
             autoclose: true,
@@ -16,10 +23,11 @@ $(function () {
 
 
 });
+
 function alertEnd() {
     window.setTimeout(function () {
         $(".alert").fadeTo(1000, 0).slideUp(1000, function () {
             $(this).remove();
         });
-    }, 3000);
+    }, 4000);
 }

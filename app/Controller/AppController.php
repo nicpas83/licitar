@@ -17,7 +17,7 @@ class AppController extends Controller {
             ),
             'logoutRedirect' => array(
                 'controller' => 'pages',
-                'action' => 'subastas_de_compras',
+                'action' => 'landing_general',
             ),
             'authenticate' => array(
                 'Form' => array(

@@ -20,7 +20,6 @@ class Proceso extends AppModel {
             'message' => 'El campo Fecha de Entrega es obligatorio'
         ),
     );
-    
     public $belongsTo = array('User');
     public $hasMany = [
         'Item' => [
@@ -158,7 +157,7 @@ class Proceso extends AppModel {
         $result = $this->find('all', [
             'conditions' => ['user_id' => $user_id, 'Proceso.estado' => 1]
         ]);
-        if(!$result){
+        if (!$result) {
             return false;
         }
 
@@ -210,16 +209,20 @@ class Proceso extends AppModel {
     }
 
     public function decodeItems($items = null) {
- 
+
         $categorias = json_decode($items['categorias']);
+        $subcategorias = json_decode($items['subcategorias']);
         $nombres = json_decode($items['nombres']);
         $cantidades = json_decode($items['cantidades']);
         $unidades = json_decode($items['unidades']);
         $especificaciones = json_decode($items['especificaciones']);
         $data = array();
-        
+
         foreach ($categorias as $key => $val) {
             $data[$key]['categoria_id'] = $val;
+        }
+        foreach ($subcategorias as $key => $val) {
+            $data[$key]['subcategoria_id'] = $val;
         }
         foreach ($nombres as $key => $val) {
             $data[$key]['nombre'] = $val;
@@ -234,6 +237,40 @@ class Proceso extends AppModel {
             $data[$key]['especificaciones'] = $val;
         }
         return $data;
+    }
+
+    //Para los input hidden al editar.
+    public function encodeItems($items = null) {
+
+        $data = array();
+
+        foreach ($items as $item) {
+
+            $data['itemIds'][] = $item['id'];
+            $data['categorias'][] = $item['categoria_id'];
+            $data['categoriasTxt'][] = $item['categoria'];
+            $data['subcategorias'][] = $item['subcategoria_id'];
+            $data['subcategoriasTxt'][] = $item['subcategoria'];
+            $data['nombres'][] = $item['nombre'];
+            $data['cantidades'][] = $item['cantidad'];
+            $data['unidades'][] = $item['unidad'];
+            $data['especificaciones'][] = $item['especificaciones'];
+        }
+        
+        $items = array();
+
+        $items['itemIds'] = json_encode($data['itemIds']);
+        $items['categorias'] = json_encode($data['categorias']);
+        $items['categoriasTxt'] = json_encode($data['categoriasTxt'], JSON_UNESCAPED_UNICODE);
+        $items['subcategorias'] = json_encode($data['subcategorias']);
+        $items['subcategoriasTxt'] = json_encode($data['subcategoriasTxt'], JSON_UNESCAPED_UNICODE);
+        $items['nombres'] = json_encode($data['nombres'], JSON_UNESCAPED_UNICODE);
+        $items['cantidades'] = json_encode($data['cantidades']);
+        $items['unidades'] = json_encode($data['unidades']);
+        $items['especificaciones'] = json_encode($data['especificaciones'], JSON_UNESCAPED_UNICODE);
+
+        
+        return $items;
     }
 
     public function buscarUltimoProcesoUsuario($user_id) {

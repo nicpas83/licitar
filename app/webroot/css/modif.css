@@ -68,5 +68,15 @@ h6 {
     background-image: url('../img/texturas/halftone-yellow.png');
     color:#001f3f;
     font-family: 'Klavika';
-    font-size: 18px;
+    font-size: 22px;
+}
+
+td.text-limit {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+td.actions{
+    width: 130px;
 }

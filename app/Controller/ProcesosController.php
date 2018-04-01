@@ -42,6 +42,10 @@ class ProcesosController extends AppController {
 
             $this->set('proceso', $proceso['Proceso']);
             $this->set('items', $proceso['Item']);
+
+            //permitir editar solamente items sin oferta. 
+
+            $this->set('hidden', $this->Proceso->encodeItems($proceso['Item']));
         } else {
             $this->Flash->error('El proceso al que intenta acceder no es válido.');
             return $this->redirect(array('controller' => 'procesos', 'action' => 'mis_procesos'));
@@ -49,14 +53,34 @@ class ProcesosController extends AppController {
 
 
         if ($this->request->is('post')) {
+            $postId = $this->request->data['Proceso']['id'];
+            if ($postId !== $id) {
+                $this->Flash->error('ID ADULTERADO.');
+                return $this->redirect(array('controller' => 'pages', 'action' => 'display'));
+            }
+            $this->request->data['Proceso']['user_id'] = $this->Auth->user('id');
+            $items = $this->request->data['Item'];
 
-            //actualizo proceso   
-            if ($this->Proceso->saveAll($this->request->data)) {
-                $this->Flash->success('El Proceso fue editado con éxio.');
-                return $this->redirect(array('controller' => 'pages', 'action' => 'display'));
+
+            if (empty($items['categorias']) || empty($items['subcategorias']) || empty($items['nombres']) || empty($items['cantidades'])) {
+                $this->Flash->error(__('Faltan datos en los Item del proceso.'));
             } else {
-                $this->Flash->error('Error al grabar el Proceso.');
-                return $this->redirect(array('controller' => 'pages', 'action' => 'display'));
+                //borro todos los item anteriores
+                $borrarIds = $this->Proceso->Item->find('list', ['conditions' => ['proceso_id' => $id]]);
+                $this->Proceso->Item->deleteAll(['Item.id IN' => $borrarIds]);
+//                debug($borrarIds);
+//                die;
+
+                $this->request->data['Item'] = $this->Proceso->decodeItems($this->request->data['Item']);
+
+                //actualizo proceso   
+                if ($this->Proceso->saveAll($this->request->data)) {
+                    $this->Flash->success('El Proceso fue actualizado con éxio.');
+                    return $this->redirect(array('controller' => 'procesos', 'action' => 'mis_procesos'));
+                } else {
+                    $this->Flash->error('Error al actualizar el Proceso.');
+                    return $this->redirect(array('controller' => 'pages', 'action' => 'display'));
+                }
             }
         }
     }
@@ -72,7 +96,7 @@ class ProcesosController extends AppController {
     }
 
     public function add() {
-        
+
         $this->set('categorias', $this->Categoria->options());
         $this->set('sub_categorias', $this->Categoria->options());
         $this->set('unidades', $this->Unidad->options());
@@ -84,6 +108,7 @@ class ProcesosController extends AppController {
         ]);
 
         if ($this->request->is('post')) {
+//            debug($this->request->data);die;
             $this->request->data['Proceso']['user_id'] = $this->Auth->user('id');
             $items = $this->request->data['Item'];
 
