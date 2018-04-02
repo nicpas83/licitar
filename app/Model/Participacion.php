@@ -41,7 +41,7 @@ class Participacion extends AppModel {
             );
             $this->create();
             $this->save($nuevaParticipacion);
-            $participacion_id = $this->Participacion->getLastInsertId();
+            $participacion_id = $this->getLastInsertId();
         }
 
         return $participacion_id; 
