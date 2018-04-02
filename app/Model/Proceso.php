@@ -42,7 +42,6 @@ class Proceso extends AppModel {
     ];
 
     public function verProcesoActivo($proceso_id, $user_id) {
-
         if (!is_numeric($proceso_id)) {
             return false;
         }
@@ -57,41 +56,17 @@ class Proceso extends AppModel {
         $quitarClaves = array('excluyente_factura', 'excluyente_gestion_envio', 'excluyente_oferta_completa');
         $proceso['Proceso'] = $this->quitarClavesDelArray($proceso['Proceso'], $quitarClaves);
 
-        // agrego 'propio' si/no
+        // agrego key ['propio']
         $proceso = $this->validarTitularidadDelProceso($proceso, $user_id);
 
         //traer ofertas de cada item.
-        $proceso['Item'] = $this->traerUltimasOfertasPorUsuario($proceso['Item']);
+        $proceso['Item'] = $this->Oferta->buscarMejoresOfertas($proceso['Item']);
 
 //        debug($proceso);die;
         return $proceso;
     }
 
-    public function traerUltimasOfertasPorUsuario($items) {
-        App::uses('Oferta', 'Model');
-        $ofertas = new Oferta();
-
-        $proceso_id = $items[0]['proceso_id'];
-        $options = [
-            'fields' => ['created', 'user_id', 'item_id', 'valor_oferta'],
-            'conditions' => ['proceso_id' => $proceso_id],
-            'group' => ['user_id', 'item_id'],
-            'having' => ['MAX(created)']
-        ];
-        $ofertasDelProceso = $ofertas->find('all', $options);
-
-        foreach ($items as $key => $item) {
-            foreach ($ofertasDelProceso as $oferta) {
-                if ($item['id'] == $oferta['Oferta']['item_id']) {
-                    $items[$key]['ofertas'][$oferta['Oferta']['user_id']] = $oferta['Oferta']['valor_oferta'];
-                }
-            }
-        }
-
-//        debug($items);die;
-
-        return $items;
-    }
+    
 
     public function validarTitularidadDelProceso($proceso, $user_id) {
         if ($proceso['User']['id'] == $user_id) {

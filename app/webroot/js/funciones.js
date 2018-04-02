@@ -1,12 +1,5 @@
 $(function () {
     
-    $(window).keydown(function (event) {
-        if (event.keyCode == 13) {
-            event.preventDefault();
-            return false;
-        }
-    });
-    
     $(document).on('focus click', 'input.datepicker', function () {
         $(this).datepicker({
             autoclose: true,

@@ -15,7 +15,8 @@ $(document).ready(function () {
             null,
             null,
             null,
-            null,
+            {"width": "25%"},
+            {"width": "15%"},
             {"width": "15%"},
         ]
     });

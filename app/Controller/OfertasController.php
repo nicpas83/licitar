@@ -9,8 +9,16 @@ class OfertasController extends AppController {
     public function add($proceso_id) {
 
         if ($this->request->is('post')) {
-            $participacion_id = $this->Oferta->Proceso->registrarParticipacion($proceso_id, $this->Auth->user('id'));
+            
+//            debug($this->request->data);die;
+            //validar oferta 
+            $validacion = $this->Oferta->validarOferta($proceso_id, $this->request->data);
+            
             $result = $this->Oferta->registrarOferta($proceso_id, $this->Auth->user('id'), $participacion_id, $this->request->data);
+            
+            $participacion_id = $this->Oferta->Proceso->registrarParticipacion($proceso_id, $this->Auth->user('id'));
+            
+            
 
             if ($result) {
                 $this->Flash->success('La Oferta fue realizada con éxito.');

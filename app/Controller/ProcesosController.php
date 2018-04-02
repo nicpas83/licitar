@@ -24,6 +24,8 @@ class ProcesosController extends AppController {
             $this->flash(__("El proceso al que intenta acceder no es un proceso activo."), array("action" => "index"));
         }
     }
+    
+    
 
     public function edit($id = null) {
 

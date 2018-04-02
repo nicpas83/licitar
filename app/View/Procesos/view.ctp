@@ -1,4 +1,7 @@
-<?php // debug($proceso);die;                                                          ?>
+<?php 
+$formHorizontal['url'] = ['action' => 'add', $proceso['id']];
+// debug($formHorizontal);die;
+?>
 <div class="row">
     <div class="col-12">
         <div class="ribbon-wrapper card col-md-7 pull-left">
@@ -28,16 +31,12 @@
                 if (!empty($proceso['requisitos_exluyentes'])) {
                     foreach ($proceso['requisitos_exluyentes'] as $requisito) {
                         ?>
-                        <li><i class="fa fa-check text-info"></i>
-                            <?php echo $requisito; ?>
-                        </li>
+                        <li><i class="fa fa-check text-info"></i><?php echo $requisito; ?></li>
                         <?php
                     }
                 } else {
                     ?>
-                    <li><i class="fa fa-check text-info"></i>
-                        <?php echo "El proceso no tiene condiciones excluyentes."; ?>
-                    </li>
+                    <li><i class="fa fa-check text-info"></i>El proceso no tiene condiciones excluyentes.</li>
                 <?php } ?>
             </ul>
         </div>         
@@ -50,7 +49,7 @@
             <div class="card-block">
                 <h4 class="card-title">Items del Proceso:</h4>
                 <div class="table-responsive m-t-40">
-                    <?php echo $this->Form->create('Oferta', array('url' => ['action' => 'add', $proceso['id']], 'class' => 'form-horizontal')); ?>
+                    <?php echo $this->Form->create('Oferta', $formHorizontal); ?>
 
                     <table id="itemsDelProceso" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
@@ -60,17 +59,16 @@
                                 <th>Cantidad</th>
                                 <th>Unidad</th>
                                 <th>Especificaciones</th>
+                                <th>Mejor Oferta Recibida</th>
                                 <?php if (!isset($proceso['propio'])) { ?>
-                                    <th>Precio Unitario</th>
-                                <?php } else { ?>
-                                    <th>Mejor Oferta</th>
-                                <?php }
-                                ?>
+                                    <th>Tu oferta</th>
+                                <?php } ?>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             if (!empty($items)) {
+                                $i=0;
                                 foreach ($items as $item) {
                                     ?>
                                     <tr>
@@ -79,22 +77,19 @@
                                         <td><?php echo $item['cantidad'] ?></td>
                                         <td><?php echo $item['unidad'] ?></td>
                                         <td><?php echo $item['especificaciones'] ?></td>
+                                        <td><?php echo $item['mejor_oferta'] ?></td>
                                         <?php if (!isset($proceso['propio'])) { ?>
                                             <td>
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><i class="fa fa-usd"></i></span> 
-                                                    <?php echo $this->Form->input('valor_oferta.', ['type' => 'number', 'class' => 'form-control', 'div' => false, 'label' => false, 'required' => false]) ?>
-                                                    <?php echo $this->Form->input('item_id.', ['type' => 'hidden', 'value' => $item['id'], 'class' => 'form-control', 'div' => false, 'label' => false, 'required' => false]) ?>
+                                                    <?php echo $this->Form->input("Oferta.$i.valor_oferta", ['type' => 'number']) ?>
+                                                    <?php echo $this->Form->input("Oferta.$i.item_id", ['type' => 'hidden', 'value' => $item['id']]) ?>
                                                 </div>
                                             </td>
-
-                                        <?php } else { ?>
-                                            <td>
-                                            </td>
-                                        <?php }
-                                        ?>
+                                        <?php } ?>
                                     </tr>
                                     <?php
+                                    $i++;
                                 }
                             }
                             ?>
@@ -103,6 +98,15 @@
                 </div>
                 <div class="row m-t-10">
                     <div class="col-sm-12">
+
+                        <div class="alert alert-warning">
+                            <h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Importante</h3> 
+                            <ul>
+                                <li>Tu ofertas deben ser PRECIO TOTAL (IVA INCLUIDO).</li>
+                                <li>Si tenés dudas sobre las especificaciones de algún producto/servicio, hacé una pregunta al comprador antes de realizar tu oferta. </li>
+                            </ul>
+                        </div>
+
                         <div class="form-group pull-right">
                             <?php
                             if (!isset($proceso['propio'])) {

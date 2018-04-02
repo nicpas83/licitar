@@ -7,12 +7,7 @@ class Oferta extends AppModel {
 
     public $useTable = 'ofertas';
     public $recursive = -1;
-    public $validate = array(
-//        'titulo' => array(
-//            'rule' => 'notBlank',
-//            'message' => 'El campo es obligatorio'
-//        )
-    );
+    
     public $belongsTo = array(
         'Participacion' => [
             'className' => 'Participacion',
@@ -29,8 +24,43 @@ class Oferta extends AppModel {
             'foreignKey' => 'item_id',
             'dependent' => true
         ],
-        
     );
+
+    public function buscarMejoresOfertas($items) {
+
+        $proceso_id = $items[0]['proceso_id'];
+        $ofertas = $this->find('all', [
+            'fields' => ['created', 'user_id', 'item_id', 'valor_oferta'],
+            'conditions' => ['proceso_id' => $proceso_id],
+        ]);
+
+
+        foreach ($items as $key => $item) {
+            $valorOferta = false; //reseteo para cada item
+
+            if ($ofertas) {
+                foreach ($ofertas as $oferta) {
+                    if ($item['id'] == $oferta['Oferta']['item_id']) {
+                        //si es falso o si la nueva oferta es menor.
+                        if (!$valorOferta || $oferta['Oferta']['valor_oferta'] < $valorOferta) {
+                            //piso valor oferta
+                            $valorOferta = $oferta['Oferta']['valor_oferta'];
+                            $items[$key]['mejor_oferta'] = $valorOferta;
+                        }
+                    }
+                }
+            } else {
+                $items[$key]['mejor_oferta'] = "Aún Sin Ofertas";
+            }
+        }
+
+        return $items;
+    }
+    
+    public function validarOferta($proceso_id, $ofertas){
+        debug($ofertas);die;
+        
+    }
 
     public function registrarOferta($proceso_id, $user_id, $participacion_id, $oferta) {
         $data = array();
@@ -55,9 +85,8 @@ class Oferta extends AppModel {
             return true;
         }
     }
-    
-    public function actualizarOferta($oferta){
-        
+
+    public function actualizarOferta($oferta) {
         
     }
 

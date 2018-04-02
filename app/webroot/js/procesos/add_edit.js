@@ -8,7 +8,12 @@ var unidades = [];
 var especificaciones = [];
 
 $(document).ready(function () {
-
+    $(window).keydown(function (event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+        }
+    });
     //si es un edit asigno valores en arrays
     if ($('#op').val() === "E") {
         categorias = $.parseJSON($('#ItemCategorias').val());
@@ -79,7 +84,7 @@ $(document).ready(function () {
     //EDIT ITEM
     $(document).on('click', 'button.edit', function () {
         if (editItem($(this))) {
-            $('html,body').animate({scrollTop: $('#rowItem-1').offset().top -250}, 'slow');
+            $('html,body').animate({scrollTop: $('#rowItem-1').offset().top - 250}, 'slow');
             $('#addItem').before("<div class='alert alert-info'>Edite los campos arriba y vuelva a agregar el Item</div>");
             alertEnd();
         }
