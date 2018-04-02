@@ -10,16 +10,16 @@ class OfertasController extends AppController {
 
         if ($this->request->is('post')) {
             
-//            debug($this->request->data);die;
             //validar oferta 
             $validacion = $this->Oferta->validarOferta($proceso_id, $this->request->data);
+            if(!$validacion){
+                $this->Flash->error(__('La oferta que intenta registrar no es válida o no cumple los requisitos.'));
+                $this->redirect($this->referer());
+            }
             
+            $participacion_id = $this->Oferta->Participacion->getParticipacion($proceso_id, $this->Auth->user('id'));
             $result = $this->Oferta->registrarOferta($proceso_id, $this->Auth->user('id'), $participacion_id, $this->request->data);
             
-            $participacion_id = $this->Oferta->Proceso->registrarParticipacion($proceso_id, $this->Auth->user('id'));
-            
-            
-
             if ($result) {
                 $this->Flash->success('La Oferta fue realizada con éxito.');
                 return $this->redirect(array('controller' => 'participaciones', 'action' => 'index'));

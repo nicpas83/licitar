@@ -7,7 +7,6 @@ class Oferta extends AppModel {
 
     public $useTable = 'ofertas';
     public $recursive = -1;
-    
     public $belongsTo = array(
         'Participacion' => [
             'className' => 'Participacion',
@@ -56,33 +55,43 @@ class Oferta extends AppModel {
 
         return $items;
     }
-    
-    public function validarOferta($proceso_id, $ofertas){
-        debug($ofertas);die;
-        
+
+    public function validarOferta($proceso_id, $ofertas) {
+        $proceso = $this->Proceso->findById($proceso_id);
+        $q_items_proceso = count($proceso['Item']);
+        $q_items_oferta = 0;
+        foreach ($ofertas['Oferta'] as $oferta) {
+            if (is_numeric($oferta['valor_oferta']) && $oferta['valor_oferta'] > 0) {
+                $q_items_oferta++;
+            }
+        }
+        if ($proceso['Proceso']['excluyente_oferta_completa'] == 1) {
+            if ($q_items_proceso !== $q_items_oferta) {
+                return false;
+            }
+        }
+        if ($q_items_oferta === 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public function registrarOferta($proceso_id, $user_id, $participacion_id, $oferta) {
-        $data = array();
-
-        foreach ($oferta['Oferta']['valor_oferta'] as $key => $valor) {
-
-            $array = array(
-                'valor_oferta' => $valor,
-                'item_id' => $oferta['Oferta']['item_id'][$key],
-                'proceso_id' => $proceso_id,
-                'user_id' => $user_id,
-                'participacion_id' => $participacion_id
-            );
-
-            array_push($data, $array);
+        
+        foreach ($oferta['Oferta'] as $key => $val) {
+            $oferta['Oferta'][$key]['proceso_id'] = $proceso_id;
+            $oferta['Oferta'][$key]['user_id'] = $user_id;
+            $oferta['Oferta'][$key]['participacion_id'] = $participacion_id;
         }
-
+//        debug($oferta);die;
         $this->create();
-        $result = $this->saveAll($data);
-
+        $result = $this->saveAll($oferta['Oferta']);
+        
         if ($result) {
             return true;
+        } else {
+            return false;
         }
     }
 

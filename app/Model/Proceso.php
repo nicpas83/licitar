@@ -79,13 +79,13 @@ class Proceso extends AppModel {
 //        debug($proceso);die;
         //preparar mensajes para requisitos excluyentes
         $mensajes = array();
-        if ($proceso['excluyente_factura'] == 'Si') {
+        if ($proceso['excluyente_factura'] == 1) {
             array_push($mensajes, 'Emitir Factura A');
         }
-        if ($proceso['excluyente_gestion_envio'] == 'Si') {
+        if ($proceso['excluyente_gestion_envio'] == 1) {
             array_push($mensajes, 'Gestión del Envío');
         }
-        if ($proceso['excluyente_oferta_completa'] == 'Si') {
+        if ($proceso['excluyente_oferta_completa'] == 1) {
             array_push($mensajes, 'Realizar oferta para todos los Items.');
         }
         return $mensajes;
@@ -157,32 +157,7 @@ class Proceso extends AppModel {
 
         return $procesos;
     }
-
-    public function registrarParticipacion($proceso_id, $user_id) {
-
-        $result = $this->Participacion->find('first', array(
-            'conditions' => [
-                'proceso_id' => $proceso_id,
-                'user_id' => $user_id,
-            ],
-            'recursive' => -1
-        ));
-
-        if ($result) {
-            $participacion_id = $result['Participacion']['id'];
-        } else {
-            $nuevaParticipacion = array(
-                'user_id' => $user_id,
-                'proceso_id' => $proceso_id
-            );
-            $this->Participacion->create();
-            $this->Participacion->save($nuevaParticipacion);
-            $participacion_id = $this->Participacion->getLastInsertId();
-        }
-
-        return $participacion_id;
-    }
-
+    
     public function decodeItems($items = null) {
 
         $categorias = json_decode($items['categorias']);

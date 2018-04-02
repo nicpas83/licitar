@@ -1,6 +1,6 @@
 <?php 
 $formHorizontal['url'] = ['action' => 'add', $proceso['id']];
-// debug($formHorizontal);die;
+// debug($proceso);die;
 ?>
 <div class="row">
     <div class="col-12">
@@ -28,8 +28,8 @@ $formHorizontal['url'] = ['action' => 'add', $proceso['id']];
             <div class="ribbon ribbon-warning">Requisitos Excluyentes</div>  
             <ul class="ribbon-content list-icons">
                 <?php
-                if (!empty($proceso['requisitos_exluyentes'])) {
-                    foreach ($proceso['requisitos_exluyentes'] as $requisito) {
+                if (!empty($proceso['requisitos'])) {
+                    foreach ($proceso['requisitos'] as $requisito) {
                         ?>
                         <li><i class="fa fa-check text-info"></i><?php echo $requisito; ?></li>
                         <?php

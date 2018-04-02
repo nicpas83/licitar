@@ -18,6 +18,42 @@ class Participacion extends AppModel {
             'dependent' => true
         ],
     ];
+    
+    /** Devuelve el ID de la participacion, ya sea el previo existente o el nuevo id 
+     *  
+     */
+    public function getParticipacion($proceso_id, $user_id) {
+
+        $result = $this->find('first', array(
+            'conditions' => [
+                'proceso_id' => $proceso_id,
+                'user_id' => $user_id,
+            ],
+            'recursive' => -1
+        ));
+
+        if ($result) {
+            $participacion_id = $result['Participacion']['id'];
+        } else {
+            $nuevaParticipacion = array(
+                'user_id' => $user_id,
+                'proceso_id' => $proceso_id
+            );
+            $this->create();
+            $this->save($nuevaParticipacion);
+            $participacion_id = $this->Participacion->getLastInsertId();
+        }
+
+        return $participacion_id; 
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 
     public function grabarActualizar($data, $proceso_id, $user_id) {
 
