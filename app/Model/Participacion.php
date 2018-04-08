@@ -31,6 +31,8 @@ class Participacion extends AppModel {
             ],
             'recursive' => -1
         ));
+        
+        debug($result);die;
 
         if ($result) {
             $participacion_id = $result['Participacion']['id'];
@@ -126,7 +128,7 @@ class Participacion extends AppModel {
                 'Participacion.user_id' => $user_id,
                 'Participacion.estado_actual' => 1
             ]
-        ]);
+        ]); 
         if (!$participacion) {
             return false;
         }

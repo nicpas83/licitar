@@ -1,6 +1,6 @@
-<?php 
+<?php
 $formHorizontal['url'] = ['action' => 'add', $proceso['id']];
-// debug($proceso);die;
+ debug($items);die;
 ?>
 <div class="row">
     <div class="col-12">
@@ -68,7 +68,7 @@ $formHorizontal['url'] = ['action' => 'add', $proceso['id']];
                         <tbody>
                             <?php
                             if (!empty($items)) {
-                                $i=0;
+                                $i = 0;
                                 foreach ($items as $item) {
                                     ?>
                                     <tr>
@@ -77,7 +77,8 @@ $formHorizontal['url'] = ['action' => 'add', $proceso['id']];
                                         <td><?php echo $item['cantidad'] ?></td>
                                         <td><?php echo $item['unidad'] ?></td>
                                         <td><?php echo $item['especificaciones'] ?></td>
-                                        <td><?php echo $item['mejor_oferta'] ?></td>
+                                        <td><?php echo $this->element('procesos/mejores_ofertas', ['item' => $item]); ?></td>
+                                        
                                         <?php if (!isset($proceso['propio'])) { ?>
                                             <td>
                                                 <div class="input-group">
@@ -102,7 +103,7 @@ $formHorizontal['url'] = ['action' => 'add', $proceso['id']];
                         <div class="alert alert-warning">
                             <h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Importante</h3> 
                             <ul>
-                                <li>Tu ofertas deben ser PRECIO TOTAL (IVA INCLUIDO).</li>
+                                <li>Tu ofertas deben ser PRECIO UNITARIO (IVA INCLUIDO).</li>
                                 <li>Si tenés dudas sobre las especificaciones de algún producto/servicio, hacé una pregunta al comprador antes de realizar tu oferta. </li>
                             </ul>
                         </div>

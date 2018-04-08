@@ -16,12 +16,17 @@ class AppModel extends Model {
     }
 
     var $controllerAction = null;
+
     function setControllerAction($action = null) {
         if ($action) {
             $this->controllerAction = $action;
         }
     }
-    
+
+    /**
+     *  $quitarClaves = array();
+     *  $array = $this->quitarClavesDelArray($array, $quitarClaves);
+     */
     public function quitarClavesDelArray($array, $claves) {
         foreach ($claves as $clave) {
             unset($array[$clave]);

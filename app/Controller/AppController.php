@@ -64,18 +64,18 @@ class AppController extends Controller {
         $delete = array(
             'div' => false,
             'title' => 'Eliminar',
-            'class' => 'btn btn-info fa fa-trash-o pull-right m-t-5',
+            'class' => 'btn btn-danger ti-trash',
             'confirm' => 'Está seguro que desea eliminar?',
         );
         $edit = array(
             'div' => false,
             'title' => 'Editar',
-            'class' => 'btn btn-info fa fa-edit pull-right m-t-5',
+            'class' => 'btn btn-info fa fa-edit pull-right',
         );
         $view = array(
             'div' => false,
             'title' => 'Ver',
-            'class' => 'btn btn-info fa fa-search-plus pull-right m-t-5',
+            'class' => 'btn btn-info fa fa-search-plus pull-right',
         );
         $guardar = array(
             'div' => false,

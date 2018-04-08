@@ -13,19 +13,30 @@ class ProcesosController extends AppController {
         $this->set('procesos', $procesos['procesos']);
     }
 
-    public function view($id = null) {
-        $proceso = $this->Proceso->verProcesoActivo($id, $this->Auth->user('id'));
-        //valido que por URL solo se pueda acceder a procesos activos.
-        if ($proceso && $proceso['Proceso']['estado'] == 1) {
-            $this->set('proceso', $proceso['Proceso']);
-            $this->set('comprador', $proceso['User']['username']);
-            $this->set('items', $proceso['Item']);
-        } else {
-            $this->flash(__("El proceso al que intenta acceder no es un proceso activo."), array("action" => "index"));
+    public function view($proceso_id = null) {
+        $proceso = $this->Proceso->getInfo($proceso_id, $this->Auth->user('id'));
+        
+        if (!$proceso || $proceso['Proceso']['estado'] !== '1') {
+            $this->Flash->error(__("El proceso al que intenta acceder no es un proceso activo."));
+            $this->redirect($this->referer());
         }
+        $itemsIds = $this->Proceso->getItemsIds($proceso['Item']);
+        
+        $proceso['Item'] = $this->Proceso->Oferta->setMejoresOfertas($proceso['Item'], $itemsIds);
+
+        debug($proceso);
+        die;
+
+
+
+
+
+
+
+
+        $this->set('proceso', $proceso['Proceso']);
+        $this->set('items', $proceso['Item']);
     }
-    
-    
 
     public function edit($id = null) {
 

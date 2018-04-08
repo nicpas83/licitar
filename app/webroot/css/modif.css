@@ -81,6 +81,15 @@ td.actions{
     width: 130px;
 }
 
+.podium{
+    content: url("../img/podium32.png");
+  
+}
+.tooltip-item{
+    z-index: 999 !important;
+}
+
+
 #flashMsg {
   -webkit-animation: seconds 1.0s forwards;
   -webkit-animation-iteration-count: 1;

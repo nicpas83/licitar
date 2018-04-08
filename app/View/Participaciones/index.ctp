@@ -33,8 +33,7 @@
                                         <td><?php echo $participacion['Participacion']['total_oferta'] ?></td>
                                         <td>
                                             <?php echo $this->Form->postLink('', array('action' => 'delete', $participacion['Participacion']['id']), $deleteBtn); ?>
-                                            <?php echo $this->Html->link('', array('action' => 'view', $participacion['Participacion']['id']), $viewBtn); ?>
-                                            <?php echo $this->Html->link('', array('action' => 'edit', $participacion['Participacion']['id']), $editBtn); ?>
+                                            <?php echo $this->Html->link('', array('controller' => 'procesos','action' => 'view', $participacion['Participacion']['proceso_id']), $viewBtn); ?>
                                         </td>
                                     </tr>
                                     <?php

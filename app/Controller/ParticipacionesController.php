@@ -15,15 +15,5 @@ class ParticipacionesController extends AppController {
         $this->set('participaciones', $participaciones);
     }
 
-    public function edit($participacion_id = null) {
-        //traigo array de mi oferta en el proceso (agrega info de cada Item)
-        $participacion = $this->Participacion->miParticipacion($participacion_id, $this->Auth->user('id'));
-
-        if (!$participacion) {
-            $this->Flash->success('No tienes ofertas en curso.');
-            return $this->redirect(['controller' => 'participaciones', 'action' => 'index']);
-        }
-        $this->set('participacion', $participacion);
-    }
-
+    
 }

@@ -25,14 +25,14 @@ class Oferta extends AppModel {
         ],
     );
 
-    public function buscarMejoresOfertas($items) {
+    public function setMejoresOfertas($items, $itemsIds) {
 
-        $proceso_id = $items[0]['proceso_id'];
         $ofertas = $this->find('all', [
-            'fields' => ['created', 'user_id', 'item_id', 'valor_oferta'],
-            'conditions' => ['proceso_id' => $proceso_id],
+            'conditions' => ['item_id IN' => $itemsIds],
+            'order' => ['Oferta.valor_oferta ASC'],
+            'limit' => 3
         ]);
-
+        debug($ofertas);die;
 
         foreach ($items as $key => $item) {
             $valorOferta = false; //reseteo para cada item
@@ -78,6 +78,7 @@ class Oferta extends AppModel {
     }
 
     public function registrarOferta($proceso_id, $user_id, $participacion_id, $oferta) {
+        
         
         foreach ($oferta['Oferta'] as $key => $val) {
             $oferta['Oferta'][$key]['proceso_id'] = $proceso_id;

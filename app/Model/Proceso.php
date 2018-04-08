@@ -41,32 +41,22 @@ class Proceso extends AppModel {
         ],
     ];
 
-    public function verProcesoActivo($proceso_id, $user_id) {
+    public function getInfo($proceso_id, $user_id) {
         if (!is_numeric($proceso_id)) {
             return false;
         }
-        $proceso = $this->find('first', ['conditions' => ['Proceso.id' => $proceso_id]]);
-        if (!$proceso) {
-            return false;
-        }
-        //Agrego mensajes de los requisitos excluyentes
-        $proceso['Proceso']['requisitos'] = $this->configurarMensajesRequisitos($proceso['Proceso']);
-
-        //limpio claves requisitos
-        $quitarClaves = array('excluyente_factura', 'excluyente_gestion_envio', 'excluyente_oferta_completa');
-        $proceso['Proceso'] = $this->quitarClavesDelArray($proceso['Proceso'], $quitarClaves);
-
-        // agrego key ['propio']
+        $proceso = $this->configurarMensajesRequisitos($this->findById($proceso_id));
         $proceso = $this->validarTitularidadDelProceso($proceso, $user_id);
-
-        //traer ofertas de cada item.
-        $proceso['Item'] = $this->Oferta->buscarMejoresOfertas($proceso['Item']);
-
-//        debug($proceso);die;
         return $proceso;
     }
 
-    
+    public function getItemsIds($items) {
+        $itemsIds = [];
+        foreach ($items as $item) {
+            array_push($itemsIds, $item['id']);
+        }
+        return $itemsIds;
+    }
 
     public function validarTitularidadDelProceso($proceso, $user_id) {
         if ($proceso['User']['id'] == $user_id) {
@@ -75,20 +65,17 @@ class Proceso extends AppModel {
         return $proceso;
     }
 
+    //preparar mensajes para requisitos excluyentes
     public function configurarMensajesRequisitos($proceso) {
-//        debug($proceso);die;
-        //preparar mensajes para requisitos excluyentes
         $mensajes = array();
-        if ($proceso['excluyente_factura'] == 1) {
+        if ($proceso['Proceso']['excluyente_factura'] == 1) {
             array_push($mensajes, 'Emitir Factura A');
         }
-        if ($proceso['excluyente_gestion_envio'] == 1) {
-            array_push($mensajes, 'Gestión del Envío');
+        if ($proceso['Proceso']['excluyente_gestion_envio'] == 1) {
+            array_push($mensajes, 'Encargarse de la Gestión de Envío');
         }
-        if ($proceso['excluyente_oferta_completa'] == 1) {
-            array_push($mensajes, 'Realizar oferta para todos los Items.');
-        }
-        return $mensajes;
+        $proceso['Proceso']['requisitos'] = $mensajes;
+        return $proceso;
     }
 
     public function procesosActivos() {
@@ -157,7 +144,7 @@ class Proceso extends AppModel {
 
         return $procesos;
     }
-    
+
     public function decodeItems($items = null) {
 
         $categorias = json_decode($items['categorias']);
@@ -206,7 +193,7 @@ class Proceso extends AppModel {
             $data['unidades'][] = $item['unidad'];
             $data['especificaciones'][] = $item['especificaciones'];
         }
-        
+
         $items = array();
 
         $items['itemIds'] = json_encode($data['itemIds']);
@@ -219,7 +206,7 @@ class Proceso extends AppModel {
         $items['unidades'] = json_encode($data['unidades']);
         $items['especificaciones'] = json_encode($data['especificaciones'], JSON_UNESCAPED_UNICODE);
 
-        
+
         return $items;
     }
 
