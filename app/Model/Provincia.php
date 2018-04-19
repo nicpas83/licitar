@@ -22,7 +22,6 @@ class Provincia extends AppModel {
     public function options() { 
         return $this->find('list', [
                     'fields' => ['Provincia.id', 'Provincia.nombre'],
-                    'group' => ['Provincia.nombre'],
                     'order' => ['Provincia.nombre ASC']
         ]);
     }
