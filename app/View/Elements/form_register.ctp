@@ -1,6 +1,6 @@
 <div class="login-box card">
     <div class="card-block">
-        <?php echo $this->Form->create('User', ['class' => 'form-horizontal']) ?>
+        <?php echo $this->Form->create('User', ['class' => 'form-horizontal', 'url' => ['controller' => 'users', 'action' => 'registrar']]) ?>
 
         <div class="form-group">
             <div class="col-xs-12">

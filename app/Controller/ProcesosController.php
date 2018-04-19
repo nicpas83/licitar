@@ -20,18 +20,9 @@ class ProcesosController extends AppController {
             $this->Flash->error(__("El proceso al que intenta acceder no es un proceso activo."));
             $this->redirect($this->referer());
         }
-        $itemsIds = $this->Proceso->getItemsIds($proceso['Item']);
         
-        $proceso['Item'] = $this->Proceso->Oferta->setMejoresOfertas($proceso['Item'], $itemsIds);
-
-        debug($proceso);
-        die;
-
-
-
-
-
-
+//        debug($proceso['Item']);die;
+        $proceso['Item'] = $this->Proceso->Oferta->setMejoresOfertas($proceso['Item']);
 
 
         $this->set('proceso', $proceso['Proceso']);

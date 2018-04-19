@@ -25,14 +25,18 @@ class Oferta extends AppModel {
         ],
     );
 
-    public function setMejoresOfertas($items, $itemsIds) {
+    public function setMejoresOfertas($items) {
+
+        $itemsIds = [];
+        foreach ($items as $item) {
+            array_push($itemsIds, $item['id']);
+        }
 
         $ofertas = $this->find('all', [
             'conditions' => ['item_id IN' => $itemsIds],
-            'order' => ['Oferta.valor_oferta ASC'],
-            'limit' => 3
         ]);
-        debug($ofertas);die;
+
+
 
         foreach ($items as $key => $item) {
             $valorOferta = false; //reseteo para cada item
@@ -40,16 +44,18 @@ class Oferta extends AppModel {
             if ($ofertas) {
                 foreach ($ofertas as $oferta) {
                     if ($item['id'] == $oferta['Oferta']['item_id']) {
-                        //si es falso o si la nueva oferta es menor.
+                        //si es primera oferta o si la nueva oferta es menor.
                         if (!$valorOferta || $oferta['Oferta']['valor_oferta'] < $valorOferta) {
                             //piso valor oferta
-                            $valorOferta = $oferta['Oferta']['valor_oferta'];
+                            $valorOferta = $oferta['Oferta']['valor_oferta']; //true
                             $items[$key]['mejor_oferta'] = $valorOferta;
+                            $items[$key]['ganador_id'] = $oferta['Oferta']['user_id'];
+                            $items[$key]['fecha_oferta'] = $oferta['Oferta']['modified'];
                         }
                     }
                 }
             } else {
-                $items[$key]['mejor_oferta'] = "Aún Sin Ofertas";
+                $items[$key]['mejor_oferta'] = "Sin Ofertas";
             }
         }
 
@@ -65,11 +71,7 @@ class Oferta extends AppModel {
                 $q_items_oferta++;
             }
         }
-        if ($proceso['Proceso']['excluyente_oferta_completa'] == 1) {
-            if ($q_items_proceso !== $q_items_oferta) {
-                return false;
-            }
-        }
+        
         if ($q_items_oferta === 0) {
             return false;
         } else {
@@ -78,8 +80,8 @@ class Oferta extends AppModel {
     }
 
     public function registrarOferta($proceso_id, $user_id, $participacion_id, $oferta) {
-        
-        
+
+
         foreach ($oferta['Oferta'] as $key => $val) {
             $oferta['Oferta'][$key]['proceso_id'] = $proceso_id;
             $oferta['Oferta'][$key]['user_id'] = $user_id;
@@ -88,7 +90,7 @@ class Oferta extends AppModel {
 //        debug($oferta);die;
         $this->create();
         $result = $this->saveAll($oferta['Oferta']);
-        
+
         if ($result) {
             return true;
         } else {

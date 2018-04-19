@@ -32,7 +32,7 @@ class Participacion extends AppModel {
             'recursive' => -1
         ));
         
-        debug($result);die;
+//        debug($result);die;
 
         if ($result) {
             $participacion_id = $result['Participacion']['id'];

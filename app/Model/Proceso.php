@@ -50,14 +50,6 @@ class Proceso extends AppModel {
         return $proceso;
     }
 
-    public function getItemsIds($items) {
-        $itemsIds = [];
-        foreach ($items as $item) {
-            array_push($itemsIds, $item['id']);
-        }
-        return $itemsIds;
-    }
-
     public function validarTitularidadDelProceso($proceso, $user_id) {
         if ($proceso['User']['id'] == $user_id) {
             $proceso['Proceso']['propio'] = 'Si';

@@ -38,6 +38,9 @@ class UsersController extends AppController {
 
     public function registrar() {
         if ($this->request->is('post')) {
+            
+//            debug($this->request->data);die;
+            
             $this->User->create();
             if ($this->User->save($this->request->data)) {
                 $this->Flash->success(__('El usuario fue creado. Ya podés ingresar al sistema.'), 'success');
