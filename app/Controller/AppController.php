@@ -35,7 +35,7 @@ class AppController extends Controller {
         $this->phpNow = (new DateTime())->format('Y-m-d');
 
         // permitimos accion display y registrar (sin login).
-        $this->Auth->allow('display', 'registrar', 'landing_general');
+        $this->Auth->allow('registrar', 'landing_general');
         $this->Auth->authError = __('Para ingresar debes estar loggeado.');
 
         $loggedInId = AuthComponent::user('id');

@@ -15,7 +15,6 @@ if (isset($proceso)) {
     $fechaEntrega = $proceso['fecha_entrega'];
     $excFactura = $proceso['excluyente_factura'];
     $excGestionEnvio = $proceso['excluyente_gestion_envio'];
-    $excOfertaCompleta = $proceso['excluyente_oferta_completa'];
 }
 if (isset($hidden)) {
     $itemIds = $hidden['itemIds'];
@@ -44,7 +43,7 @@ if (isset($hidden)) {
     <?php echo $this->element('f_text', ['params' => ['name' => 'detalles', 'label' => 'Comentá cualquier detalle importante.', 'lg' => '5', 'value' => $detalles]]); ?>
     <?php echo $this->element('f_date', ['params' => ['name' => 'fecha_entrega', 'label' => 'Fecha de Entrega', 'lg' => '2', 'value' => $fechaEntrega, 'validate']]); ?>
     <?php echo $this->element('f_checkIN', ['params' => ['label' => 'Requisitos Excluyentes', 'lg' => '4']]); ?>
-    <?php echo $this->element('f_checkbox', ['params' => ['name' => 'excluyente_factura', 'label' => 'Requisitos Excluyentes', 'value' => $excFactura]]); ?>
+    <?php echo $this->element('f_checkbox', ['params' => ['name' => 'excluyente_factura', 'label' => 'Que el proveedor emita Factura A', 'value' => $excFactura]]); ?>
     <?php echo $this->element('f_checkbox', ['params' => ['name' => 'excluyente_gestion_envio', 'label' => 'Que el proveedor gestione el envío', 'value' => $excGestionEnvio]]); ?>
     <?php echo $this->element('f_checkOUT'); ?>
 

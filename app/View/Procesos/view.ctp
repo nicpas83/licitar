@@ -68,8 +68,8 @@ $formHorizontal['url'] = ['action' => 'add', $proceso['id']];
                             if (!empty($items)) {
                                 $i = 0;
                                 foreach ($items as $item) {
-                                    $precio_unitario = number_format($item['mejor_oferta'],2,",",".");
-                                    $subtotal = number_format(($item['mejor_oferta'] * $item['cantidad']),2,",",".");
+                                    $precio_unitario = $item['mejor_oferta'] > 0 ? number_format($item['mejor_oferta'],2,",",".") : false;
+                                    $subtotal = $item['mejor_oferta'] > 0 ? number_format(($item['mejor_oferta'] * $item['cantidad']),2,",",".") : false;
                                     ?>
                                     <tr>
                                         <td><?php echo $item['nombre'] ?></td>
@@ -77,10 +77,14 @@ $formHorizontal['url'] = ['action' => 'add', $proceso['id']];
                                         <td><?php echo $item['cantidad'] ?></td>
                                         <td><?php echo $item['unidad'] ?></td>
                                         <td>
+                                            <?php if($precio_unitario){ ?>
                                             <small class="text-info">El <?php echo date('d/n', strtotime($item['fecha_oferta'])) ?>, a las <?php echo date('H:i', strtotime($item['fecha_oferta'])) ?></small>
                                             <?php echo $this->element('pst_moneda', ['params' => ['value' => $precio_unitario, 'c/u']]); ?>
                                             <small class="text-muted"><?php echo $this->element('pst_moneda', ['params' => ['value'=> $subtotal, 'subtotal' ]]) ?></small>
-
+                                            <?php }else{
+                                                echo "Sin Ofertas";
+                                            }?>
+                                            
                                         </td>
                                         <td>
                                             <?php echo $this->element('f_input_moneda', ['params' => ['name' => "Oferta.$i.valor_oferta", 'inTable']]) ?>

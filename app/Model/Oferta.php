@@ -55,7 +55,7 @@ class Oferta extends AppModel {
                     }
                 }
             } else {
-                $items[$key]['mejor_oferta'] = "Sin Ofertas";
+                $items[$key]['mejor_oferta'] = 0; //sin ofertas
             }
         }
 

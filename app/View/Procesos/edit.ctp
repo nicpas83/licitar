@@ -9,7 +9,7 @@
                 <div class="ribbon-wrapper card">
                     <div class="ribbon ribbon-warning">Editar Proceso de Compra</div>
                     <h2 class="ribbon-content text-justify"> 
-                        Sólo podrás editar los loremnas  ias  nsnudu kdsn
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur, mi sit amet placerat vehicula, lorem elit ultricies nunc, sed lacinia ipsum orci ac ipsum.
                     </h2>
                 </div>
 
