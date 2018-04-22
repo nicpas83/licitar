@@ -139,8 +139,8 @@
                                         <div class="dw-user-box">
                                             <div class="u-img"><?php echo $this->Html->image('/assets/images/users/1.jpg', ['alt' => 'user']) ?></div>
                                             <div class="u-text">
-                                                <h4><?php echo $loggedInUserName ?></h4>
-                                                <p class="text-muted"><?php echo $loggedInEmail ?></p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                                <h4><?php echo $logUserName ?></h4>
+                                                <p class="text-muted"><?php echo $logUserEmail ?></p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
                                         </div>
                                     </li>
                                     <li role="separator" class="divider"></li>

@@ -1,4 +1,8 @@
-<?php // debug($procesos);die;    ?>
+<?php
+// debug($ofertas);die;        
+$formHorizontal['url'] = ['action' => 'add']; //oferta
+echo $this->Form->create('Oferta', $formHorizontal);
+?>
 
 <div class="row">
     <div class="col-12">
@@ -9,33 +13,42 @@
                     <table id="misOfertas" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>Referencia</th>
-                                <th>Cant Items</th>
+                                <th>Proceso</th>
+                                <th>Producto / Servicio</th>
                                 <th>Cant Unidades</th>
-                                <th>Oferta Total</th>
                                 <th>Finaliza</th>
-                                <th>Acciones</th>
+                                <th>Mi Oferta Actual</th>
+                                <th>Resultado Actual</th>
+                                <th>Ofertar</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            if (!empty($participaciones)) {
+                            if (!empty($ofertas)) {
+                                $i = 0;
 
-                                foreach ($participaciones as $proceso) {
+                                foreach ($ofertas as $oferta) {
+                                    $precio_unitario = number_format($oferta[0]['mi_mejor_oferta'], 2, ",", ".");
+                                    $subtotal = number_format(($oferta[0]['mi_mejor_oferta'] * $oferta['Item']['cantidad']), 2, ",", ".");
                                     ?>
                                     <tr>
-                                        <td><?php echo $proceso['Proceso']['referencia'] ?></td>
-                                        <td><?php echo $proceso['Proceso']['total_items'] ?></td>
-                                        <td><?php echo $proceso['Proceso']['total_unidades'] ?></td>
-                                        <td></td>
-                                        <td><?php echo $proceso['Proceso']['fecha_fin'] ?></td>
+                                        <td><?php echo $this->Html->link($oferta['Proceso']['referencia'], "/procesos/view/" . $oferta['Proceso']['id'] . ""); ?></td>
+                                        <td><?php echo $oferta['Item']['nombre'] ?></td>
+                                        <td><?php echo $oferta['Item']['cantidad'] ?></td>
+                                        <td><?php echo $oferta['Proceso']['fecha_fin'] ?></td>
                                         <td>
-                                            <?php echo $this->Form->postLink('', array('action' => 'delete', $proceso['id']), $deleteBtn); ?>
-                                            <?php echo $this->Html->link('', array('action' => 'view', $proceso['id']), $viewBtn); ?>
-                                            <?php echo $this->Html->link('', array('action' => 'edit', $proceso['id']), $editBtn); ?>
+                                            <?php echo $this->element('pst_moneda', ['params' => ['value' => $precio_unitario, 'c/u']]); ?>
+                                            <small class="text-muted"><?php echo $this->element('pst_moneda', ['params' => ['value' => $subtotal, 'subtotal']]) ?></small>
                                         </td>
+                                        <td><?php echo $oferta[0]['resultado'] ?></td>
+                                        <td>
+                                            <?php echo $this->element('f_input_moneda', ['params' => ['name' => "Oferta.$i.valor_oferta", 'inTable']]) ?>
+                                        </td>
+                                        <?php echo $this->Form->input("Oferta.$i.proceso_id", ['type' => 'hidden', 'value' => $oferta['Proceso']['id']]) ?>
+                                        <?php echo $this->Form->input("Oferta.$i.item_id", ['type' => 'hidden', 'value' => $oferta['Item']['id']]) ?>
                                     </tr>
                                     <?php
+                                    $i++;
                                 }
                             }
                             ?>
@@ -47,3 +60,25 @@
         </div>
     </div>
 </div>
+
+<div class="row m-t-10">
+    <div class="col-sm-12">
+
+        <div class="alert alert-warning">
+            <h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Importante</h3> 
+            <ul>
+                <li>Tu ofertas deben ser PRECIO UNITARIO (IVA INCLUIDO).</li>
+                <li>Si tenés dudas sobre las especificaciones de algún producto/servicio, hacé una pregunta al comprador antes de realizar tu oferta. </li>
+            </ul>
+        </div>
+
+        <div class="form-group pull-right">
+            <?php
+            if (!isset($proceso['propio'])) {
+                echo $this->Form->button('Realizar Oferta', ['class' => 'btn btn-info', 'div' => false]);
+            }
+            ?>
+        </div>
+    </div>
+</div>
+<?php echo $this->Form->end() ?>
