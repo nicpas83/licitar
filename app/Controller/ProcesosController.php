@@ -14,15 +14,20 @@ class ProcesosController extends AppController {
     }
 
     public function view($proceso_id = null) {
-        $proceso = $this->Proceso->getInfo($proceso_id, $this->Auth->user('id'));
         
+        $proceso = $this->Proceso->findById($proceso_id);
         if (!$proceso || $proceso['Proceso']['estado'] !== '1') {
             $this->Flash->error(__("El proceso al que intenta acceder no es un proceso activo."));
             $this->redirect($this->referer());
         }
+        $proceso = $this->Proceso->configurarRequisitosExcluyentes($proceso);
+        $proceso = $this->Proceso->validarTitularidadDelProceso($proceso, $this->Auth->user('id'));
         
-//        debug($proceso['Item']);die;
-        $proceso['Item'] = $this->Proceso->Oferta->setMejoresOfertas($proceso['Item']);
+        $itemsIds = $this->Proceso->Item->getItemsIds($proceso);
+        $ofertas = $this->Proceso->Oferta->getOfertas($itemsIds);
+        
+        $proceso['Item'] = $this->Proceso->Item->setMejoresOfertas($proceso['Item'], $ofertas);
+        $proceso['Item'] = $this->Proceso->Item->setCantidadProveedores($proceso['Item'], $ofertas);
 
 
         $this->set('proceso', $proceso['Proceso']);

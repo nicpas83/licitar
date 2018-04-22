@@ -33,5 +33,11 @@ class AppModel extends Model {
         }
         return $array;
     }
+    
+    public function arrayOrderBy($data, $field) {
+        $code = "return strnatcmp(\$a['$field'], \$b['$field']);";
+        usort($data, create_function('$a,$b', $code));
+        return $data;
+    }
 
 }

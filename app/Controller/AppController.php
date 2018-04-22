@@ -34,23 +34,16 @@ class AppController extends Controller {
     public function beforeFilter() {
         $this->phpNow = (new DateTime())->format('Y-m-d');
 
-        // permitimos accion display y registrar (sin login).
+        // permitimos accion landing y registrar (sin login).
         $this->Auth->allow('registrar', 'landing_general');
         $this->Auth->authError = __('Para ingresar debes estar loggeado.');
 
-        $loggedInId = AuthComponent::user('id');
-
-//        debug($loggedInId);die;
-        //variables disponibles en las vistas. 
-        $this->set('loggedInId', AuthComponent::user('id'));
-        $this->set('loggedInUserName', AuthComponent::user('username'));
-        $this->set('loggedInEmail', AuthComponent::user('email'));
-        $this->set('loggedInRole', AuthComponent::user('role'));
-        $this->set('loggedInRazonSocial', AuthComponent::user('razon_social'));
-        $this->set('loggedInCuit', AuthComponent::user('cuit'));
-//        $this->set('phpNow', $this->phpNow->format('Y-m-d'));
-
-
+        //variables de usuario disponibles en las vistas. 
+        $this->set('logUserId', AuthComponent::user('id'));
+        $this->set('logUserName', AuthComponent::user('username'));
+        $this->set('logUserEmail', AuthComponent::user('email'));
+        
+        //estilo para formularios Bootstrap
         $formHorizontal = [
             'class' => 'form-horizontal',
             'inputDefaults' => array(
@@ -61,6 +54,8 @@ class AppController extends Controller {
             'novalidate'
         ];
         $inputDefaults = "'inputDefaults' => array('class' => 'form-control','div' => false,'label' => false,),'novalidate'";
+        
+        //estilos para botones de acción en Tablas
         $delete = array(
             'div' => false,
             'title' => 'Eliminar',
@@ -77,6 +72,8 @@ class AppController extends Controller {
             'title' => 'Ver',
             'class' => 'btn btn-info fa fa-search-plus pull-right',
         );
+        
+        //estilos para botones de acción en Formularios
         $guardar = array(
             'div' => false,
             'label' => 'Guardar',
@@ -96,6 +93,8 @@ class AppController extends Controller {
             'class' => 'btn btn-info pull-right',
         );
 
+        
+        //variables disponibles en todas las vistas:
         $this->set('deleteBtn', $delete);
         $this->set('editBtn', $edit);
         $this->set('viewBtn', $view);

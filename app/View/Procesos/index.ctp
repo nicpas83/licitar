@@ -30,21 +30,21 @@
                     <table id="procesosIndex" class="table table-bordered table-striped" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>Referencia</th>
-                                <th>Finaliza</th>
+                                <th>Proceso de Compra</th>
                                 <th>Cant Items</th>
                                 <th>Cant Unidades</th>
                                 <th>Condicion de Pago</th>
+                                <th>Finaliza</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($procesos as $proceso) { ?>
                                 <tr>
                                     <td><a href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'view',$proceso['proceso_id']]) ?>"><?php echo $proceso['referencia'] ?></a></td>
-                                    <td><?php echo $proceso['fecha_fin'] ?></td>
                                     <td><?php echo $proceso['q_items'] ?></td>
                                     <td><?php echo $proceso['q_unidades'] ?></td>
                                     <td><?php echo $proceso['condicion_pago'] ?></td>
+                                    <td><?php echo $proceso['fecha_fin'] ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>

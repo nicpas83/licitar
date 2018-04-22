@@ -25,53 +25,129 @@ class Oferta extends AppModel {
         ],
     );
 
-    public function setMejoresOfertas($items) {
-
-        $itemsIds = [];
-        foreach ($items as $item) {
-            array_push($itemsIds, $item['id']);
-        }
+    public function getMisOfertas($user_id) {
 
         $ofertas = $this->find('all', [
-            'conditions' => ['item_id IN' => $itemsIds],
+            'conditions' => [
+                'Oferta.user_id' => $user_id,
+                'Oferta.estado_actual' => 1
+            ],
+            'fields' => [
+                'Item.id',
+                'Item.nombre',
+                'Item.cantidad',
+                'Item.unidad',
+                'Item.especificaciones',
+                'Proceso.id',
+                'Proceso.referencia',
+                'Proceso.fecha_fin',
+                'Proceso.fecha_entrega',
+                'Proceso.condicion_pago',
+                'MIN(valor_oferta) as mi_mejor_oferta',
+                'MAX(Oferta.created) as fecha_hora',
+            ],
+            'joins' => array(
+                array(
+                    'table' => 'items',
+                    'alias' => 'Item',
+                    'type' => 'INNER',
+                    'conditions' => array(
+                        'Oferta.item_id = Item.id'
+                    )
+                ),
+                array(
+                    'table' => 'procesos',
+                    'alias' => 'Proceso',
+                    'type' => 'INNER',
+                    'conditions' => array(
+                        'Oferta.proceso_id = Proceso.id'
+                    )
+                ),
+            ),
+            'group' => ['Oferta.item_id'],
         ]);
 
+//        debug($ofertas);die;
 
-
-        foreach ($items as $key => $item) {
-            $valorOferta = false; //reseteo para cada item
-
-            if ($ofertas) {
-                foreach ($ofertas as $oferta) {
-                    if ($item['id'] == $oferta['Oferta']['item_id']) {
-                        //si es primera oferta o si la nueva oferta es menor.
-                        if (!$valorOferta || $oferta['Oferta']['valor_oferta'] < $valorOferta) {
-                            //piso valor oferta
-                            $valorOferta = $oferta['Oferta']['valor_oferta']; //true
-                            $items[$key]['mejor_oferta'] = $valorOferta;
-                            $items[$key]['ganador_id'] = $oferta['Oferta']['user_id'];
-                            $items[$key]['fecha_oferta'] = $oferta['Oferta']['modified'];
-                        }
-                    }
-                }
-            } else {
-                $items[$key]['mejor_oferta'] = 0; //sin ofertas
-            }
+        if (!$ofertas) {
+            return false;
         }
 
-        return $items;
+        return $ofertas;
     }
 
-    public function validarOferta($proceso_id, $ofertas) {
-        $proceso = $this->Proceso->findById($proceso_id);
-        $q_items_proceso = count($proceso['Item']);
+    public function setResultadosActuales($mis_ofertas, $userId) {
+        
+        $itemsIds = $this->Item->getItemsIds($mis_ofertas);
+        $resultados = $this->getMejoresOfertas($itemsIds);
+
+        foreach($mis_ofertas as $key => $val){
+            
+            $itemId = $val['Item']['id'];
+            
+            foreach($resultados[$itemId] as $keyRes => $resultado){
+                
+                if($userId == $resultado['user_id']){
+                    $mis_ofertas[$key][0]['resultado'] = $keyRes+1;
+                }
+                
+            }
+            
+        }
+        
+        return $mis_ofertas;
+    }
+
+    /**
+     * @param type $itemsIds
+     * @return type $ofertas
+     */
+    public function getOfertas($itemsIds) {
+        return $this->find('all', [
+                    'conditions' => ['item_id IN' => $itemsIds],
+        ]);
+    }
+
+    public function getMejoresOfertas($itemsIds) {
+        $mejores_ofertas = $this->find('all', [
+            'conditions' => ['item_id IN' => $itemsIds],
+            'fields' => ['Oferta.user_id', 'Oferta.item_id', 'Oferta.created', 'MIN(Oferta.valor_oferta) as mejor_oferta', 'COUNT(Oferta.id) as q_ofertas'],
+            'group' => ['Oferta.user_id', 'Oferta.item_id']
+        ]);
+
+        //recorro cada item y defino un array con los resultados de ofertas.  
+        foreach ($itemsIds as $item) {
+            $resultados[$item] = array();
+
+            foreach ($mejores_ofertas as $mejor_oferta) {
+
+                if ($item == $mejor_oferta['Oferta']['item_id']) {
+                    $resultados[$item][] = [
+                        'user_id' => $mejor_oferta['Oferta']['user_id'],
+                        'oferta' => $mejor_oferta[0]['mejor_oferta']
+                    ];
+                }
+            }
+            //ordeno los resultados mediante función de appModel
+            $resultados[$item] = $this->arrayOrderBy($resultados[$item], 'oferta');
+        }
+
+       
+        return $resultados;
+    }
+    
+
+    
+
+    public function validarOferta($ofertas) {
+        
         $q_items_oferta = 0;
         foreach ($ofertas['Oferta'] as $oferta) {
             if (is_numeric($oferta['valor_oferta']) && $oferta['valor_oferta'] > 0) {
                 $q_items_oferta++;
             }
         }
-        
+
         if ($q_items_oferta === 0) {
             return false;
         } else {
@@ -81,13 +157,18 @@ class Oferta extends AppModel {
 
     public function registrarOferta($proceso_id, $user_id, $participacion_id, $oferta) {
 
-
         foreach ($oferta['Oferta'] as $key => $val) {
+
+            if (empty($val['valor_oferta'])) {
+                unset($oferta['Oferta'][$key]);
+                continue;
+            }
+
             $oferta['Oferta'][$key]['proceso_id'] = $proceso_id;
             $oferta['Oferta'][$key]['user_id'] = $user_id;
             $oferta['Oferta'][$key]['participacion_id'] = $participacion_id;
         }
-//        debug($oferta);die;
+
         $this->create();
         $result = $this->saveAll($oferta['Oferta']);
 

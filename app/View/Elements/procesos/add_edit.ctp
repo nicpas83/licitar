@@ -34,7 +34,7 @@ if (isset($hidden)) {
 <div class="row">
     <?php echo $this->element('f_input', ['params' => ['name' => 'referencia', 'label' => 'Título Descriptivo o Referencia', 'lg' => '5', 'value' => $referencia, 'validate']]); ?>
     <?php echo $this->element('f_date', ['params' => ['name' => 'fecha_fin', 'label' => 'Fin de la Subasta?', 'lg' => '2', 'value' => $fechaFin, 'validate']]); ?>
-    <?php echo $this->element('f_select', ['params' => ['name' => 'condiciones', 'label' => 'Condición de pago?', 'lg' => '3', 'default' => $condicionPago, 'options' => $condiciones]]); ?>
+    <?php echo $this->element('f_select', ['params' => ['name' => 'condicion_pago', 'label' => 'Condición de pago?', 'lg' => '3', 'default' => $condicionPago, 'options' => $condiciones]]); ?>
 
 </div>
 
