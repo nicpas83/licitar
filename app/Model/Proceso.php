@@ -41,16 +41,14 @@ class Proceso extends AppModel {
         ],
     ];
 
-    public function getProcesosIds($array) {
-        $procesosIds = [];
-
-        foreach ($array as $val) {
-            array_push($procesosIds, $val['Oferta']['proceso_id']);
+    public function getInfo($proceso_id, $user_id) {
+        if (!is_numeric($proceso_id)) {
+            return false;
         }
-        
-        return array_unique($procesosIds);
+        $proceso = $this->configurarMensajesRequisitos($this->findById($proceso_id));
+        $proceso = $this->validarTitularidadDelProceso($proceso, $user_id);
+        return $proceso;
     }
-    
 
     public function validarTitularidadDelProceso($proceso, $user_id) {
         if ($proceso['User']['id'] == $user_id) {
@@ -59,7 +57,8 @@ class Proceso extends AppModel {
         return $proceso;
     }
 
-    public function configurarRequisitosExcluyentes($proceso) {
+    //preparar mensajes para requisitos excluyentes
+    public function configurarMensajesRequisitos($proceso) {
         $mensajes = array();
         if ($proceso['Proceso']['excluyente_factura'] == 1) {
             array_push($mensajes, 'Emitir Factura A');

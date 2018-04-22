@@ -26,7 +26,8 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	
-        Router::connect('/', Configure::read('Route.default')); //definido en bootstrap.php
+        Router::connect('/', Configure::read('Route.default'));
+        Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
         Router::connect('/subastas_de_compras', array('controller' => 'pages', 'action' => 'landing_general'));
         Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));

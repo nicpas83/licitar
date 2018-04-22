@@ -6,37 +6,23 @@ App::uses('AppController', 'Controller');
 
 class OfertasController extends AppController {
 
-    public function add($proceso_id = null) {
+    public function add($proceso_id) {
 
         if ($this->request->is('post')) {
-
+            
             //validar oferta 
-            $validacion = $this->Oferta->validarOferta($this->request->data);
-            if (!$validacion) {
+            $validacion = $this->Oferta->validarOferta($proceso_id, $this->request->data);
+            if(!$validacion){
                 $this->Flash->error(__('La oferta que intenta registrar no es válida o no cumple los requisitos.'));
                 $this->redirect($this->referer());
             }
-
-            //si viene desde Mis Ofertas el proceso_id puede cambiar en cada Item
-            if (!$proceso_id) {
-                foreach ($this->request->data['Oferta'] as $key => $oferta) {
-                    if (empty($oferta['valor_oferta'])) {
-                        continue;
-                    }
-                    $this->request->data['Oferta'][$key]['user_id'] = $this->Auth->user('id');
-                    $this->request->data['Oferta'][$key]['participacion_id'] = $this->Oferta->Participacion->getParticipacion($oferta['proceso_id'], $this->Auth->user('id'));
-                    $this->Oferta->create();
-                    $result = $this->Oferta->saveAll($this->request->data['Oferta'][$key]);
-                }
-            } else {
-                $participacion_id = $this->Oferta->Participacion->getParticipacion($proceso_id, $this->Auth->user('id'));
-                $result = $this->Oferta->registrarOferta($proceso_id, $this->Auth->user('id'), $participacion_id, $this->request->data);
-            }
-
-
+            
+            $participacion_id = $this->Oferta->Participacion->getParticipacion($proceso_id, $this->Auth->user('id'));
+            $result = $this->Oferta->registrarOferta($proceso_id, $this->Auth->user('id'), $participacion_id, $this->request->data);
+            
             if ($result) {
                 $this->Flash->success('La Oferta fue realizada con éxito.');
-                return $this->redirect(array('controller' => 'ofertas', 'action' => 'mis_ofertas'));
+                return $this->redirect(array('controller' => 'participaciones', 'action' => 'index'));
             } else {
                 $this->Flash->error(__('Error al realizar la Oferta.'));
             }
@@ -60,22 +46,20 @@ class OfertasController extends AppController {
     }
 
     public function mis_ofertas() {
-
-        $mis_ofertas = $this->Oferta->getMisOfertas($this->Auth->user('id'));
-        if (!$mis_ofertas) {
-            $this->Flash->error(__("No tenés ofertas en curso."));
-            $this->redirect($this->referer());
-        }
-
-        $mis_ofertas = $this->Oferta->setResultadosActuales($mis_ofertas, $this->Auth->user('id'));
-
-
-
-        $this->set('ofertas', $mis_ofertas);
-    }
-
-    public function mis_participaciones() {
         $procesos_ids = array();
+
+        //traigo los procesos activos donde participo.
+        $ofertas = $this->Oferta->find('all', [
+            'conditions' => [
+                'user_id' => $this->Auth->user('id'),
+                'estado_actual' => 1
+            ],
+            'group' => ['proceso_id']
+        ]);
+        
+        if(!$ofertas){
+            return false;
+        }
 
         foreach ($ofertas as $oferta) {
             array_push($procesos_ids, $oferta['Oferta']['proceso_id']);
