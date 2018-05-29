@@ -2,23 +2,25 @@
     <div class="col-lg-6 col-sm-12">
         <div class="card">
             <div class="card-block">
-                <div class="ribbon-wrapper card">
-                    <div class="ribbon ribbon-warning">Procesos de Compra Abriertos</div>
-                    <p class="ribbon-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel tellus vulputate risus finibus tristique. In ultrices tempor enim et vestibulum. Quisque in lacus nec nisl rutrum porttitor. Aliquam non turpis urna. Fusce placerat mi accumsan viverra scelerisque.</span> </p>                    
-                </div>
+                <?php echo $this->element('ribbon_title', ['title' => 'Procesos de Compra Abiertos']) ?>
+
             </div>
         </div>
     </div>
     <div class="col-lg-6 col-sm-12">
-        <div class="card">
-            <div class="card-block">
-                <h4 class="card-title">Filtros de búsqueda: </h4>
-                <?php echo $this->Form->create(); ?>
-                <?php echo $this->Form->input('categoria', ['type' => 'select', 'options' => $categorias, 'class' => 'form-control select2', 'data-width' => "100%", 'label' => false, 'div' => false]); ?>
-                <?php echo $this->Form->button('Buscar', $buscar);?>
-                <?php echo $this->Form->end(); ?>
+        <div class="card card-block">
+            <!-- Row -->
+            <div class="row p-t-10 p-b-10">
+                <!-- Column -->
+                <div class="col p-r-0">
+                    <h1 class="font-light">352</h1>
+                    <h6 class="text-muted">New Items</h6></div>
+                <!-- Column -->
+                <div class="col text-right align-self-center">
+                    <div data-label="40%" class="css-bar m-b-0 css-bar-warning css-bar-40"><i class="mdi mdi-star-circle"></i></div>
+                </div>
             </div>
-        </div>    
+        </div>   
     </div>
 </div>
 <div class="row">
@@ -40,7 +42,7 @@
                         <tbody>
                             <?php foreach ($procesos as $proceso) { ?>
                                 <tr>
-                                    <td><a href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'view',$proceso['proceso_id']]) ?>"><?php echo $proceso['referencia'] ?></a></td>
+                                    <td><a href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'view', $proceso['proceso_id']]) ?>"><?php echo $proceso['referencia'] ?></a></td>
                                     <td><?php echo $proceso['q_items'] ?></td>
                                     <td><?php echo $proceso['q_unidades'] ?></td>
                                     <td><?php echo $proceso['condicion_pago'] ?></td>

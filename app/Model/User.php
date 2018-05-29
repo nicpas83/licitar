@@ -4,24 +4,25 @@ App::uses('AppModel', 'Model');
 App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 
 class User extends AppModel {
-    
-    public $hasMany = array('Proceso','Participacion');
-    
+
+    public $hasMany = array('Proceso', 'Participacion');
     public $validate = array(
         'username' => array(
-            'required' => array(
+            'notBlank' => array(
                 'rule' => 'notBlank',
-                'message' => 'Debe ingresar un nombre de usuario'
+                'message' => 'El nombre de usuario es obligatorio.'
             ),
             'length' => array(
                 'rule' => array('between', 4, 15),
                 'message' => 'El usuario debe tener entre 4 y 15 caracteres.'
             ),
-            'rule' => array('isUnique', array('username'), true),
-            'message' => 'El nombre de usuario ya existe.',
+            'isUnique' => [
+                'rule' => array('isUnique', array('username'), true),
+                'message' => 'El nombre de usuario ya existe.',
+            ]
         ),
         'password' => array(
-            'required' => array(
+            'notBlank' => array(
                 'rule' => 'notBlank',
                 'message' => 'Debe ingresar una contraseña'
             ),
@@ -30,14 +31,28 @@ class User extends AppModel {
                 'message' => 'La contraseña debe tener al menos 4 caracteres.'
             )
         ),
-        'email' => array(
-            'required' => array(
+        'email' => [
+            'email' => [
+                'rule' => array('email', true,),
+                'message' => 'Ingrese un formato válido de E-mail.'
+            ],
+            'isUnique' => [
+                'rule' => array('isUnique', array('email'), true),
+                'message' => 'El email ya existe en la base.',
+            ]
+        ],
+        'cuit' => [
+            'length' => [
+                'rule' => array('minLength', '11'),
+                'message' => 'El CUIT debe tener 11 números.'
+            ]
+        ],
+        'tipo_usuario' => [
+            'notBlank' => array(
                 'rule' => 'notBlank',
-                'message' => 'Debe ingresar un nombre de usuario'
+                'message' => 'Debes especificar un tipo de usuario.'
             ),
-            'rule' => array('isUnique', array('email'), true),
-            'message' => 'El email ya existe.'
-        )
+        ],
     );
 
     public function beforeSave($options = array()) {

@@ -9,7 +9,7 @@ class OfertasController extends AppController {
     public function add($proceso_id = null) {
 
         if ($this->request->is('post')) {
-
+debug($this->request->data);die;
             //validar oferta 
             $validacion = $this->Oferta->validarOferta($this->request->data);
             if (!$validacion) {

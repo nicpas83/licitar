@@ -52,6 +52,8 @@ Inflector::rules('singular', array(
         'productos' => 'Producto',
         'participaciones' => 'Participacion',
         'ofertas' => 'Oferta',
+        'provincias' => 'Provincia',
+        'localidades' => 'Localidad',
     ),
     'uninflected' => array()
         )
@@ -65,6 +67,9 @@ Inflector::rules('plural', array(
         'producto' => 'Productos',
         'participacion' => 'Participaciones',
         'oferta' => 'Ofertas',
+        'provincia' => 'Ofertas',
+        'oferta' => 'Provincias',
+        'localidad' => 'Localidades',
     ),
     'uninflected' => array()
         )
@@ -78,6 +83,7 @@ Inflector::rules('plural', array(
  * CakePlugin::load('DebugKit'); // Loads a single plugin named DebugKit
  */
 CakePlugin::load('DebugKit');
+CakePlugin::loadAll();
 /**
  * To prefer app translation over plugin translation, you can set
  *

@@ -28,19 +28,43 @@ class UsersController extends AppController {
         $this->set('users', $this->paginate());
     }
 
-    public function view($id = null) {
-        $this->User->id = $id;
-        if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
-        }
+    public function mi_cuenta() {
+        $id = AuthComponent::user('id');
+        $this->User->recursive = -1;
         $this->set('user', $this->User->findById($id));
+
+        if ($this->request->is('post')) {
+            $this->User->id = $id;
+//            debug($this->request->data);die;
+            if ($this->User->save($this->request->data)) {
+                $this->Flash->success(__('Los Datos de tu cuenta fueron actualizados.'), 'success');
+                return $this->redirect(array('action' => 'mi_cuenta'));
+            } else {
+                $this->Flash->error(__('Error al actualizar los datos.'));
+            }
+        }
+    }
+    
+    public function alertas() {
+        $id = AuthComponent::user('id');
+        $this->User->recursive = -1;
+        $this->set('user', $this->User->findById($id));
+
+        if ($this->request->is('post')) {
+            $this->User->id = $id;
+//            debug($this->request->data);die;
+            if ($this->User->save($this->request->data)) {
+                $this->Flash->success(__('Los Datos de tu cuenta fueron actualizados.'), 'success');
+                return $this->redirect(array('action' => 'mi_cuenta'));
+            } else {
+                $this->Flash->error(__('Error al actualizar los datos.'));
+            }
+        }
     }
 
     public function registrar() {
         if ($this->request->is('post')) {
-            
 //            debug($this->request->data);die;
-            
             $this->User->create();
             if ($this->User->save($this->request->data)) {
                 $this->Flash->success(__('El usuario fue creado. Ya podés ingresar al sistema.'), 'success');
@@ -86,10 +110,6 @@ class UsersController extends AppController {
         }
         $this->Session->setFlash(__('User was not deleted'));
         return $this->redirect(array('action' => 'index'));
-    }
-
-    public function configuracion() {
-        
     }
 
 }

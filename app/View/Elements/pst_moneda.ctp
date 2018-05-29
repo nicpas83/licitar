@@ -1,6 +1,6 @@
 <?php 
 $value = !empty($params['value']) ? $params['value'] : 0;
-
+$symbol = "";
 foreach ($params as $val) {
     if ($val == 'c/u') {
         $symbol = "c/u";

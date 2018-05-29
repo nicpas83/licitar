@@ -6,22 +6,25 @@ $maxLength = "";
 $lg = isset($params['lg']) ? $params['lg'] : '12';
 $label = isset($params['label']) ? $params['label'] : "";
 $name = isset($params['name']) ? $params['name'] : "";
+$type = isset($params['type']) ? $params['type'] : "text";
 $value = isset($params['value']) ? $params['value'] : "";
+$placeholder = isset($params['placeholder']) ? $params['placeholder'] : "";
 $maxLengthValue = isset($params['maxLength']) ? $params['maxLength'] : "";
 foreach ($params as $val) {
     if ($val == 'validate') {
         $validate = "*";
         $validation = "data-validation-required-message";
         $validationMsg = "El campo " . $label . " es obligatorio.";
-    } 
+    }
 }
 if (!empty($maxLengthValue)) {
     $maxLength = "maxLength";
 }
 
 $options = [
-    'type' => 'text',
+    'type' => $type,
     'value' => $value,
+    'placeholder' => $placeholder,
     $validation => $validationMsg,
     $maxLength => $maxLengthValue,
 ];

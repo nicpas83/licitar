@@ -1,7 +1,7 @@
 <div class="table-responsive m-t-40">
     <?php
-    $formHorizontal['url'] = ['action' => 'add', $proceso['id']]; //oferta
-    echo $this->Form->create('Oferta', $formHorizontal); 
+    $formHorizontal['url'] = ['controller' => 'ofertas', 'action' => 'add', $proceso['id']]; //oferta
+    echo $this->Form->create('Oferta', $formHorizontal);
     ?>
     <table id="itemsDelProceso" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
@@ -9,8 +9,7 @@
                 <th>Nombre - Descripción</th>
                 <th>Especificaciones</th>
                 <th>Cantidad</th>
-                <th>Unidad</th>
-                <th>Mejor Oferta Recibida</th>
+                <th>Mejor Oferta</th>
                 <th>Tu oferta</th>
             </tr>
         </thead>
@@ -25,25 +24,27 @@
                     ?>
                     <tr>
                         <td><?php echo $item['nombre'] ?></td>
-                        <td><?php echo $item['especificaciones'] ?></td>
-                        <td><?php echo $item['cantidad'] ?></td>
-                        <td><?php echo $item['unidad'] ?></td>
+                        <td><small><?php echo $item['especificaciones'] ?></small></td>
+                        <td>
+                            <small><?php echo $item['cantidad'] ?></small>
+                            <small><?php echo $item['unidad'] ?></small>
+                        </td>
                         <td>
                             <?php if ($precio_unitario) { ?>
-                                <small class="text-info">El <?php echo date('d/n', strtotime($item['fecha_oferta'])) ?>, a las <?php echo date('H:i', strtotime($item['fecha_oferta'])) ?></small>
-                                <?php echo $this->element('pst_moneda', ['params' => ['value' => $precio_unitario, 'c/u']]); ?>
-                                <small class="text-muted"><?php echo $this->element('pst_moneda', ['params' => ['value' => $subtotal, 'subtotal']]) ?></small>
-                            <?php
+                                <?php echo $this->element('pst_moneda', ['params' => ['value' => $precio_unitario]]); ?>
+                                <?php
                             } else {
                                 echo "Sin Ofertas";
                             }
                             ?>                                            
                         </td>
                         <td>
-                        <?php echo $this->element('f_input_moneda', ['params' => ['name' => "Oferta.$i.valor_oferta", 'inTable']]) ?>
+                            <?php echo $this->element('f_input_moneda', ['params' => ['name' => "Oferta.$i.valor_oferta", 'inTable']]) ?>
+                            <small>auto-oferta</small>
+                            <small><?php echo $this->element('ui_slider', ['params' => ['name' => "Oferta.$i.auto_oferta"]]) ?></small>
                         </td>
 
-                    <?php echo $this->Form->input("Oferta.$i.item_id", ['type' => 'hidden', 'value' => $item['id']]) ?>
+                        <?php echo $this->Form->input("Oferta.$i.item_id", ['type' => 'hidden', 'value' => $item['id']]) ?>
                     </tr>
                     <?php
                     $i++;
@@ -59,7 +60,8 @@
         <div class="alert alert-warning">
             <h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Importante</h3> 
             <ul>
-                <li>Tu ofertas deben ser PRECIO UNITARIO (IVA INCLUIDO).</li>
+                <li>Tu ofertas deben ser <strong>PRECIO UNITARIO (IVA INCLUIDO)</strong>.</li>
+                <li>La Auto-Oferta irá aplicando <strong>descuentos de 1%</strong> hasta el máximo que elijas. Por defecto, hasta 5%.</li>
                 <li>Si tenés dudas sobre las especificaciones de algún producto/servicio, hacé una pregunta al comprador antes de realizar tu oferta. </li>
             </ul>
         </div>
@@ -67,7 +69,8 @@
         <div class="form-group pull-right">
             <?php
             if (!isset($proceso['propio'])) {
-                echo $this->Form->button('Realizar Oferta', ['class' => 'btn btn-info', 'div' => false]);
+
+                echo $this->Form->button('Realizar Oferta', ['id' => 'ofertar', 'class' => 'btn btn-info', 'div' => false]);
             }
             ?>
         </div>

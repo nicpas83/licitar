@@ -1,11 +1,9 @@
-<?php // debug($condiciones);die;                   ?>
+<?php // debug($condiciones);die;                    ?>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-block">
-                <div class="ribbon-wrapper card">
-                    <div class="ribbon ribbon-warning font-normal">¡Comprá en 3 simples pasos!</div>
-                </div>
+                <?php echo $this->element('ribbon_title', ['title' => '¡Comprá en 3 simples pasos!']); ?>
 
                 <div>
                     <?php

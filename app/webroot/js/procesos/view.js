@@ -6,18 +6,26 @@ $(document).ready(function () {
     $('#itemsDelProceso').DataTable({
         "aaSorting": [],
         "dom": 'Bfrtip',
-        "buttons": [
-            'copy', 'excel', 'print'
-        ],
+        "buttons": ['print'],
         "ordering": false,
         "columns": [
-            null,
             null,
             null,
             null,
             {"width": "17%"},
             {"width": "15%"},
         ]
+    });
+
+    $(".range_01").ionRangeSlider({
+        min: -50,
+        max: 0,
+        from: -5,
+        postfix: " %",
+    });
+    
+    $("#ofertar").click(function(){
+        event.preventDefault();
     });
 
 });

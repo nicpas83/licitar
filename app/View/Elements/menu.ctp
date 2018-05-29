@@ -10,32 +10,24 @@
                 <li class="nav-small-cap">MENU</li>
                 <?php
                 if ($this->Session->check('Auth.User')) {
+                    ?>    
+                    <li>
+                        <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'pages', 'action' => 'display']) ?>" aria-expanded="false"><i class="mdi mdi-home"></i><span class="hide-menu">Inicio</span></a>
+                    </li>
+                    <li class="nav-devider"></li>        
+                    <li>
+                        <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'add']) ?>" aria-expanded="false"><i class="mdi mdi-cart-outline"></i><span class="hide-menu">Nuevo Proceso</span></a>
+                    </li>
+                    <li class="nav-devider"></li>
+                    <li>
+                        <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'mis_procesos']) ?>" aria-expanded="false"><i class="mdi mdi-table-edit"></i><span class="hide-menu">Mis Procesos</span></a>
+                    </li>
+                    <li>
+                        <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'ofertas', 'action' => 'mis_ofertas']) ?>" aria-expanded="false"><i class="mdi mdi-cash-multiple"></i><span class="hide-menu">Mis Ofertas</span></a>
+                    </li>
+                    <li class="nav-devider"></li>
 
-                    if ($this->Session->read('Auth.User.role') === '1') {
-                        ?>    
-                        <li>
-                            <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'pages', 'action' => 'display']) ?>" aria-expanded="false"><i class="mdi mdi-home"></i><span class="hide-menu">Inicio</span></a>
-                        </li>
-                        <li class="nav-devider"></li>        
-                        <li>
-                            <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'add']) ?>" aria-expanded="false"><i class="mdi mdi-cart-outline"></i><span class="hide-menu">Nuevo Proceso</span></a>
-                        </li>
-                        <li class="nav-devider"></li>
-                        <li>
-                            <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'mis_procesos']) ?>" aria-expanded="false"><i class="mdi mdi-table-edit"></i><span class="hide-menu">Mis Procesos</span></a>
-                        </li>
-                        <li>
-                            <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'ofertas', 'action' => 'mis_ofertas']) ?>" aria-expanded="false"><i class="mdi mdi-cash-multiple"></i><span class="hide-menu">Mis Ofertas</span></a>
-                        </li>
-                        <li class="nav-devider"></li>
-                        <li>
-                            <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'users', 'action' => 'configuracion']) ?>" aria-expanded="false"><i class="ti-settings"></i><span class="hide-menu">Configuración</span></a>
-                        </li>
-                        <li class="nav-devider"></li>
-
-
-                        <?php
-                    }
+                    <?php
                 }
                 ?>
                 <!--                        <li class="text-muted" id="time"></li>

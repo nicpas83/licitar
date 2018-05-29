@@ -105,7 +105,6 @@ class AppController extends Controller {
         $this->set('formHorizontal', $formHorizontal);
         $this->set('inputDefaults', $inputDefaults);
 
-        $this->set('provincias', $this->Provincia->options());
     }
 
 }
