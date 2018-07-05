@@ -2,7 +2,7 @@
 echo $this->Html->script('procesos/add_edit', array('inline' => false));
 $op = "A";
 $id = $referencia = $fechaFin = $condicionPago = $detalles = $fechaEntrega = $excFactura = $excGestionEnvio = $excOfertaCompleta = "";
-$itemIds = $itemCategorias = $itemCategoriasTxt = $itemSubcategorias = $itemSubcategoriasTxt = $itemNombres = $itemCantidades = $itemUnidades = $itemEspecificaciones = "";
+$itemIds = $itemCategorias = $itemCategoriasTxt = $itemSubcategorias = $itemSubcategoriasTxt = $itemNombres = $itemCantidades = $itemUnidades = $itemEspecificaciones = $itemFiles = "";
 $estado = 1;
 if (isset($proceso)) {
     $op = "E";
@@ -30,7 +30,7 @@ if (isset($hidden)) {
 //debug($this->element('f_checkIN', ['params' => ['lg' => '3', 'label' => 'Requisitos Excluyentes']]));die;
 ?>
 <input id="op" type="hidden" value="<?php echo $op ?>" />
-<h4 class="card-title">1. Datos Generales del proceso.</h4>
+<h4 class="card-title">1. Datos Generales.</h4>
 <div class="row">
     <?php echo $this->element('f_input', ['params' => ['name' => 'referencia', 'label' => 'Título Descriptivo o Referencia', 'lg' => '5', 'value' => $referencia, 'validate']]); ?>
     <?php echo $this->element('f_date', ['params' => ['name' => 'fecha_fin', 'label' => 'Fin de la Subasta?', 'lg' => '2', 'value' => $fechaFin, 'validate']]); ?>
@@ -38,7 +38,7 @@ if (isset($hidden)) {
 
 </div>
 
-<h4 class="card-title">2. Información Adicional para el proveedor</h4>
+<h4 class="card-title">2. Información Adicional para el vendedor</h4>
 <div class="row">
     <?php echo $this->element('f_text', ['params' => ['name' => 'detalles', 'label' => 'Comentá cualquier detalle importante.', 'lg' => '5', 'value' => $detalles]]); ?>
     <?php echo $this->element('f_date', ['params' => ['name' => 'fecha_entrega', 'label' => 'Fecha de Entrega', 'lg' => '2', 'value' => $fechaEntrega, 'validate']]); ?>
@@ -52,29 +52,32 @@ if (isset($hidden)) {
 <h5 class="card-subtitle">Completá los campos y hacé click en "Agregar Item".</h5>
 
 <div class="row" id="rowItem-1">
-
-    <?php echo $this->element('f_select2', ['params' => ['name' => 'tmp_categoria', 'label' => 'Categoría', 'lg' => '3', 'options' => $categorias]]) ?>
-    <?php echo $this->element('f_select2', ['params' => ['name' => 'tmp_subcategoria', 'label' => 'Sub Categoría', 'lg' => '3', 'options' => $sub_categorias]]) ?>
-    <?php echo $this->element('f_input', ['params' => ['name' => 'tmp_nombre', 'label' => 'Marca, Modelo o Referencia', 'lg' => '3', 'maxLength' => '50']]); ?>
-    <?php echo $this->element('f_number', ['params' => ['name' => 'tmp_cantidad', 'label' => 'Cantidad', 'lg' => '1', 'sm' => '6',]]); ?>
-    <?php echo $this->element('f_select', ['params' => ['name' => 'tmp_unidad', 'label' => 'Unidad', 'lg' => '2', 'sm' => '6', 'options' => $unidades, 'value' => '6']]) ?>
-    <?php echo $this->element('f_text', ['params' => ['name' => 'tmp_especificaciones', 'label' => 'Especificaciones o Detalles especiales del producto', 'lg' => '6', 'rows' => '6', 'placeholder' => '(opcional)', 'maxLength' => '500']]); ?>
+    <?php
+    echo $this->element('f_select2', ['params' => ['name' => 'tmp_categoria', 'label' => 'Categoría', 'lg' => '3', 'options' => $categorias,'validate']]);
+    echo $this->element('f_select2', ['params' => ['name' => 'tmp_subcategoria', 'label' => 'Sub Categoría', 'lg' => '3', 'options' => $sub_categorias,'validate']]);
+    echo $this->element('f_input', ['params' => ['name' => 'tmp_nombre', 'label' => 'Marca, Modelo o Referencia', 'lg' => '3', 'maxLength' => '50','validate']]);
+    echo $this->element('f_number', ['params' => ['name' => 'tmp_cantidad', 'label' => 'Cantidad', 'lg' => '1', 'sm' => '6','validate']]);
+    echo $this->element('f_select', ['params' => ['name' => 'tmp_unidad', 'label' => 'Unidad', 'lg' => '2', 'sm' => '6', 'options' => $unidades, 'value' => '6']]);
+    echo $this->element('f_text', ['params' => ['name' => 'tmp_especificaciones', 'label' => 'Especificaciones o Detalles especiales del producto', 'lg' => '6', 'rows' => '6', 'placeholder' => '(opcional)', 'maxLength' => '500']]);
+//    echo $this->element('f_file', ['params' => ['name' => 'tmp_imagen', 'label' => 'Imágen de referencia', 'lg' => '6']]);
+    ?>
 
 </div>
 
 <?php
 //Campos hidden para add y/o edit
-echo $this->Form->input('id', ['value' => $id, 'type' => 'hidden',]);
-echo $this->Form->input('estado', ['value' => $estado, 'type' => 'hidden',]);
-echo $this->Form->input('Item.ids', ['value' => $itemIds, 'type' => 'hidden',]);
-echo $this->Form->input('Item.categorias', ['value' => $itemCategorias, 'type' => 'hidden',]);
-echo $this->Form->input('Item.tmp_categoriasTxt', ['value' => $itemCategoriasTxt, 'type' => 'hidden',]);
-echo $this->Form->input('Item.subcategorias', ['value' => $itemSubcategorias, 'type' => 'hidden']);
-echo $this->Form->input('Item.tmp_subcategoriasTxt', ['value' => $itemSubcategoriasTxt, 'type' => 'hidden']);
-echo $this->Form->input('Item.nombres', ['value' => $itemNombres, 'type' => 'hidden']);
-echo $this->Form->input('Item.cantidades', ['value' => $itemCantidades, 'type' => 'hidden']);
-echo $this->Form->input('Item.unidades', ['value' => $itemUnidades, 'type' => 'hidden']);
-echo $this->Form->input('Item.especificaciones', ['value' => $itemEspecificaciones, 'type' => 'hidden']);
+//echo $this->Form->input('id', ['value' => $id, 'type' => 'hidden',]);
+//echo $this->Form->input('estado', ['value' => $estado, 'type' => 'hidden',]);
+//echo $this->Form->input('Item.ids', ['value' => $itemIds, 'type' => 'hidden',]);
+//echo $this->Form->input('Item.categorias', ['value' => $itemCategorias, 'type' => 'hidden',]);
+//echo $this->Form->input('Item.tmp_categoriasTxt', ['value' => $itemCategoriasTxt, 'type' => 'hidden',]);
+//echo $this->Form->input('Item.subcategorias', ['value' => $itemSubcategorias, 'type' => 'hidden']);
+//echo $this->Form->input('Item.tmp_subcategoriasTxt', ['value' => $itemSubcategoriasTxt, 'type' => 'hidden']);
+//echo $this->Form->input('Item.nombres', ['value' => $itemNombres, 'type' => 'hidden']);
+//echo $this->Form->input('Item.cantidades', ['value' => $itemCantidades, 'type' => 'hidden']);
+//echo $this->Form->input('Item.unidades', ['value' => $itemUnidades, 'type' => 'hidden']);
+//echo $this->Form->input('Item.especificaciones', ['value' => $itemEspecificaciones, 'type' => 'hidden']);
+//echo $this->Form->input('Item.files', ['value' => $itemFiles, 'type' => 'hidden']);
 ?>
 
 <div class="row">
@@ -97,6 +100,7 @@ echo $this->Form->input('Item.especificaciones', ['value' => $itemEspecificacion
                         <th>Cantidad</th>
                         <th>Unidad</th>
                         <th>Especificaciones</th>
+                        <th>Imágen</th>
                         <th>Acción</th>
                     </tr>
                 </thead>
@@ -113,6 +117,7 @@ echo $this->Form->input('Item.especificaciones', ['value' => $itemEspecificacion
                                 <td><?php echo $item['cantidad'] ?></td>
                                 <td><?php echo $item['unidad'] ?></td>
                                 <td><?php echo $item['especificaciones'] ?></td>
+                                <td><?php echo $item['imagen'] ?></td>
                                 <td class='actions'>
                                     <button type='button' class='btn btn-warning edit'><i class='fa fa-edit'></i></button>
                                     <button type='button' class='btn btn-danger m-l-5 remove'><i class='fa fa-times'></i></button>

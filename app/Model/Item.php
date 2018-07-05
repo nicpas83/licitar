@@ -1,10 +1,13 @@
 <?php
 
 App::uses('AppModel', 'Model');
+App::uses('Folder', 'Utility');
+App::uses('File', 'Utility');
 
 class Item extends AppModel {
 
     public $useTable = 'items';
+    public $files = [];
     public $validate = array(
         'titulo' => array(
             'rule' => 'notBlank',
@@ -26,6 +29,47 @@ class Item extends AppModel {
         ],
     ];
 
+    public function afterSave($created, $options = []) {
+
+        if ($created) {
+            App::import('Vendor', 'php_image_magician');
+
+//            debug($this->data);
+//            die;
+
+            if (!empty($this->files)) {
+                //defino la ruta
+                $proceso_id = $this->data['Item']['proceso_id'];
+                $item_id = $this->data['Item']['id'];
+                $tmp_name = $this->data['Item']['tmp_imagen']['tmp_name'];
+
+                if ($tmp_name) {
+
+                    $path = WWW_ROOT . "img" . DS . "procesos" . DS . $proceso_id . DS . $item_id;
+
+                    //creo carpeta
+                    $folder = new Folder();
+                    $folder->create($path, true, 0755);
+
+                    //recorro imagenes, grabo original y thumb
+                    foreach ($this->files as $key => $file) {
+//                    debug($savePath);
+                        if ($tmp_name == $file['Item']['tmp_imagen']['tmp_name']) {
+                            $savePath = $path . DS . $file['Item']['tmp_imagen']['name'];
+                            move_uploaded_file($tmp_name, $savePath);
+
+                            $thumbPath = $path . DS . 'thumb_' . $file['Item']['tmp_imagen']['name'];
+                            $img = new imageLib($savePath);
+                            $img->resizeImage(300, 300);
+                            $img->saveImage($thumbPath, '100');
+                        }
+                    }
+                }
+            }
+//            die;
+        }
+    }
+
     public function getItemsIds($data) {
 //        debug($data);
         $itemsIds = [];
@@ -44,7 +88,6 @@ class Item extends AppModel {
             return $itemsIds;
         }
     }
-    
 
     public function setMejoresOfertas($items, $ofertas) {
 

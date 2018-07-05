@@ -30,6 +30,13 @@ class AppController extends Controller {
     public function fecha($fecha) {
         return $fecha + 1;
     }
+    
+    public function procesarFiles($data = null){
+        
+        debug($data);die;
+        
+    }
+        
 
     public function beforeFilter() {
         $this->phpNow = (new DateTime())->format('Y-m-d');

@@ -77,6 +77,9 @@
 <?php echo $this->Html->script('/assets/plugins/bootstrap-select/bootstrap-select.min') ?>
 <!--FooTable init-->
 <?php echo $this->Html->script('footable-init') ?>
+<!--DROPIFY upload files-->
+<?php echo $this->Html->script('/assets/plugins/dropify/dist/js/dropify.min') ?>
+<?php echo $this->Html->css('/assets/plugins/dropify/dist/css/dropify.min') ?>
 
 <!-- ============================================================== -->
 <!-- Style switcher -->
