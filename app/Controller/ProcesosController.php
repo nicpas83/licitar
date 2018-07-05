@@ -14,7 +14,7 @@ class ProcesosController extends AppController {
     }
 
     public function view($proceso_id = null) {
-        
+
         $proceso = $this->Proceso->findById($proceso_id);
         if (!$proceso || $proceso['Proceso']['estado'] !== '1') {
             $this->Flash->error(__("El proceso al que intenta acceder no es un proceso activo."));
@@ -22,10 +22,10 @@ class ProcesosController extends AppController {
         }
         $proceso = $this->Proceso->configurarRequisitosExcluyentes($proceso);
         $proceso = $this->Proceso->validarTitularidadDelProceso($proceso, $this->Auth->user('id'));
-        
+
         $itemsIds = $this->Proceso->Item->getItemsIds($proceso);
         $ofertas = $this->Proceso->Oferta->getOfertas($itemsIds);
-        
+
         $proceso['Item'] = $this->Proceso->Item->setMejoresOfertas($proceso['Item'], $ofertas);
         $proceso['Item'] = $this->Proceso->Item->setCantidadProveedores($proceso['Item'], $ofertas);
 
@@ -117,23 +117,14 @@ class ProcesosController extends AppController {
         ]);
 
         if ($this->request->is('post')) {
-//            debug($this->request->data);die;
             $this->request->data['Proceso']['user_id'] = $this->Auth->user('id');
-            $items = $this->request->data['Item'];
-
-            if (empty($items['categorias']) || empty($items['nombres']) || empty($items['cantidades'])) {
-                $this->Flash->error(__('Faltan datos en los Item del proceso.'));
+            $this->request->data['Proceso']['proceso_nro'] = $this->Proceso->buscarUltimoProcesoUsuario($this->Auth->user('id')) + 1;
+           
+            if ($this->Proceso->saveAll($this->request->data)) {
+                $this->Flash->success('El Proceso fue creado con éxio.');
+                return $this->redirect(array('controller' => 'pages', 'action' => 'display'));
             } else {
-                $this->request->data['Item'] = $this->Proceso->decodeItems($this->request->data['Item']);
-                $procesoNro = $this->Proceso->buscarUltimoProcesoUsuario($this->Auth->user('id'));
-                $this->request->data['Proceso']['proceso_nro'] = $procesoNro + 1;
-
-                if ($this->Proceso->saveAll($this->request->data)) {
-                    $this->Flash->success('El Proceso fue creado con éxio.');
-                    return $this->redirect(array('controller' => 'pages', 'action' => 'display'));
-                } else {
-                    $this->Flash->error(__('Error al grabar el Proceso.'));
-                }
+                $this->Flash->error(__('Error al grabar el Proceso.'));
             }
         }
     }

@@ -16,11 +16,11 @@
                     </li>
                     <li class="nav-devider"></li>        
                     <li>
-                        <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'add']) ?>" aria-expanded="false"><i class="mdi mdi-cart-outline"></i><span class="hide-menu">Nuevo Proceso</span></a>
+                        <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'add']) ?>" aria-expanded="false"><i class="mdi mdi-cart-outline"></i><span class="hide-menu">Comprar</span></a>
                     </li>
                     <li class="nav-devider"></li>
                     <li>
-                        <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'mis_procesos']) ?>" aria-expanded="false"><i class="mdi mdi-table-edit"></i><span class="hide-menu">Mis Procesos</span></a>
+                        <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'mis_procesos']) ?>" aria-expanded="false"><i class="mdi mdi-table-edit"></i><span class="hide-menu">Mis Compras</span></a>
                     </li>
                     <li>
                         <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'ofertas', 'action' => 'mis_ofertas']) ?>" aria-expanded="false"><i class="mdi mdi-cash-multiple"></i><span class="hide-menu">Mis Ofertas</span></a>

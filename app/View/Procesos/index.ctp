@@ -1,28 +1,14 @@
 <div class="row">
-    <div class="col-lg-6 col-sm-12">
+    <div class="col-lg-12 col-sm-12">
         <div class="card">
             <div class="card-block">
-                <?php echo $this->element('ribbon_title', ['title' => 'Procesos de Compra Abiertos']) ?>
-
+                <?php echo $this->element('ribbon_title', ['title' => 'Categorías generales']) ?>
+                <?php echo $this->element('categorias/listado') ?>
             </div>
         </div>
     </div>
-    <div class="col-lg-6 col-sm-12">
-        <div class="card card-block">
-            <!-- Row -->
-            <div class="row p-t-10 p-b-10">
-                <!-- Column -->
-                <div class="col p-r-0">
-                    <h1 class="font-light">352</h1>
-                    <h6 class="text-muted">New Items</h6></div>
-                <!-- Column -->
-                <div class="col text-right align-self-center">
-                    <div data-label="40%" class="css-bar m-b-0 css-bar-warning css-bar-40"><i class="mdi mdi-star-circle"></i></div>
-                </div>
-            </div>
-        </div>   
-    </div>
 </div>
+
 <div class="row">
     <div class="col-12">
 

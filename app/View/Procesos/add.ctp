@@ -1,10 +1,13 @@
-<?php // debug($condiciones);die;                    ?>
+<?php // debug($condiciones);die;
+$formHorizontal['type'] = 'file';
+$title ="¡Comprá en 3 simples pasos!";
+$subtitle ="Intentá ser claro y específico al cargar tu pedido de compra. Mientras más claro seas, mejores ofertas recibirás.";
+?>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-block">
-                <?php echo $this->element('ribbon_title', ['title' => '¡Comprá en 3 simples pasos!']); ?>
-
+                <?php echo $this->element('ribbon_title', ['title' => $title, 'subtitle'=>$subtitle]); ?>
                 <div>
                     <?php
                     echo $this->Form->create($formHorizontal);

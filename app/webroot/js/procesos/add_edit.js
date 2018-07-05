@@ -1,11 +1,12 @@
-var categorias = [];
-var categoriasTxt = [];
-var subcategorias = [];
-var subcategoriasTxt = [];
-var nombres = [];
-var cantidades = [];
-var unidades = [];
-var especificaciones = [];
+var categoria_id;
+var categoriaTxt;
+var subcategoria_id;
+var subcategoriaTxt;
+var nombre;
+var cantidad;
+var unidad;
+var especificaciones;
+var imagen;
 
 $(document).ready(function () {
     $(window).keydown(function (event) {
@@ -16,14 +17,14 @@ $(document).ready(function () {
     });
     //si es un edit asigno valores en arrays
     if ($('#op').val() === "E") {
-        categorias = $.parseJSON($('#ItemCategorias').val());
-        categoriasTxt = $.parseJSON($('#ItemTmpCategoriasTxt').val());
-        subcategorias = $.parseJSON($('#ItemSubcategorias').val());
-        subcategoriasTxt = $.parseJSON($('#ItemTmpSubcategoriasTxt').val());
-        nombres = $.parseJSON($('#ItemNombres').val());
-        cantidades = $.parseJSON($('#ItemCantidades').val());
-        unidades = $.parseJSON($('#ItemUnidades').val());
-        especificaciones = $.parseJSON($('#ItemEspecificaciones').val());
+//        categorias = $.parseJSON($('#ItemCategorias').val());
+//        categoriasTxt = $.parseJSON($('#ItemTmpCategoriasTxt').val());
+//        subcategorias = $.parseJSON($('#ItemSubcategorias').val());
+//        subcategoriasTxt = $.parseJSON($('#ItemTmpSubcategoriasTxt').val());
+//        nombres = $.parseJSON($('#ItemNombres').val());
+//        cantidades = $.parseJSON($('#ItemCantidades').val());
+//        unidades = $.parseJSON($('#ItemUnidades').val());
+//        especificaciones = $.parseJSON($('#ItemEspecificaciones').val());
     }
 
     //validaciones cliente submit
@@ -92,6 +93,7 @@ $(document).ready(function () {
     });
 
     $(".select2").select2();
+
 
 });
 
@@ -170,39 +172,36 @@ function validarItem() {
 }
 
 function agregarItemEnArrays() {
-    categorias.push($('#ProcesoTmpCategoria').val());
-    categoriasTxt.push($('#ProcesoTmpCategoria option:selected').text());
-    subcategorias.push($('#ProcesoTmpSubcategoria').val());
-    subcategoriasTxt.push($('#ProcesoTmpSubcategoria option:selected').text());
-    nombres.push($('#ProcesoTmpNombre').val());
-    cantidades.push($('#ProcesoTmpCantidad').val());
-    unidades.push($('#ProcesoTmpUnidad option:selected').text());
-    especificaciones.push($('#ProcesoTmpEspecificaciones').val());
+    categoria_id = $('#ProcesoTmpCategoria').val();
+    categoriaTxt = $('#ProcesoTmpCategoria option:selected').text();
+    subcategoria_id = $('#ProcesoTmpSubcategoria').val();
+    subcategoriaTxt = $('#ProcesoTmpSubcategoria option:selected').text();
+    nombre = $('#ProcesoTmpNombre').val();
+    cantidad = $('#ProcesoTmpCantidad').val();
+    unidad = $('#ProcesoTmpUnidad option:selected').text();
+    especificaciones = $('#ProcesoTmpEspecificaciones').val();
 }
 
 function agregarItemEnHiddens() {
-    $('#ItemCategorias').val(JSON.stringify(categorias));
-    $('#ItemSubcategorias').val(JSON.stringify(subcategorias));
-    $('#ItemNombres').val(JSON.stringify(nombres));
-    $('#ItemCantidades').val(JSON.stringify(cantidades));
-    $('#ItemUnidades').val(JSON.stringify(unidades));
-    $('#ItemEspecificaciones').val(JSON.stringify(especificaciones));
+
 }
 
 function agregarItemEnTabla() {
     var key = $('#items_proceso tbody tr').length;
     var nuevoItem = "<tr id='item-" + key + "'>";
     nuevoItem += "<td class='index'>" + (key + 1) + "</td>";
-    nuevoItem += "<td>" + categoriasTxt[key] + "</td>";
-    nuevoItem += "<td>" + subcategoriasTxt[key] + "</td>";
-    nuevoItem += "<td>" + nombres[key] + "</td>";
-    nuevoItem += "<td>" + cantidades[key] + "</td>";
-    nuevoItem += "<td>" + unidades[key] + "</td>";
-    nuevoItem += "<td class='text-limit'>" + especificaciones[key] + "</td>";
+    nuevoItem += "<td>" + categoriaTxt + "<input type='hidden' name='data[Item][" + key + "][categoria_id]' value='" + categoria_id + "' /></td>";
+    nuevoItem += "<td>" + subcategoriaTxt + "<input type='hidden' name='data[Item][" + key + "][subcategoria_id]' value='" + subcategoria_id + "' /></td>";
+    nuevoItem += "<td>" + nombre + "<input type='hidden' name='data[Item][" + key + "][nombre]' value='" + nombre + "' /></td>";
+    nuevoItem += "<td>" + cantidad + "<input type='hidden' name='data[Item][" + key + "][cantidad]' value='" + cantidad + "' /></td>";
+    nuevoItem += "<td>" + unidad + "<input type='hidden' name='data[Item][" + key + "][unidad]' value='" + unidad + "' /></td>";
+    nuevoItem += "<td class='text-limit'>" + especificaciones + "<input type='hidden' name='data[Item][" + key + "][especificaciones]' value='" + especificaciones + "' /></td>";
+    nuevoItem += "<td><input name='data[Item][" + key + "][tmp_imagen]' type='file' id='input-file-now-" + key + "' class='dropify' data-height='100'/></td>";
     nuevoItem += "<td class='actions'><button type='button' class='btn btn-warning edit'><i class='fa fa-edit'></i> </button><button type='button' class='btn btn-danger m-l-5 remove'><i class='fa fa-times'></i> </button></td>";
     nuevoItem += "</tr>";
 
     $('#items_proceso tbody').append(nuevoItem);
+    $('.dropify').dropify();
     $("button[type='submit']").attr('disabled', false);
 }
 

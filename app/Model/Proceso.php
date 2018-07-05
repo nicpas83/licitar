@@ -47,10 +47,9 @@ class Proceso extends AppModel {
         foreach ($array as $val) {
             array_push($procesosIds, $val['Oferta']['proceso_id']);
         }
-        
+
         return array_unique($procesosIds);
     }
-    
 
     public function validarTitularidadDelProceso($proceso, $user_id) {
         if ($proceso['User']['id'] == $user_id) {
@@ -244,6 +243,26 @@ class Proceso extends AppModel {
         $this->data['Proceso']['fecha_entrega'] = $this->dateYMD($this->data['Proceso']['fecha_entrega']);
 
         return true;
+    }
+
+    public function afterSave($created, $options = []) {
+
+        if ($created) {
+     
+            $this->Item->files = $this->data['Item'];
+//            debug($this->data);
+//            die;
+        }
+//        
+//        App::uses('imageLib', 'Lib/php-image-magician');
+//        $imgObj = new imageLib($fileName);
+//
+//        $items = $this->data['Item'];
+//        $files = $this->data['File'];
+//
+//        foreach ($items as $key => $item) {
+//            $item_id = $item;
+//        }
     }
 
 }

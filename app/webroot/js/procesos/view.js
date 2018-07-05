@@ -25,7 +25,7 @@ $(document).ready(function () {
     });
     
     $("#ofertar").click(function(){
-        event.preventDefault();
+//        event.preventDefault();
     });
 
 });
