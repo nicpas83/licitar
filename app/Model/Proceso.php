@@ -6,6 +6,7 @@ App::uses('Categoria', 'Model');
 class Proceso extends AppModel {
 
     public $useTable = 'procesos';
+    public $filtroCategoria = null;
     public $validate = array(
         'referencia' => array(
             'rule' => 'notBlank',
@@ -70,18 +71,22 @@ class Proceso extends AppModel {
         return $proceso;
     }
 
-    public function procesosActivos() {
-        $data = $procesos = array();
-        $compradores = array('0' => 'Compradores con procesos activos');
-        $categoriasActivas = array('0' => 'Categorias con procesos activos');
-        $categorias = (new Categoria())->options();
+    public function getProcesosActivos($categoria_id = null) {
 
-        $result = $this->find('all', array(
-            'conditions' => ['Proceso.estado' => 1],
+        $this->filtroCategoria = $categoria_id ? ['Proceso.categoria_id' => $categoria_id] : "";
+        
+        $results = $this->find('all', array(
+            'conditions' => [
+                'Proceso.estado' => 1,
+                $this->filtroCategoria
+            ],
             'order' => ['Proceso.fecha_fin' => 'ASC']
         ));
-//        debug($result);die;    
-        foreach ($result as $key => $value) {
+//        debug($results);die;    
+        
+        
+        
+        foreach ($results as $key => $value) {
             //listado general.
             $procesos[$key]['proceso_id'] = $value['Proceso']['id'];
             $procesos[$key]['referencia'] = $value['Proceso']['referencia'];
@@ -248,7 +253,7 @@ class Proceso extends AppModel {
     public function afterSave($created, $options = []) {
 
         if ($created) {
-     
+
             $this->Item->files = $this->data['Item'];
 //            debug($this->data);
 //            die;

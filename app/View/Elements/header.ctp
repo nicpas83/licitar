@@ -15,7 +15,7 @@
                     <!-- Logo icon -->
                     <h1 class="logo">
                         <!--<i class="ti ti-announcement"></i>-->
-                        Wadaboo
+                        WADABOO
                     </h1>
 
                     <!-- dark Logo text -->

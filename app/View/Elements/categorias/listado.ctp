@@ -39,7 +39,7 @@ $count_visible = 4;
             <div class="cat-icon">
                 <?php echo $this->Html->image("" . $categoria['Categoria']['icon'] . "", ['alt' => $categoria['Categoria']['nombre']]) ?>
             </div>
-            <p class="cat-text"><?php echo $this->Html->link($categoria['Categoria']['nombre'], "/procesos/index/".$categoria['Categoria']['id']); ?></p>
+            <p class="cat-text"><?php echo $this->Html->link($categoria['Categoria']['nombre'], "/procesos/categoria/".$categoria['Categoria']['id']); ?></p>
         </li>
     <?php } ?>
 </ul>

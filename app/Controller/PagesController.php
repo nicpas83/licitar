@@ -54,9 +54,12 @@ class PagesController extends AppController {
         }
     }
     
+    public function homepage(){
+    }
+    
+    
     public function landing_general(){
-        $this->layout = 'crossway';
-        
+        $this->layout = 'agency'; 
     }
 
 }

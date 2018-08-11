@@ -27,7 +27,6 @@
  */
 	
         Router::connect('/', Configure::read('Route.default')); //definido en bootstrap.php
-        Router::connect('/subastas_de_compras', array('controller' => 'pages', 'action' => 'landing_general'));
         Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 	Router::connect('/nuevo_usuario', array('controller' => 'users', 'action' => 'registro'));

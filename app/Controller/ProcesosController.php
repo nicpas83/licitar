@@ -7,9 +7,17 @@ App::uses('AppController', 'Controller');
 class ProcesosController extends AppController {
 
     public function index() {
-        $procesos = $this->Proceso->procesosActivos();
+        $procesos = $this->Proceso->getProcesosActivos();
         $this->set('categorias', $procesos['categorias']);
         $this->set('compradores', $procesos['compradores']);
+        $this->set('procesos', $procesos['procesos']);
+    }
+
+    public function categoria($categoria_id = null) {
+
+        $procesos = $this->Proceso->getProcesosActivos($categoria_id);
+        
+        $this->set('categorias', $procesos['categorias']);
         $this->set('procesos', $procesos['procesos']);
     }
 
@@ -119,7 +127,7 @@ class ProcesosController extends AppController {
         if ($this->request->is('post')) {
             $this->request->data['Proceso']['user_id'] = $this->Auth->user('id');
             $this->request->data['Proceso']['proceso_nro'] = $this->Proceso->buscarUltimoProcesoUsuario($this->Auth->user('id')) + 1;
-           
+
             if ($this->Proceso->saveAll($this->request->data)) {
                 $this->Flash->success('El Proceso fue creado con éxio.');
                 return $this->redirect(array('controller' => 'pages', 'action' => 'display'));
