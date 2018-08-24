@@ -17,12 +17,13 @@
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#about">Empezar!</a>
                 </li>
-<!--                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#team">Experiencias</a>
-                </li>-->
-<!--                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
-                </li>-->
+                <li class="nav-item">
+                    <a class="btn btn-success mt15 ml40" href="<?php echo $this->Html->url(['controller' => 'users', 'action' => 'registrar']) ?>">Registrate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-success mt15 ml10" href="<?php echo $this->Html->url(['controller' => 'users', 'action' => 'login']) ?>">Ingresa</a>
+                </li>
+                
             </ul>
         </div>
     </div>
@@ -34,8 +35,12 @@
         <div class="intro-text">
             <div class="intro-lead-in"></div>
             <div class="intro-heading text-uppercase">Cientos de proveedores a tu alcance</div>
-            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Publicar tu Compra</a>
-            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Potencia tus ventas</a>
+            <div>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'nueva_compra']) ?>">Publicar tu Compra</a>
+            </div>
+            <div>
+                <a class="btn btn-primary btn js-scroll-trigger mt10" href="#services">Potencia tus ventas</a>
+            </div>
         </div>
     </div>
 </header>
@@ -88,7 +93,7 @@
                 <!--<h3 class="section-subheading text-muted"></h3>-->
             </div>
         </div>
-        <div class="row">
+        <div class="row text-center">
             <div class="col-md-4 col-sm-6 beneficios-item">
                 <a class="beneficios-link" data-toggle="modal" href="#beneficiosModal1">
                     <div class="beneficios-hover">
@@ -99,7 +104,7 @@
                     <?php echo $this->Html->image("/agency/img/eficencia.jpg", ['class' => 'img-fluid']) ?>
                     <!--<img class="img-fluid" src="img/beneficios/01-thumbnail.jpg" alt="">-->
                 </a>
-                <div class="beneficios-caption">
+                <div class="beneficios-caption mt10">
                     <h4>Eficacia</h4>
                     <p class="text-muted">Los proveedores competiten para ofrecerte el mejor precio.</p>
                 </div>
@@ -114,7 +119,7 @@
                     <?php echo $this->Html->image("/agency/img/transparencia.jpg", ['class' => 'img-fluid']) ?>
                     <!--<img class="img-fluid" src="img/beneficios/02-thumbnail.jpg" alt="">-->
                 </a>
-                <div class="beneficios-caption">
+                <div class="beneficios-caption mt10">
                     <h4>Transparencia</h4>
                     <p class="text-muted">Todas las compras y ofertas son públicas.</p>
                 </div>
@@ -129,7 +134,7 @@
                     <?php echo $this->Html->image("/agency/img/ahorro.jpg", ['class' => 'img-fluid']) ?>
                     <!--<img class="img-fluid" src="img/beneficios/03-thumbnail.jpg" alt="">-->
                 </a>
-                <div class="beneficios-caption">
+                <div class="beneficios-caption mt10">
                     <h4>Ahorro</h4>
                     <p class="text-muted">Consigue el mejor precio sin perder tiempo pidiendo cotizaciones.</p>
                 </div>
@@ -197,35 +202,35 @@
             <div class="col-md-12">
                 <span class="copyright">Copyright &copy; WADABOO 2018</span>
             </div>
-<!--            <div class="col-md-4">
-                <ul class="list-inline social-buttons">
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <i class="fa fa-linkedin"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>-->
-<!--            <div class="col-md-4">
-                <ul class="list-inline quicklinks">
-                    <li class="list-inline-item">
-                        <a href="#">Privacy Policy</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">Terms of Use</a>
-                    </li>
-                </ul>
-            </div>-->
+            <!--            <div class="col-md-4">
+                            <ul class="list-inline social-buttons">
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>-->
+            <!--            <div class="col-md-4">
+                            <ul class="list-inline quicklinks">
+                                <li class="list-inline-item">
+                                    <a href="#">Privacy Policy</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">Terms of Use</a>
+                                </li>
+                            </ul>
+                        </div>-->
         </div>
     </div>
 </footer>

@@ -12,13 +12,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">		
 
         <!-- Libs CSS -->
+        <?php echo $this->Html->css('generic') ?>
         <?php echo $this->Html->css('/agency/vendor/bootstrap/css/bootstrap.min') ?>
         <?php echo $this->Html->css('/agency/vendor/font-awesome/css/font-awesome.min') ?>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+        <?php echo $this->Html->css('https://use.fontawesome.com/releases/v5.2.0/css/all.css') ?>
+        <?php echo $this->Html->css('https://fonts.googleapis.com/css?family=Montserrat:400,700') ?>
+        <?php echo $this->Html->css('https://fonts.googleapis.com/css?family=Kaushan+Script') ?>
+        <?php echo $this->Html->css('https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic') ?>
+        <?php echo $this->Html->css('https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700') ?>
+        
         
         <?php echo $this->Html->css('/agency/css/agency') ?>
 
