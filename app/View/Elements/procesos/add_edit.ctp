@@ -54,7 +54,7 @@ if (isset($hidden)) {
 <div class="row" id="rowItem-1">
     <?php
     echo $this->element('f_select2', ['params' => ['name' => 'tmp_categoria', 'label' => 'Categoría', 'lg' => '3', 'options' => $categorias,'validate']]);
-    echo $this->element('f_select2', ['params' => ['name' => 'tmp_subcategoria', 'label' => 'Sub Categoría', 'lg' => '3', 'options' => $sub_categorias,'validate']]);
+    echo $this->element('f_select2', ['params' => ['name' => 'tmp_subcategoria', 'label' => 'Sub Categoría', 'lg' => '3', 'options' => ['Elija Categoría'],'validate']]);
     echo $this->element('f_input', ['params' => ['name' => 'tmp_nombre', 'label' => 'Marca, Modelo o Referencia', 'lg' => '3', 'maxLength' => '50','validate']]);
     echo $this->element('f_number', ['params' => ['name' => 'tmp_cantidad', 'label' => 'Cantidad', 'lg' => '1', 'sm' => '6','validate']]);
     echo $this->element('f_select', ['params' => ['name' => 'tmp_unidad', 'label' => 'Unidad', 'lg' => '2', 'sm' => '6', 'options' => $unidades, 'value' => '6']]);
@@ -63,22 +63,6 @@ if (isset($hidden)) {
     ?>
 
 </div>
-
-<?php
-//Campos hidden para add y/o edit
-//echo $this->Form->input('id', ['value' => $id, 'type' => 'hidden',]);
-//echo $this->Form->input('estado', ['value' => $estado, 'type' => 'hidden',]);
-//echo $this->Form->input('Item.ids', ['value' => $itemIds, 'type' => 'hidden',]);
-//echo $this->Form->input('Item.categorias', ['value' => $itemCategorias, 'type' => 'hidden',]);
-//echo $this->Form->input('Item.tmp_categoriasTxt', ['value' => $itemCategoriasTxt, 'type' => 'hidden',]);
-//echo $this->Form->input('Item.subcategorias', ['value' => $itemSubcategorias, 'type' => 'hidden']);
-//echo $this->Form->input('Item.tmp_subcategoriasTxt', ['value' => $itemSubcategoriasTxt, 'type' => 'hidden']);
-//echo $this->Form->input('Item.nombres', ['value' => $itemNombres, 'type' => 'hidden']);
-//echo $this->Form->input('Item.cantidades', ['value' => $itemCantidades, 'type' => 'hidden']);
-//echo $this->Form->input('Item.unidades', ['value' => $itemUnidades, 'type' => 'hidden']);
-//echo $this->Form->input('Item.especificaciones', ['value' => $itemEspecificaciones, 'type' => 'hidden']);
-//echo $this->Form->input('Item.files', ['value' => $itemFiles, 'type' => 'hidden']);
-?>
 
 <div class="row">
     <div class="col-sm-12">

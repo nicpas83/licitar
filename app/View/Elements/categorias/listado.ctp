@@ -1,7 +1,6 @@
 <?php
-App::uses('Categoria', 'Model');
+App::uses('Categoria', 'Categorias.Model');
 $categorias = (new Categoria())->find('all');
-$count_visible = 4;
 ?>
 <style type="text/css">
 
@@ -21,7 +20,7 @@ $count_visible = 4;
         text-align: center;
     }
     .cat-icon img{
-        width: 50%;
+        width: 40%;
         text-align: center;
     }
     .cat-text{
@@ -33,7 +32,7 @@ $count_visible = 4;
 
 </style>
 
-<ul id="cat-list">
+<ul class="col-lg-12" id="cat-list">
     <?php foreach ($categorias as $categoria) { ?>
         <li>
             <div class="cat-icon">

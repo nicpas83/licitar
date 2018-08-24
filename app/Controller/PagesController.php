@@ -6,7 +6,6 @@
  * App::uses('AppController', 'Controller');
  */
 class PagesController extends AppController {
-
     /**
      * This controller does not use a model
      * @var array
@@ -22,7 +21,7 @@ class PagesController extends AppController {
      *   or MissingViewException in debug mode.
      */
     public function display() {
-        
+
         $path = func_get_args();
         $count = count($path);
         if (!$count) {
@@ -53,13 +52,16 @@ class PagesController extends AppController {
             throw new NotFoundException();
         }
     }
-    
-    public function homepage(){
+
+    public function homepage() {
+
+        App::uses('Proceso', 'Model');
+        $procesos = (new Proceso)->getProcesosActivos();
+        $this->set('procesos', $procesos);
     }
-    
-    
-    public function landing_general(){
-        $this->layout = 'agency'; 
+
+    public function landing_general() {
+        $this->layout = 'agency';
     }
 
 }

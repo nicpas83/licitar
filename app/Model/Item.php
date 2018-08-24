@@ -27,7 +27,16 @@ class Item extends AppModel {
             'foreignKey' => 'proceso_id',
             'dependent' => true
         ],
+        'Categoria' => [
+            'className' => 'Categorias.Categoria',
+            'foreignKey' => 'categoria_id',
+        ],
+        'Subcategoria' => [
+            'className' => 'Categorias.Subcategoria',
+            'foreignKey' => 'subcategoria_id',
+        ],
     ];
+   
 
     public function afterSave($created, $options = []) {
 

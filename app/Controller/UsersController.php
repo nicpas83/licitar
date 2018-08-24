@@ -7,13 +7,13 @@ class UsersController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('add', 'logout', 'mi_perfil');
+        $this->Auth->allow('logout');
     }
 
     public function login() {
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
-                return $this->redirect(['controller' => 'procesos', 'action' => 'index']);
+                return $this->redirect($this->Auth->redirect());
             }
             $this->Flash->error(__('Error de usuario o contraseña.'));
         }

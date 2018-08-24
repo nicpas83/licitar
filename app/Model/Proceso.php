@@ -1,7 +1,7 @@
 <?php
 
 App::uses('AppModel', 'Model');
-App::uses('Categoria', 'Model');
+App::uses('Categorias.Categoria', 'Model');
 
 class Proceso extends AppModel {
 
@@ -42,6 +42,30 @@ class Proceso extends AppModel {
         ],
     ];
 
+    /* validado */
+
+    public function getProcesosActivos($categoria_id = null) {
+        $results = $this->find('all', array(
+            'conditions' => [
+                'Proceso.estado' => 1,
+            ],
+            'order' => ['Proceso.fecha_fin' => 'ASC']
+        ));
+        foreach ($results as $key => $value) {
+            //listado general.
+            $data[$key]['id'] = $value['Proceso']['id'];
+            $data[$key]['referencia'] = $value['Proceso']['referencia'];
+            $data[$key]['condicion_pago'] = $value['Proceso']['condicion_pago'];
+            $data[$key]['q_items'] = count($value['Item']);
+            $data[$key]['q_unidades'] = array_sum(array_column($value['Item'], 'cantidad'));
+            $data[$key]['fecha_fin'] = date('d/m/Y', strtotime($value['Proceso']['fecha_fin']));
+        }
+
+        return $data;
+    }
+
+    /* fin validados */
+
     public function getProcesosIds($array) {
         $procesosIds = [];
 
@@ -69,46 +93,6 @@ class Proceso extends AppModel {
         }
         $proceso['Proceso']['requisitos'] = $mensajes;
         return $proceso;
-    }
-
-    public function getProcesosActivos($categoria_id = null) {
-
-        $this->filtroCategoria = $categoria_id ? ['Proceso.categoria_id' => $categoria_id] : "";
-        
-        $results = $this->find('all', array(
-            'conditions' => [
-                'Proceso.estado' => 1,
-                $this->filtroCategoria
-            ],
-            'order' => ['Proceso.fecha_fin' => 'ASC']
-        ));
-//        debug($results);die;    
-        
-        
-        
-        foreach ($results as $key => $value) {
-            //listado general.
-            $procesos[$key]['proceso_id'] = $value['Proceso']['id'];
-            $procesos[$key]['referencia'] = $value['Proceso']['referencia'];
-            $procesos[$key]['condicion_pago'] = $value['Proceso']['condicion_pago'];
-            $procesos[$key]['q_items'] = count($value['Item']);
-            $procesos[$key]['q_unidades'] = array_sum(array_column($value['Item'], 'cantidad'));
-            $procesos[$key]['fecha_fin'] = $value['Proceso']['fecha_fin'];
-
-            /* FILTROS DE BUSQUEDA */
-            //listado compradores con proceso activo
-            $compradores[$value['User']['id']] = $value['User']['username'];
-            //listado categorias en procesos activos (incluye items)
-            foreach ($value['Item'] as $item) {
-                $categoriasActivas[$item['categoria_id']] = $item['categoria'];
-            }
-        }
-        //compilo 3 listados
-        $data['procesos'] = $procesos;
-        $data['compradores'] = array_unique($compradores);
-        $data['categorias'] = $categoriasActivas;
-
-        return $data;
     }
 
     public function misProcesosActivos($user_id) {
@@ -219,34 +203,34 @@ class Proceso extends AppModel {
     }
 
     public function afterFind($results, $primary = false) {
-
-        //Agrego el nombre del categoria para cada Item.
-        $categoriasObj = new Categoria();
-        $categorias = $categoriasObj->options();
-        $subcategorias = $categoriasObj->options();
-
-        if (isset($results[0]['Proceso']) || isset($results['Proceso'])) {
+        if (Router::getParams()['action'] == 'homepage') {
             foreach ($results as $key => $result) {
                 $results[$key]['Proceso']['fecha_fin'] = $this->dateDMY($result['Proceso']['fecha_fin']);
                 $results[$key]['Proceso']['fecha_entrega'] = $this->dateDMY($result['Proceso']['fecha_entrega']);
-                if (!empty($result['Item'])) {
-                    foreach ($result['Item'] as $keyItem => $item) {
-                        $results[$key]['Item'][$keyItem]['categoria'] = $categorias[$item['categoria_id']];
-                        $results[$key]['Item'][$keyItem]['subcategoria'] = $subcategorias[$item['subcategoria_id']];
-                    }
-                }
             }
         }
-//        debug($results);die;
+
+        if (in_array(Router::getParams()['action'], ['edit', 'view'])) {
+            $categorias = $this->Item->Categoria->find('list');
+            $subcategorias = $this->Item->Categoria->Subcategoria->find('list');
+
+            $results[0]['Proceso']['fecha_fin'] = $this->dateDMY($results[0]['Proceso']['fecha_fin']);
+            $results[0]['Proceso']['fecha_entrega'] = $this->dateDMY($results[0]['Proceso']['fecha_entrega']);
+
+            foreach ($results[0]['Item'] as $key => $item) {
+                $results[0]['Item'][$key]['categoria'] = $categorias[$item['categoria_id']];
+                $results[0]['Item'][$key]['subcategoria'] = $subcategorias[$item['subcategoria_id']];
+            }
+        }
+
+
 
         return $results;
     }
 
     public function beforeSave($options = array()) {
-
         $this->data['Proceso']['fecha_fin'] = $this->dateYMD($this->data['Proceso']['fecha_fin']);
         $this->data['Proceso']['fecha_entrega'] = $this->dateYMD($this->data['Proceso']['fecha_entrega']);
-
         return true;
     }
 

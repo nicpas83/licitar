@@ -47,12 +47,7 @@ Cache::config('default', array('engine' => 'File'));
 Inflector::rules('singular', array(
     'rules' => array(),
     'irregular' => array(
-        'procesos' => 'Proceso',
-        'categorias' => 'Categoria',
-        'productos' => 'Producto',
         'participaciones' => 'Participacion',
-        'ofertas' => 'Oferta',
-        'provincias' => 'Provincia',
         'localidades' => 'Localidad',
     ),
     'uninflected' => array()
@@ -62,13 +57,7 @@ Inflector::rules('singular', array(
 Inflector::rules('plural', array(
     'rules' => array(),
     'irregular' => array(
-        'proceso' => 'Procesos',
-        'categoria' => 'Categorias',
-        'producto' => 'Productos',
         'participacion' => 'Participaciones',
-        'oferta' => 'Ofertas',
-        'provincia' => 'Ofertas',
-        'oferta' => 'Provincias',
         'localidad' => 'Localidades',
     ),
     'uninflected' => array()

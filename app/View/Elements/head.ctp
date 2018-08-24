@@ -30,7 +30,7 @@
 <?php echo $this->Html->css('/css/modif') ?>
 
 
-
+<?php echo $this->Html->css('https://use.fontawesome.com/releases/v5.2.0/css/all.css') ?>
 <link href="https://fonts.googleapis.com/css?family=Audiowide|Encode+Sans+Expanded|Rammetto+One|Special+Elite" rel="stylesheet">
 
 

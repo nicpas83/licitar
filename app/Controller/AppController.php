@@ -5,20 +5,13 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 
     /** Modelos que estarán disponibles en todos los controladores. */
-    var $uses = array('Categoria', 'Provincia', 'Unidad', 'Condicion');
+    var $uses = array('Categorias.Categoria', 'Ubicacion.Provincia', 'Unidad');
     Public $phpNow;
     public $components = array(
 //        'Security',
         'Flash',
         'Session',
         'Auth' => array(
-            'loginRedirect' => array(
-                'controller' => 'pages'
-            ),
-            'logoutRedirect' => array(
-                'controller' => 'pages',
-                'action' => 'landing_general',
-            ),
             'authenticate' => array(
                 'Form' => array(
                     'passwordHasher' => 'Blowfish'
@@ -66,7 +59,7 @@ class AppController extends Controller {
         $delete = array(
             'div' => false,
             'title' => 'Eliminar',
-            'class' => 'btn btn-danger ti-trash',
+            'class' => 'btn btn-danger fa fa-trash-alt pull-right',
             'confirm' => 'Está seguro que desea eliminar?',
         );
         $edit = array(
