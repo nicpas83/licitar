@@ -24,7 +24,7 @@ $options = [
                     <?php
                     echo $this->element('f_select2', ['params' => ['name' => 'tmp_categoria', 'label' => 'Categoría', 'lg' => '3', 'options' => $categorias]]);
                     echo $this->element('f_checkbox', ['params' => ['name' => 'tmp_subcategorias', 'label' => 'Subcategorías', 'value' => ['Todas' => 'Todas']]]);
-                    echo $this->Form->button('Confirmar', ['type' => 'button', 'class' => 'btn btn-info']);
+                    echo $this->Form->button('Confirmar', ['type' => 'button', 'class' => 'btn btn-info ml30']);
                     ?>
 
                 </div>
