@@ -1,3 +1,4 @@
+<?php // debug($procesos);die; ?>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -34,9 +35,8 @@
                                     <td><?php echo $proceso['condicion_pago'] ?></td>
                                     <td><?php echo $proceso['fecha_fin'] ?></td>
                                     <td>
-
                                         <button type="button" class="btn btn-secondary btn-outline" data-toggle="button" aria-pressed="true">
-                                            <i class="fa fa-heart-o text" aria-hidden="true"></i>
+                                            <i class="far fa-heart text" aria-hidden="true"></i>
                                             <i class="fa fa-heart text-active text-danger" aria-hidden="true"></i>
                                         </button>
                                     </td>

@@ -137,7 +137,7 @@ class ProcesosController extends AppController {
 
         if (!$procesos) {
             $this->Flash->success('No tenés procesos publicados. Publicá uno!');
-            return $this->redirect(array('controller' => 'procesos', 'action' => 'add'));
+            return $this->redirect(array('controller' => 'procesos', 'action' => 'nueva_compra'));
         }
         $this->set('indicadores', $procesos['Indicadores']);
         $this->set('procesos', $procesos['Procesos']);

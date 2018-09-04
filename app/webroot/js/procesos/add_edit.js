@@ -8,7 +8,7 @@ var unidad;
 var especificaciones;
 var imagen;
 
-$(document).ready(function () {
+$(function () {
     $(window).keydown(function (event) {
         if (event.keyCode == 13) {
             event.preventDefault();

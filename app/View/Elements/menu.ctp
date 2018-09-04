@@ -6,7 +6,7 @@
     <div class="scroll-sidebar">
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
-            <ul id="sidebarnav" style="">
+            <ul id="sidebarnav">
                 <li class="nav-small-cap">MENU</li>
                 <?php
                 if ($this->Session->check('Auth.User')) {
@@ -25,7 +25,23 @@
                     <li>
                         <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'ofertas', 'action' => 'mis_ofertas']) ?>" aria-expanded="false"><i class="mdi mdi-cash-multiple"></i><span class="hide-menu">Mis Ofertas</span></a>
                     </li>
+
                     <li class="nav-devider"></li>
+
+                    <li>
+                        <a class="has-arrow" href="" aria-haspopup="true"><span class="hide-menu"><i class="fas fa-user-cog"></i>Mi Cuenta</span></a>
+                        <ul>
+                            <li>
+                                <h4><?php echo $logUserName ?></h4>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="<?php echo $this->Html->url(['controller' => 'users', 'action' => 'mi_cuenta']) ?>"><i class="fas fa-info-circle"></i> Datos Principales</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="<?php echo $this->Html->url(['controller' => 'users', 'action' => 'alertas_config']) ?>"><i class="ti-settings"></i> Configuración Alertas</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="<?php echo $this->Html->url(['controller' => 'users', 'action' => 'logout']) ?>"><i class="fa fa-power-off"></i> Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
 
                     <?php
                 }

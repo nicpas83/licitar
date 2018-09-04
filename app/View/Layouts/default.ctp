@@ -6,7 +6,6 @@
         <?php echo $this->fetch('script'); ?>
         <?php echo $this->fetch('css'); ?>
     </head>
-
     <body class="fix-header fix-sidebar card-no-border">
         <?php date_default_timezone_set('America/Argentina/Buenos_Aires'); ?>
         <!-- ============================================================== -->
@@ -14,12 +13,10 @@
         <!-- ============================================================== -->
         <div class="preloader">
             <svg class="circular" viewBox="25 25 50 50">
-            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /></svg>
         </div>
-
         <?php echo $this->element('header') ?>
         <?php echo $this->element('menu') ?>
-
         <div class="page-wrapper" style="">
             <div class="container-fluid">
                 <?php echo $this->Flash->render(); ?>

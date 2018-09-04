@@ -30,19 +30,11 @@
 <?php echo $this->Html->css('/css/modif') ?>
 
 
-<?php echo $this->Html->css('https://use.fontawesome.com/releases/v5.2.0/css/all.css') ?>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Audiowide|Encode+Sans+Expanded|Rammetto+One|Special+Elite" rel="stylesheet">
 
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
 <?php echo $this->Html->meta('favicon.ico', '/assets/images/favicon.png', array('type' => 'icon')); ?>
-
 
 <!-- ============================================================== -->
 <!-- All Jquery -->
@@ -72,11 +64,7 @@
 <?php echo $this->Html->script('/assets/plugins/sweetalert/sweetalert.min') ?>
 <!-- This is data table -->
 <?php echo $this->Html->script('/assets/plugins/datatables/jquery.dataTables.min') ?>
-<!-- Footable -->
-<?php echo $this->Html->script('/assets/plugins/footable/js/footable.all.min') ?>
-<?php echo $this->Html->script('/assets/plugins/bootstrap-select/bootstrap-select.min') ?>
-<!--FooTable init-->
-<?php echo $this->Html->script('footable-init') ?>
+
 <!--DROPIFY upload files-->
 <?php echo $this->Html->script('/assets/plugins/dropify/dist/js/dropify.min') ?>
 <?php echo $this->Html->css('/assets/plugins/dropify/dist/css/dropify.min') ?>
@@ -86,14 +74,12 @@
 <!-- ============================================================== -->
 <?php echo $this->Html->script('/assets/plugins/styleswitcher/jQuery.style.switcher') ?>
 <!-- icheck -->
-<?php echo $this->Html->script('/assets/plugins/icheck/icheck.min') ?>
-<?php echo $this->Html->script('/assets/plugins/icheck/icheck.init') ?>
+<?php // echo $this->Html->script('/assets/plugins/icheck/icheck.min') ?>
+<?php // echo $this->Html->script('/assets/plugins/icheck/icheck.init') ?>
 <!--Custom JavaScript -->
 <?php echo $this->Html->script('/js/custom') ?>
 <!--Validation -->
 <?php echo $this->Html->script('/js/validation') ?>
-
-
 
 <!-- ============================================================== -->
 <!-- This page plugins -->

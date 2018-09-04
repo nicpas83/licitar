@@ -5,7 +5,7 @@ App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 
 class User extends AppModel {
 
-    public $hasMany = array('Proceso', 'Participacion');
+    public $hasMany = array('Proceso', 'Participacion', 'AlertaVendedor', 'AlertaComprador');
     public $validate = array(
         'username' => array(
             'notBlank' => array(
@@ -46,6 +46,12 @@ class User extends AppModel {
                 'rule' => array('minLength', '11'),
                 'message' => 'El CUIT debe tener 11 números.'
             ]
+        ],
+        'rol_usuario' => [
+            'notBlank' => array(
+                'rule' => 'notBlank',
+                'message' => 'Especifica si eres Comprador o Vendedor (o ambos!)'
+            ),
         ],
         'tipo_usuario' => [
             'notBlank' => array(

@@ -3,10 +3,15 @@
     src: url('fonts/klavika/Klavika_Medium_Italic.otf') format("truetype");
 }
 
-h1.logo {
+span.logo {
     font-family: 'Klavika';
-    font-size: 38px;
-    padding-top: 35px;
+    /*font-size: 38px;*/
+    /*padding-top: 35px;*/
+    font-size: 2.25rem;
+    line-height: 15px;
+    font-weight: bold;
+    /*font-size: 2.75em !important;*/
+    /*color: #0178bc;*/
 }
 
 .topbar {
@@ -83,7 +88,7 @@ td.actions{
 
 .podium{
     content: url("../img/podium32.png");
-  
+
 }
 .tooltip-item{
     z-index: 999 !important;
@@ -91,32 +96,32 @@ td.actions{
 
 
 #flashMsg {
-  -webkit-animation: seconds 1.0s forwards;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-delay: 5s;
-  animation: seconds 1.0s forwards;
-  animation-iteration-count: 1;
-  animation-delay: 5s;
-  position: relative;
-    
+    -webkit-animation: seconds 1.0s forwards;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-delay: 5s;
+    animation: seconds 1.0s forwards;
+    animation-iteration-count: 1;
+    animation-delay: 5s;
+    position: relative;
+
 }
 @-webkit-keyframes seconds {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    left: -9999px; 
-    position: absolute;   
-  }
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        left: -9999px; 
+        position: absolute;   
+    }
 }
 @keyframes seconds {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    left: -9999px;
-    position: absolute;     
-  }
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        left: -9999px;
+        position: absolute;     
+    }
 }

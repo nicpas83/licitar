@@ -1,19 +1,45 @@
 <?php
+$lg = isset($params['lg']) ? $params['lg'] : '12';
 $label = isset($params['label']) ? $params['label'] : "";
 $name = isset($params['name']) ? $params['name'] : "";
-$value = isset($params['value']) ? $params['value'] : "";
+$css = isset($params['vertical']) ? 'check-vertical' : 'check-horizontal';
+$dbVal = isset($params['value']) ? $params['value'] : "";
 
-$options = [
+$config = [
     'type' => 'checkbox',
-    'class' => 'form-control check',
-    'data-checkbox' => 'icheckbox_flat-yellow',
-    'default' => $value,
+    'class' => 'custom-control-input',
+    'value' => $dbVal,
 ];
 ?>
+<style type="text/css">
 
-<li>
-    <?php echo $this->Form->input("" . $name . "", $options) ?>
-    <label for="flat-checkbox-1"><?php echo $label ?></label>
-</li>
+    .check-horizontal div{
+        float: left;
+        margin-right: 10px;
+    }
+    .check-vertical{
+
+    }
+</style>
 
 
+<div class="col-lg-<?php echo $lg ?> col-sm-12 f_checkbox <?php echo $css ?>" >
+    <?php
+    //si es array considero que pueden ser uno o más casillas para un solo campo en la db. 
+    if (is_array($dbVal)) {
+        foreach ($dbVal as $key => $val) {
+            $config['value'] = $key;
+            ?>
+            <div class="form-check">
+                <label class="custom-control custom-checkbox">
+                    <?php echo $this->Form->input("" . $name . "", $config) ?>
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?php echo $val ?></span>
+                </label>
+            </div>
+            <?php
+        }
+    }
+    ?>
+
+</div>

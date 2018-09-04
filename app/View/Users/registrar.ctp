@@ -5,22 +5,6 @@
         <h3 class="box-title m-b-20">Creá tu cuenta gratis!</h3>
 
         <div class="form-group">
-            <div class="col-md-12">
-                <div class="checkbox checkbox-success p-t-0 p-l-10 pull-left">
-                    <?php echo $this->Form->input('comprador', ['type' => 'checkbox', 'id' => 'comprador', 'label' => false, 'div' => false]) ?>
-                    <!--<input id="comprador" type="checkbox">-->
-                    <label for="comprador"> Soy Comprador</label>
-                </div>
-                <div class="checkbox checkbox-success p-t-0 p-l-10 pull-right">
-                    <?php echo $this->Form->input('vendedor', ['type' => 'checkbox', 'id' => 'vendedor', 'label' => false, 'div' => false]) ?>
-                    <!--<input id="vendedor" type="checkbox">-->
-                    <label for="vendedor"> Soy Vendedor</label>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-
-        <div class="form-group">
             <div class="col-xs-12">
                 <?php echo $this->Form->input('username', ['type' => 'text', 'class' => 'form-control', 'placeholder' => 'Nombre de usuario', 'required' => 'required', 'label' => false, 'div' => false]) ?>
             </div>

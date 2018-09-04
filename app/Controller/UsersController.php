@@ -1,9 +1,34 @@
-<<?php
+<?php
 
 // app/Controller/UsersController.php
 App::uses('AppController', 'Controller');
 
 class UsersController extends AppController {
+
+    public function mi_cuenta() {
+        $id = AuthComponent::user('id');
+        $this->User->recursive = -1;
+        $this->set('user', $this->User->findById($id));
+
+        if ($this->request->is('post')) {
+            $this->User->id = $id;
+//            debug($this->request->data);die;
+            if ($this->User->save($this->request->data)) {
+                $this->Flash->success(__('Los Datos de tu cuenta fueron actualizados.'), 'success');
+                return $this->redirect(array('action' => 'mi_cuenta'));
+            } else {
+                $this->Flash->error(__('Error al actualizar los datos.'));
+            }
+        }
+    }
+
+    public function alertas_config() {
+        if ($this->request->is('post')) {
+            debug($this->request->data); die;
+        }
+
+        $this->set('categorias', $this->Categoria->options());
+    }
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -28,23 +53,6 @@ class UsersController extends AppController {
         $this->set('users', $this->paginate());
     }
 
-    public function mi_cuenta() {
-        $id = AuthComponent::user('id');
-        $this->User->recursive = -1;
-        $this->set('user', $this->User->findById($id));
-
-        if ($this->request->is('post')) {
-            $this->User->id = $id;
-//            debug($this->request->data);die;
-            if ($this->User->save($this->request->data)) {
-                $this->Flash->success(__('Los Datos de tu cuenta fueron actualizados.'), 'success');
-                return $this->redirect(array('action' => 'mi_cuenta'));
-            } else {
-                $this->Flash->error(__('Error al actualizar los datos.'));
-            }
-        }
-    }
-    
     public function alertas() {
         $id = AuthComponent::user('id');
         $this->User->recursive = -1;
@@ -67,7 +75,7 @@ class UsersController extends AppController {
 //            debug($this->request->data);die;
             $this->User->create();
             if ($this->User->save($this->request->data)) {
-                $this->Flash->success(__('El usuario fue creado. Ya podés ingresar al sistema.'), 'success');
+                $this->Flash->success(__('El usuario fue creado. Ya puedes ingresar al sistema.'), 'success');
                 return $this->redirect(array('action' => 'login'));
             } else {
                 $this->Flash->error(__('Error al crear el usuario.'));

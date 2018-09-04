@@ -58,7 +58,7 @@ class Proceso extends AppModel {
             $data[$key]['condicion_pago'] = $value['Proceso']['condicion_pago'];
             $data[$key]['q_items'] = count($value['Item']);
             $data[$key]['q_unidades'] = array_sum(array_column($value['Item'], 'cantidad'));
-            $data[$key]['fecha_fin'] = date('d/m/Y', strtotime($value['Proceso']['fecha_fin']));
+            $data[$key]['fecha_fin'] = $value['Proceso']['fecha_fin'];
         }
 
         return $data;
@@ -203,7 +203,8 @@ class Proceso extends AppModel {
     }
 
     public function afterFind($results, $primary = false) {
-        if (Router::getParams()['action'] == 'homepage') {
+//        debug($results);die;
+        if (in_array(Router::getParams()['action'], ['homepage', 'mis_ofertas'])) {
             foreach ($results as $key => $result) {
                 $results[$key]['Proceso']['fecha_fin'] = $this->dateDMY($result['Proceso']['fecha_fin']);
                 $results[$key]['Proceso']['fecha_entrega'] = $this->dateDMY($result['Proceso']['fecha_entrega']);

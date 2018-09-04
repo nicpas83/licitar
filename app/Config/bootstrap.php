@@ -47,6 +47,8 @@ Cache::config('default', array('engine' => 'File'));
 Inflector::rules('singular', array(
     'rules' => array(),
     'irregular' => array(
+        'alertasvendedores' => 'AlertaVendedor',
+        'alertascompradores' => 'AlertaComprador',
         'participaciones' => 'Participacion',
         'localidades' => 'Localidad',
     ),
@@ -57,6 +59,8 @@ Inflector::rules('singular', array(
 Inflector::rules('plural', array(
     'rules' => array(),
     'irregular' => array(
+        'alertavendedor' => 'AlertasVendedores',
+        'alertacomprador' => 'AlertasCompradores',
         'participacion' => 'Participaciones',
         'localidad' => 'Localidades',
     ),
