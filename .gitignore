@@ -1,24 +1,6 @@
-
 # CakePHP 2
 
-
-/app/tmp/*
-
-/app/Config/core.php
-
-/app/Config/database.php
-
-/vendors/*
-
-/nbproject/private
-/
-app/tmp/cache/persistent/myapp_cake_core_file_map
-app/tmp/logs/error.log
-/app/tmp/cache/persistent/myapp_cake_core_file_map
-app/tmp/cache/persistent/myapp_cake_core_file_map
-app/tmp/logs/error.log
-app/tmp/cache/persistent/myapp_cake_core_file_map
-app/tmp/cache/persistent/myapp_cake_core_file_map
-app/tmp/cache/persistent/myapp_cake_core_file_map
-app/tmp/logs/error.log
-app/tmp/cache/persistent/myapp_cake_core_file_map
+app/tmp/*
+app/Config/core.php
+app/Config/database.php
+nbproject/*
