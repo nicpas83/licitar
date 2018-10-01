@@ -37,7 +37,7 @@
                             <li role="separator" class="divider"></li>
                             <li><a href="<?php echo $this->Html->url(['controller' => 'users', 'action' => 'mi_cuenta']) ?>"><i class="fas fa-info-circle"></i> Datos Principales</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="<?php echo $this->Html->url(['controller' => 'users', 'action' => 'alertas_config']) ?>"><i class="ti-settings"></i> Configuración Alertas</a></li>
+                            <li><a href="<?php echo $this->Html->url(['controller' => 'users', 'action' => 'alertas_vendedor']) ?>"><i class="ti-settings"></i> Alertas Vendedor</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="<?php echo $this->Html->url(['controller' => 'users', 'action' => 'logout']) ?>"><i class="fa fa-power-off"></i> Cerrar Sesión</a></li>
                         </ul>

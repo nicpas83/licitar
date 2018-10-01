@@ -55,7 +55,7 @@ class AppController extends Controller {
         ];
         $inputDefaults = "'inputDefaults' => array('class' => 'form-control','div' => false,'label' => false,),'novalidate'";
         
-        //estilos para botones de acción en Tablas
+        //estilos para botones de acción en Tablas (elements)
         $delete = array(
             'div' => false,
             'title' => 'Eliminar',
@@ -66,6 +66,7 @@ class AppController extends Controller {
             'div' => false,
             'title' => 'Editar',
             'class' => 'btn btn-info fa fa-edit pull-right',
+            'type' => 'button'
         );
         $view = array(
             'div' => false,

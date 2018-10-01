@@ -22,13 +22,21 @@ class UsersController extends AppController {
         }
     }
 
-    public function alertas_config() {
+    public function alertas_vendedor() {
         if ($this->request->is('post')) {
-            debug($this->request->data); die;
+            if ($this->User->AlertaVendedor->saveAll($this->request->data['AlertaVendedor'])) {
+                $this->Flash->success(__('Los Datos de tu cuenta fueron actualizados.'), 'success');
+                return $this->redirect(array('action' => 'alertas_vendedor'));
+            } else {
+                $this->Flash->error(__('Error al actualizar los datos.'));
+            }
         }
-
+        $alertas_vendedor = $this->User->AlertaVendedor->getAlertas(AuthComponent::user('id'));
+        $this->set('alertas_vendedor', $alertas_vendedor);
         $this->set('categorias', $this->Categoria->options());
     }
+
+    
 
     public function beforeFilter() {
         parent::beforeFilter();

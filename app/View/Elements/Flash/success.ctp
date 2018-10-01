@@ -1,3 +1,3 @@
-<div id="flashMsg" class="alert alert-success">
+<div class="alert alert-success flashMsg">
   <strong> <?= h($message) ?> </strong>
 </div>

@@ -27,7 +27,7 @@
         <?php
 //        debug($this->params['action']); die;
         echo $this->Html->script('funciones');
-
+        echo $this->Html->script('acciones_btn');
         if (is_file(WWW_ROOT . 'js' . DS . $this->params['controller'] . '.js')) {
             echo $this->Html->script($this->params['controller']);
         }

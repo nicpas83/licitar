@@ -26,6 +26,7 @@ $(function () {
 //        unidades = $.parseJSON($('#ItemUnidades').val());
 //        especificaciones = $.parseJSON($('#ItemEspecificaciones').val());
     }
+  
 
     //validaciones cliente submit
     $("input,select,textarea").not("[type=submit], [id*=Tmp]").jqBootstrapValidation({
@@ -154,11 +155,8 @@ function editItem(item) {
 }
 
 
-
-
 /** get the last ELEMENT (ej. 'div' cuyo ID empiece con ^= "ID" */
-function getLastElement(element, id)
-{
+function getLastElement(element, id){
     return $("" + element + "[id^='" + id + "']:last");
 }
 
@@ -166,8 +164,7 @@ function getLastElement(element, id)
  * Read the Number from that DIV's ID (i.e: 3 from "klon3")
  * And increment that number by 1
  * */
-function getNumberId(element)
-{
+function getNumberId(element){
     return parseInt(element.prop("id").match(/\d+/g), 10);
 }
 
@@ -212,7 +209,7 @@ function agregarItemEnTabla() {
     nuevoItem += "<td>" + unidad + "<input type='hidden' name='data[Item][" + key + "][unidad]' value='" + unidad + "' /></td>";
     nuevoItem += "<td class='text-limit'>" + especificaciones + "<input type='hidden' name='data[Item][" + key + "][especificaciones]' value='" + especificaciones + "' /></td>";
     nuevoItem += "<td><input name='data[Item][" + key + "][tmp_imagen]' type='file' id='input-file-now-" + key + "' class='dropify' data-height='100'/></td>";
-    nuevoItem += "<td class='actions'><button type='button' class='btn btn-warning edit'><i class='fa fa-edit'></i> </button><button type='button' class='btn btn-danger m-l-5 remove'><i class='fa fa-times'></i> </button></td>";
+    nuevoItem += "<td class='acciones'><button type='button' class='btn btn-warning edit'><i class='fa fa-edit'></i> </button><button type='button' class='btn btn-danger m-l-5 remove'><i class='fa fa-times'></i> </button></td>";
     nuevoItem += "</tr>";
 
     $('#items_proceso tbody').append(nuevoItem);

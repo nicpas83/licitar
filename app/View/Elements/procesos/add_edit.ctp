@@ -102,7 +102,7 @@ if (isset($hidden)) {
                                 <td><?php echo $item['unidad'] ?></td>
                                 <td><?php echo $item['especificaciones'] ?></td>
                                 <td><?php echo $item['imagen'] ?></td>
-                                <td class='actions'>
+                                <td class='acciones'>
                                     <button type='button' class='btn btn-warning edit'><i class='fa fa-edit'></i></button>
                                     <button type='button' class='btn btn-danger m-l-5 remove'><i class='fa fa-times'></i></button>
                                 </td>

@@ -15,14 +15,6 @@ class AppModel extends Model {
         return $date;
     }
 
-    var $controllerAction = null;
-
-    function setControllerAction($action = null) {
-        if ($action) {
-            $this->controllerAction = $action;
-        }
-    }
-
     /**
      *  $quitarClaves = array();
      *  $array = $this->quitarClavesDelArray($array, $quitarClaves);
@@ -39,5 +31,12 @@ class AppModel extends Model {
         usort($data, create_function('$a,$b', $code));
         return $data;
     }
+    
+    public function beforeSave($options = array()) {
+        $this->data[$this->alias]['user_id'] = AuthComponent::user('id');
+        return true;
+    }
+    
+    
 
 }

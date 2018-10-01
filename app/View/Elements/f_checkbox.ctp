@@ -11,16 +11,6 @@ $config = [
     'value' => $dbVal,
 ];
 ?>
-<style type="text/css">
-
-    .check-horizontal div{
-        float: left;
-        margin-right: 10px;
-    }
-    .check-vertical{
-
-    }
-</style>
 
 
 <div class="col-lg-<?php echo $lg ?> col-sm-12 f_checkbox <?php echo $css ?>" >

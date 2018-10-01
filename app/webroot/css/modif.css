@@ -82,8 +82,8 @@ td.text-limit {
     text-overflow: ellipsis;
     max-width: 200px;
 }
-td.actions{
-    width: 130px;
+td.acciones, th.acciones{
+    min-width: 150px;
 }
 
 .podium{
@@ -94,8 +94,17 @@ td.actions{
     z-index: 999 !important;
 }
 
+.check-horizontal div{
+    float: left;
+    margin-right: 10px;
+    margin-top: 25px;
+}
+.check-vertical{
 
-#flashMsg {
+}
+
+/* CakePhp flash msg. Auto hide. */
+.flashMsg {
     -webkit-animation: seconds 1.0s forwards;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-delay: 5s;

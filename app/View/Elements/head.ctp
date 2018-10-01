@@ -5,35 +5,21 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Comprando Mejor</title>
+<title>Wadaboo - Comprando mejor</title>
 <!-- Bootstrap Core CSS -->
 <?php echo $this->Html->css('/assets/plugins/bootstrap/css/bootstrap.min') ?>
 <?php echo $this->Html->css('/assets/plugins/icheck/skins/all') ?>
 <!-- Date picker plugins css -->
 <?php echo $this->Html->css('/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min') ?>
-<!-- Clock picker plugins css -->
-<?php echo $this->Html->css('/assets/plugins/clockpicker/dist/bootstrap-clockpicker.min') ?>
-<!-- chartist CSS -->
 <?php echo $this->Html->css('/assets/plugins/select2/dist/css/select2.min') ?>
-<?php echo $this->Html->css('/assets/plugins/chartist-js/dist/chartist.min') ?>
-<?php echo $this->Html->css('/assets/plugins/chartist-js/dist/chartist-init') ?>
-<?php echo $this->Html->css('/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip') ?>
-<?php echo $this->Html->css('/assets/plugins/css-chart/css-chart') ?>
-<!-- toast CSS -->
-<?php echo $this->Html->css('/assets/plugins/toast-master/css/jquery.toast') ?>
-<!-- Footable CSS -->
-<?php echo $this->Html->css('/assets/plugins/footable/css/footable.core') ?>
 <!-- You can change the theme colors from here -->
 <?php echo $this->Html->css('/css/colors/blue') ?>
 <!-- Custom CSS -->
 <?php echo $this->Html->css('/css/style') ?>
 <?php echo $this->Html->css('/css/modif') ?>
 <?php echo $this->Html->css('/css/generic') ?>
-
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Audiowide|Encode+Sans+Expanded|Rammetto+One|Special+Elite" rel="stylesheet">
-
+<?php echo $this->Html->css('https://use.fontawesome.com/releases/v5.2.0/css/all.css') ?>
+<?php echo $this->Html->css('https://fonts.googleapis.com/css?family=Audiowide|Encode+Sans+Expanded|Rammetto+One|Special+Elite') ?>
 
 <?php echo $this->Html->meta('favicon.ico', '/assets/images/favicon.png', array('type' => 'icon')); ?>
 
@@ -45,11 +31,9 @@
 <?php echo $this->Html->script('/assets/plugins/bootstrap/js/tether.min') ?>
 <?php echo $this->Html->script('/assets/plugins/bootstrap/js/bootstrap.min') ?>
 <!-- slimscrollbar scrollbar JavaScript -->
-<?php echo $this->Html->script('/js/jquery.slimscroll') ?>
-<!--Wave Effects -->
-<?php echo $this->Html->script('/js/waves') ?>
+<?php echo $this->Html->script('jquery.slimscroll') ?>
 <!--Menu sidebar -->
-<?php echo $this->Html->script('/js/sidebarmenu') ?>
+<?php echo $this->Html->script('sidebarmenu') ?>
 <!--Select 2 -->
 <?php echo $this->Html->script('/assets/plugins/select2/dist/js/select2.full.min') ?>
 <!--stickey kit -->
@@ -63,24 +47,19 @@
 <?php echo $this->Html->script('/assets/plugins/moment/min/moment-with-locales.min') ?>
 <!-- Sweet-Alert  -->
 <?php echo $this->Html->script('/assets/plugins/sweetalert/sweetalert.min') ?>
+<?php echo $this->Html->css('/assets/plugins/sweetalert/sweetalert') ?>
 <!-- This is data table -->
 <?php echo $this->Html->script('/assets/plugins/datatables/jquery.dataTables.min') ?>
-
 <!--DROPIFY upload files-->
 <?php echo $this->Html->script('/assets/plugins/dropify/dist/js/dropify.min') ?>
 <?php echo $this->Html->css('/assets/plugins/dropify/dist/css/dropify.min') ?>
 
-<!-- ============================================================== -->
-<!-- Style switcher -->
-<!-- ============================================================== -->
-<?php echo $this->Html->script('/assets/plugins/styleswitcher/jQuery.style.switcher') ?>
-<!-- icheck -->
-<?php // echo $this->Html->script('/assets/plugins/icheck/icheck.min') ?>
-<?php // echo $this->Html->script('/assets/plugins/icheck/icheck.init') ?>
 <!--Custom JavaScript -->
-<?php echo $this->Html->script('/js/custom') ?>
+<?php echo $this->Html->script('custom') ?>
 <!--Validation -->
-<?php echo $this->Html->script('/js/validation') ?>
+<?php echo $this->Html->script('validation') ?>
+<!--JS VARS cake -->
+<?php echo $this->element('js_vars'); ?>
 
 <!-- ============================================================== -->
 <!-- This page plugins -->
