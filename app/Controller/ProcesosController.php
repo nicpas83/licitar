@@ -1,8 +1,5 @@
 <?php
-
 App::uses('AppController', 'Controller');
-
-// Ejemplo para pasar variables a la vista:   $this->set('posts', $this->Post->find('all'));
 
 class ProcesosController extends AppController {
 
@@ -10,12 +7,7 @@ class ProcesosController extends AppController {
 
         $this->set('categorias', $this->Categoria->options());
         $this->set('unidades', $this->Unidad->options());
-        $this->set('condiciones', [
-            'Contado' => 'Contado',
-            '30 dias' => '30 dias',
-            '30-60 dias' => '30-60 dias',
-            '30-60-90 dias' => '30-60-90 dias',
-        ]);
+        $this->set('condiciones', $this->condicionesPago);
         
         if ($this->request->is('post')) {
             $this->request->data['Proceso']['user_id'] = $this->Auth->user('id');

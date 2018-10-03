@@ -53,7 +53,9 @@
 <!--DROPIFY upload files-->
 <?php echo $this->Html->script('/assets/plugins/dropify/dist/js/dropify.min') ?>
 <?php echo $this->Html->css('/assets/plugins/dropify/dist/css/dropify.min') ?>
-
+<!-- Treeview Plugin JavaScript -->
+<?php echo $this->Html->script('/assets/plugins/bootstrap-treeview-master/dist/bootstrap-treeview.min') ?>
+<?php echo $this->Html->script('/assets/plugins/bootstrap-treeview-master/dist/bootstrap-treeview-init') ?>
 <!--Custom JavaScript -->
 <?php echo $this->Html->script('custom') ?>
 <!--Validation -->
