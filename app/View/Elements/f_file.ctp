@@ -1,6 +1,6 @@
 <?php
 echo $this->Html->script('/assets/plugins/dropify/dist/js/dropify.min', ['inline' => false]);
-echo $this->Html->css('/assets/plugins/dropify/dist/css/dropify.min');
+echo $this->Html->css('/assets/plugins/dropify/dist/css/dropify.min', ['inline' => false]);
 
 $lg = isset($params['lg']) ? $params['lg'] : '12';
 $label = isset($params['label']) ? $params['label'] : "";

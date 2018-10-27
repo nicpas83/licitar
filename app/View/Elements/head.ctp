@@ -55,7 +55,9 @@
 <?php echo $this->Html->css('/assets/plugins/dropify/dist/css/dropify.min') ?>
 <!-- Treeview Plugin JavaScript -->
 <?php echo $this->Html->script('/assets/plugins/bootstrap-treeview-master/dist/bootstrap-treeview.min') ?>
-<?php echo $this->Html->script('/assets/plugins/bootstrap-treeview-master/dist/bootstrap-treeview-init') ?>
+<!-- iCheck -->
+<?php echo $this->Html->script('/assets/plugins/icheck/icheck.min') ?>
+<?php echo $this->Html->script('/assets/plugins/icheck/icheck.init') ?>
 <!--Custom JavaScript -->
 <?php echo $this->Html->script('custom') ?>
 <!--Validation -->

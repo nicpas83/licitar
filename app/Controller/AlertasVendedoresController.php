@@ -15,16 +15,6 @@ class AlertasVendedoresController extends AppController {
         }
     }
 
-    public function ajax_update_alerta() {
-        $this->AlertaVendedor->updateAll([
-            'categoria_id' => "'" . $this->request->data['categoria_id'] . "'",
-            'subcategorias' => "'" . implode(',', $this->request->data['subcategorias']) . "'",
-                ], [
-            'AlertaVendedor.id' => $this->request->data['alerta_id']
-        ]);
-
-        $this->render("/ajax", "ajax");
-    }
 
     public function ajax_set_alerta() {
         $this->AlertaVendedor->save([
@@ -47,6 +37,17 @@ class AlertasVendedoresController extends AppController {
         }
     }
 
+    public function ajax_update_alerta() {
+        $this->AlertaVendedor->updateAll([
+            'categoria_id' => "'" . $this->request->data['categoria_id'] . "'",
+            'subcategorias' => "'" . implode(',', $this->request->data['subcategorias']) . "'",
+                ], [
+            'AlertaVendedor.id' => $this->request->data['alerta_id']
+        ]);
+
+        $this->render("/ajax", "ajax");
+    }
+    
     public function ajax_delete() {
         if (!$this->request->is('post')) {
             throw new MethodNotAllowedException();

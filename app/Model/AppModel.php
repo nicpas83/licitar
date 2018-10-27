@@ -34,6 +34,7 @@ class AppModel extends Model {
     
     public function beforeSave($options = array()) {
         $this->data[$this->alias]['user_id'] = AuthComponent::user('id');
+//        debug($this->data);die;
         return true;
     }
     

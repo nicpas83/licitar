@@ -22,7 +22,15 @@ function delete_model_id(model, id) {
     }, function () {
         $.post("/" + controller + "/ajax_delete", pk, function () {
             topAlert('Registro eliminado.', 'danger');
+            $("[id='Delete" + model + "-" + id + "']").closest('tr').remove();
+            reindexTable(model);
         });
-        $("[id='Delete" + model + "-" + id + "']").closest('tr').remove();
     });
+}
+function reindexTable(model) {
+
+    $("[id^='Table" + model + "'] tbody tr").each(function (i) {
+        $(this).find("td:eq(0)").text("" + (i + 1) + "");
+    });
+
 }

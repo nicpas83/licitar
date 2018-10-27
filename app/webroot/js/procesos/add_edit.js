@@ -70,8 +70,8 @@ $(function () {
             $(this).before("<div class='alert alert-success'>Bien hecho!</div>");
             alertEnd();
         } else {
-            $(this).before("<div class='alert alert-danger'>Para agregar un Item debe completar los campos (*)</div>");
-            alertEnd();
+            $(this).before("<div class='alert alert-danger flashMsg'>Para agregar un Item debe completar los campos (*)</div>");
+//            alertEnd();
         }
     });
 

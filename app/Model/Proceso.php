@@ -1,5 +1,4 @@
 <?php
-
 App::uses('AppModel', 'Model');
 App::uses('Categorias.Categoria', 'Model');
 
@@ -7,6 +6,28 @@ class Proceso extends AppModel {
 
     public $useTable = 'procesos';
     public $filtroCategoria = null;
+    public $condicionesPago = [
+        'Contado' => 'Contado',
+        '30 dias' => '30 dias',
+        '30-60 dias' => '30-60 dias',
+        '30-60-90 dias' => '30-60-90 dias',
+    ];
+    public $unidades = [
+        'unidades' => 'unidades',
+        'cajas' => 'cajas',
+        'litros' => 'litros',
+        'kilogramos' => 'kilogramos',
+        'gramos' => 'gramos',
+        'metros' => 'metros',
+        'centímetros' => 'centímetros',
+        'm2' => 'm2',
+        'm3' => 'm3',
+    ];
+    public $requisitosExcluyentes = [
+        'Que el proveedor emita Factura A' => 'Que el proveedor emita Factura A',
+        'Que el proveedor gestione el envío' => 'Que el proveedor gestione el envío',
+    ];
+    
     public $validate = array(
         'referencia' => array(
             'rule' => 'notBlank',
@@ -230,19 +251,19 @@ class Proceso extends AppModel {
     }
 
     public function beforeSave($options = array()) {
-        $this->data['Proceso']['fecha_fin'] = $this->dateYMD($this->data['Proceso']['fecha_fin']);
-        $this->data['Proceso']['fecha_entrega'] = $this->dateYMD($this->data['Proceso']['fecha_entrega']);
+//        $this->data['Proceso']['fecha_fin'] = $this->dateYMD($this->data['Proceso']['fecha_fin']);
+//        $this->data['Proceso']['fecha_entrega'] = $this->dateYMD($this->data['Proceso']['fecha_entrega']);
         return true;
     }
 
     public function afterSave($created, $options = []) {
 
-        if ($created) {
+//        if ($created) {
 
-            $this->Item->files = $this->data['Item'];
+//            $this->Item->files = $this->data['Item'];
 //            debug($this->data);
 //            die;
-        }
+//        }
 //        
 //        App::uses('imageLib', 'Lib/php-image-magician');
 //        $imgObj = new imageLib($fileName);

@@ -1,4 +1,4 @@
-var alerta_id = false;
+var edit_id = false;
 var check = true;
 $(function () {
     //agrego botones de acción.
@@ -11,7 +11,7 @@ $(function () {
     //Select Categoria.
     $("#UserTmpCategoria").change(function () {
         $("#dinamic-subcat").html("");
-        alerta_id = false;
+        edit_id = false;
         check = findTextTableCol($("#UserTmpCategoria option:selected").text(), 'TableAlertaVendedor', 1);
         if (!check) {
             $(this).val("");
@@ -41,16 +41,16 @@ $(function () {
         }
 
         //UPDATE
-        if (alerta_id) {
-            $("[id='EditAlertaVendedor-" + alerta_id + "']").closest("tr").find("td:eq(1)").text(nombres.join(' - '));
+        if (edit_id) {
+            $("[id='EditAlertaVendedor-" + edit_id + "']").closest("tr").find("td:eq(1)").text(nombres.join(' - '));
             var params = {
-                "alerta_id": alerta_id,
+                "alerta_id": edit_id,
                 "categoria_id": categoria_id,
                 "subcategorias": ids
             };
             $.post("/alertas_vendedores/ajax_update_alerta", params, function () {
                 topAlert("Alerta Actualizada");
-                alerta_id = false;
+                edit_id = false;
                 $("#dinamic-subcat").html('');
                 $("#UserTmpCategoria").val('');
             });
@@ -62,9 +62,9 @@ $(function () {
             "categoria_id": categoria_id,
             "subcategorias": ids
         };
-        $.post("/alertas_vendedores/ajax_set_alerta", params, function (alerta_id) {
+        $.post("/alertas_vendedores/ajax_set_alerta", params, function (edit_id) {
             topAlert("Alerta Agregada");
-            var modelPk = "AlertaVendedor-" + alerta_id;
+            var modelPk = "AlertaVendedor-" + edit_id;
             var html = "<tr>";
             html += "<td>" + categoria + "</td>";
             html += "<td>" + nombres.join(' - ') + "</td>";
@@ -79,17 +79,17 @@ $(function () {
 
     //Acción Editar.  
     $(document).on("click", "[id^='EditAlertaVendedor']", function () {
-        alerta_id = getNumeric($(this).attr('id'));
-        $.get("/alertas_vendedores/ajax_get_alerta/" + alerta_id, function (data) {
+        edit_id = getNumeric($(this).attr('id'));
+        $.get("/alertas_vendedores/ajax_get_alerta/" + edit_id, function (data) {
             var jdata = $.parseJSON(data);
             $("#UserTmpCategoria").val(jdata.categoria);
-            editarAlerta(alerta_id, jdata.categoria, jdata.subcategorias);
+            editarAlerta(edit_id, jdata.categoria, jdata.subcategorias);
         });
     });
     //Acción Eliminar.
     $(document).on("click", "[id^='DeleteAlertaVendedor']", function () {
-        alerta_id = getNumeric($(this).attr('id'));
-        delete_model_id('AlertaVendedor', alerta_id);
+        edit_id = getNumeric($(this).attr('id'));
+        delete_model_id('AlertaVendedor', edit_id);
     });
 
 });
@@ -109,7 +109,7 @@ function mostrarSubcategorias(categoria_id) {
         });
     });
 }
-function editarAlerta(alerta_id, categoria_id, subcategorias) {
+function editarAlerta(edit_id, categoria_id, subcategorias) {
     $("#dinamic-subcat").html("");
     $.get("/categorias/categorias/ajax_get_subcategorias/" + categoria_id, function (data) {
         var jdata = $.parseJSON(data);

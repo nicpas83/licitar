@@ -1,14 +1,15 @@
 <?php
+
 App::uses('AppController', 'Controller');
 
 class ProcesosController extends AppController {
 
     public function nueva_compra() {
-
         $this->set('categorias', $this->Categoria->options());
-        $this->set('unidades', $this->Unidad->options());
+        $this->set('unidades', $this->unidades);
         $this->set('condiciones', $this->condicionesPago);
-        
+        $this->set('condiciones', $this->requisitosExcluyentes);
+
         if ($this->request->is('post')) {
             $this->request->data['Proceso']['user_id'] = $this->Auth->user('id');
             $this->request->data['Proceso']['proceso_nro'] = $this->Proceso->buscarUltimoProcesoUsuario($this->Auth->user('id')) + 1;
@@ -18,6 +19,80 @@ class ProcesosController extends AppController {
             } else {
                 $this->Flash->error(__('Error al grabar el Proceso.'));
             }
+        }
+    }
+
+    public function nuevo() {
+        $this->set('categorias', $this->Categoria->options());
+        $this->set('subcategorias', $this->Subcategoria->options());
+        $this->set('unidades', $this->Proceso->unidades);
+        $this->set('condiciones', $this->Proceso->condicionesPago);
+        $this->set('requisitos', $this->Proceso->requisitosExcluyentes);
+
+        //checkeo si el usuario tiene proceso en borrador creado
+        $borrador = $this->Proceso->find('first', [
+            'conditions' => [
+                'Proceso.user_id' => $this->Auth->user('id'),
+                'Proceso.estado' => 'Borrador'
+            ],
+        ]);
+
+        //si no tiene items, lo borro 
+        if (isset($borrador['Proceso']) && empty($borrador['Item'])) {
+            $this->Proceso->delete($borrador['Proceso']['id']);
+            $borrador = false;
+        }
+
+        if ($borrador) {
+            $this->set('borrador_id', $borrador['Proceso']['id']);
+            $this->set('proceso', $borrador['Proceso']);
+            $this->set('items', $borrador['Item']);
+        } else {
+            //creo proceso en borrador y paso ID para poder asignarlo a los items.
+            $this->Proceso->save(['Proceso' => ['user_id' => $this->Auth->user('id'), 'estado' => 'Borrador']]);
+            $this->set('nuevo_id', $this->Proceso->getLastInsertId());
+        }
+
+        if ($this->request->is('post')) {
+            $this->request->data['Proceso']['user_id'] = $this->Auth->user('id');
+            $this->request->data['Proceso']['proceso_nro'] = $this->Proceso->buscarUltimoProcesoUsuario($this->Auth->user('id')) + 1;
+            if ($this->Proceso->saveAll($this->request->data)) {
+                $this->Flash->success('El Proceso fue creado con éxio.');
+                return $this->redirect(array('controller' => 'pages', 'action' => 'display'));
+            } else {
+                $this->Flash->error(__('Error al grabar el Proceso.'));
+            }
+        }
+    }
+
+    public function ajax_set_info_general() {
+        if (!$this->request->is('post')) {
+            throw new MethodNotAllowedException();
+        }
+        $fecha_fin = $this->dateYMD($this->request->data['fecha_fin']);
+        $fecha_entrega = $this->dateYMD($this->request->data['fecha_entrega']);
+        $this->Proceso->updateAll([
+            'referencia' => "'" . $this->request->data['referencia'] . "'",
+            'fecha_fin' => "'" . $fecha_fin . "'",
+            'fecha_entrega' => "'" . $fecha_entrega . "'",
+            'detalles' => "'" . $this->request->data['referencia'] . "'",
+            'condicion_pago' => "'" . $this->request->data['condicion_pago'] . "'",
+            'requisitos_excluyentes' => "'" . $this->request->data['requisitos_excluyentes'] . "'",
+            'estado' => "'1'"
+                ], [
+            'Proceso.id' => $this->request->data['id']
+        ]);
+        
+        return $this->render("/ajax", "ajax");
+    }
+
+    public function ajax_eliminar_borrador() {
+        if (!$this->request->is('post')) {
+            throw new MethodNotAllowedException();
+        }
+        if ($this->Proceso->delete($this->request->data['id'])) {
+            $this->set("data", true);
+            return $this->render("/ajax", "ajax");
         }
     }
 
@@ -73,7 +148,6 @@ class ProcesosController extends AppController {
             $this->set('items', $proceso['Item']);
 
             //permitir editar solamente items sin oferta. 
-
 //            $this->set('hidden', $this->Proceso->encodeItems($proceso['Item']));
         } else {
             $this->Flash->error('El proceso al que intenta acceder no es válido.');

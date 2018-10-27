@@ -1,3 +1,4 @@
+var WWW = window.location.origin;
 $(function () {
     $(document).on('focus click', 'input.datepicker', function () {
         $(this).datepicker({
@@ -14,10 +15,29 @@ $(function () {
 
 });
 
-//Top Alert
-function topAlert(msg, color = 'success') {
-    $(".container-fluid").prepend("<div class='alert alert-" + color + " flashMsg'>" + msg + "</div>");
+//FILES JS
+$('.dropify').dropify();
 
+//Alerts
+function topAlert(msg, color = 'success') {
+    $("html, body").animate({scrollTop: 0}, "slow");
+    $(".container-fluid").prepend("<div class='alert alert-" + color + " flashMsg'>" + msg + "</div>");
+}
+function beforeAlert(msg, element, color = 'success') {
+    $("" + element + "").prepend("<div class='alert alert-" + color + " flashMsg'>" + msg + "</div>");
+}
+function goTop() {
+    $("html, body").animate({scrollTop: 0}, "slow");
+}
+
+
+
+function alertEnd() {
+    window.setTimeout(function () {
+        $(".alert").fadeTo(1000, 0).slideUp(1000, function () {
+            $(this).remove();
+        });
+    }, 4000);
 }
 //extrae la parte numérica de un string.
 function getNumeric(id) {

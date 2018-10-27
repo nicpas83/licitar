@@ -3,16 +3,20 @@
 App::uses('Controller', 'Controller');
 
 class AppController extends Controller {
+    
+    public function dateYMD($dateString) {
+        $dateString = str_replace('/', '-', $dateString);
+        return date('Y-m-d', strtotime($dateString));
+    }
 
-    public $condicionesPago = [
-        'Contado' => 'Contado',
-        '30 dias' => '30 dias',
-        '30-60 dias' => '30-60 dias',
-        '30-60-90 dias' => '30-60-90 dias',
-    ];
+    public function dateDMY($dateString) {
+        $date = date('d-m-Y', strtotime($dateString));
+        $date = str_replace('-', '/', $date);
+        return $date;
+    }
 
     /** Modelos que estarán disponibles en todos los controladores. */
-    var $uses = array('Categorias.Categoria', 'Ubicacion.Provincia', 'Unidad');
+    var $uses = array('Categorias.Categoria', 'Categorias.Subcategoria', 'Ubicacion.Provincia', 'Unidad');
     Public $phpNow;
     public $components = array(
 //        'Security',
