@@ -1,19 +1,8 @@
 <?php
-
 App::uses('Model', 'Model');
+App::import('Vendor', 'funciones');
 
 class AppModel extends Model {
-
-    public function dateYMD($dateString) {
-        $dateString = str_replace('/', '-', $dateString);
-        return date('Y-m-d', strtotime($dateString));
-    }
-
-    public function dateDMY($dateString) {
-        $date = date('d-m-Y', strtotime($dateString));
-        $date = str_replace('-', '/', $date);
-        return $date;
-    }
 
     /**
      *  $quitarClaves = array();

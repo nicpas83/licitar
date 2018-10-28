@@ -1,4 +1,5 @@
 <?php
+
 App::uses('AppModel', 'Model');
 App::uses('Categorias.Categoria', 'Model');
 
@@ -27,7 +28,6 @@ class Proceso extends AppModel {
         'Que el proveedor emita Factura A' => 'Que el proveedor emita Factura A',
         'Que el proveedor gestione el envío' => 'Que el proveedor gestione el envío',
     ];
-    
     public $validate = array(
         'referencia' => array(
             'rule' => 'notBlank',
@@ -63,12 +63,10 @@ class Proceso extends AppModel {
         ],
     ];
 
-    /* validado */
-
     public function getProcesosActivos($categoria_id = null) {
         $results = $this->find('all', array(
             'conditions' => [
-                'Proceso.estado' => 1,
+                'Proceso.estado' => 'Activo',
             ],
             'order' => ['Proceso.fecha_fin' => 'ASC']
         ));
@@ -85,8 +83,6 @@ class Proceso extends AppModel {
         return $data;
     }
 
-    /* fin validados */
-
     public function getProcesosIds($array) {
         $procesosIds = [];
 
@@ -97,29 +93,17 @@ class Proceso extends AppModel {
         return array_unique($procesosIds);
     }
 
-    public function validarTitularidadDelProceso($proceso, $user_id) {
-        if ($proceso['User']['id'] == $user_id) {
+    public function validarTitularidadDelProceso($proceso) {
+        if ($proceso['User']['id'] == AuthComponent::user('id')) {
             $proceso['Proceso']['propio'] = 'Si';
         }
-        return $proceso;
-    }
-
-    public function configurarRequisitosExcluyentes($proceso) {
-        $mensajes = array();
-        if ($proceso['Proceso']['excluyente_factura'] == 1) {
-            array_push($mensajes, 'Emitir Factura A');
-        }
-        if ($proceso['Proceso']['excluyente_gestion_envio'] == 1) {
-            array_push($mensajes, 'Encargarse de la Gestión de Envío');
-        }
-        $proceso['Proceso']['requisitos'] = $mensajes;
         return $proceso;
     }
 
     public function misProcesosActivos($user_id) {
         $procesos = array();
         $result = $this->find('all', [
-            'conditions' => ['user_id' => $user_id, 'Proceso.estado' => 1]
+            'conditions' => ['user_id' => $user_id, 'Proceso.estado' => 'Activo']
         ]);
         if (!$result) {
             return false;
@@ -147,76 +131,11 @@ class Proceso extends AppModel {
         return $procesos;
     }
 
-    public function decodeItems($items = null) {
-
-        $categorias = json_decode($items['categorias']);
-        $subcategorias = json_decode($items['subcategorias']);
-        $nombres = json_decode($items['nombres']);
-        $cantidades = json_decode($items['cantidades']);
-        $unidades = json_decode($items['unidades']);
-        $especificaciones = json_decode($items['especificaciones']);
-        $data = array();
-
-        foreach ($categorias as $key => $val) {
-            $data[$key]['categoria_id'] = $val;
-        }
-        foreach ($subcategorias as $key => $val) {
-            $data[$key]['subcategoria_id'] = $val;
-        }
-        foreach ($nombres as $key => $val) {
-            $data[$key]['nombre'] = $val;
-        }
-        foreach ($cantidades as $key => $val) {
-            $data[$key]['cantidad'] = $val;
-        }
-        foreach ($unidades as $key => $val) {
-            $data[$key]['unidad'] = $val;
-        }
-        foreach ($especificaciones as $key => $val) {
-            $data[$key]['especificaciones'] = $val;
-        }
-        return $data;
-    }
-
-    //Para los input hidden al editar.
-    public function encodeItems($items = null) {
-
-        $data = array();
-
-        foreach ($items as $item) {
-
-            $data['itemIds'][] = $item['id'];
-            $data['categorias'][] = $item['categoria_id'];
-            $data['categoriasTxt'][] = $item['categoria'];
-            $data['subcategorias'][] = $item['subcategoria_id'];
-            $data['subcategoriasTxt'][] = $item['subcategoria'];
-            $data['nombres'][] = $item['nombre'];
-            $data['cantidades'][] = $item['cantidad'];
-            $data['unidades'][] = $item['unidad'];
-            $data['especificaciones'][] = $item['especificaciones'];
-        }
-
-        $items = array();
-
-        $items['itemIds'] = json_encode($data['itemIds']);
-        $items['categorias'] = json_encode($data['categorias']);
-        $items['categoriasTxt'] = json_encode($data['categoriasTxt'], JSON_UNESCAPED_UNICODE);
-        $items['subcategorias'] = json_encode($data['subcategorias']);
-        $items['subcategoriasTxt'] = json_encode($data['subcategoriasTxt'], JSON_UNESCAPED_UNICODE);
-        $items['nombres'] = json_encode($data['nombres'], JSON_UNESCAPED_UNICODE);
-        $items['cantidades'] = json_encode($data['cantidades']);
-        $items['unidades'] = json_encode($data['unidades']);
-        $items['especificaciones'] = json_encode($data['especificaciones'], JSON_UNESCAPED_UNICODE);
-
-
-        return $items;
-    }
-
-    public function buscarUltimoProcesoUsuario($user_id) {
-        $ultimo_proceso = $this->find('first', array(
-            'fields' => array('MAX(proceso_nro) AS nro'),
-            'conditions' => array('user_id' => $user_id)
-        ));
+    public function getLastNroProceso() {
+        $ultimo_proceso = $this->find('first', [
+            'fields' => ['MAX(proceso_nro) AS nro'],
+            'conditions' => ['user_id' => AuthComponent::user('id')]
+        ]);
 
         $nro = $ultimo_proceso[0]['nro'] == null ? 0 : $ultimo_proceso[0]['nro'];
 
@@ -224,20 +143,19 @@ class Proceso extends AppModel {
     }
 
     public function afterFind($results, $primary = false) {
-//        debug($results);die;
-        if (in_array(Router::getParams()['action'], ['homepage', 'mis_ofertas'])) {
-            foreach ($results as $key => $result) {
-                $results[$key]['Proceso']['fecha_fin'] = $this->dateDMY($result['Proceso']['fecha_fin']);
-                $results[$key]['Proceso']['fecha_entrega'] = $this->dateDMY($result['Proceso']['fecha_entrega']);
-            }
+//        debug($results);
+//        die;
+        foreach ($results as $key => $result) {
+            $results[$key]['Proceso']['fecha_fin'] = dateDMY($result['Proceso']['fecha_fin']);
+            $results[$key]['Proceso']['fecha_entrega'] = dateDMY($result['Proceso']['fecha_entrega']);
         }
 
         if (in_array(Router::getParams()['action'], ['edit', 'view'])) {
             $categorias = $this->Item->Categoria->find('list');
             $subcategorias = $this->Item->Categoria->Subcategoria->find('list');
 
-            $results[0]['Proceso']['fecha_fin'] = $this->dateDMY($results[0]['Proceso']['fecha_fin']);
-            $results[0]['Proceso']['fecha_entrega'] = $this->dateDMY($results[0]['Proceso']['fecha_entrega']);
+            $results[0]['Proceso']['fecha_fin'] = dateDMY($results[0]['Proceso']['fecha_fin']);
+            $results[0]['Proceso']['fecha_entrega'] = dateDMY($results[0]['Proceso']['fecha_entrega']);
 
             foreach ($results[0]['Item'] as $key => $item) {
                 $results[0]['Item'][$key]['categoria'] = $categorias[$item['categoria_id']];
@@ -251,15 +169,14 @@ class Proceso extends AppModel {
     }
 
     public function beforeSave($options = array()) {
-//        $this->data['Proceso']['fecha_fin'] = $this->dateYMD($this->data['Proceso']['fecha_fin']);
-//        $this->data['Proceso']['fecha_entrega'] = $this->dateYMD($this->data['Proceso']['fecha_entrega']);
+//        $this->data['Proceso']['fecha_fin'] = dateYMD($this->data['Proceso']['fecha_fin']);
+//        $this->data['Proceso']['fecha_entrega'] = dateYMD($this->data['Proceso']['fecha_entrega']);
         return true;
     }
 
     public function afterSave($created, $options = []) {
 
 //        if ($created) {
-
 //            $this->Item->files = $this->data['Item'];
 //            debug($this->data);
 //            die;

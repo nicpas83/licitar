@@ -1,4 +1,4 @@
-var WWW = window.location.origin;
+var WWW = window.location.origin+"/";
 $(function () {
     $(document).on('focus click', 'input.datepicker', function () {
         $(this).datepicker({

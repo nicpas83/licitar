@@ -18,7 +18,6 @@ if (isset($borrador_id)) {
             echo $this->Form->create($formHorizontal);
             echo $this->element('procesos/nuevo_paso1');
             echo $this->element('procesos/nuevo_paso2');
-            echo $this->element('procesos/nuevo_paso3');
             echo $this->Form->end();
             ?>
         </div>

@@ -77,24 +77,22 @@ class Oferta extends AppModel {
     }
 
     public function setResultadosActuales($mis_ofertas, $userId) {
-        
+
         $itemsIds = $this->Item->getItemsIds($mis_ofertas);
         $resultados = $this->getMejoresOfertas($itemsIds);
 
-        foreach($mis_ofertas as $key => $val){
-            
+        foreach ($mis_ofertas as $key => $val) {
+
             $itemId = $val['Item']['id'];
-            
-            foreach($resultados[$itemId] as $keyRes => $resultado){
-                
-                if($userId == $resultado['user_id']){
-                    $mis_ofertas[$key][0]['resultado'] = $keyRes+1;
+
+            foreach ($resultados[$itemId] as $keyRes => $resultado) {
+
+                if ($userId == $resultado['user_id']) {
+                    $mis_ofertas[$key][0]['resultado'] = $keyRes + 1;
                 }
-                
             }
-            
         }
-        
+
         return $mis_ofertas;
     }
 
@@ -132,15 +130,11 @@ class Oferta extends AppModel {
             $resultados[$item] = $this->arrayOrderBy($resultados[$item], 'oferta');
         }
 
-       
+
         return $resultados;
     }
-    
-
-    
 
     public function validarOferta($ofertas) {
-        
         $q_items_oferta = 0;
         foreach ($ofertas['Oferta'] as $oferta) {
             if (is_numeric($oferta['valor_oferta']) && $oferta['valor_oferta'] > 0) {

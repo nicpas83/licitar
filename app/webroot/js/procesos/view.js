@@ -1,8 +1,5 @@
 $(function () {
 
-// For select 2
-    $(".select2").select2();
-
     $('#itemsDelProceso').DataTable({
         "aaSorting": [],
         "dom": 'Bfrtip',
@@ -10,7 +7,7 @@ $(function () {
         "ordering": false,
         "columns": [
             null,
-            null,
+            {"width": "30%"},
             null,
             {"width": "17%"},
             {"width": "15%"},

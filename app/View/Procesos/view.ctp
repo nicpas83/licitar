@@ -47,11 +47,11 @@
     <div class="col-12">
         <div class="card">
             <div class="card-block">
-                <h4 class="card-title">El Comprador solicita:</h4>
                 <?php
                 if (isset($proceso['propio'])) {
                     echo $this->element('procesos/view_comprador');
                 } else {
+                    echo $this->element('procesos/aviso_importante');
                     echo $this->element('procesos/view_proveedor');
                 }
                 ?>

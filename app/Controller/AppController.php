@@ -1,20 +1,9 @@
 <?php
-
 App::uses('Controller', 'Controller');
+App::import('Vendor', 'funciones');
 
 class AppController extends Controller {
     
-    public function dateYMD($dateString) {
-        $dateString = str_replace('/', '-', $dateString);
-        return date('Y-m-d', strtotime($dateString));
-    }
-
-    public function dateDMY($dateString) {
-        $date = date('d-m-Y', strtotime($dateString));
-        $date = str_replace('-', '/', $date);
-        return $date;
-    }
-
     /** Modelos que estarán disponibles en todos los controladores. */
     var $uses = array('Categorias.Categoria', 'Categorias.Subcategoria', 'Ubicacion.Provincia', 'Unidad');
     Public $phpNow;
@@ -36,7 +25,6 @@ class AppController extends Controller {
     }
 
     public function procesarFiles($data = null) {
-
         debug($data);
         die;
     }

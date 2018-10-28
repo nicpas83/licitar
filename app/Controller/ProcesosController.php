@@ -4,24 +4,6 @@ App::uses('AppController', 'Controller');
 
 class ProcesosController extends AppController {
 
-    public function nueva_compra() {
-        $this->set('categorias', $this->Categoria->options());
-        $this->set('unidades', $this->unidades);
-        $this->set('condiciones', $this->condicionesPago);
-        $this->set('condiciones', $this->requisitosExcluyentes);
-
-        if ($this->request->is('post')) {
-            $this->request->data['Proceso']['user_id'] = $this->Auth->user('id');
-            $this->request->data['Proceso']['proceso_nro'] = $this->Proceso->buscarUltimoProcesoUsuario($this->Auth->user('id')) + 1;
-            if ($this->Proceso->saveAll($this->request->data)) {
-                $this->Flash->success('El Proceso fue creado con éxio.');
-                return $this->redirect(array('controller' => 'pages', 'action' => 'display'));
-            } else {
-                $this->Flash->error(__('Error al grabar el Proceso.'));
-            }
-        }
-    }
-
     public function nuevo() {
         $this->set('categorias', $this->Categoria->options());
         $this->set('subcategorias', $this->Subcategoria->options());
@@ -52,37 +34,35 @@ class ProcesosController extends AppController {
             $this->Proceso->save(['Proceso' => ['user_id' => $this->Auth->user('id'), 'estado' => 'Borrador']]);
             $this->set('nuevo_id', $this->Proceso->getLastInsertId());
         }
-
-        if ($this->request->is('post')) {
-            $this->request->data['Proceso']['user_id'] = $this->Auth->user('id');
-            $this->request->data['Proceso']['proceso_nro'] = $this->Proceso->buscarUltimoProcesoUsuario($this->Auth->user('id')) + 1;
-            if ($this->Proceso->saveAll($this->request->data)) {
-                $this->Flash->success('El Proceso fue creado con éxio.');
-                return $this->redirect(array('controller' => 'pages', 'action' => 'display'));
-            } else {
-                $this->Flash->error(__('Error al grabar el Proceso.'));
-            }
-        }
     }
 
+    //Publicar!
     public function ajax_set_info_general() {
         if (!$this->request->is('post')) {
             throw new MethodNotAllowedException();
         }
-        $fecha_fin = $this->dateYMD($this->request->data['fecha_fin']);
-        $fecha_entrega = $this->dateYMD($this->request->data['fecha_entrega']);
+        $fecha_fin = dateYMD($this->request->data['fecha_fin']);
+        $fecha_entrega = dateYMD($this->request->data['fecha_entrega']);
+
         $this->Proceso->updateAll([
             'referencia' => "'" . $this->request->data['referencia'] . "'",
             'fecha_fin' => "'" . $fecha_fin . "'",
             'fecha_entrega' => "'" . $fecha_entrega . "'",
+            'proceso_nro' => "'" . ($this->Proceso->getLastNroProceso() + 1) . "'",
             'detalles' => "'" . $this->request->data['referencia'] . "'",
             'condicion_pago' => "'" . $this->request->data['condicion_pago'] . "'",
             'requisitos_excluyentes' => "'" . $this->request->data['requisitos_excluyentes'] . "'",
-            'estado' => "'1'"
+            'estado' => "'Activo'"
                 ], [
             'Proceso.id' => $this->request->data['id']
         ]);
-        
+
+        $this->Proceso->Item->updateAll([
+            'estado' => "'Activo'"
+                ], [
+            'proceso_id' => $this->request->data['id']
+        ]);
+
         return $this->render("/ajax", "ajax");
     }
 
@@ -99,12 +79,11 @@ class ProcesosController extends AppController {
     public function view($proceso_id = null) {
 
         $proceso = $this->Proceso->findById($proceso_id);
-        if (!$proceso || $proceso['Proceso']['estado'] !== '1') {
+        if (!$proceso || $proceso['Proceso']['estado'] !== 'Activo') {
             $this->Flash->error(__("El proceso al que intenta acceder no es un proceso activo."));
             $this->redirect($this->referer());
         }
-        $proceso = $this->Proceso->configurarRequisitosExcluyentes($proceso);
-        $proceso = $this->Proceso->validarTitularidadDelProceso($proceso, $this->Auth->user('id'));
+        $proceso = $this->Proceso->validarTitularidadDelProceso($proceso);
 
         $itemsIds = $this->Proceso->Item->getItemsIds($proceso);
         $ofertas = $this->Proceso->Oferta->getOfertas($itemsIds);
@@ -116,7 +95,8 @@ class ProcesosController extends AppController {
         $this->set('proceso', $proceso['Proceso']);
         $this->set('items', $proceso['Item']);
     }
-
+    
+    //vista HOMEPAGE
     public function index() {
         $procesos = $this->Proceso->getProcesosActivos();
         $this->set('procesos', $procesos['procesos']);

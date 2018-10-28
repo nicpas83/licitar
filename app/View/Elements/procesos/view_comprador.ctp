@@ -5,7 +5,6 @@
                 <th>Nombre - Descripción</th>
                 <th>Especificaciones</th>
                 <th>Cantidad</th>
-                <th>Unidad</th>
                 <th>Mejor Oferta Recibida</th>
                 <th>Cantidad Proveedores Participando</th>
             </tr>
@@ -24,9 +23,11 @@
                     ?>
                     <tr>
                         <td><?php echo $item['nombre'] ?></td>
-                        <td><?php echo $item['especificaciones'] ?></td>
-                        <td><?php echo $item['cantidad'] ?></td>
-                        <td><?php echo $item['unidad'] ?></td>
+                        <td><small><?php echo $item['especificaciones'] ?></small></td>
+                        <td>
+                            <small><?php echo $item['cantidad'] ?></small>
+                            <small><?php echo $item['unidad'] ?></small>
+                        </td>
                         <td>
                             <?php if ($precio_unitario) { ?>
                                 <small class="text-info">El <?php echo date('d/n', strtotime($fecha_oferta)) ?>, a las <?php echo date('H:i', strtotime($fecha_oferta)) ?></small>

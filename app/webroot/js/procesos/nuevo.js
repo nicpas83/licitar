@@ -2,11 +2,9 @@ var proceso_id;
 var info_general = {};
 
 $(function () {
-
     aplicarDatePicker();
     //oculto pasos siguientes.
     $("[id^='paso2']").hide();
-    $("[id^='paso3']").hide();
 
     checkBorrador();
 
@@ -23,7 +21,9 @@ $(function () {
     });
 
     $("#paso2_atras").click(function () {
-
+        $("[id^='paso1']").show();
+        $("[id^='paso2']").hide();
+        goTop();
     });
 
 
@@ -88,8 +88,6 @@ function finalizarPublicacion() {
 
         $.post("/procesos/ajax_set_info_general", info_general, function () {
             swal("Felicitaciones!");
-            
-            
             $(location).attr('href', WWW);
             return;
         });

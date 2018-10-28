@@ -2,7 +2,7 @@ var edit_id = false;
 
 $(function () {
     
-    $('#ProcesoTmpCantidad').val(1);
+    $('#ProcesoCantidad').val(1);
     //ACCION AGREGAR ITEM.
     $("#addItem").click(function () {
         var item = {};
@@ -11,14 +11,14 @@ $(function () {
             return;
         }
         item["proceso_id"] = proceso_id;
-        item["nombre"] = $('#ProcesoTmpNombre').val();
-        item["categoria_id"] = $('#ProcesoTmpCategoria').val();
-        item["categoria"] = $('#ProcesoTmpCategoria option:selected').text();
-        item["subcategoria_id"] = $('#ProcesoTmpSubcategoria').val();
-        item["subcategoria"] = $('#ProcesoTmpSubcategoria option:selected').text();
-        item["especificaciones"] = $('#ProcesoTmpEspecificaciones').val();
-        item["cantidad"] = $('#ProcesoTmpCantidad').val();
-        item["unidad"] = $('#ProcesoTmpUnidad option:selected').text();
+        item["nombre"] = $('#ProcesoNombre').val();
+        item["categoria_id"] = $('#ProcesoCategoria').val();
+        item["categoria"] = $('#ProcesoCategoria option:selected').text();
+        item["subcategoria_id"] = $('#ProcesoSubcategoria').val();
+        item["subcategoria"] = $('#ProcesoSubcategoria option:selected').text();
+        item["especificaciones"] = $('#ProcesoEspecificaciones').val();
+        item["cantidad"] = $('#ProcesoCantidad').val();
+        item["unidad"] = $('#ProcesoUnidad option:selected').text();
 
         //UPDATE 
         if (edit_id) {
@@ -32,7 +32,7 @@ $(function () {
 
             $.post("/items/ajax_update_item", item, function () {
                 beforeAlert("Edición realizada con éxito!", "#TableItem-vista_previa");
-                $("html, body").animate({scrollTop: $('#ProcesoTmpNombre').offset().top - 150}, "slow");
+                $("html, body").animate({scrollTop: $('#ProcesoNombre').offset().top - 150}, "slow");
                 edit_id = false;
                 limpiarTmpForm();
             });
@@ -58,7 +58,7 @@ $(function () {
             $("#items_proceso tbody").append(html);
             limpiarTmpForm();
             beforeAlert("Bien hecho! podés seguir agregando items", "#TableItem-vista_previa");
-            $("html, body").animate({scrollTop: $('#ProcesoTmpNombre').offset().top - 150}, "slow");
+            $("html, body").animate({scrollTop: $('#ProcesoNombre').offset().top - 150}, "slow");
         });
 
     });
@@ -66,14 +66,16 @@ $(function () {
     //Acción Editar.  
     $(document).on("click", "[id^='EditItem']", function () {
         edit_id = getNumeric($(this).attr('id'));
+        $('#ProcesoCategoria').select2('destroy'); //para evitar que dispare el change.
+        
         $.get("/items/ajax_get_item/" + edit_id, function (data) {
             var jdata = $.parseJSON(data);
             topAlert("Edita los campos y hacé click en Agregar Item");
-            $('#ProcesoTmpNombre').val(jdata.nombre);
-            $('#ProcesoTmpCategoria').val(jdata.categoria_id).trigger('change');
-            $('#ProcesoTmpEspecificaciones').val(jdata.especificaciones);
-            $('#ProcesoTmpCantidad').val(jdata.cantidad);
-            $('#ProcesoTmpUnidad').val(jdata.unidad);
+            $('#ProcesoNombre').val(jdata.nombre);
+            $('#ProcesoCategoria').val(jdata.categoria_id).select2();
+            $('#ProcesoEspecificaciones').val(jdata.especificaciones);
+            $('#ProcesoCantidad').val(jdata.cantidad);
+            $('#ProcesoUnidad').val(jdata.unidad);
             change_subcategoria(jdata.categoria_id, jdata.subcategoria_id);
         });
     });
@@ -87,22 +89,22 @@ $(function () {
 
 function validarItem() {
     var validate = true;
-    if ($('#ProcesoTmpNombre').val() == '') {
+    if ($('#ProcesoNombre').val() == '') {
         validate = false;
     }
-    if ($('#ProcesoTmpCategoria').val() == 0) {
+    if ($('#ProcesoCategoria').val() == 0) {
         validate = false;
     }
-    if ($('#ProcesoTmpSubcategoria').val() == 0) {
+    if ($('#ProcesoSubcategoria').val() == 0) {
         validate = false;
     }
-    if ($('#ProcesoTmpCantidad').val() == '' || $('#ProcesoTmpCantidad').val() <= 0) {
-        $('#ProcesoTmpCantidad').val('1');
+    if ($('#ProcesoCantidad').val() == '' || $('#ProcesoCantidad').val() <= 0) {
+        $('#ProcesoCantidad').val('1');
     }
     return validate;
 }
 function limpiarTmpForm() {
-    $('#ProcesoTmpNombre').val("");
-    $('#ProcesoTmpCantidad').val(1);
-    $('#ProcesoTmpEspecificaciones').val("");
+    $('#ProcesoNombre').val("");
+    $('#ProcesoCantidad').val(1);
+    $('#ProcesoEspecificaciones').val("");
 }
