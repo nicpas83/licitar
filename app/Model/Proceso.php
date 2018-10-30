@@ -60,6 +60,7 @@ class Proceso extends AppModel {
     ];
 
     public function getProcesosActivos($categoria_id = null) {
+        $data = [];
         $results = $this->find('all', array(
             'conditions' => [
                 'Proceso.estado' => 'Activo',
