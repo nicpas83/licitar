@@ -5,7 +5,10 @@ App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 
 class User extends AppModel {
 
-    public $hasMany = array('Proceso', 'Participacion', 'AlertaVendedor', 'AlertaComprador');
+    public $hasMany = [
+        'Proceso',
+        'Participacion',
+    ];
     public $validate = array(
         'username' => array(
             'notBlank' => array(
@@ -62,7 +65,7 @@ class User extends AppModel {
     );
 
     public function beforeSave($options = array()) {
-        
+
         if (isset($this->data[$this->alias]['password'])) {
             $passwordHasher = new BlowfishPasswordHasher();
             $this->data[$this->alias]['password'] = $passwordHasher->hash(

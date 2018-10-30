@@ -76,9 +76,12 @@ class ProcesosController extends AppController {
         }
     }
 
-    public function view($proceso_id = null) {
-
-        $proceso = $this->Proceso->findById($proceso_id);
+    public function view($id = null) {
+        if (!$id) {
+            $this->Flash->error(__("El proceso al que intenta acceder no es un proceso válido."));
+            $this->redirect($this->referer());
+        }
+        $proceso = $this->Proceso->findById($id);
         if (!$proceso || $proceso['Proceso']['estado'] !== 'Activo') {
             $this->Flash->error(__("El proceso al que intenta acceder no es un proceso activo."));
             $this->redirect($this->referer());
@@ -95,7 +98,7 @@ class ProcesosController extends AppController {
         $this->set('proceso', $proceso['Proceso']);
         $this->set('items', $proceso['Item']);
     }
-    
+
     //vista HOMEPAGE
     public function index() {
         $procesos = $this->Proceso->getProcesosActivos();
@@ -103,26 +106,21 @@ class ProcesosController extends AppController {
     }
 
     public function categoria($categoria_id = null) {
-
         $procesos = $this->Proceso->getProcesosActivos($categoria_id);
-
         $this->set('categorias', $procesos['categorias']);
         $this->set('procesos', $procesos['procesos']);
     }
 
     public function edit($id = null) {
+        $this->set('categorias', $this->Categoria->options());
+        $this->set('subcategorias', $this->Subcategoria->options());
+        $this->set('unidades', $this->Proceso->unidades);
+        $this->set('condiciones', $this->Proceso->condicionesPago);
+        $this->set('requisitos', $this->Proceso->requisitosExcluyentes);
 
         $proceso = $this->Proceso->findByIdAndUserId($id, $this->Auth->user('id'));
         //valido que por URL solo se pueda acceder a procesos activos y propios.
-        if ($proceso && $proceso['Proceso']['estado'] == 1) {
-            $this->set('categorias', $this->Categoria->options());
-            $this->set('unidades', $this->Unidad->options());
-            $this->set('condiciones', [
-                'Contado' => 'Contado',
-                '30 dias' => '30 dias',
-                '30-60 dias' => '30-60 dias',
-                '30-60-90 dias' => '30-60-90 dias',
-            ]);
+        if ($proceso && $proceso['Proceso']['estado'] == 'Activo') {
 //            debug($proceso);die;
             $this->set('proceso', $proceso['Proceso']);
             $this->set('items', $proceso['Item']);
@@ -137,10 +135,6 @@ class ProcesosController extends AppController {
 
         if ($this->request->is('post')) {
             $postId = $this->request->data['Proceso']['id'];
-            if ($postId !== $id) {
-                $this->Flash->error('ID ADULTERADO.');
-                return $this->redirect(array('controller' => 'pages', 'action' => 'display'));
-            }
             $this->request->data['Proceso']['user_id'] = $this->Auth->user('id');
             $items = $this->request->data['Item'];
 

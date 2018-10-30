@@ -22,7 +22,11 @@
                     }
                     ?>
                     <tr>
-                        <td><?php echo $item['nombre'] ?></td>
+                        <td>
+                            <p><?php echo $item['nombre']; ?></p>
+                            <?php echo $this->element('pst_label', ['params' => ['value' => $item['categoria'], 'class' => 'light-info']]); ?>
+                            <?php echo $this->element('pst_label', ['params' => ['value' => $item['subcategoria'], 'class' => 'light-info']]); ?>
+                        </td>
                         <td><small><?php echo $item['especificaciones'] ?></small></td>
                         <td>
                             <small><?php echo $item['cantidad'] ?></small>

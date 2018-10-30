@@ -9,9 +9,9 @@ class OfertasController extends AppController {
     public function add($proceso_id = null) {
 
         if ($this->request->is('post')) {
-//debug($this->request->data);die;
+//debug($this->request);die;
             //validar oferta 
-            $validacion = $this->Oferta->validarOferta($this->request->data);
+            $validacion = $this->Oferta->validarOferta($this->request);
             if (!$validacion) {
                 $this->Flash->error(__('La oferta que intenta registrar no es válida o no cumple los requisitos.'));
                 $this->redirect($this->referer());
@@ -24,13 +24,12 @@ class OfertasController extends AppController {
                         continue;
                     }
                     $this->request->data['Oferta'][$key]['user_id'] = $this->Auth->user('id');
-                    $this->request->data['Oferta'][$key]['participacion_id'] = $this->Oferta->Participacion->getParticipacion($oferta['proceso_id'], $this->Auth->user('id'));
                     $this->Oferta->create();
                     $result = $this->Oferta->saveAll($this->request->data['Oferta'][$key]);
                 }
             } else {
-                $participacion_id = $this->Oferta->Participacion->getParticipacion($proceso_id, $this->Auth->user('id'));
-                $result = $this->Oferta->registrarOferta($proceso_id, $this->Auth->user('id'), $participacion_id, $this->request->data);
+//                debug($this->request->data);die;
+                $result = $this->Oferta->registrarOferta($proceso_id);
             }
 
 
@@ -61,17 +60,13 @@ class OfertasController extends AppController {
 
     public function mis_ofertas() {
 
-        $mis_ofertas = $this->Oferta->getMisOfertas($this->Auth->user('id'));
+        $mis_ofertas = $this->Oferta->getMisOfertas();
         if (!$mis_ofertas) {
             $this->Flash->error(__("No tenés ofertas en curso."));
             $this->redirect($this->referer());
         }
 
-        $mis_ofertas = $this->Oferta->setResultadosActuales($mis_ofertas, $this->Auth->user('id'));
-
-
-
-        $this->set('ofertas', $mis_ofertas);
+        $this->set('ofertas', $this->Oferta->setMisResultadosActuales($mis_ofertas));
     }
 
     public function mis_participaciones() {

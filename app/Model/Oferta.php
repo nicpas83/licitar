@@ -6,13 +6,8 @@ App::uses('Categoria', 'Model');
 class Oferta extends AppModel {
 
     public $useTable = 'ofertas';
-    public $recursive = -1;
+    
     public $belongsTo = array(
-        'Participacion' => [
-            'className' => 'Participacion',
-            'foreignKey' => 'participacion_id',
-            'dependent' => true
-        ],
         'Proceso' => [
             'className' => 'Proceso',
             'foreignKey' => 'proceso_id',
@@ -25,49 +20,15 @@ class Oferta extends AppModel {
         ],
     );
 
-    public function getMisOfertas($user_id) {
-
+    public function getMisOfertas() {
+        $this->virtualFields["mi_mejor_oferta"] = "MIN(Oferta.valor_oferta)";
         $ofertas = $this->find('all', [
             'conditions' => [
-                'Oferta.user_id' => $user_id,
+                'Oferta.user_id' => AuthComponent::user('id'),
                 'Oferta.estado_actual' => 1
             ],
-            'fields' => [
-                'Item.id',
-                'Item.nombre',
-                'Item.cantidad',
-                'Item.unidad',
-                'Item.especificaciones',
-                'Proceso.id',
-                'Proceso.referencia',
-                'Proceso.fecha_fin',
-                'Proceso.fecha_entrega',
-                'Proceso.condicion_pago',
-                'MIN(valor_oferta) as mi_mejor_oferta',
-                'MAX(Oferta.created) as fecha_hora',
-            ],
-            'joins' => array(
-                array(
-                    'table' => 'items',
-                    'alias' => 'Item',
-                    'type' => 'INNER',
-                    'conditions' => array(
-                        'Oferta.item_id = Item.id'
-                    )
-                ),
-                array(
-                    'table' => 'procesos',
-                    'alias' => 'Proceso',
-                    'type' => 'INNER',
-                    'conditions' => array(
-                        'Oferta.proceso_id = Proceso.id'
-                    )
-                ),
-            ),
             'group' => ['Oferta.item_id'],
         ]);
-
-//        debug($ofertas);die;
 
         if (!$ofertas) {
             return false;
@@ -76,10 +37,12 @@ class Oferta extends AppModel {
         return $ofertas;
     }
 
-    public function setResultadosActuales($mis_ofertas, $userId) {
+    public function setMisResultadosActuales($mis_ofertas) {
 
-        $itemsIds = $this->Item->getItemsIds($mis_ofertas);
+        $itemsIds = array_column(array_column($mis_ofertas, 'Item'), 'id');
         $resultados = $this->getMejoresOfertas($itemsIds);
+//        debug($itemsIds);die;
+        
 
         foreach ($mis_ofertas as $key => $val) {
 
@@ -87,7 +50,7 @@ class Oferta extends AppModel {
 
             foreach ($resultados[$itemId] as $keyRes => $resultado) {
 
-                if ($userId == $resultado['user_id']) {
+                if (AuthComponent::user('id') == $resultado['user_id']) {
                     $mis_ofertas[$key][0]['resultado'] = $keyRes + 1;
                 }
             }
@@ -107,22 +70,24 @@ class Oferta extends AppModel {
     }
 
     public function getMejoresOfertas($itemsIds) {
+        $this->virtualFields["mejor_oferta"] = "MIN(Oferta.valor_oferta)";
         $mejores_ofertas = $this->find('all', [
             'conditions' => ['item_id IN' => $itemsIds],
-            'fields' => ['Oferta.user_id', 'Oferta.item_id', 'Oferta.created', 'MIN(Oferta.valor_oferta) as mejor_oferta', 'COUNT(Oferta.id) as q_ofertas'],
-            'group' => ['Oferta.user_id', 'Oferta.item_id']
+            'group' => ['Oferta.user_id', 'Oferta.item_id'],
+            'recursive' => -1
         ]);
+//        debug($mejores_ofertas);die;
 
         //recorro cada item y defino un array con los resultados de ofertas.  
         foreach ($itemsIds as $item) {
-            $resultados[$item] = array();
+            $resultados[$item] = [];
 
             foreach ($mejores_ofertas as $mejor_oferta) {
 
                 if ($item == $mejor_oferta['Oferta']['item_id']) {
                     $resultados[$item][] = [
                         'user_id' => $mejor_oferta['Oferta']['user_id'],
-                        'oferta' => $mejor_oferta[0]['mejor_oferta']
+                        'oferta' => $mejor_oferta['Oferta']['mejor_oferta']
                     ];
                 }
             }
@@ -130,11 +95,16 @@ class Oferta extends AppModel {
             $resultados[$item] = $this->arrayOrderBy($resultados[$item], 'oferta');
         }
 
+//        debug($resultados);die;
 
         return $resultados;
     }
 
-    public function validarOferta($ofertas) {
+    public function validarOferta($data) {
+        $proceso = $this->Proceso->findById($data['params']['pass'][0]);
+        debug($data->params['pass'][0]);die;
+        debug($proceso);die;
+        
         $q_items_oferta = 0;
         foreach ($ofertas['Oferta'] as $oferta) {
             if (is_numeric($oferta['valor_oferta']) && $oferta['valor_oferta'] > 0) {
@@ -149,8 +119,8 @@ class Oferta extends AppModel {
         }
     }
 
-    public function registrarOferta($proceso_id, $user_id, $participacion_id, $oferta) {
-
+    public function registrarOferta($proceso_id, $oferta) {
+        
         foreach ($oferta['Oferta'] as $key => $val) {
 
             if (empty($val['valor_oferta'])) {
@@ -159,8 +129,7 @@ class Oferta extends AppModel {
             }
 
             $oferta['Oferta'][$key]['proceso_id'] = $proceso_id;
-            $oferta['Oferta'][$key]['user_id'] = $user_id;
-            $oferta['Oferta'][$key]['participacion_id'] = $participacion_id;
+            $oferta['Oferta'][$key]['user_id'] = AuthComponent::user('id');
         }
 
         $this->create();

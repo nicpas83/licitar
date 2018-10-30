@@ -23,16 +23,23 @@
                     $subtotal = $item['mejor_oferta'] > 0 ? number_format(($item['mejor_oferta'] * $item['cantidad']), 2, ",", ".") : false;
                     ?>
                     <tr>
-                        <td><?php echo $item['nombre'] ?></td>
+                        <td>
+                            <p><?php echo $item['nombre']; ?></p>
+                            <?php echo $this->element('pst_label', ['params' => ['value' => $item['categoria'], 'class' => 'light-info']]); ?>
+                            <?php echo $this->element('pst_label', ['params' => ['value' => $item['subcategoria'], 'class' => 'light-info']]); ?>
+                        </td>
                         <td><small><?php echo $item['especificaciones'] ?></small></td>
                         <td>
                             <small><?php echo $item['cantidad'] ?></small>
                             <small><?php echo $item['unidad'] ?></small>
                         </td>
                         <td>
-                            <?php if ($precio_unitario) { ?>
-                                <?php echo $this->element('pst_moneda', ['params' => ['value' => $precio_unitario]]); ?>
-                                <?php
+                            <?php
+                            if ($precio_unitario) {
+                                echo $this->element('pst_moneda', ['params' => ['value' => $precio_unitario]]);
+                                if ($item['ganador_id'] == $logUserId) {
+                                    echo $this->element('pst_small', ['params' => ['value' => $logUserName, 'icon' => 'fa fa-user-plus text-success']]);
+                                }
                             } else {
                                 echo "Sin Ofertas";
                             }

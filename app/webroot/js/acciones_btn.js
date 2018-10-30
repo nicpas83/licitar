@@ -7,8 +7,8 @@ function del_btn(modelPk) {
     return html;
 }
 
-function delete_model_id(model, id) {
-    var controller = underscore(pluralize(model));
+function delete_model_id(model, id, plugin = "") {
+    var controller = underscore(getPlural(model));
     var pk = {"id": id};
     swal({
         title: "Atención",
@@ -20,7 +20,7 @@ function delete_model_id(model, id) {
         confirmButtonText: 'Ok!',
         cancelButtonText: "Cancelar",
     }, function () {
-        $.post("/" + controller + "/ajax_delete", pk, function () {
+        $.post(WWW + plugin + "/" + controller + "/ajax_delete", pk, function () {
             topAlert('Registro eliminado.', 'danger');
             $("[id='Delete" + model + "-" + id + "']").closest('tr').remove();
             reindexTable(model);

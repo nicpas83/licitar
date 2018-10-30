@@ -8,7 +8,7 @@ echo $this->Form->create('Oferta', $formHorizontal);
     <div class="col-12">
         <div class="card">
             <div class="card-block">
-                <?php echo $this->element('ribbon_title',['title'=>'Mis Ofertas en curso']) ?>
+                <?php echo $this->element('ribbon_title', ['title' => 'Mis Ofertas en curso']) ?>
                 <div class="table-responsive m-t-40">
                     <table id="misOfertas" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
@@ -28,8 +28,8 @@ echo $this->Form->create('Oferta', $formHorizontal);
                                 $i = 0;
 
                                 foreach ($ofertas as $oferta) {
-                                    $precio_unitario = number_format($oferta[0]['mi_mejor_oferta'], 2, ",", ".");
-                                    $subtotal = number_format(($oferta[0]['mi_mejor_oferta'] * $oferta['Item']['cantidad']), 2, ",", ".");
+                                    $precio_unitario = number_format($oferta['Oferta']['mi_mejor_oferta'], 2, ",", ".");
+                                    $subtotal = number_format(($oferta['Oferta']['mi_mejor_oferta'] * $oferta['Item']['cantidad']), 2, ",", ".");
                                     ?>
                                     <tr>
                                         <td><?php echo $this->Html->link($oferta['Proceso']['referencia'], "/procesos/view/" . $oferta['Proceso']['id'] . ""); ?></td>
@@ -40,7 +40,13 @@ echo $this->Form->create('Oferta', $formHorizontal);
                                             <?php echo $this->element('pst_moneda', ['params' => ['value' => $precio_unitario, 'c/u']]); ?>
                                             <small class="text-muted"><?php echo $this->element('pst_moneda', ['params' => ['value' => $subtotal, 'subtotal']]) ?></small>
                                         </td>
-                                        <td><?php echo $oferta[0]['resultado'] ?></td>
+                                        <td>
+                                            <?php
+                                            if ($oferta[0]['resultado'] == 1) {
+                                                echo $this->element('pst_small', ['params' => ['value' => '¡Ganando!', 'class' => 'label label-success']]);
+                                            }
+                                            ?>
+                                        </td>
                                         <td>
                                             <?php echo $this->element('f_input_moneda', ['params' => ['name' => "Oferta.$i.valor_oferta", 'inTable']]) ?>
                                         </td>

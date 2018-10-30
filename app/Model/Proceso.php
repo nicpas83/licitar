@@ -49,10 +49,6 @@ class Proceso extends AppModel {
             'foreignKey' => 'proceso_id',
             'dependent' => true
         ],
-        'Participacion' => [
-            'className' => 'Participacion',
-            'foreignKey' => 'proceso_id'
-        ],
         'Oferta' => [
             'className' => 'Oferta',
             'foreignKey' => 'proceso_id'
@@ -143,54 +139,23 @@ class Proceso extends AppModel {
     }
 
     public function afterFind($results, $primary = false) {
-//        debug($results);
-//        die;
+    //debug($results);die;
+
+        $categorias = $this->Item->Categoria->find('list');
+        $subcategorias = $this->Item->Categoria->Subcategoria->find('list');
         foreach ($results as $key => $result) {
             $results[$key]['Proceso']['fecha_fin'] = dateDMY($result['Proceso']['fecha_fin']);
             $results[$key]['Proceso']['fecha_entrega'] = dateDMY($result['Proceso']['fecha_entrega']);
-        }
 
-        if (in_array(Router::getParams()['action'], ['edit', 'view'])) {
-            $categorias = $this->Item->Categoria->find('list');
-            $subcategorias = $this->Item->Categoria->Subcategoria->find('list');
-
-            $results[0]['Proceso']['fecha_fin'] = dateDMY($results[0]['Proceso']['fecha_fin']);
-            $results[0]['Proceso']['fecha_entrega'] = dateDMY($results[0]['Proceso']['fecha_entrega']);
-
-            foreach ($results[0]['Item'] as $key => $item) {
-                $results[0]['Item'][$key]['categoria'] = $categorias[$item['categoria_id']];
-                $results[0]['Item'][$key]['subcategoria'] = $subcategorias[$item['subcategoria_id']];
+            if (isset($result['Item']) && !empty($result['Item'])) {
+                foreach ($result['Item'] as $key2 => $item) {
+                    $results[$key]['Item'][$key2]['categoria'] = $categorias[$item['categoria_id']];
+                    $results[$key]['Item'][$key2]['subcategoria'] = $subcategorias[$item['subcategoria_id']];
+                }
             }
         }
 
-
-
         return $results;
-    }
-
-    public function beforeSave($options = array()) {
-//        $this->data['Proceso']['fecha_fin'] = dateYMD($this->data['Proceso']['fecha_fin']);
-//        $this->data['Proceso']['fecha_entrega'] = dateYMD($this->data['Proceso']['fecha_entrega']);
-        return true;
-    }
-
-    public function afterSave($created, $options = []) {
-
-//        if ($created) {
-//            $this->Item->files = $this->data['Item'];
-//            debug($this->data);
-//            die;
-//        }
-//        
-//        App::uses('imageLib', 'Lib/php-image-magician');
-//        $imgObj = new imageLib($fileName);
-//
-//        $items = $this->data['Item'];
-//        $files = $this->data['File'];
-//
-//        foreach ($items as $key => $item) {
-//            $item_id = $item;
-//        }
     }
 
 }

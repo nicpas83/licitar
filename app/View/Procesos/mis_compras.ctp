@@ -26,13 +26,12 @@
                                     ?>
                                     <tr>
                                         <td><?php echo $proceso['proceso_nro'] ?></td>
-                                        <td><?php echo $proceso['referencia'] ?></td>
+                                        <td><?php echo $this->Html->link($proceso['referencia'], "/procesos/view/".$proceso['id']) ?></td>
                                         <td><?php echo $proceso['total_items'] ?></td>
                                         <td></td>
                                         <td><?php echo $proceso['fecha_fin'] ?></td>
                                         <td>
                                             <?php echo $this->Form->postLink('', array('action' => 'delete', $proceso['id']), $deleteBtn); ?>
-                                            <?php echo $this->Html->link('', array('action' => 'view', $proceso['id']), $viewBtn); ?>
                                             <?php echo $this->Html->link('', array('action' => 'edit', $proceso['id']), $editBtn); ?>
                                         </td>
                                     </tr>

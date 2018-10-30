@@ -17,7 +17,7 @@ $(function () {
     $(".range_01").ionRangeSlider({
         min: -50,
         max: 0,
-        from: -5,
+        from: 0,
         postfix: " %",
     });
     

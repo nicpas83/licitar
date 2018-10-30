@@ -63,7 +63,11 @@
 <!--Validation -->
 <?php echo $this->Html->script('validation') ?>
 <!--JS VARS cake -->
-<?php echo $this->element('js_vars'); ?>
+<?php
+echo $this->element('js_vars'); //INFLECTOR
+echo $this->Html->script('funciones');
+echo $this->Html->script('acciones_btn');
+?>
 
 <!-- ============================================================== -->
 <!-- This page plugins -->
