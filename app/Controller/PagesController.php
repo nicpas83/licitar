@@ -53,11 +53,11 @@ class PagesController extends AppController {
         }
     }
 
-    public function homepage() {
-
+    public function procesos_activos() {
         App::uses('Proceso', 'Model');
         $procesos = (new Proceso)->getProcesosActivos();
         $this->set('procesos', $procesos);
+        $this->render('/procesos/index');
     }
 
     public function landing_general() {

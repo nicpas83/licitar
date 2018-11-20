@@ -1,10 +1,13 @@
 $(function () {
 
-// For select 2
-    $(".select2").select2();
+
     
     $('#procesosIndex').DataTable({
-        aaSorting: []
+        "pageLength": 50,
+        "aaSorting": [],
+        "dom": 'Bfrtip',
+        "buttons": ['print', 'excel'],
+        "ordering": false,
     });
 
 });

@@ -100,50 +100,5 @@ class Oferta extends AppModel {
         return $resultados;
     }
 
-    public function validarOferta($data) {
-        $proceso = $this->Proceso->findById($data['params']['pass'][0]);
-        debug($data->params['pass'][0]);die;
-        debug($proceso);die;
-        
-        $q_items_oferta = 0;
-        foreach ($ofertas['Oferta'] as $oferta) {
-            if (is_numeric($oferta['valor_oferta']) && $oferta['valor_oferta'] > 0) {
-                $q_items_oferta++;
-            }
-        }
-
-        if ($q_items_oferta === 0) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public function registrarOferta($proceso_id, $oferta) {
-        
-        foreach ($oferta['Oferta'] as $key => $val) {
-
-            if (empty($val['valor_oferta'])) {
-                unset($oferta['Oferta'][$key]);
-                continue;
-            }
-
-            $oferta['Oferta'][$key]['proceso_id'] = $proceso_id;
-            $oferta['Oferta'][$key]['user_id'] = AuthComponent::user('id');
-        }
-
-        $this->create();
-        $result = $this->saveAll($oferta['Oferta']);
-
-        if ($result) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function actualizarOferta($oferta) {
-        
-    }
 
 }

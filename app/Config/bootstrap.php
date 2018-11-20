@@ -126,7 +126,7 @@ App::uses('SessionComponent', 'Controller/Component');
 $Session = new SessionComponent(new ComponentCollection());
 // check if the user logged in
 if ($Session->read('Auth.User')) {
-    Configure::write('Route.default', array('controller' => 'pages', 'action' => 'homepage'));
+    Configure::write('Route.default', array('controller' => 'pages', 'action' => 'procesos_activos'));
 } else {
     Configure::write('Route.default', array('controller' => 'pages', 'action' => 'landing_general'));
 }

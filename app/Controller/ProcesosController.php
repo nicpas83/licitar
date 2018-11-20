@@ -102,7 +102,7 @@ class ProcesosController extends AppController {
     //vista HOMEPAGE
     public function index() {
         $procesos = $this->Proceso->getProcesosActivos();
-        $this->set('procesos', $procesos['procesos']);
+        $this->set('procesos', $procesos);
     }
 
     public function categoria($categoria_id = null) {

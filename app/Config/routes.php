@@ -27,7 +27,7 @@
  */
 	
         Router::connect('/', Configure::read('Route.default')); //definido en bootstrap.php
-        Router::connect('/', array('controller' => 'procesos', 'action' => 'index'));
+//        Router::connect('/', array('controller' => 'procesos', 'action' => 'index'));
         Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
         Router::connect('/registrar', array('controller' => 'users', 'action' => 'registrar'));
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));

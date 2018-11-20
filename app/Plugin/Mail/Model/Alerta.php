@@ -12,7 +12,10 @@ class Alerta extends AppModel {
             'className' => 'Mail.AlertaVendedor',
             'foreignKey' => 'alerta_id'
         ],
+        
     );
+    
+    
     
     
     

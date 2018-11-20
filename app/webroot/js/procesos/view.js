@@ -14,12 +14,12 @@ $(function () {
         ]
     });
 
-    $(".range_01").ionRangeSlider({
-        min: -50,
-        max: 0,
-        from: 0,
-        postfix: " %",
-    });
+//    $(".range_01").ionRangeSlider({
+//        min: -50,
+//        max: 0,
+//        from: 0,
+//        postfix: " %",
+//    });
     
     $("#ofertar").click(function(){
 //        event.preventDefault();

@@ -8,6 +8,10 @@ class User extends AppModel {
     public $hasMany = [
         'Proceso',
         'Participacion',
+        'Mensaje' => [
+            'className' => 'Mail.Mensaje',
+            'foreignKey' => 'user_id'
+        ]
     ];
     public $validate = array(
         'username' => array(
@@ -74,5 +78,7 @@ class User extends AppModel {
         }
         return true;
     }
+    
+    
 
 }

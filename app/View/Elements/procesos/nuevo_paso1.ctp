@@ -13,7 +13,7 @@ $subtitle = [
     <?php echo $this->element('ribbon_title', ['title' => $title, 'subtitle' => $subtitle]); ?>
     <div class="row">
         <?php
-        echo $this->element('f_input', ['params' => ['name' => 'nombre', 'label' => 'Título', 'lg' => '6', 'maxLength' => '60', 'validate']]);
+        echo $this->element('f_input', ['params' => ['name' => 'nombre', 'label' => 'Nombre del producto o servicio', 'lg' => '6', 'maxLength' => '60', 'validate']]);
         echo $this->element('f_select2', ['params' => ['name' => 'categoria', 'label' => 'Categoría', 'lg' => '3', 'options' => $categorias, 'validate']]);
         echo $this->element('f_select2', ['params' => ['name' => 'subcategoria', 'label' => 'Sub Categoría', 'lg' => '3', 'options' => ['Elija Categoría'], 'validate']]);
 

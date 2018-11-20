@@ -8,6 +8,7 @@ class AppController extends Controller {
     var $uses = array('Categorias.Categoria', 'Categorias.Subcategoria', 'Ubicacion.Provincia', 'Unidad');
     Public $phpNow;
     public $components = array(
+//        'Security',
         'Flash',
         'Session',
         'Auth' => array(

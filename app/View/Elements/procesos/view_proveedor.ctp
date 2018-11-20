@@ -1,6 +1,6 @@
 <div class="table-responsive m-t-40">
     <?php
-    $formHorizontal['url'] = ['controller' => 'ofertas', 'action' => 'add', $proceso['id']]; //oferta
+    $formHorizontal['url'] = ['controller' => 'ofertas', 'action' => 'add']; //oferta
     echo $this->Form->create('Oferta', $formHorizontal);
     ?>
     <table id="itemsDelProceso" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
@@ -47,11 +47,12 @@
                         </td>
                         <td>
                             <?php echo $this->element('f_input_moneda', ['params' => ['name' => "Oferta.$i.valor_oferta", 'inTable']]) ?>
-                            <small>auto-oferta</small>
-                            <small><?php echo $this->element('ui_slider', ['params' => ['name' => "Oferta.$i.auto_oferta"]]) ?></small>
+                            <!--<small>auto-oferta</small>-->
+                            <!--<small><?php // echo $this->element('ui_slider', ['params' => ['name' => "Oferta.$i.auto_oferta"]]) ?></small>-->
                         </td>
 
                         <?php echo $this->Form->input("Oferta.$i.item_id", ['type' => 'hidden', 'value' => $item['id']]) ?>
+                        <?php echo $this->Form->input("Oferta.$i.proceso_id", ['type' => 'hidden', 'value' => $proceso['id']]) ?>
                     </tr>
                     <?php
                     $i++;
@@ -74,4 +75,4 @@
         </div>
     </div>
 </div>
-<?php echo $this->Form->end() ?>
+<?php echo $this->Form->end(); ?>

@@ -1,37 +1,16 @@
 <?php
-
 App::uses('AppController', 'Controller');
-
-// Ejemplo para pasar variables a la vista:   $this->set('posts', $this->Post->find('all'));
 
 class OfertasController extends AppController {
 
-    public function add($proceso_id = null) {
-
+    public function add() {
         if ($this->request->is('post')) {
-//debug($this->request);die;
-            //validar oferta 
-            $validacion = $this->Oferta->validarOferta($this->request);
-            if (!$validacion) {
-                $this->Flash->error(__('La oferta que intenta registrar no es válida o no cumple los requisitos.'));
-                $this->redirect($this->referer());
-            }
-
-            //si viene desde Mis Ofertas el proceso_id puede cambiar en cada Item
-            if (!$proceso_id) {
-                foreach ($this->request->data['Oferta'] as $key => $oferta) {
-                    if (empty($oferta['valor_oferta'])) {
-                        continue;
-                    }
-                    $this->request->data['Oferta'][$key]['user_id'] = $this->Auth->user('id');
-                    $this->Oferta->create();
-                    $result = $this->Oferta->saveAll($this->request->data['Oferta'][$key]);
+            foreach ($this->request->data['Oferta'] as $key => $oferta) {
+                if (empty($oferta['valor_oferta'])) {
+                    unset($this->request->data['Oferta'][$key]);
                 }
-            } else {
-//                debug($this->request->data);die;
-                $result = $this->Oferta->registrarOferta($proceso_id);
             }
-
+            $result = $this->Oferta->saveMany($this->request->data['Oferta']);
 
             if ($result) {
                 $this->Flash->success('La Oferta fue realizada con éxito.');
@@ -40,6 +19,7 @@ class OfertasController extends AppController {
                 $this->Flash->error(__('Error al realizar la Oferta.'));
             }
         }
+        $this->autoRender = false;
     }
 
     public function edit() {
