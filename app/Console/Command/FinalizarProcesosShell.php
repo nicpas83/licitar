@@ -1,20 +1,16 @@
 <?php
 
-App::uses('Sanitize', 'Utility');
-App::uses('Proceso', 'Model');
-App::uses('User', 'Model');
-App::uses('Mensaje', 'Mail.Model');
-
 class FinalizarProcesosShell extends AppShell {
 
-    public $uses = array('Proceso');
+    public $uses = array('Proceso', 'Mail.Mensaje', 'User');
 
     public function main() {
+        
         $this->finalizar_procesos();
     }
 
     private function finalizar_procesos() {
-        (new Proceso())->updateAll(['estado' => "'Finalizado'"], ['fecha_fin' => date('Y-m-d'), 'estado' => 'Activo']);
+        (new Proceso())->updateAll(['Proceso.estado' => "'Finalizado'"], ['fecha_fin' => date('Y-m-d'), 'Proceso.estado' => 'Activo']);
 
         //busco los usuarios a los que hay que enviar mail.
         $usuarioIds = (new Proceso())->find('list', [
@@ -31,8 +27,7 @@ class FinalizarProcesosShell extends AppShell {
         $mensaje = new Mensaje();
         $tipo_mensaje = "Compra Finalizada";
         $asunto = "Proceso de Compra Finalizado. Conocé los resultados aquí.";
-        $base_url = $this->Html->url('/', true);
-        $url = $base_url . "/mis_compras_finalizadas/";
+        $url = FULL_BASE_URL . "/mis_compras_finalizadas/";
 
         foreach ($usuarios as $usuario) {
             $user_id = $usuario['User']['id'];

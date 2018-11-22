@@ -1,12 +1,13 @@
 <?php
 
-App::uses('AppModel', 'Model');
-App::import('Lib', 'PHPMailer/PHPMailerAutoload');
+require_once(APPLIBS . DS . 'PHPMailer' . DS . 'class.phpmailer.php');
+
 
 class Mensaje extends AppModel {
 
     public $tablePrefix = 'mail_';
     public $useTable = 'mensajes';
+    public $plugin = 'Mail';
     public $belongsTo = array(
         'User' => [
             'className' => 'User',
@@ -25,13 +26,18 @@ class Mensaje extends AppModel {
                 'estado' => 'Pendiente'
             ]
         ];
+//        debug($data);die;
 
         $this->create();
-        $this->save($data);
+        if ($this->save($data, ['callbacks' => false])) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function getMensajesPendientes() {
-        return $this->find('all', ['conditions' => ['estao' => 'Pendiente'], 'recursive' => -1]);
+        return $this->find('all', ['conditions' => ['estado' => 'Pendiente'], 'recursive' => -1]);
     }
 
     public function enviar($mensaje) {

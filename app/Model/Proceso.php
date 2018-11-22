@@ -140,21 +140,28 @@ class Proceso extends AppModel {
     }
 
     public function afterFind($results, $primary = false) {
-    //debug($results);die;
+        
+        
+//        debug(Router::getParams());
+//        die;
+        
+        if(isset(Router::getParams()['action'])){
+            
+            $categorias = $this->Item->Categoria->find('list');
+            $subcategorias = $this->Item->Categoria->Subcategoria->find('list');
+            foreach ($results as $key => $result) {
+                $results[$key]['Proceso']['fecha_fin'] = dateDMY($result['Proceso']['fecha_fin']);
+                $results[$key]['Proceso']['fecha_entrega'] = dateDMY($result['Proceso']['fecha_entrega']);
 
-        $categorias = $this->Item->Categoria->find('list');
-        $subcategorias = $this->Item->Categoria->Subcategoria->find('list');
-        foreach ($results as $key => $result) {
-            $results[$key]['Proceso']['fecha_fin'] = dateDMY($result['Proceso']['fecha_fin']);
-            $results[$key]['Proceso']['fecha_entrega'] = dateDMY($result['Proceso']['fecha_entrega']);
-
-            if (isset($result['Item']) && !empty($result['Item'])) {
-                foreach ($result['Item'] as $key2 => $item) {
-                    $results[$key]['Item'][$key2]['categoria'] = $categorias[$item['categoria_id']];
-                    $results[$key]['Item'][$key2]['subcategoria'] = $subcategorias[$item['subcategoria_id']];
+                if (isset($result['Item']) && !empty($result['Item'])) {
+                    foreach ($result['Item'] as $key2 => $item) {
+                        $results[$key]['Item'][$key2]['categoria'] = $categorias[$item['categoria_id']];
+                        $results[$key]['Item'][$key2]['subcategoria'] = $subcategorias[$item['subcategoria_id']];
+                    }
                 }
             }
         }
+
 
         return $results;
     }
