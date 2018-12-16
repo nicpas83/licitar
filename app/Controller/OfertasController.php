@@ -1,4 +1,5 @@
 <?php
+
 App::uses('AppController', 'Controller');
 
 class OfertasController extends AppController {
@@ -14,7 +15,7 @@ class OfertasController extends AppController {
 
             if ($result) {
                 $this->Flash->success('La Oferta fue realizada con éxito.');
-                return $this->redirect(array('controller' => 'ofertas', 'action' => 'mis_ofertas'));
+                return $this->redirect($this->referer());
             } else {
                 $this->Flash->error(__('Error al realizar la Oferta.'));
             }

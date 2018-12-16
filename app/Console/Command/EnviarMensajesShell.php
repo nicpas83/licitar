@@ -20,10 +20,8 @@ class EnviarMensajesShell extends AppShell {
         $mensajes_pendientes = $mensaje->getMensajesPendientes();
         
         //recorro mensajes y envío.
-        foreach($mensajes_pendientes as $mensaje_pendiente){
-            
-            $mensaje->enviar($mensaje_pendiente);  
-            
+        foreach($mensajes_pendientes as $mensaje_pendiente){            
+            $mensaje->enviar($mensaje_pendiente);              
         }
         
     }

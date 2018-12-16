@@ -14,8 +14,8 @@ $subtitle = [
                     <div class="col-sm-12">
                         <div class="form-group">
                             <?php
-                            echo $this->Form->button('Continuar', ['id' => 'continuar_publicacion', 'class' => 'btn btn-info mr10', 'type' => 'button']);
-                            echo $this->Form->button('Nueva Publicacion', ['id' => 'nueva_publicacion', 'class' => 'btn btn-info', 'type' => 'button']);
+                            echo $this->Form->button('Nueva Publicacion', ['id' => 'nueva_publicacion', 'class' => 'btn btn-info mr10', 'type' => 'button']);
+                            echo $this->Form->button('Continuar', ['id' => 'continuar_publicacion', 'class' => 'btn btn-success', 'type' => 'button']);
                             ?>
                         </div>
                     </div>

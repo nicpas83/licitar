@@ -1,47 +1,128 @@
-<?php // debug($procesos);die;     ?>
+<?php // debug($activos);die;                ?>
+<style>
+
+</style>
 
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-block">
-                <?php echo $this->element('ribbon_title', ['title' => 'Mis Compras Activas']) ?>
-                <h4 class="card-title"></h4>
-                <div class="table-responsive m-t-40">
-                    <table id="misProcesos" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                        <thead>
-                            <tr>
-                                <th>Nro.</th>
-                                <th>Titulo de referencia</th>
-                                <th>Items</th>
-                                <th>Qx Ofertas</th>
-                                <th>Finaliza</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            if (!empty($procesos)) {
+                <?php echo $this->element('ribbon_title', ['title' => 'Mis Compras']) ?>
 
-                                foreach ($procesos as $proceso) {
-                                    ?>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs customtab" role="tablist">
+                    <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#activas" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Activas</span></a> </li>
+                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#finalizadas" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Finalizadas</span></a> </li>
+                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#preguntas" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Preguntas</span></a> </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="activas" role="tabpanel">
+                        <div class="table-responsive mt40">
+                            <table id="procesosActivos" class="table table-bordered table-striped" cellspacing="0" width="100%">
+                                <thead>
                                     <tr>
-                                        <td><?php echo $proceso['proceso_nro'] ?></td>
-                                        <td><?php echo $this->Html->link($proceso['referencia'], "/procesos/view/".$proceso['id']) ?></td>
-                                        <td><?php echo $proceso['total_items'] ?></td>
-                                        <td></td>
-                                        <td><?php echo $proceso['fecha_fin'] ?></td>
-                                        <td>
-                                            <?php echo $this->Form->postLink('', array('action' => 'delete', $proceso['id']), $deleteBtn); ?>
-                                            <?php echo $this->Html->link('', array('action' => 'edit', $proceso['id']), $editBtn); ?>
-                                        </td>
+                                        <th>Titulo de referencia</th>
+                                        <th>Items</th>
+                                        <th>Finaliza</th>
+                                        <th>Cant. Ofertas</th>
+                                        <th>Acciones</th>
                                     </tr>
+                                </thead>
+                                <tbody>
                                     <?php
-                                }
-                            }
-                            ?>
+                                    if (!empty($activos)) {
 
-                        </tbody>
-                    </table>
+                                        foreach ($activos as $val) {
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $this->Html->link($val['referencia'], "/procesos/view/" . $val['id']) ?></td>
+                                                <td><?php echo $val['total_items'] ?></td>
+                                                <td><?php echo $val['fecha_fin'] ?></td>
+                                                <td><?php echo $val['total_ofertas'] ?></td>
+                                                <td>
+                                                    <?php echo $this->Form->postLink('', array('action' => 'delete', $val['id']), $deleteBtn); ?>
+                                                    <?php echo $this->Html->link('', array('action' => 'edit', $val['id']), $editBtn); ?>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                    } else {
+                                        echo "No hay compras activas.";
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="finalizadas" role="tabpanel">
+                        <div class="table-responsive mt40">
+                            <table id="procesosFinalizados" class="table table-bordered table-striped" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Titulo de referencia</th>
+                                        <th>Items</th>
+                                        <th>Finalizó</th>
+                                        <th>Cant. Ofertas</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    if (!empty($finalizados)) {
+
+                                        foreach ($finalizados as $val) {
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $this->Html->link($val['referencia'], "/procesos/view/" . $val['id']) ?></td>
+                                                <td><?php echo $val['total_items'] ?></td>
+                                                <td><?php echo $val['fecha_fin'] ?></td>
+                                                <td><?php echo $val['total_ofertas'] ?></td>
+                                                <td>
+                                                    <?php echo $this->Html->link('Ver Resultados', array('action' => 'edit', $val['id'])); ?>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="preguntas" role="tabpanel">
+                        <div class="table-responsive mt40">
+                            <h4 class="card-title">Preguntas pendientes:</h4>
+                            <ul class="search-listing">
+                                <?php
+                                if ($preguntas) {
+                                    foreach ($preguntas as $key => $val) {
+                                        $pregunta_id = $val['Pregunta']['id'];
+                                        $i = $key + 1;
+                                        ?>
+                                        <li>
+                                            <h3 class="text-info"><?php echo $val['Pregunta']['pregunta'] ?></h3>
+                                            <div class="form-group">            
+                                                <?php echo $this->Form->input('respuesta', ['type' => 'textarea', 'placeholder' => 'Escribí tu respuesta...', 'rows' => '4', 'class' => 'form-control', 'div' => false, 'label' => false]); ?>
+                                            </div>
+                                            <div class="form-group  pull-right">            
+                                                <?php echo $this->Form->button('Responder', ['id' => "responder-" . $pregunta_id, 'class' => 'btn btn-info pull-left', 'div' => false]); ?>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </li>
+                                        <?php
+                                    }
+                                }
+                                ?>
+                            </ul>
+
+                        </div>
+                    </div>
+
+
+
                 </div>
             </div>
         </div>

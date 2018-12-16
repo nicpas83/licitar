@@ -12,7 +12,7 @@
                 if ($this->Session->check('Auth.User')) {
                     ?>    
                     <li>
-                        <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'pages', 'action' => 'display']) ?>" aria-expanded="false"><i class="mdi mdi-home"></i><span class="hide-menu">Inicio</span></a>
+                        <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'pages']) ?>" aria-expanded="false"><i class="mdi mdi-home"></i><span class="hide-menu">Inicio</span></a>
                     </li>
                     <li class="nav-devider"></li>        
                     <li>

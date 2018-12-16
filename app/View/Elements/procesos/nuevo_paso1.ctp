@@ -26,7 +26,6 @@ $subtitle = [
             <div class="form-group pull-right">
                 <?php
                 echo $this->Form->button('Agregar Ítem', ['id' => 'addItem', 'class' => 'btn btn-info mr10', 'type' => 'button']);
-                echo $this->Form->button('Siguiente', ['id' => 'paso1_siguiente', 'class' => 'btn btn-info', 'type' => 'button']);
                 ?>
             </div>
         </div>

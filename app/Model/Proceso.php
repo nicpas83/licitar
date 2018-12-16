@@ -51,11 +51,13 @@ class Proceso extends AppModel {
         ],
         'Oferta' => [
             'className' => 'Oferta',
-            'foreignKey' => 'proceso_id'
+            'foreignKey' => 'proceso_id',
+            'dependent' => true
         ],
         'Pregunta' => [
             'className' => 'Pregunta',
-            'foreignKey' => 'proceso_id'
+            'foreignKey' => 'proceso_id',
+            'dependent' => true
         ],
     ];
 
@@ -82,7 +84,6 @@ class Proceso extends AppModel {
 
     public function getProcesosIds($array) {
         $procesosIds = [];
-
         foreach ($array as $val) {
             array_push($procesosIds, $val['Oferta']['proceso_id']);
         }
@@ -97,35 +98,31 @@ class Proceso extends AppModel {
         return $proceso;
     }
 
-    public function misProcesosActivos($user_id) {
-        $procesos = array();
-        $result = $this->find('all', [
-            'conditions' => ['user_id' => $user_id, 'Proceso.estado' => 'Activo']
+    public function getInfoProcesos($estado = 'Activo', $user_id = null) {
+        $data = [];
+        $filtroUsuario = !empty($user_id) ? ['user_id' => $user_id] : "";
+
+        $procesos = $this->find('all', [
+            'conditions' => [
+                $filtroUsuario,
+                'Proceso.estado' => $estado
+            ]
         ]);
-        if (!$result) {
+        if (!$procesos) {
             return false;
         }
 
-        //Armo un array sólo con los datos necesarios para la vista.
-        foreach ($result as $key => $val) {
-            $q_items = $q_unidades = 0;
-            $procesos['Procesos'][$key]['id'] = $val['Proceso']['id'];
-            $procesos['Procesos'][$key]['proceso_nro'] = $val['Proceso']['proceso_nro'];
-            $procesos['Procesos'][$key]['referencia'] = $val['Proceso']['referencia'];
-            $procesos['Procesos'][$key]['fecha_fin'] = $val['Proceso']['fecha_fin'];
-
-            foreach ($val['Item'] as $item) {
-                $q_items++;
-                $q_unidades += $item['cantidad'];
+        foreach ($procesos as $key => $val) {
+            if (isset($val['Proceso']) && isset($val['Item'])) {
+                $data[$key]['id'] = $val['Proceso']['id'];
+                $data[$key]['referencia'] = $val['Proceso']['referencia'];
+                $data[$key]['fecha_fin'] = $val['Proceso']['fecha_fin'];
+                $data[$key]['total_items'] = count($val['Item']);
+                $data[$key]['total_ofertas'] = count($val['Oferta']);
             }
-            $procesos['Procesos'][$key]['total_items'] = $q_items;
-            $procesos['Procesos'][$key]['total_unidades'] = $q_unidades;
         }
 
-        //Indicadores:
-        $procesos['Indicadores']['q_procesos_activos'] = count($result);
-
-        return $procesos;
+        return $data;
     }
 
     public function getLastNroProceso() {
@@ -139,20 +136,44 @@ class Proceso extends AppModel {
         return $nro;
     }
 
+    public function getPreguntas($proceso_id = null) {
+        if ($proceso_id) {
+            $preguntas = $this->Pregunta->find('all', [
+                'conditions' => ['Pregunta.proceso_id' => $proceso_id]
+            ]);
+        }
+        return $preguntas;
+    }
+
+    public function getMisPreguntasPendientes() {
+        //busco mis procesos activos
+        $mis_procesos = $this->find('list', [
+            'fields' => ['id'],
+            'conditions' => ['user_id' => AuthComponent::user('id')],
+        ]);
+
+        $preguntas = $this->Pregunta->find('all', [
+            'conditions' => [
+                'Pregunta.proceso_id' => $mis_procesos,
+                'Pregunta.estado' => 'Pendiente'
+            ]
+        ]);
+
+        return $preguntas;
+    }
+
     public function afterFind($results, $primary = false) {
-        
-        
-//        debug(Router::getParams());
-//        die;
-        
-        if(isset(Router::getParams()['action'])){
-            
+
+        if (isset(Router::getParams()['action'])) {
+
             $categorias = $this->Item->Categoria->find('list');
             $subcategorias = $this->Item->Categoria->Subcategoria->find('list');
-            foreach ($results as $key => $result) {
-                $results[$key]['Proceso']['fecha_fin'] = dateDMY($result['Proceso']['fecha_fin']);
-                $results[$key]['Proceso']['fecha_entrega'] = dateDMY($result['Proceso']['fecha_entrega']);
 
+            foreach ($results as $key => $result) {
+                if (isset($results[$key]['Proceso']['fecha_fin'])) {
+                    $results[$key]['Proceso']['fecha_fin'] = dateDMY($result['Proceso']['fecha_fin']);
+                    $results[$key]['Proceso']['fecha_entrega'] = dateDMY($result['Proceso']['fecha_entrega']);
+                }
                 if (isset($result['Item']) && !empty($result['Item'])) {
                     foreach ($result['Item'] as $key2 => $item) {
                         $results[$key]['Item'][$key2]['categoria'] = $categorias[$item['categoria_id']];

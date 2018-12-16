@@ -1,6 +1,6 @@
 <?php
 //echo date('d-n H:i:s'); die;
-// debug($items);die;
+// debug($proceso);die;
 ?>
 <div class="row">
     <div class="col-12">
@@ -61,18 +61,11 @@
 </div>
 
 <!-- Preguntas -->
+<?php echo $this->Form->input("pk", ['id' => 'ModelPk', 'type' => 'hidden', 'value' => $proceso['id']]) ?>
 <?php
 if (!isset($proceso['propio'])) {
-    echo $this->element('procesos/preguntas');
-} 
+    echo $this->element('procesos/nueva_pregunta');
+}
+echo $this->element('procesos/preguntas_realizadas', $preguntas);
 ?>
 
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-block">
-                <h4 class="card-title m-t-15">Últimas preguntas:</h4>
-            </div>
-        </div>    
-    </div>
-</div>

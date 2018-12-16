@@ -1,5 +1,6 @@
 .fll, .fl { float: left; }
 .flr, .fr { float: right !important; }
+.text-bold{font-weight: bold; }
 
 .m0 { margin: 0px !important;}
 .m1 { margin: 1px !important;}

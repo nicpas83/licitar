@@ -4,8 +4,7 @@ class FinalizarProcesosShell extends AppShell {
 
     public $uses = array('Proceso', 'Mail.Mensaje', 'User');
 
-    public function main() {
-        
+    public function main() {       
         $this->finalizar_procesos();
     }
 

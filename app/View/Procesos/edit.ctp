@@ -1,5 +1,5 @@
 <?php
-//debug($proceso);
+debug($proceso);
 //debug($items);die;       
 ?>
 <div class="row">

@@ -55,7 +55,7 @@ if (isset($borrador_id)) {
                                         <td><?php echo $item['cantidad']; ?></td>
                                         <td><?php echo $item['unidad']; ?></td>
                                         <td><?php echo $item['especificaciones']; ?></td>
-                                        <td class='acciones'><?php echo $this->Form->input("itemPk-".$item['id'], ['type' => 'hidden', 'value' => $item['id']]); ?></td>
+                                        <td class='acciones'><?php echo $this->Form->input("itemPk-" . $item['id'], ['type' => 'hidden', 'value' => $item['id']]); ?></td>
                                     </tr>
 
                                     <?php
@@ -64,6 +64,13 @@ if (isset($borrador_id)) {
                             ?>
                         </tbody>
                     </table>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group pull-right">
+                        <?php
+                        echo $this->Form->button('Siguiente', ['id' => 'paso1_siguiente', 'class' => 'btn btn-success', 'type' => 'button']);
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>

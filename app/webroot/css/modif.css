@@ -134,3 +134,18 @@ td.acciones, th.acciones{
         position: absolute;     
     }
 }
+
+
+/* DATATABLES MODIF*/
+
+.dataTables_wrapper .dataTables_length {
+    float: right;
+}
+.dataTables_wrapper .dataTables_filter {
+    float: left;
+    text-align: left;
+}
+.dataTables_wrapper .dt-buttons {
+    float:right !important;  
+    text-align:center;
+}

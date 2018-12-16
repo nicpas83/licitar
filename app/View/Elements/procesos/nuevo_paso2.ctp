@@ -2,9 +2,9 @@
 $op = "A";
 $title = "Paso 2. Información general de tu compra.";
 $subtitle = [
-    'La publicación tendrá una duración mínima de 3 días hábiles.',
-    'Podrás especificar una fecha de entrega (mínimo 1 día después de finalizar la subasta).',
-    'No olvides aclarar todo detalle que sea de importancia para los proveedores.'
+    'La publicación tendrá una <span class="text-bold">duración mínima</span> de 3 días hábiles.',
+    'Podrás especificar una <span class="text-bold">fecha de entrega</span> (mínimo 1 día después de finalizar la subasta).',
+    'No olvides <span class="text-bold">aclarar todo detalle</span> que sea de importancia para los proveedores.'
 ];
 ?>
 
@@ -24,7 +24,7 @@ $subtitle = [
             <div class="form-group pull-right">
                 <?php
                 echo $this->Form->button('Atrás', ['id' => 'paso2_atras', 'class' => 'btn btn-info mr10', 'type' => 'button']);
-                echo $this->Form->button('Publicar!', ['id' => 'publicar', 'class' => 'btn btn-info', 'type' => 'button']);
+                echo $this->Form->button('Publicar!', ['id' => 'publicar', 'class' => 'btn btn-success', 'type' => 'button']);
                 ?>
             </div>
         </div>

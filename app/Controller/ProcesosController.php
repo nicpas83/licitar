@@ -36,44 +36,13 @@ class ProcesosController extends AppController {
         }
     }
 
-    //Publicar!
-    public function ajax_set_info_general() {
-        if (!$this->request->is('post')) {
-            throw new MethodNotAllowedException();
-        }
-        $fecha_fin = dateYMD($this->request->data['fecha_fin']);
-        $fecha_entrega = dateYMD($this->request->data['fecha_entrega']);
-
-        $this->Proceso->updateAll([
-            'referencia' => "'" . $this->request->data['referencia'] . "'",
-            'fecha_fin' => "'" . $fecha_fin . "'",
-            'fecha_entrega' => "'" . $fecha_entrega . "'",
-            'proceso_nro' => "'" . ($this->Proceso->getLastNroProceso() + 1) . "'",
-            'detalles' => "'" . $this->request->data['referencia'] . "'",
-            'condicion_pago' => "'" . $this->request->data['condicion_pago'] . "'",
-            'requisitos_excluyentes' => "'" . $this->request->data['requisitos_excluyentes'] . "'",
-            'estado' => "'Activo'"
-                ], [
-            'Proceso.id' => $this->request->data['id']
-        ]);
-
-        $this->Proceso->Item->updateAll([
-            'estado' => "'Activo'"
-                ], [
-            'proceso_id' => $this->request->data['id']
-        ]);
-
-        return $this->render("/ajax", "ajax");
-    }
-
-    public function ajax_eliminar_borrador() {
-        if (!$this->request->is('post')) {
-            throw new MethodNotAllowedException();
-        }
-        if ($this->Proceso->delete($this->request->data['id'])) {
-            $this->set("data", true);
-            return $this->render("/ajax", "ajax");
-        }
+    public function mis_compras() {
+        $activos = $this->Proceso->getInfoProcesos('Activo', $this->Auth->user('id'));
+        $finalizados = $this->Proceso->getInfoProcesos('Finalizado', $this->Auth->user('id'));
+//        debug($activos);die;
+        $this->set('activos', $activos);
+        $this->set('finalizados', $finalizados);
+        $this->set('preguntas', $this->Proceso->getMisPreguntasPendientes());
     }
 
     public function view($id = null) {
@@ -94,7 +63,7 @@ class ProcesosController extends AppController {
         $proceso['Item'] = $this->Proceso->Item->setMejoresOfertas($proceso['Item'], $ofertas);
         $proceso['Item'] = $this->Proceso->Item->setCantidadProveedores($proceso['Item'], $ofertas);
 
-
+        $this->set('preguntas', $this->Proceso->getPreguntas($id));
         $this->set('proceso', $proceso['Proceso']);
         $this->set('items', $proceso['Item']);
     }
@@ -121,7 +90,6 @@ class ProcesosController extends AppController {
         $proceso = $this->Proceso->findByIdAndUserId($id, $this->Auth->user('id'));
         //valido que por URL solo se pueda acceder a procesos activos y propios.
         if ($proceso && $proceso['Proceso']['estado'] == 'Activo') {
-//            debug($proceso);die;
             $this->set('proceso', $proceso['Proceso']);
             $this->set('items', $proceso['Item']);
 
@@ -130,35 +98,6 @@ class ProcesosController extends AppController {
         } else {
             $this->Flash->error('El proceso al que intenta acceder no es válido.');
             return $this->redirect(array('controller' => 'procesos', 'action' => 'mis_procesos'));
-        }
-
-
-        if ($this->request->is('post')) {
-            $postId = $this->request->data['Proceso']['id'];
-            $this->request->data['Proceso']['user_id'] = $this->Auth->user('id');
-            $items = $this->request->data['Item'];
-
-
-            if (empty($items['categorias']) || empty($items['subcategorias']) || empty($items['nombres']) || empty($items['cantidades'])) {
-                $this->Flash->error(__('Faltan datos en los Item del proceso.'));
-            } else {
-                //borro todos los item anteriores
-                $borrarIds = $this->Proceso->Item->find('list', ['conditions' => ['proceso_id' => $id]]);
-                $this->Proceso->Item->deleteAll(['Item.id IN' => $borrarIds]);
-//                debug($borrarIds);
-//                die;
-
-                $this->request->data['Item'] = $this->Proceso->decodeItems($this->request->data['Item']);
-
-                //actualizo proceso   
-                if ($this->Proceso->saveAll($this->request->data)) {
-                    $this->Flash->success('El Proceso fue actualizado con éxio.');
-                    return $this->redirect(array('controller' => 'procesos', 'action' => 'mis_procesos'));
-                } else {
-                    $this->Flash->error('Error al actualizar el Proceso.');
-                    return $this->redirect(array('controller' => 'pages', 'action' => 'display'));
-                }
-            }
         }
     }
 
@@ -172,19 +111,47 @@ class ProcesosController extends AppController {
         }
     }
 
-    public function mis_compras() {
-        $procesos = $this->Proceso->misProcesosActivos($this->Auth->user('id'));
-
-        if (!$procesos) {
-            $this->Flash->success('No tenés procesos publicados. Publicá uno!');
-            return $this->redirect(array('controller' => 'procesos', 'action' => 'nueva_compra'));
+    /**
+     * METODOS AJAX
+     */
+    public function ajax_set_info_general() {
+        if (!$this->request->is('post')) {
+            throw new MethodNotAllowedException();
         }
-        $this->set('indicadores', $procesos['Indicadores']);
-        $this->set('procesos', $procesos['Procesos']);
+        $fecha_fin = dateYMD($this->request->data['fecha_fin']);
+        $fecha_entrega = dateYMD($this->request->data['fecha_entrega']);
+
+        $this->Proceso->updateAll([
+            'referencia' => "'" . $this->request->data['referencia'] . "'",
+            'fecha_fin' => "'" . $fecha_fin . "'",
+            'fecha_entrega' => "'" . $fecha_entrega . "'",
+            'proceso_nro' => "'" . ($this->Proceso->getLastNroProceso() + 1) . "'",
+            'detalles' => "'" . $this->request->data['detalles'] . "'",
+            'condicion_pago' => "'" . $this->request->data['condicion_pago'] . "'",
+            'requisitos_excluyentes' => "'" . $this->request->data['requisitos_excluyentes'] . "'",
+            'estado' => "'Activo'"
+                ], [
+            'Proceso.id' => $this->request->data['id']
+        ]);
+
+        $this->Proceso->Item->updateAll([
+            'estado' => "'Activo'"
+                ], [
+            'proceso_id' => $this->request->data['id']
+        ]);
+
+        return $this->render("/ajax", "ajax");
     }
 
-    public function borradores() {
-        
+    public function ajax_eliminar_borrador() {
+        if (!$this->request->is('post')) {
+            throw new MethodNotAllowedException();
+        }
+        if ($this->Proceso->delete($this->request->data['id'])) {
+            $this->set("data", true);
+            return $this->render("/ajax", "ajax");
+        }
     }
 
+    
 }
