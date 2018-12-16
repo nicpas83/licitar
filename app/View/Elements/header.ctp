@@ -11,7 +11,7 @@
             <!-- Logo -->
             <!-- ============================================================== -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="<?php echo $this->Html->url(['controller' => 'pages']) ?>">
+                <a class="navbar-brand" href="<?php echo $this->Html->url('/') ?>">
                     <!-- Logo icon -->
                     <span class="logo">
                         <!--<i class="ti ti-announcement"></i>-->
