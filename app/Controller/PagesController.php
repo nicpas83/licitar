@@ -54,11 +54,10 @@ class PagesController extends AppController {
     }
 
     public function procesos_activos() {
-        $this->autoRender = false;
         App::uses('Proceso', 'Model');
         $procesos = (new Proceso)->getProcesosActivos();
         $this->set('procesos', $procesos);
-        $this->render('/procesos/index');
+        $this->render('/Procesos/index');
     }
 
     public function landing_general() {
