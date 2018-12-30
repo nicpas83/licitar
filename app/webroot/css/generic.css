@@ -324,7 +324,7 @@
 
 
 
-.tcenter, .center {text-align:center;}
+.tcenter, .center {text-align:center !important;}
 .text-left { text-align: left !important; }
 .text-right { text-align: right !important; }
 
@@ -347,6 +347,7 @@
 .fs70 { font-size:70px !important; }
 .fs80 { font-size:80px !important; }
 .fs100 { font-size:100px !important; }
+.fs140 { font-size:140px !important; }
 
 .fs100p { font-size:100%; }
 .fs150p { font-size:150%; }

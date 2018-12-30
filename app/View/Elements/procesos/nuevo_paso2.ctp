@@ -14,7 +14,7 @@ $subtitle = [
         <?php
         echo $this->element('f_input', ['params' => ['name' => 'referencia', 'label' => 'Título Descriptivo o Referencia', 'lg' => '6', 'validate']]);
         echo $this->element('f_date', ['params' => ['name' => 'fecha_fin', 'label' => 'Fin de la Subasta?', 'lg' => '2', 'validate']]);
-        echo $this->element('f_select', ['params' => ['name' => 'condicion_pago', 'label' => 'Condición de pago?', 'lg' => '3', 'options' => $condiciones]]);
+        echo $this->element('f_select', ['params' => ['name' => 'preferencia_pago', 'label' => 'Condición de pago?', 'lg' => '3', 'options' => $condiciones]]);
 
         echo $this->element('f_text', ['params' => ['name' => 'detalles', 'label' => 'Comentá cualquier detalle importante.', 'lg' => '6', 'placeholder' => '(opcional)']]);
         echo $this->element('f_date', ['params' => ['name' => 'fecha_entrega', 'label' => 'Fecha de Entrega', 'lg' => '2', 'validate']]);

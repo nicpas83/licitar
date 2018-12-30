@@ -6,12 +6,13 @@ App::uses('Categorias.Categoria', 'Model');
 class Proceso extends AppModel {
 
     public $useTable = 'procesos';
-    public $filtroCategoria = null;
-    public $condicionesPago = [
-        'Contado' => 'Contado',
-        '30 dias' => '30 dias',
-        '30-60 dias' => '30-60 dias',
-        '30-60-90 dias' => '30-60-90 dias',
+    public $filtroCategoria = "";
+    public $preferenciasPago = [
+        'Efectivo' => 'Efectivo',
+        'Transferencia' => 'Transferencia',
+        'Tarjeta Crédito' => 'Tarjeta Crédito',
+        'Cheque al Día' => 'Cheque al Día',
+        'Cheque Pago Diferido' => 'Cheque Pago Diferido',
     ];
     public $unidades = [
         'unidades' => 'unidades',
@@ -61,19 +62,35 @@ class Proceso extends AppModel {
         ],
     ];
 
+    public function getProcesosCategoria($categoria_id) {
+        $procesos_id = $this->Item->find('list', [
+            'fields' => ['proceso_id'],
+            'conditions' => [
+                'categoria_id' => $categoria_id,
+                'estado' => 'Activo'
+            ]
+        ]);
+
+        return $procesos_id;
+    }
+
     public function getProcesosActivos($categoria_id = null) {
         $data = [];
+        if ($categoria_id) {
+            $this->filtroCategoria = ['Proceso.id' => $this->getProcesosCategoria($categoria_id)];
+        }
         $results = $this->find('all', array(
             'conditions' => [
                 'Proceso.estado' => 'Activo',
+                $this->filtroCategoria,
             ],
-            'order' => ['Proceso.fecha_fin' => 'ASC']
+            'order' => ['Proceso.fecha_fin']
         ));
         foreach ($results as $key => $value) {
             //listado general.
             $data[$key]['id'] = $value['Proceso']['id'];
             $data[$key]['referencia'] = $value['Proceso']['referencia'];
-            $data[$key]['condicion_pago'] = $value['Proceso']['condicion_pago'];
+            $data[$key]['preferencia_pago'] = $value['Proceso']['preferencia_pago'];
             $data[$key]['q_items'] = count($value['Item']);
             $data[$key]['q_unidades'] = array_sum(array_column($value['Item'], 'cantidad'));
             $data[$key]['fecha_fin'] = $value['Proceso']['fecha_fin'];

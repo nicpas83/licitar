@@ -11,7 +11,7 @@
  Target Server Version : 100128
  File Encoding         : 65001
 
- Date: 21/11/2018 09:33:55
+ Date: 26/12/2018 06:31:07
 */
 
 SET NAMES utf8mb4;
@@ -30,22 +30,23 @@ CREATE TABLE `cat_categorias`  (
   `icon` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL DEFAULT NULL,
   `descripcion` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of cat_categorias
 -- ----------------------------
-INSERT INTO `cat_categorias` VALUES (1, NULL, NULL, NULL, 'Alimentos y Bebidas', 'categorias/refrigerador.png', NULL);
-INSERT INTO `cat_categorias` VALUES (2, NULL, NULL, NULL, 'Celulares y Teléfonos', 'categorias/celulares.png', NULL);
-INSERT INTO `cat_categorias` VALUES (3, NULL, NULL, NULL, 'Computación', 'categorias/computacion.png', NULL);
-INSERT INTO `cat_categorias` VALUES (4, NULL, NULL, NULL, 'Deportes y Fitness', 'categorias/deportes.png', NULL);
-INSERT INTO `cat_categorias` VALUES (5, NULL, NULL, NULL, 'Electrodomésticos y Aires Ac.', 'categorias/electrodomesticos.png', NULL);
-INSERT INTO `cat_categorias` VALUES (6, NULL, NULL, NULL, 'Electrónica, Audio y Video', 'categorias/audio_video.png', NULL);
-INSERT INTO `cat_categorias` VALUES (7, NULL, NULL, NULL, 'Herramientas y Construcción', 'categorias/pared.png', NULL);
-INSERT INTO `cat_categorias` VALUES (8, NULL, NULL, NULL, 'Hogar, Muebles y Jardín', 'categorias/hogar.png', NULL);
-INSERT INTO `cat_categorias` VALUES (9, NULL, NULL, NULL, 'Industrias y Oficinas', 'categorias/escritorio.png', NULL);
-INSERT INTO `cat_categorias` VALUES (10, NULL, NULL, NULL, 'Salud y Equipamiento Médico', 'categorias/saludable.png', NULL);
-INSERT INTO `cat_categorias` VALUES (11, NULL, NULL, NULL, 'Servicios', 'categorias/comunicacion.png', NULL);
+INSERT INTO `cat_categorias` VALUES (1, NULL, NULL, NULL, 'Agricultura', 'categorias/agricultura.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis gravida lacus, eget ultrices ligula sagittis at. Praesent ultrices sapien ac efficitur faucibus. Maecenas ac purus varius, dapibus dolor non, sagittis mauris. Morbi sed ex in mi ultric');
+INSERT INTO `cat_categorias` VALUES (2, NULL, NULL, NULL, 'Alimentacion y Bebidas', 'categorias/refrigerador.png\r\n', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis gravida lacus, eget ultrices ligula sagittis at. Praesent ultrices sapien ac efficitur faucibus. Maecenas ac purus varius, dapibus dolor non, sagittis mauris. Morbi sed ex in mi ultric');
+INSERT INTO `cat_categorias` VALUES (3, NULL, NULL, NULL, 'Regalos, Deportes y Juguetes', 'categorias/deportes.png\r\n', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis gravida lacus, eget ultrices ligula sagittis at. Praesent ultrices sapien ac efficitur faucibus. Maecenas ac purus varius, dapibus dolor non, sagittis mauris. Morbi sed ex in mi ultric');
+INSERT INTO `cat_categorias` VALUES (4, NULL, NULL, NULL, 'Electrónica, electrodmésticos y telecomunicaciones\r\n', 'categorias/robotica.png\r\n', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis gravida lacus, eget ultrices ligula sagittis at. Praesent ultrices sapien ac efficitur faucibus. Maecenas ac purus varius, dapibus dolor non, sagittis mauris. Morbi sed ex in mi ultric');
+INSERT INTO `cat_categorias` VALUES (5, NULL, NULL, NULL, 'Hogar, muebles y jardín\r\n', 'categorias/casa.png\r\n', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis gravida lacus, eget ultrices ligula sagittis at. Praesent ultrices sapien ac efficitur faucibus. Maecenas ac purus varius, dapibus dolor non, sagittis mauris. Morbi sed ex in mi ultric');
+INSERT INTO `cat_categorias` VALUES (6, NULL, NULL, NULL, 'Ropa, textiles y accesorios\r\n', 'categorias/camisetas.png\r\n', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis gravida lacus, eget ultrices ligula sagittis at. Praesent ultrices sapien ac efficitur faucibus. Maecenas ac purus varius, dapibus dolor non, sagittis mauris. Morbi sed ex in mi ultric');
+INSERT INTO `cat_categorias` VALUES (7, NULL, NULL, NULL, 'Informática y tecnología\r\n', 'categorias/tecnologia.png\r\n', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis gravida lacus, eget ultrices ligula sagittis at. Praesent ultrices sapien ac efficitur faucibus. Maecenas ac purus varius, dapibus dolor non, sagittis mauris. Morbi sed ex in mi ultric');
+INSERT INTO `cat_categorias` VALUES (8, NULL, NULL, NULL, 'Industrias y Oficinas \r\n', 'categorias/escritorio.png\r\n', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis gravida lacus, eget ultrices ligula sagittis at. Praesent ultrices sapien ac efficitur faucibus. Maecenas ac purus varius, dapibus dolor non, sagittis mauris. Morbi sed ex in mi ultric');
+INSERT INTO `cat_categorias` VALUES (9, NULL, NULL, NULL, 'Materiales, herramientas y construcción\r\n', 'categorias/pared.png\r\n', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis gravida lacus, eget ultrices ligula sagittis at. Praesent ultrices sapien ac efficitur faucibus. Maecenas ac purus varius, dapibus dolor non, sagittis mauris. Morbi sed ex in mi ultric');
+INSERT INTO `cat_categorias` VALUES (10, NULL, NULL, NULL, 'Salud e Higiene\r\n', 'categorias/saludable.png\r\n', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis gravida lacus, eget ultrices ligula sagittis at. Praesent ultrices sapien ac efficitur faucibus. Maecenas ac purus varius, dapibus dolor non, sagittis mauris. Morbi sed ex in mi ultric');
+INSERT INTO `cat_categorias` VALUES (11, NULL, NULL, NULL, 'Servicios\r\n', 'categorias/comunicacion.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis gravida lacus, eget ultrices ligula sagittis at. Praesent ultrices sapien ac efficitur faucibus. Maecenas ac purus varius, dapibus dolor non, sagittis mauris. Morbi sed ex in mi ultric');
+INSERT INTO `cat_categorias` VALUES (12, NULL, NULL, NULL, 'Vehiculos\r\n', 'categorias/coche.png\r\n', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis gravida lacus, eget ultrices ligula sagittis at. Praesent ultrices sapien ac efficitur faucibus. Maecenas ac purus varius, dapibus dolor non, sagittis mauris. Morbi sed ex in mi ultric');
 
 -- ----------------------------
 -- Table structure for cat_subcategorias
@@ -59,169 +60,187 @@ CREATE TABLE `cat_subcategorias`  (
   `categoria_id` int(11) NULL DEFAULT NULL,
   `nombre` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 159 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 177 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of cat_subcategorias
 -- ----------------------------
-INSERT INTO `cat_subcategorias` VALUES (1, NULL, NULL, NULL, 1, 'Alimentación para Bebés ');
-INSERT INTO `cat_subcategorias` VALUES (2, NULL, NULL, NULL, 1, 'Bebidas Alcohólicas Preparadas ');
-INSERT INTO `cat_subcategorias` VALUES (3, NULL, NULL, NULL, 1, 'Bebidas Aperitivos ');
-INSERT INTO `cat_subcategorias` VALUES (4, NULL, NULL, NULL, 1, 'Bebidas Blancas ');
-INSERT INTO `cat_subcategorias` VALUES (5, NULL, NULL, NULL, 1, 'Bebidas sin Alcohol ');
-INSERT INTO `cat_subcategorias` VALUES (6, NULL, NULL, NULL, 1, 'Cervezas ');
-INSERT INTO `cat_subcategorias` VALUES (7, NULL, NULL, NULL, 1, 'Champagnes ');
-INSERT INTO `cat_subcategorias` VALUES (8, NULL, NULL, NULL, 1, 'Cognac ');
-INSERT INTO `cat_subcategorias` VALUES (9, NULL, NULL, NULL, 1, 'Comestibles ');
-INSERT INTO `cat_subcategorias` VALUES (10, NULL, NULL, NULL, 1, 'Licores ');
-INSERT INTO `cat_subcategorias` VALUES (11, NULL, NULL, NULL, 1, 'Sidras ');
-INSERT INTO `cat_subcategorias` VALUES (12, NULL, NULL, NULL, 1, 'Vinos ');
-INSERT INTO `cat_subcategorias` VALUES (13, NULL, NULL, NULL, 1, 'Whiskies ');
-INSERT INTO `cat_subcategorias` VALUES (14, NULL, NULL, NULL, 2, 'Accesorios para Celulares ');
-INSERT INTO `cat_subcategorias` VALUES (15, NULL, NULL, NULL, 2, 'Celulares y Smartphones ');
-INSERT INTO `cat_subcategorias` VALUES (16, NULL, NULL, NULL, 2, 'Centrales Telefónicas ');
-INSERT INTO `cat_subcategorias` VALUES (17, NULL, NULL, NULL, 2, 'Fax ');
-INSERT INTO `cat_subcategorias` VALUES (18, NULL, NULL, NULL, 2, 'Handies ');
-INSERT INTO `cat_subcategorias` VALUES (19, NULL, NULL, NULL, 2, 'Nextel ');
-INSERT INTO `cat_subcategorias` VALUES (20, NULL, NULL, NULL, 2, 'Radiofrecuencia ');
-INSERT INTO `cat_subcategorias` VALUES (21, NULL, NULL, NULL, 2, 'Repuestos de Celulares ');
-INSERT INTO `cat_subcategorias` VALUES (22, NULL, NULL, NULL, 2, 'Tarifadores y Cabinas ');
-INSERT INTO `cat_subcategorias` VALUES (23, NULL, NULL, NULL, 2, 'Telefonía Fija e Inalámbrica ');
-INSERT INTO `cat_subcategorias` VALUES (24, NULL, NULL, NULL, 2, 'Telefonía IP ');
-INSERT INTO `cat_subcategorias` VALUES (25, NULL, NULL, NULL, 3, 'All In One ');
-INSERT INTO `cat_subcategorias` VALUES (26, NULL, NULL, NULL, 3, 'Apple ');
-INSERT INTO `cat_subcategorias` VALUES (27, NULL, NULL, NULL, 3, 'Cajas, Sobres y Porta CDs ');
-INSERT INTO `cat_subcategorias` VALUES (28, NULL, NULL, NULL, 3, 'Componentes de PC ');
-INSERT INTO `cat_subcategorias` VALUES (29, NULL, NULL, NULL, 3, 'Discos y Diskettes Vírgenes ');
-INSERT INTO `cat_subcategorias` VALUES (30, NULL, NULL, NULL, 3, 'Fuentes, UPS y Estabilizadores ');
-INSERT INTO `cat_subcategorias` VALUES (31, NULL, NULL, NULL, 3, 'Impresoras y Accesorios ');
-INSERT INTO `cat_subcategorias` VALUES (32, NULL, NULL, NULL, 3, 'Lectores y Scanners ');
-INSERT INTO `cat_subcategorias` VALUES (33, NULL, NULL, NULL, 3, 'Memorias RAM ');
-INSERT INTO `cat_subcategorias` VALUES (34, NULL, NULL, NULL, 3, 'Mini PCs ');
-INSERT INTO `cat_subcategorias` VALUES (35, NULL, NULL, NULL, 3, 'Monitores y Accesorios ');
-INSERT INTO `cat_subcategorias` VALUES (36, NULL, NULL, NULL, 3, 'Netbooks y Accesorios ');
-INSERT INTO `cat_subcategorias` VALUES (37, NULL, NULL, NULL, 3, 'Notebooks y Accesorios ');
-INSERT INTO `cat_subcategorias` VALUES (38, NULL, NULL, NULL, 3, 'Palms y Handhelds ');
-INSERT INTO `cat_subcategorias` VALUES (39, NULL, NULL, NULL, 3, 'PC ');
-INSERT INTO `cat_subcategorias` VALUES (40, NULL, NULL, NULL, 3, 'Pendrives ');
-INSERT INTO `cat_subcategorias` VALUES (41, NULL, NULL, NULL, 3, 'Periféricos de PC ');
-INSERT INTO `cat_subcategorias` VALUES (42, NULL, NULL, NULL, 3, 'Procesadores ');
-INSERT INTO `cat_subcategorias` VALUES (43, NULL, NULL, NULL, 3, 'Proyectores y Pantallas ');
-INSERT INTO `cat_subcategorias` VALUES (44, NULL, NULL, NULL, 3, 'Redes ');
-INSERT INTO `cat_subcategorias` VALUES (45, NULL, NULL, NULL, 3, 'Software ');
-INSERT INTO `cat_subcategorias` VALUES (46, NULL, NULL, NULL, 3, 'Tablets y Accesorios ');
-INSERT INTO `cat_subcategorias` VALUES (47, NULL, NULL, NULL, 3, 'Ultrabooks ');
-INSERT INTO `cat_subcategorias` VALUES (48, NULL, NULL, NULL, 4, 'Aerobics y Fitness ');
-INSERT INTO `cat_subcategorias` VALUES (49, NULL, NULL, NULL, 4, 'Artes Marciales y Boxeo ');
-INSERT INTO `cat_subcategorias` VALUES (50, NULL, NULL, NULL, 4, 'Bádminton ');
-INSERT INTO `cat_subcategorias` VALUES (51, NULL, NULL, NULL, 4, 'Básquet ');
-INSERT INTO `cat_subcategorias` VALUES (52, NULL, NULL, NULL, 4, 'Bicicletas y Ciclismo ');
-INSERT INTO `cat_subcategorias` VALUES (53, NULL, NULL, NULL, 4, 'Camping ');
-INSERT INTO `cat_subcategorias` VALUES (54, NULL, NULL, NULL, 4, 'Deportes Acuáticos ');
-INSERT INTO `cat_subcategorias` VALUES (55, NULL, NULL, NULL, 4, 'Deportes Extremos ');
-INSERT INTO `cat_subcategorias` VALUES (56, NULL, NULL, NULL, 4, 'Equitación y Polo ');
-INSERT INTO `cat_subcategorias` VALUES (57, NULL, NULL, NULL, 4, 'Esgrima ');
-INSERT INTO `cat_subcategorias` VALUES (58, NULL, NULL, NULL, 4, 'Fútbol ');
-INSERT INTO `cat_subcategorias` VALUES (59, NULL, NULL, NULL, 4, 'Fútbol Americano ');
-INSERT INTO `cat_subcategorias` VALUES (60, NULL, NULL, NULL, 4, 'Golf ');
-INSERT INTO `cat_subcategorias` VALUES (61, NULL, NULL, NULL, 4, 'Handball ');
-INSERT INTO `cat_subcategorias` VALUES (62, NULL, NULL, NULL, 4, 'Hockey ');
-INSERT INTO `cat_subcategorias` VALUES (63, NULL, NULL, NULL, 4, 'Juegos de Salón ');
-INSERT INTO `cat_subcategorias` VALUES (64, NULL, NULL, NULL, 4, 'Libros y Revistas de Deportes ');
-INSERT INTO `cat_subcategorias` VALUES (65, NULL, NULL, NULL, 4, 'Monopatines y Scooters ');
-INSERT INTO `cat_subcategorias` VALUES (66, NULL, NULL, NULL, 4, 'Montañismo y Trekking ');
-INSERT INTO `cat_subcategorias` VALUES (67, NULL, NULL, NULL, 4, 'Natación ');
-INSERT INTO `cat_subcategorias` VALUES (68, NULL, NULL, NULL, 4, 'Patín, Gimnasia y Danza ');
-INSERT INTO `cat_subcategorias` VALUES (69, NULL, NULL, NULL, 4, 'Pesca ');
-INSERT INTO `cat_subcategorias` VALUES (70, NULL, NULL, NULL, 4, 'Pilates y Yoga ');
-INSERT INTO `cat_subcategorias` VALUES (71, NULL, NULL, NULL, 4, 'Pulsómetros y Cronómetros ');
-INSERT INTO `cat_subcategorias` VALUES (72, NULL, NULL, NULL, 4, 'Ropa Deportiva ');
-INSERT INTO `cat_subcategorias` VALUES (73, NULL, NULL, NULL, 4, 'Rugby ');
-INSERT INTO `cat_subcategorias` VALUES (74, NULL, NULL, NULL, 4, 'Ski y Snowboard ');
-INSERT INTO `cat_subcategorias` VALUES (75, NULL, NULL, NULL, 4, 'Softball y Beisbol ');
-INSERT INTO `cat_subcategorias` VALUES (76, NULL, NULL, NULL, 4, 'Suplementos Deportivos ');
-INSERT INTO `cat_subcategorias` VALUES (77, NULL, NULL, NULL, 4, 'Tenis, Padel y Squash ');
-INSERT INTO `cat_subcategorias` VALUES (78, NULL, NULL, NULL, 4, 'Voley ');
-INSERT INTO `cat_subcategorias` VALUES (79, NULL, NULL, NULL, 4, 'Zapatillas ');
-INSERT INTO `cat_subcategorias` VALUES (80, NULL, NULL, NULL, 5, 'Artefactos de Cuidado Personal ');
-INSERT INTO `cat_subcategorias` VALUES (81, NULL, NULL, NULL, 5, 'Artefactos para el Hogar ');
-INSERT INTO `cat_subcategorias` VALUES (82, NULL, NULL, NULL, 5, 'Climatización ');
-INSERT INTO `cat_subcategorias` VALUES (83, NULL, NULL, NULL, 5, 'Cocción ');
-INSERT INTO `cat_subcategorias` VALUES (84, NULL, NULL, NULL, 5, 'Dispensadores y Purificadores ');
-INSERT INTO `cat_subcategorias` VALUES (85, NULL, NULL, NULL, 5, 'Electrodomésticos de Cocina ');
-INSERT INTO `cat_subcategorias` VALUES (86, NULL, NULL, NULL, 5, 'Heladeras y Freezers ');
-INSERT INTO `cat_subcategorias` VALUES (87, NULL, NULL, NULL, 5, 'Lavarropas y Secarropas ');
-INSERT INTO `cat_subcategorias` VALUES (88, NULL, NULL, NULL, 5, 'Termotanques y Calefones ');
-INSERT INTO `cat_subcategorias` VALUES (89, NULL, NULL, NULL, 6, 'Accesorios para Audio y Video ');
-INSERT INTO `cat_subcategorias` VALUES (90, NULL, NULL, NULL, 6, 'Audio ');
-INSERT INTO `cat_subcategorias` VALUES (91, NULL, NULL, NULL, 6, 'Calculadoras y Agendas ');
-INSERT INTO `cat_subcategorias` VALUES (92, NULL, NULL, NULL, 6, 'Componentes Electrónicos ');
-INSERT INTO `cat_subcategorias` VALUES (93, NULL, NULL, NULL, 6, 'Drones y Accesorios ');
-INSERT INTO `cat_subcategorias` VALUES (94, NULL, NULL, NULL, 6, 'Fotocopiadoras y Accesorios ');
-INSERT INTO `cat_subcategorias` VALUES (95, NULL, NULL, NULL, 6, 'GPS ');
-INSERT INTO `cat_subcategorias` VALUES (96, NULL, NULL, NULL, 6, 'Pilas y Cargadores ');
-INSERT INTO `cat_subcategorias` VALUES (97, NULL, NULL, NULL, 6, 'Portarretratos Digitales ');
-INSERT INTO `cat_subcategorias` VALUES (98, NULL, NULL, NULL, 6, 'Proyectores y Pantallas ');
-INSERT INTO `cat_subcategorias` VALUES (99, NULL, NULL, NULL, 6, 'Seguridad y Vigilancia - Hogar ');
-INSERT INTO `cat_subcategorias` VALUES (100, NULL, NULL, NULL, 6, 'Soportes ');
-INSERT INTO `cat_subcategorias` VALUES (101, NULL, NULL, NULL, 6, 'Tablets y Accesorios ');
-INSERT INTO `cat_subcategorias` VALUES (102, NULL, NULL, NULL, 6, 'Televisores ');
-INSERT INTO `cat_subcategorias` VALUES (103, NULL, NULL, NULL, 6, 'Video ');
-INSERT INTO `cat_subcategorias` VALUES (104, NULL, NULL, NULL, 7, 'Construcción ');
-INSERT INTO `cat_subcategorias` VALUES (105, NULL, NULL, NULL, 7, 'Electricidad ');
-INSERT INTO `cat_subcategorias` VALUES (106, NULL, NULL, NULL, 7, 'Herramientas ');
-INSERT INTO `cat_subcategorias` VALUES (107, NULL, NULL, NULL, 7, 'Mobiliario para Baños ');
-INSERT INTO `cat_subcategorias` VALUES (108, NULL, NULL, NULL, 7, 'Mobiliario para Cocinas ');
-INSERT INTO `cat_subcategorias` VALUES (109, NULL, NULL, NULL, 7, 'Paneles Solares ');
-INSERT INTO `cat_subcategorias` VALUES (110, NULL, NULL, NULL, 7, 'Pisos, Paredes y Aberturas');
-INSERT INTO `cat_subcategorias` VALUES (111, NULL, NULL, NULL, 8, 'Artículos de Limpieza ');
-INSERT INTO `cat_subcategorias` VALUES (112, NULL, NULL, NULL, 8, 'Baños ');
-INSERT INTO `cat_subcategorias` VALUES (113, NULL, NULL, NULL, 8, 'Cocina ');
-INSERT INTO `cat_subcategorias` VALUES (114, NULL, NULL, NULL, 8, 'Decoración para el Hogar ');
-INSERT INTO `cat_subcategorias` VALUES (115, NULL, NULL, NULL, 8, 'Dormitorio ');
-INSERT INTO `cat_subcategorias` VALUES (116, NULL, NULL, NULL, 8, 'Iluminación para el Hogar ');
-INSERT INTO `cat_subcategorias` VALUES (117, NULL, NULL, NULL, 8, 'Jardines y Exteriores ');
-INSERT INTO `cat_subcategorias` VALUES (118, NULL, NULL, NULL, 8, 'Lavadero ');
-INSERT INTO `cat_subcategorias` VALUES (119, NULL, NULL, NULL, 8, 'Muebles para Oficinas ');
-INSERT INTO `cat_subcategorias` VALUES (120, NULL, NULL, NULL, 8, 'Sala de Estar y Comedor ');
-INSERT INTO `cat_subcategorias` VALUES (121, NULL, NULL, NULL, 8, 'Seguridad para el Hogar');
-INSERT INTO `cat_subcategorias` VALUES (122, NULL, NULL, NULL, 9, 'Arquitectura y Diseño ');
-INSERT INTO `cat_subcategorias` VALUES (123, NULL, NULL, NULL, 9, 'Embalajes ');
-INSERT INTO `cat_subcategorias` VALUES (124, NULL, NULL, NULL, 9, 'Equipamiento Comercial ');
-INSERT INTO `cat_subcategorias` VALUES (125, NULL, NULL, NULL, 9, 'Equipamiento para Industrias ');
-INSERT INTO `cat_subcategorias` VALUES (126, NULL, NULL, NULL, 9, 'Equipamiento para Oficinas ');
-INSERT INTO `cat_subcategorias` VALUES (127, NULL, NULL, NULL, 9, 'Industria Agropecuaria ');
-INSERT INTO `cat_subcategorias` VALUES (128, NULL, NULL, NULL, 9, 'Industria Gastronómica ');
-INSERT INTO `cat_subcategorias` VALUES (129, NULL, NULL, NULL, 9, 'Industria Gráfica e Impresión ');
-INSERT INTO `cat_subcategorias` VALUES (130, NULL, NULL, NULL, 9, 'Industria Textil ');
-INSERT INTO `cat_subcategorias` VALUES (131, NULL, NULL, NULL, 9, 'Librería ');
-INSERT INTO `cat_subcategorias` VALUES (132, NULL, NULL, NULL, 9, 'Material de Promoción ');
-INSERT INTO `cat_subcategorias` VALUES (133, NULL, NULL, NULL, 9, 'Seguridad Industrial ');
-INSERT INTO `cat_subcategorias` VALUES (134, NULL, NULL, NULL, 9, 'Uniformes ');
-INSERT INTO `cat_subcategorias` VALUES (135, NULL, NULL, NULL, 11, 'Asesoramiento Contable y Legal ');
-INSERT INTO `cat_subcategorias` VALUES (136, NULL, NULL, NULL, 11, 'Belleza y Cuidado Personal ');
-INSERT INTO `cat_subcategorias` VALUES (137, NULL, NULL, NULL, 11, 'Comunicación y diseño ');
-INSERT INTO `cat_subcategorias` VALUES (138, NULL, NULL, NULL, 11, 'Cursos y Clases ');
-INSERT INTO `cat_subcategorias` VALUES (139, NULL, NULL, NULL, 11, 'Delivery ');
-INSERT INTO `cat_subcategorias` VALUES (140, NULL, NULL, NULL, 11, 'Fiestas y Eventos ');
-INSERT INTO `cat_subcategorias` VALUES (141, NULL, NULL, NULL, 11, 'Fotografía, Música y Cine ');
-INSERT INTO `cat_subcategorias` VALUES (142, NULL, NULL, NULL, 11, 'Hogar y Construcción ');
-INSERT INTO `cat_subcategorias` VALUES (143, NULL, NULL, NULL, 11, 'Imprenta ');
-INSERT INTO `cat_subcategorias` VALUES (144, NULL, NULL, NULL, 11, 'Mantenimiento de Vehículos ');
-INSERT INTO `cat_subcategorias` VALUES (145, NULL, NULL, NULL, 11, 'Medicina y Salud ');
-INSERT INTO `cat_subcategorias` VALUES (146, NULL, NULL, NULL, 11, 'Ropa y Moda ');
-INSERT INTO `cat_subcategorias` VALUES (147, NULL, NULL, NULL, 11, 'Servicios para Mascotas ');
-INSERT INTO `cat_subcategorias` VALUES (148, NULL, NULL, NULL, 11, 'Servicios para Oficinas ');
-INSERT INTO `cat_subcategorias` VALUES (149, NULL, NULL, NULL, 11, 'Tecnología ');
-INSERT INTO `cat_subcategorias` VALUES (150, NULL, NULL, NULL, 11, 'Transporte ');
-INSERT INTO `cat_subcategorias` VALUES (151, NULL, NULL, NULL, 11, 'Viajes y Turismo ');
-INSERT INTO `cat_subcategorias` VALUES (152, NULL, NULL, NULL, 10, 'Cuidado de la Salud ');
-INSERT INTO `cat_subcategorias` VALUES (153, NULL, NULL, NULL, 10, 'Equipamiento Médico ');
-INSERT INTO `cat_subcategorias` VALUES (154, NULL, NULL, NULL, 10, 'Equipamiento Odontológico ');
-INSERT INTO `cat_subcategorias` VALUES (155, NULL, NULL, NULL, 10, 'Masajes ');
-INSERT INTO `cat_subcategorias` VALUES (156, NULL, NULL, NULL, 10, 'Ortopedia ');
-INSERT INTO `cat_subcategorias` VALUES (157, NULL, NULL, NULL, 10, 'Suplementos Alimenticios ');
-INSERT INTO `cat_subcategorias` VALUES (158, NULL, NULL, NULL, 10, 'Terapias Alternativas ');
+INSERT INTO `cat_subcategorias` VALUES (1, NULL, NULL, NULL, 1, 'Medios de cultivo agrícola');
+INSERT INTO `cat_subcategorias` VALUES (2, NULL, NULL, NULL, 1, 'Residuos agrícolas');
+INSERT INTO `cat_subcategorias` VALUES (3, NULL, NULL, NULL, 1, 'Productos animales');
+INSERT INTO `cat_subcategorias` VALUES (4, NULL, NULL, NULL, 1, 'Granos');
+INSERT INTO `cat_subcategorias` VALUES (5, NULL, NULL, NULL, 1, 'Carne');
+INSERT INTO `cat_subcategorias` VALUES (6, NULL, NULL, NULL, 1, 'Fruta');
+INSERT INTO `cat_subcategorias` VALUES (7, NULL, NULL, NULL, 1, 'Nueces y granos');
+INSERT INTO `cat_subcategorias` VALUES (8, NULL, NULL, NULL, 1, 'Producción orgánica');
+INSERT INTO `cat_subcategorias` VALUES (9, NULL, NULL, NULL, 1, 'Plantas ornamentales');
+INSERT INTO `cat_subcategorias` VALUES (10, NULL, NULL, NULL, 1, 'Otros productos de agricultura');
+INSERT INTO `cat_subcategorias` VALUES (11, NULL, NULL, NULL, 1, 'Aceite vegetal y animal');
+INSERT INTO `cat_subcategorias` VALUES (12, NULL, NULL, NULL, 1, 'Semillas de plantas y bulbos');
+INSERT INTO `cat_subcategorias` VALUES (13, NULL, NULL, NULL, 1, 'Madera');
+INSERT INTO `cat_subcategorias` VALUES (14, NULL, NULL, NULL, 1, 'Otros');
+INSERT INTO `cat_subcategorias` VALUES (15, NULL, NULL, NULL, 2, 'Bebida alcohólica');
+INSERT INTO `cat_subcategorias` VALUES (16, NULL, NULL, NULL, 2, 'Comida para bebé');
+INSERT INTO `cat_subcategorias` VALUES (17, NULL, NULL, NULL, 2, 'Comida enlatada');
+INSERT INTO `cat_subcategorias` VALUES (18, NULL, NULL, NULL, 2, 'Café');
+INSERT INTO `cat_subcategorias` VALUES (19, NULL, NULL, NULL, 2, 'Confitería');
+INSERT INTO `cat_subcategorias` VALUES (20, NULL, NULL, NULL, 2, 'Agua potable');
+INSERT INTO `cat_subcategorias` VALUES (21, NULL, NULL, NULL, 2, 'Huevo y productos de huevo');
+INSERT INTO `cat_subcategorias` VALUES (22, NULL, NULL, NULL, 2, 'Carne de ave');
+INSERT INTO `cat_subcategorias` VALUES (23, NULL, NULL, NULL, 2, 'Otra comida y bebida');
+INSERT INTO `cat_subcategorias` VALUES (24, NULL, NULL, NULL, 2, 'Mariscos');
+INSERT INTO `cat_subcategorias` VALUES (25, NULL, NULL, NULL, 2, 'Condimentos y Condimentos');
+INSERT INTO `cat_subcategorias` VALUES (26, NULL, NULL, NULL, 2, 'Bocadillos');
+INSERT INTO `cat_subcategorias` VALUES (27, NULL, NULL, NULL, 2, 'Bebidas sin alcohol');
+INSERT INTO `cat_subcategorias` VALUES (28, NULL, NULL, NULL, 2, 'Té');
+INSERT INTO `cat_subcategorias` VALUES (29, NULL, NULL, NULL, 2, 'Productos vegetales');
+INSERT INTO `cat_subcategorias` VALUES (30, NULL, NULL, NULL, 2, 'Otros');
+INSERT INTO `cat_subcategorias` VALUES (31, NULL, NULL, NULL, 3, 'Instrumentos musicales');
+INSERT INTO `cat_subcategorias` VALUES (32, NULL, NULL, NULL, 3, 'Jueguetes');
+INSERT INTO `cat_subcategorias` VALUES (33, NULL, NULL, NULL, 3, 'Regalos empresariales');
+INSERT INTO `cat_subcategorias` VALUES (34, NULL, NULL, NULL, 3, 'Otros');
+INSERT INTO `cat_subcategorias` VALUES (35, NULL, NULL, NULL, 4, 'Artefactos de Cuidado Personal ');
+INSERT INTO `cat_subcategorias` VALUES (36, NULL, NULL, NULL, 4, 'Artefactos para el Hogar ');
+INSERT INTO `cat_subcategorias` VALUES (37, NULL, NULL, NULL, 4, 'Climatización ');
+INSERT INTO `cat_subcategorias` VALUES (38, NULL, NULL, NULL, 4, 'Cocción ');
+INSERT INTO `cat_subcategorias` VALUES (39, NULL, NULL, NULL, 4, 'Dispensadores y Purificadores ');
+INSERT INTO `cat_subcategorias` VALUES (40, NULL, NULL, NULL, 4, 'Electrodomésticos de Cocina ');
+INSERT INTO `cat_subcategorias` VALUES (41, NULL, NULL, NULL, 4, 'Heladeras y Freezers ');
+INSERT INTO `cat_subcategorias` VALUES (42, NULL, NULL, NULL, 4, 'Lavarropas y Secarropas ');
+INSERT INTO `cat_subcategorias` VALUES (43, NULL, NULL, NULL, 4, 'Termotanques y Calefones ');
+INSERT INTO `cat_subcategorias` VALUES (44, NULL, NULL, NULL, 4, 'Accesorios para Audio y Video ');
+INSERT INTO `cat_subcategorias` VALUES (45, NULL, NULL, NULL, 4, 'Audio ');
+INSERT INTO `cat_subcategorias` VALUES (46, NULL, NULL, NULL, 4, 'Calculadoras y Agendas ');
+INSERT INTO `cat_subcategorias` VALUES (47, NULL, NULL, NULL, 4, 'Componentes Electrónicos ');
+INSERT INTO `cat_subcategorias` VALUES (48, NULL, NULL, NULL, 4, 'Drones y Accesorios ');
+INSERT INTO `cat_subcategorias` VALUES (49, NULL, NULL, NULL, 4, 'Fotocopiadoras y Accesorios ');
+INSERT INTO `cat_subcategorias` VALUES (50, NULL, NULL, NULL, 4, 'GPS ');
+INSERT INTO `cat_subcategorias` VALUES (51, NULL, NULL, NULL, 4, 'Pilas y Cargadores ');
+INSERT INTO `cat_subcategorias` VALUES (52, NULL, NULL, NULL, 4, 'Portarretratos Digitales ');
+INSERT INTO `cat_subcategorias` VALUES (53, NULL, NULL, NULL, 4, 'Proyectores y Pantallas ');
+INSERT INTO `cat_subcategorias` VALUES (54, NULL, NULL, NULL, 4, 'Seguridad y Vigilancia - Hogar ');
+INSERT INTO `cat_subcategorias` VALUES (55, NULL, NULL, NULL, 4, 'Soportes ');
+INSERT INTO `cat_subcategorias` VALUES (56, NULL, NULL, NULL, 4, 'Tablets y Accesorios ');
+INSERT INTO `cat_subcategorias` VALUES (57, NULL, NULL, NULL, 4, 'Televisores ');
+INSERT INTO `cat_subcategorias` VALUES (58, NULL, NULL, NULL, 4, 'Video ');
+INSERT INTO `cat_subcategorias` VALUES (59, NULL, NULL, NULL, 4, 'Accesorios para Celulares ');
+INSERT INTO `cat_subcategorias` VALUES (60, NULL, NULL, NULL, 4, 'Celulares y Smartphones ');
+INSERT INTO `cat_subcategorias` VALUES (61, NULL, NULL, NULL, 4, 'Centrales Telefónicas ');
+INSERT INTO `cat_subcategorias` VALUES (62, NULL, NULL, NULL, 4, 'Fax ');
+INSERT INTO `cat_subcategorias` VALUES (63, NULL, NULL, NULL, 4, 'Handies ');
+INSERT INTO `cat_subcategorias` VALUES (64, NULL, NULL, NULL, 4, 'Nextel ');
+INSERT INTO `cat_subcategorias` VALUES (65, NULL, NULL, NULL, 4, 'Radiofrecuencia ');
+INSERT INTO `cat_subcategorias` VALUES (66, NULL, NULL, NULL, 4, 'Repuestos de Celulares ');
+INSERT INTO `cat_subcategorias` VALUES (67, NULL, NULL, NULL, 4, 'Tarifadores y Cabinas ');
+INSERT INTO `cat_subcategorias` VALUES (68, NULL, NULL, NULL, 4, 'Telefonía Fija e Inalámbrica ');
+INSERT INTO `cat_subcategorias` VALUES (69, NULL, NULL, NULL, 4, 'Telefonía IP ');
+INSERT INTO `cat_subcategorias` VALUES (70, NULL, NULL, NULL, 4, 'Otros');
+INSERT INTO `cat_subcategorias` VALUES (71, NULL, NULL, NULL, 5, 'Artículos de Limpieza ');
+INSERT INTO `cat_subcategorias` VALUES (72, NULL, NULL, NULL, 5, 'Baños ');
+INSERT INTO `cat_subcategorias` VALUES (73, NULL, NULL, NULL, 5, 'Cocina ');
+INSERT INTO `cat_subcategorias` VALUES (74, NULL, NULL, NULL, 5, 'Decoración para el Hogar ');
+INSERT INTO `cat_subcategorias` VALUES (75, NULL, NULL, NULL, 5, 'Dormitorio ');
+INSERT INTO `cat_subcategorias` VALUES (76, NULL, NULL, NULL, 5, 'Iluminación para el Hogar ');
+INSERT INTO `cat_subcategorias` VALUES (77, NULL, NULL, NULL, 5, 'Jardines y Exteriores ');
+INSERT INTO `cat_subcategorias` VALUES (78, NULL, NULL, NULL, 5, 'Lavadero ');
+INSERT INTO `cat_subcategorias` VALUES (79, NULL, NULL, NULL, 5, 'Muebles para Oficinas ');
+INSERT INTO `cat_subcategorias` VALUES (80, NULL, NULL, NULL, 5, 'Sala de Estar y Comedor ');
+INSERT INTO `cat_subcategorias` VALUES (81, NULL, NULL, NULL, 5, 'Seguridad para el Hogar');
+INSERT INTO `cat_subcategorias` VALUES (82, NULL, NULL, NULL, 5, 'Otros');
+INSERT INTO `cat_subcategorias` VALUES (83, NULL, NULL, NULL, 6, 'Servicios de diseño de indumentaria');
+INSERT INTO `cat_subcategorias` VALUES (84, NULL, NULL, NULL, 6, 'Ropa para mujer y hombre');
+INSERT INTO `cat_subcategorias` VALUES (85, NULL, NULL, NULL, 6, 'Ropa para bebés y niños pequeños');
+INSERT INTO `cat_subcategorias` VALUES (86, NULL, NULL, NULL, 6, 'Maniquíes');
+INSERT INTO `cat_subcategorias` VALUES (87, NULL, NULL, NULL, 6, 'Ropa de maternidad');
+INSERT INTO `cat_subcategorias` VALUES (88, NULL, NULL, NULL, 6, 'Ropa de trabajo');
+INSERT INTO `cat_subcategorias` VALUES (89, NULL, NULL, NULL, 6, 'Tela');
+INSERT INTO `cat_subcategorias` VALUES (90, NULL, NULL, NULL, 6, 'Fibra');
+INSERT INTO `cat_subcategorias` VALUES (91, NULL, NULL, NULL, 6, 'Cuero');
+INSERT INTO `cat_subcategorias` VALUES (92, NULL, NULL, NULL, 6, 'Hilo');
+INSERT INTO `cat_subcategorias` VALUES (93, NULL, NULL, NULL, 6, 'Blanquería');
+INSERT INTO `cat_subcategorias` VALUES (94, NULL, NULL, NULL, 6, 'Guantes');
+INSERT INTO `cat_subcategorias` VALUES (95, NULL, NULL, NULL, 6, 'Sombreros y gorras');
+INSERT INTO `cat_subcategorias` VALUES (96, NULL, NULL, NULL, 6, 'Pañuelos y chales');
+INSERT INTO `cat_subcategorias` VALUES (97, NULL, NULL, NULL, 6, 'Otros');
+INSERT INTO `cat_subcategorias` VALUES (98, NULL, NULL, NULL, 7, 'All In One ');
+INSERT INTO `cat_subcategorias` VALUES (99, NULL, NULL, NULL, 7, 'Apple ');
+INSERT INTO `cat_subcategorias` VALUES (100, NULL, NULL, NULL, 7, 'Cajas, Sobres y Porta CDs ');
+INSERT INTO `cat_subcategorias` VALUES (101, NULL, NULL, NULL, 7, 'Componentes de PC ');
+INSERT INTO `cat_subcategorias` VALUES (102, NULL, NULL, NULL, 7, 'Discos y Diskettes Vírgenes ');
+INSERT INTO `cat_subcategorias` VALUES (103, NULL, NULL, NULL, 7, 'Fuentes, UPS y Estabilizadores ');
+INSERT INTO `cat_subcategorias` VALUES (104, NULL, NULL, NULL, 7, 'Impresoras y Accesorios ');
+INSERT INTO `cat_subcategorias` VALUES (105, NULL, NULL, NULL, 7, 'Lectores y Scanners ');
+INSERT INTO `cat_subcategorias` VALUES (106, NULL, NULL, NULL, 7, 'Memorias RAM ');
+INSERT INTO `cat_subcategorias` VALUES (107, NULL, NULL, NULL, 7, 'Mini PCs ');
+INSERT INTO `cat_subcategorias` VALUES (108, NULL, NULL, NULL, 7, 'Monitores y Accesorios ');
+INSERT INTO `cat_subcategorias` VALUES (109, NULL, NULL, NULL, 7, 'Netbooks y Accesorios ');
+INSERT INTO `cat_subcategorias` VALUES (110, NULL, NULL, NULL, 7, 'Notebooks y Accesorios ');
+INSERT INTO `cat_subcategorias` VALUES (111, NULL, NULL, NULL, 7, 'Palms y Handhelds ');
+INSERT INTO `cat_subcategorias` VALUES (112, NULL, NULL, NULL, 7, 'PC ');
+INSERT INTO `cat_subcategorias` VALUES (113, NULL, NULL, NULL, 7, 'Pendrives ');
+INSERT INTO `cat_subcategorias` VALUES (114, NULL, NULL, NULL, 7, 'Periféricos de PC ');
+INSERT INTO `cat_subcategorias` VALUES (115, NULL, NULL, NULL, 7, 'Procesadores ');
+INSERT INTO `cat_subcategorias` VALUES (116, NULL, NULL, NULL, 7, 'Proyectores y Pantallas ');
+INSERT INTO `cat_subcategorias` VALUES (117, NULL, NULL, NULL, 7, 'Redes ');
+INSERT INTO `cat_subcategorias` VALUES (118, NULL, NULL, NULL, 7, 'Software ');
+INSERT INTO `cat_subcategorias` VALUES (119, NULL, NULL, NULL, 7, 'Tablets y Accesorios ');
+INSERT INTO `cat_subcategorias` VALUES (120, NULL, NULL, NULL, 7, 'Ultrabooks ');
+INSERT INTO `cat_subcategorias` VALUES (121, NULL, NULL, NULL, 7, 'Otros');
+INSERT INTO `cat_subcategorias` VALUES (122, NULL, NULL, NULL, 8, 'Arquitectura y Diseño ');
+INSERT INTO `cat_subcategorias` VALUES (123, NULL, NULL, NULL, 8, 'Embalajes ');
+INSERT INTO `cat_subcategorias` VALUES (124, NULL, NULL, NULL, 8, 'Equipamiento Comercial ');
+INSERT INTO `cat_subcategorias` VALUES (125, NULL, NULL, NULL, 8, 'Equipamiento para Industrias ');
+INSERT INTO `cat_subcategorias` VALUES (126, NULL, NULL, NULL, 8, 'Equipamiento para Oficinas ');
+INSERT INTO `cat_subcategorias` VALUES (127, NULL, NULL, NULL, 8, 'Industria Agropecuaria ');
+INSERT INTO `cat_subcategorias` VALUES (128, NULL, NULL, NULL, 8, 'Industria Gastronómica ');
+INSERT INTO `cat_subcategorias` VALUES (129, NULL, NULL, NULL, 8, 'Industria Gráfica e Impresión ');
+INSERT INTO `cat_subcategorias` VALUES (130, NULL, NULL, NULL, 8, 'Industria Textil ');
+INSERT INTO `cat_subcategorias` VALUES (131, NULL, NULL, NULL, 8, 'Librería ');
+INSERT INTO `cat_subcategorias` VALUES (132, NULL, NULL, NULL, 8, 'Material de Promoción ');
+INSERT INTO `cat_subcategorias` VALUES (133, NULL, NULL, NULL, 8, 'Seguridad Industrial ');
+INSERT INTO `cat_subcategorias` VALUES (134, NULL, NULL, NULL, 8, 'Uniformes ');
+INSERT INTO `cat_subcategorias` VALUES (135, NULL, NULL, NULL, 8, 'Otros');
+INSERT INTO `cat_subcategorias` VALUES (136, NULL, NULL, NULL, 9, 'Construcción ');
+INSERT INTO `cat_subcategorias` VALUES (137, NULL, NULL, NULL, 9, 'Electricidad ');
+INSERT INTO `cat_subcategorias` VALUES (138, NULL, NULL, NULL, 9, 'Herramientas ');
+INSERT INTO `cat_subcategorias` VALUES (139, NULL, NULL, NULL, 9, 'Mobiliario para Baños ');
+INSERT INTO `cat_subcategorias` VALUES (140, NULL, NULL, NULL, 9, 'Mobiliario para Cocinas ');
+INSERT INTO `cat_subcategorias` VALUES (141, NULL, NULL, NULL, 9, 'Paneles Solares ');
+INSERT INTO `cat_subcategorias` VALUES (142, NULL, NULL, NULL, 9, 'Pisos, Paredes y Aberturas');
+INSERT INTO `cat_subcategorias` VALUES (143, NULL, NULL, NULL, 9, 'Otros');
+INSERT INTO `cat_subcategorias` VALUES (144, NULL, NULL, NULL, 10, 'Cuidado de la Salud ');
+INSERT INTO `cat_subcategorias` VALUES (145, NULL, NULL, NULL, 10, 'Equipamiento Médico ');
+INSERT INTO `cat_subcategorias` VALUES (146, NULL, NULL, NULL, 10, 'Equipamiento Odontológico ');
+INSERT INTO `cat_subcategorias` VALUES (147, NULL, NULL, NULL, 10, 'Masajes ');
+INSERT INTO `cat_subcategorias` VALUES (148, NULL, NULL, NULL, 10, 'Ortopedia ');
+INSERT INTO `cat_subcategorias` VALUES (149, NULL, NULL, NULL, 10, 'Suplementos Alimenticios ');
+INSERT INTO `cat_subcategorias` VALUES (150, NULL, NULL, NULL, 10, 'Terapias Alternativas ');
+INSERT INTO `cat_subcategorias` VALUES (151, NULL, NULL, NULL, 10, 'Otros');
+INSERT INTO `cat_subcategorias` VALUES (152, NULL, NULL, NULL, 11, 'Asesoramiento Contable y Legal ');
+INSERT INTO `cat_subcategorias` VALUES (153, NULL, NULL, NULL, 11, 'Belleza y Cuidado Personal ');
+INSERT INTO `cat_subcategorias` VALUES (154, NULL, NULL, NULL, 11, 'Comunicación y diseño ');
+INSERT INTO `cat_subcategorias` VALUES (155, NULL, NULL, NULL, 11, 'Cursos y Clases ');
+INSERT INTO `cat_subcategorias` VALUES (156, NULL, NULL, NULL, 11, 'Delivery ');
+INSERT INTO `cat_subcategorias` VALUES (157, NULL, NULL, NULL, 11, 'Fiestas y Eventos ');
+INSERT INTO `cat_subcategorias` VALUES (158, NULL, NULL, NULL, 11, 'Fotografía, Música y Cine ');
+INSERT INTO `cat_subcategorias` VALUES (159, NULL, NULL, NULL, 11, 'Hogar y Construcción ');
+INSERT INTO `cat_subcategorias` VALUES (160, NULL, NULL, NULL, 11, 'Imprenta ');
+INSERT INTO `cat_subcategorias` VALUES (161, NULL, NULL, NULL, 11, 'Mantenimiento de Vehículos ');
+INSERT INTO `cat_subcategorias` VALUES (162, NULL, NULL, NULL, 11, 'Medicina y Salud ');
+INSERT INTO `cat_subcategorias` VALUES (163, NULL, NULL, NULL, 11, 'Ropa y Moda ');
+INSERT INTO `cat_subcategorias` VALUES (164, NULL, NULL, NULL, 11, 'Servicios para Mascotas ');
+INSERT INTO `cat_subcategorias` VALUES (165, NULL, NULL, NULL, 11, 'Servicios para Oficinas ');
+INSERT INTO `cat_subcategorias` VALUES (166, NULL, NULL, NULL, 11, 'Tecnología ');
+INSERT INTO `cat_subcategorias` VALUES (167, NULL, NULL, NULL, 11, 'Transporte ');
+INSERT INTO `cat_subcategorias` VALUES (168, NULL, NULL, NULL, 11, 'Viajes y Turismo ');
+INSERT INTO `cat_subcategorias` VALUES (169, NULL, NULL, NULL, 11, 'Otros');
+INSERT INTO `cat_subcategorias` VALUES (170, NULL, NULL, NULL, 12, 'Autos y Camionetas');
+INSERT INTO `cat_subcategorias` VALUES (171, NULL, NULL, NULL, 12, 'Camiones');
+INSERT INTO `cat_subcategorias` VALUES (172, NULL, NULL, NULL, 12, 'Maquinaria Agrícola');
+INSERT INTO `cat_subcategorias` VALUES (173, NULL, NULL, NULL, 12, 'Maquinaria Vial');
+INSERT INTO `cat_subcategorias` VALUES (174, NULL, NULL, NULL, 12, 'Motos');
+INSERT INTO `cat_subcategorias` VALUES (175, NULL, NULL, NULL, 12, 'Semirremolques');
+INSERT INTO `cat_subcategorias` VALUES (176, NULL, NULL, NULL, 12, 'Otros');
 
 -- ----------------------------
 -- Table structure for denuncias
@@ -259,67 +278,28 @@ CREATE TABLE `items`  (
   `precio_max` decimal(10, 2) NULL DEFAULT NULL,
   `estado` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 152 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of items
 -- ----------------------------
-INSERT INTO `items` VALUES (2, '2018-07-06 00:00:00', '2018-07-06 18:30:06', NULL, 2, 1, 1, 'AGUA POTABLE; PRESENTACION: ENVASE X 20 L', 3000, 'unidades', 'Bidones de 20 litros marca Ivess', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (4, '2018-07-09 00:00:00', '2018-07-09 21:00:46', NULL, 4, 11, 11, '	LAMPARA ELECTRONICA; TIPO: LED, POTENCIA: 10 W', 1, 'unidades', '	LAMPARA ELECTRONICA; TIPO: LED, POTENCIA: 10 W', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (5, '2018-07-09 00:00:00', '2018-07-09 21:05:39', NULL, 5, 11, 11, 'CABLES ENVAINADOS 6mm', 20, 'unidades', 'CABLES ENVAINADOS P/ELECT; NUMERO DE CONDUCTORES: 3, SECCION: 6 mm²', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (6, '2018-07-09 00:00:00', '2018-07-09 21:05:39', NULL, 5, 11, 11, 'CABLES ENVAINADOS 4mm', 20, 'unidades', 'CABLES ENVAINADOS P/ELECT; NUMERO DE CONDUCTORES: 3, SECCION: 4 mm², CORRIENTE NOMINAL: 25 A, CRITERIO DE SEGURIDAD: SELLO DE SEGURIDAD, TENSION NOMINAL: 300-500 V ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (7, '2018-07-09 00:00:00', '2018-07-09 21:05:39', NULL, 5, 11, 11, 'CABLES ENVAINADOS 2,5mm', 20, 'unidades', 'CABLES ENVAINADOS P/ELECT; NUMERO DE CONDUCTORES: 3, SECCION: 2,5 mm², CORRIENTE NOMINAL: 18 A, CRITERIO DE SEGURIDAD: SELLO DE SEGURIDAD, TENSION NOMINAL: 300-500 V ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (8, '2018-07-09 00:00:00', '2018-07-09 21:05:39', NULL, 5, 11, 11, 'CABLES ENVAINADOS 1,5mm', 20, 'unidades', 'CABLES ENVAINADOS P/ELECT; NUMERO DE CONDUCTORES: 3, SECCION: 1,5 mm², CORRIENTE NOMINAL: 14 A, CRITERIO DE SEGURIDAD: SELLO DE SEGURIDAD, TENSION NOMINAL: 300-500 V ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (9, '2018-07-09 00:00:00', '2018-07-09 21:14:13', NULL, 6, 11, 11, 'BATERIAS ESPECIALES; CAPACIDAD: 7 A/H, FORMATO: RE', 50, 'unidades', 'BATERIAS ESPECIALES; CAPACIDAD: 7 A/H, FORMATO: RECTANGULAR, DIAM. X ALTO: SIN VALOR, TENSION: 12 V, SISTEMA QUIMICO: ELECTROLITO GELIFICADO, DIAMETRO: SIN VALOR, DIMENSION: SIN VALOR ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (10, '2018-07-09 00:00:00', '2018-07-09 21:14:13', NULL, 6, 11, 11, 'BATERIAS ESPECIALES; CAPACIDAD: 7 A/H, FORMATO: RE', 10, 'unidades', 'BATERIAS ESPECIALES; CAPACIDAD: 7 A/H, FORMATO: RECTANGULAR, SISTEMA QUIMICO: PLOMO ACIDO EN GEL, TENSION: 12 V, DIAMETRO: 15 X 9,5 X 6 Cm, DIAM. X ALTO: 15 X 9,5 X 6 Cm, DIMENSION: 15 X 9,5 X 6 Cm ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (11, '2018-07-09 00:00:00', '2018-07-09 21:14:13', NULL, 6, 11, 11, 'BATERIAS ESPECIALES; CAPACIDAD: 17 A/H, FORMATO: R', 20, 'unidades', 'BATERIAS ESPECIALES; CAPACIDAD: 17 A/H, FORMATO: RECTANGULAR, DIAM. X ALTO: 17 X 7 X 17 Cm, SISTEMA QUIMICO: ELECTROLITICO ABSORBIDO, TENSION: 12 V, DIAMETRO: 17 X 7 X 17 Cm, DIMENSION: 17 X 7 X 17 Cm', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (12, '2018-07-09 00:00:00', '2018-07-09 21:14:13', NULL, 6, 11, 11, 'MEMORIAS USB; CAPACIDAD: 32 Gb, TIPO: PEN DRIVE ', 30, 'unidades', 'MEMORIAS USB; CAPACIDAD: 32 Gb, TIPO: PEN DRIVE ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (13, '2018-07-09 00:00:00', '2018-07-09 21:14:13', NULL, 6, 11, 11, 'MOUSE; TIPO: NET SCROLL, CONEXION: USB, CANTIDAD D', 111, 'unidades', 'MOUSE; TIPO: NET SCROLL, CONEXION: USB, CANTIDAD DE BOTONES: 2, COLOR: SIN VALOR, TIPO DE CONEXION: USB', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (14, '2018-07-09 00:00:00', '2018-07-09 21:14:13', NULL, 6, 11, 11, 'DISCOS RIGIDOS; VELOC. MEDIA ACCESO: 7200 RPM, CON', 120, 'unidades', 'DISCOS RIGIDOS; VELOC. MEDIA ACCESO: 7200 RPM, CONTROLADOR DISCO: SATA 2, CAPACIDAD: 1 Tbyte, TIPO: INTERNO ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (15, '2018-07-09 00:00:00', '2018-07-09 21:14:13', NULL, 6, 11, 11, '	FUENTES DE ALIMENTACION; USO: PC, TENSION DE ENTR', 12, 'unidades', '	FUENTES DE ALIMENTACION; USO: PC, TENSION DE ENTRADA: 220 VAC, CORRIENTE: ALTERNA, TENSION DE SALIDA: 12 V, CRITERIO DE SEGURIDAD: SELLO DE SEGURIDAD ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (16, '2018-07-09 00:00:00', '2018-07-09 21:14:13', NULL, 6, 11, 11, 'PLACAS DE RED; TIPO: PCI-E, CODIGO ETAP: PQR-010, ', 33, 'unidades', 'PLACAS DE RED; TIPO: PCI-E, CODIGO ETAP: PQR-010, VERSION ETAP: 19.0 ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (17, '2018-07-09 00:00:00', '2018-07-09 21:14:13', NULL, 6, 11, 11, 'PLACAS DE RED INALAMBRICA; PUERTO: PCI, RED: ETHER', 32, 'unidades', 'PLACAS DE RED INALAMBRICA; PUERTO: PCI, RED: ETHERNET, NORMA: B/G/N, VELOCIDAD DE TRANSFERENCIA: 1000 Mbps ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (18, '2018-07-09 00:00:00', '2018-07-09 21:14:13', NULL, 6, 11, 11, 'MODULOS DE MEMORIAS; CAPACIDAD: 8 Gb', 44, 'unidades', 'MODULOS DE MEMORIAS; CAPACIDAD: 8 Gb', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (19, '2018-07-09 00:00:00', '2018-07-09 21:14:13', NULL, 6, 11, 11, 'MODULOS DE MEMORIAS; CAPACIDAD: 4 Gb ', 334, 'unidades', 'MODULOS DE MEMORIAS; CAPACIDAD: 4 Gb ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (20, '2018-07-09 00:00:00', '2018-07-09 21:14:13', NULL, 6, 11, 11, 'DISCO COMPACTO; CAPACIDAD: 4.7 Gb, TIPO: DVD ', 45, 'unidades', 'DISCO COMPACTO; CAPACIDAD: 4.7 Gb, TIPO: DVD ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (21, '2018-07-09 00:00:00', '2018-07-09 21:14:13', NULL, 6, 11, 11, 'GRASAS LUBRICANTES; TIPO: GRASA SILICONADA DISIPAD', 46, 'unidades', 'GRASAS LUBRICANTES; TIPO: GRASA SILICONADA DISIPADORA, PRESENTACION: ENVASE X 100 CM3 ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (22, '2018-07-09 00:00:00', '2018-07-09 21:14:13', NULL, 6, 11, 11, 'LIMPIADORES; TIPO: ALCOHOL ISOPROPILICO, PRESENTAC', 13, 'unidades', 'LIMPIADORES; TIPO: ALCOHOL ISOPROPILICO, PRESENTACION: ENVASE X 1 L ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (23, '2018-07-09 00:00:00', '2018-07-09 21:14:13', NULL, 6, 11, 11, 'ALAMBRES P/SOLDAR; CALIDAD: ESTAÑO, DIAMETRO: 1 mm', 345, 'unidades', 'ALAMBRES P/SOLDAR; CALIDAD: ESTAÑO, DIAMETRO: 1 mm, PESO ROLLO: 250 GR, PRESENTACION: CARRETEL ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (24, '2018-07-09 00:00:00', '2018-07-09 21:16:16', NULL, 7, 11, 11, 'ANTENAS DE COMUNICACIÓN; USO: EXTERIOR, FRECUENCIA', 200, 'unidades', 'ANTENAS DE COMUNICACIÓN; USO: EXTERIOR, FRECUENCIA: 2,4/ 5 GHZ A 20 MHZ, TIPO: FIJA ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (25, '2018-07-09 00:00:00', '2018-07-09 21:16:16', NULL, 7, 11, 11, 'SWITCH; USO: PARA RED LAN, CONEXION: RJ45, TIPO DE', 20, 'unidades', 'SWITCH; USO: PARA RED LAN, CONEXION: RJ45, TIPO DE CONEXION: RJ45 ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (26, '2018-07-09 00:00:00', '2018-07-09 21:16:16', NULL, 7, 11, 11, 'FUENTES DE ALIMENTACION; USO: ALIMENTADOR EQUIPOS ', 33, 'unidades', 'FUENTES DE ALIMENTACION; USO: ALIMENTADOR EQUIPOS DE COMPUTA, TENSION DE ENTRADA: 220 V, CORRIENTE: ALTERNA, TENSION DE SALIDA: 24 V, CRITERIO DE SEGURIDAD: SELLO DE SEGURIDAD ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (27, '2018-07-09 00:00:00', '2018-07-09 21:16:16', NULL, 7, 11, 11, 'CONVERSORES DE FIBRA OPTICA; CANTIDAD DE BOCAS: 1', 34, 'unidades', 'CONVERSORES DE FIBRA OPTICA; CANTIDAD DE BOCAS: 1', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (28, '2018-07-09 00:00:00', '2018-07-09 21:16:16', NULL, 7, 11, 11, 'PROTECTOR ELECTRONICO; USO: PROTECCION ELECTRONICA', 23, 'unidades', 'PROTECTOR ELECTRONICO; USO: PROTECCION ELECTRONICA, ACCESORIO: SIN, TIPO: CABLEADO ESTRUCTURADO UTP, CODIGO: EC-NET-4, CORRIENTE: 10 kA ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (29, '2018-07-09 00:00:00', '2018-07-09 21:22:11', NULL, 8, 3, 3, 'PLANCHAS DE CORCHO; LARGO X ANCHO: 90 X 120 Cm, ES', 3, 'unidades', 'PLANCHAS DE CORCHO; LARGO X ANCHO: 90 X 120 Cm, ESPESOR: SIN VALOR ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (30, '2018-07-09 00:00:00', '2018-07-09 21:22:11', NULL, 8, 3, 3, 'HILO DE ALGODON; PRESENTACION: OVILLO, USO: P/ATAR', 30, 'unidades', 'HILO DE ALGODON; PRESENTACION: OVILLO, USO: P/ATAR, NUMERO: 4 HEBRAS, LARGO: 800 M, TONALIDAD: BLANCO ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (31, '2018-07-09 00:00:00', '2018-07-09 21:22:11', NULL, 8, 3, 3, 'PAPELES ENCUADERNADOS; CANT. DE HOJAS: 200, TAMAÑO', 2, 'unidades', 'PAPELES ENCUADERNADOS; CANT. DE HOJAS: 200, TAMAÑO: OFICIO, TIPO: LIBRO DE ACTAS, CERTIFICADO FORESTAL (GFS): SIN, PORC. FIBRAS RECICLADAS: 0 %, CERT. FIBRA ALTERNATIVA (FCA): SIN ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (32, '2018-07-09 00:00:00', '2018-07-09 21:22:11', NULL, 8, 3, 3, 'PAPELES ENCUADERNADOS; CANT. DE HOJAS: 80 HOJAS, T', 20, 'unidades', 'PAPELES ENCUADERNADOS; CANT. DE HOJAS: 80 HOJAS, TAMAÑO: A4, TIPO: BLOCK, CERTIFICADO FORESTAL (GFS): SIN, PORC. FIBRAS RECICLADAS: 0 % ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (33, '2018-07-09 00:00:00', '2018-07-09 21:22:11', NULL, 8, 3, 3, 'PAPELES ENCUADERNADOS; CANT. DE HOJAS: 84, TAMAÑO:', 30, 'unidades', 'PAPELES ENCUADERNADOS; CANT. DE HOJAS: 84, TAMAÑO: A4, TIPO: CUADERNO, CERTIFICADO FORESTAL (GFS): SIN, PORC. FIBRAS RECICLADAS: 0 %, CERT. FIBRA ALTERNATIVA (FCA): SIN ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (34, '2018-07-09 00:00:00', '2018-07-09 21:22:11', NULL, 8, 3, 3, 'PAPELES ENCUADERNADOS; CANT. DE HOJAS: 48, TAMAÑO:', 1, 'unidades', 'PAPELES ENCUADERNADOS; CANT. DE HOJAS: 48, TAMAÑO: 21 X 16 Cm, TIPO: CUADERNO, CERTIFICADO FORESTAL (GFS): CON, PORC. FIBRAS RECICLADAS: 0 %, CERT. FIBRA ALTERNATIVA (FCA): SIN ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (35, '2018-07-09 00:00:00', '2018-07-09 21:22:11', NULL, 8, 3, 3, 'SOBRES DE PAPEL; TIPO: MADERA, TAMAÑO: OFICIO, GRA', 5, 'unidades', 'SOBRES DE PAPEL; TIPO: MADERA, TAMAÑO: OFICIO, GRAMAJE: 80 GR/M2, PRESENTACION: CAJA X 100 ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (36, '2018-07-09 00:00:00', '2018-07-09 21:22:11', NULL, 8, 3, 3, 'SOBRES DE PAPEL; TIPO: COMERCIAL, TAMAÑO: 114 X 16', 6, 'unidades', 'SOBRES DE PAPEL; TIPO: COMERCIAL, TAMAÑO: 114 X 162 mm, GRAMAJE: 70 GR/M2, PRESENTACION: ENVASE X 500 UN, CERTIFICADO FORESTAL (GFS): SIN, PORC. FIBRAS RECICLADAS: 0 % ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (37, '2018-07-09 00:00:00', '2018-07-09 21:22:11', NULL, 8, 3, 3, '	CINTAS P/EMBALAJE; USO: SELLADORA DE CAJAS, LARGO', 8, 'unidades', '	CINTAS P/EMBALAJE; USO: SELLADORA DE CAJAS, LARGO: 50 M, COLOR: TRANSPARENTE, MATERIAL: POLIPROPILENO, ANCHO: 48 mm ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (38, '2018-07-10 00:00:00', '2018-07-10 17:29:31', NULL, 9, 6, 8, 'PINTURAS; TIPO: LATEX, PRESENTACION: ENVASE X 20 L', 10, 'unidades', 'PINTURAS; TIPO: LATEX, PRESENTACION: ENVASE X 20 L, COMPUESTOS VOLATILES: SIN, PORCENTAJE DE PLOMO: 0 % ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (39, '2018-07-10 00:00:00', '2018-07-10 17:29:31', NULL, 9, 6, 8, 'PINTURAS; TIPO: LATEX, PRESENTACION: ENVASE X 4 L,', 10, 'unidades', 'PINTURAS; TIPO: LATEX, PRESENTACION: ENVASE X 4 L, COMPUESTOS VOLATILES: SIN, PORCENTAJE DE PLOMO: O % ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (40, '2018-07-10 00:00:00', '2018-07-10 17:29:31', NULL, 9, 6, 8, 'PINTURAS; TIPO: LATEX, PRESENTACION: ENVASE X 4 L,', 10, 'unidades', 'PINTURAS; TIPO: LATEX, PRESENTACION: ENVASE X 4 L, COMPUESTOS VOLATILES: SIN, PORCENTAJE DE PLOMO: O % ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (41, '2018-07-10 00:00:00', '2018-07-10 17:29:31', NULL, 9, 6, 8, 'PINTURAS; TIPO: LATEX, PRESENTACION: ENVASE X 4 L,', 10, 'unidades', 'PINTURAS; TIPO: LATEX, PRESENTACION: ENVASE X 4 L, COMPUESTOS VOLATILES: SIN, PORCENTAJE DE PLOMO: O % ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (42, '2018-07-10 00:00:00', '2018-07-10 17:29:31', NULL, 9, 6, 8, 'PINTURAS; TIPO: LATEX, PRESENTACION: ENVASE X 4 L,', 10, 'unidades', 'PINTURAS; TIPO: LATEX, PRESENTACION: ENVASE X 4 L, COMPUESTOS VOLATILES: SIN, PORCENTAJE DE PLOMO: O % ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (43, '2018-07-10 00:00:00', '2018-07-10 17:29:31', NULL, 9, 6, 8, 'LIQUIDOS PROTECTORES; PRESENTACION: ENVASE X 1 L, ', 10, 'unidades', 'LIQUIDOS PROTECTORES; PRESENTACION: ENVASE X 1 L, USO: SUBCARROCERIAS', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (44, '2018-07-10 00:00:00', '2018-07-10 17:29:31', NULL, 9, 6, 8, 'PINCELES; TIPO: PINCELETA, USO: PINTURA, NUMERO: V', 13, 'unidades', 'PINCELES; TIPO: PINCELETA, USO: PINTURA, NUMERO: VIROLA 4, MATERIAL: CERDA', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (45, '2018-07-10 00:00:00', '2018-07-10 17:29:31', NULL, 9, 6, 8, 'RODILLOS; LARGO: 22 Cm, MATERIAL: LANA ', 22, 'unidades', 'RODILLOS; LARGO: 22 Cm, MATERIAL: LANA ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (46, '2018-07-10 00:00:00', '2018-07-10 17:29:31', NULL, 9, 6, 8, '	ENTONADORES; CAPACIDAD: ENVASE X 30 CM3 ', 1, 'unidades', '	ENTONADORES; CAPACIDAD: ENVASE X 30 CM3 ', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (47, '2018-07-10 00:00:00', '2018-07-10 17:29:31', NULL, 9, 6, 8, 'IMPERMEABILIZANTES; TIPO: MEMBRANA EN PASTA, PRESE', 10, 'unidades', 'IMPERMEABILIZANTES; TIPO: MEMBRANA EN PASTA, PRESENTACION: ENVASE X 1 L	', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (136, '2018-10-17 03:17:07', '2018-10-17 03:17:07', 1, 125, 4, 48, 'asdasd', 1, 'unidades', '', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (138, '2018-10-27 11:49:51', '2018-10-27 11:49:51', 1, 129, 1, 1, 'sdsdf', 1, 'unidades', '', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (139, '2018-10-27 11:50:00', '2018-10-27 11:50:00', 1, 129, 3, 25, 'sdfdsf', 1, 'unidades', '', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (140, '2018-10-27 18:56:51', '2018-10-27 18:56:51', 1, 130, 9, 131, 'Biblioratos reforzados color verde', 50, 'unidades', '', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (141, '2018-10-27 19:09:03', '2018-10-27 19:09:03', 1, 134, 1, 1, 'asd', 1, 'unidades', 'asddasd', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (143, '2018-10-27 20:33:31', '2018-10-27 20:33:31', 1, 146, 3, 35, 'Monitores LED 19\'', 5, 'unidades', 'Marcas posibles SAMSUNG o LG', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (146, '2018-10-27 21:40:25', '2018-10-27 21:40:25', 1, 146, 3, 37, 'notebook core 2 duo', 1, 'unidades', 'sdsdf', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (148, '2018-10-29 04:41:58', '2018-10-29 04:41:58', 3, 148, 5, 83, 'COSAS PRUEBA', 1, 'unidades', '', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (149, '2018-10-29 04:42:19', '2018-10-29 04:42:19', 3, 148, 5, 81, 'TESTIN UHASD KJN', 1, 'unidades', '', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (150, '2018-11-16 23:05:36', '2018-11-16 23:05:36', 1, 151, 6, 92, 'televisot', 2, 'unidades', 'fggddd', NULL, NULL, 'Activo');
-INSERT INTO `items` VALUES (151, '2018-11-16 23:05:40', '2018-11-16 23:05:40', 1, 151, 6, 92, 'dggdgdgd', 1, 'unidades', 'dggdgd', NULL, NULL, 'Activo');
+INSERT INTO `items` VALUES (1, '2018-12-24 10:34:37', '2018-12-24 10:34:37', 1, 1, 9, 138, 'bordeadora para cesped black&decker', 5, 'unidades', '600W', NULL, NULL, 'Activo');
+INSERT INTO `items` VALUES (2, '2018-12-24 10:37:05', '2018-12-24 10:37:05', 1, 1, 9, 138, 'Palas de cavado ancho', 8, 'unidades', 'para jardineria', NULL, NULL, 'Activo');
+INSERT INTO `items` VALUES (3, '2018-12-24 10:38:09', '2018-12-24 10:38:09', 1, 1, 9, 138, 'Maquina de cortar cesped', 8, 'unidades', 'electrica 1HP', NULL, NULL, 'Activo');
+INSERT INTO `items` VALUES (4, '2018-12-24 10:47:57', '2018-12-24 10:47:57', 1, 2, 9, 136, 'Chapas Techo Galvanizadas Acanalada C-25.', 40, 'unidades', 'con entrega en domicilio', NULL, NULL, 'Activo');
+INSERT INTO `items` VALUES (5, '2018-12-24 10:48:10', '2018-12-24 10:48:10', 1, 2, 9, 136, 'Membrana No Crack Nº400 35kgs Megaflex', 1, 'unidades', '', NULL, NULL, 'Activo');
+INSERT INTO `items` VALUES (6, '2018-12-24 10:48:38', '2018-12-24 10:48:38', 1, 2, 9, 137, 'Llave De Luz Armada Sica Life 2 Modulos', 150, 'unidades', '', NULL, NULL, 'Activo');
+INSERT INTO `items` VALUES (7, '2018-12-24 10:48:53', '2018-12-24 10:48:53', 1, 2, 9, 137, 'Caja Luz Para Embutir Rectangular De Chapa Iram', 200, 'unidades', '', NULL, NULL, 'Activo');
+INSERT INTO `items` VALUES (8, '2018-12-24 10:50:10', '2018-12-24 10:50:10', 1, 2, 9, 139, 'Inodoro y  Bidet Deposito Roca ', 4, 'unidades', '', NULL, NULL, 'Activo');
+INSERT INTO `items` VALUES (9, '2018-12-24 10:51:01', '2018-12-24 10:51:01', 1, 2, 9, 140, 'Cocina Escorial Candor 50cm', 1, 'unidades', '', NULL, NULL, 'Activo');
+INSERT INTO `items` VALUES (10, '2018-12-25 22:30:22', '2018-12-25 22:30:22', 6, 3, 4, 44, 'Microfono Corbatero ', 25, 'unidades', 'Pc Celular Video Dslr Omnidirecc Boya M1', NULL, NULL, 'Activo');
+INSERT INTO `items` VALUES (11, '2018-12-25 22:31:22', '2018-12-25 22:31:22', 6, 3, 4, 44, 'Microfono Inalambrico Vincha Corbatero Doble Vhf 5', 10, 'unidades', '', NULL, NULL, 'Activo');
+INSERT INTO `items` VALUES (12, '2018-12-25 22:32:16', '2018-12-25 22:32:16', 6, 3, 4, 44, 'Consola De Sonido Sound Xtreme Sxm512 12 Canales E', 2, 'unidades', '', NULL, NULL, 'Activo');
+INSERT INTO `items` VALUES (13, '2018-12-25 22:34:17', '2018-12-25 22:34:17', 6, 4, 4, 44, 'Cable Multipar Portero E Intercom. ', 1, 'unidades', 'De 4 Pares Bobina 200mts', NULL, NULL, 'Activo');
+INSERT INTO `items` VALUES (14, '2018-12-25 22:35:18', '2018-12-25 22:35:18', 6, 4, 4, 53, 'Kit Proyector + Pantalla 100 Gadnic Full Hd 1200 L', 1, 'unidades', '', NULL, NULL, 'Activo');
+INSERT INTO `items` VALUES (15, '2018-12-25 22:36:02', '2018-12-25 22:36:02', 6, 4, 4, 55, 'Pyle Soporte Trípode Pie Pstnd1 Bafle Hasta 45kg M', 8, 'unidades', '', NULL, NULL, 'Activo');
+INSERT INTO `items` VALUES (16, '2018-12-25 22:41:10', '2018-12-25 22:41:10', 15, 5, 9, 136, 'Ladrillo Hueco Del 12 - 9 Agujeros', 400, 'unidades', '', NULL, NULL, 'Activo');
+INSERT INTO `items` VALUES (17, '2018-12-25 22:42:21', '2018-12-25 22:42:21', 15, 5, 9, 137, 'Cable Bipolar Pararelo Blanco 2x2.5 ', 2, 'unidades', 'Rollo 100mts Electrico', NULL, NULL, 'Activo');
 
 -- ----------------------------
 -- Table structure for mail_alertas
@@ -355,7 +335,7 @@ CREATE TABLE `mail_alertas_vendedores`  (
   `categoria_id` int(11) NULL DEFAULT NULL,
   `subcategorias` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 39 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of mail_alertas_vendedores
@@ -363,6 +343,7 @@ CREATE TABLE `mail_alertas_vendedores`  (
 INSERT INTO `mail_alertas_vendedores` VALUES (35, '2018-10-30 04:19:39', '2018-10-30 04:19:39', NULL, 1, 3, '27,28,33,38');
 INSERT INTO `mail_alertas_vendedores` VALUES (37, '2018-10-30 04:19:59', '2018-10-30 04:19:59', NULL, 1, 9, '123,124,128');
 INSERT INTO `mail_alertas_vendedores` VALUES (38, '2018-11-16 23:07:11', '2018-11-16 23:07:11', NULL, 1, 1, '2,10,11');
+INSERT INTO `mail_alertas_vendedores` VALUES (39, '2018-12-15 12:43:11', '2018-12-15 12:43:11', NULL, 2, 5, '81,86');
 
 -- ----------------------------
 -- Table structure for mail_mensajes
@@ -378,8 +359,16 @@ CREATE TABLE `mail_mensajes`  (
   `asunto` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `cuerpo` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `estado` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `fecha_envio` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of mail_mensajes
+-- ----------------------------
+INSERT INTO `mail_mensajes` VALUES (1, '2018-11-21 21:23:01', '2018-11-21 21:23:01', 'Compra Finalizada', 1, 'nicpas@gmail.com', 'gonzalo hola, nicolas soy, cansado estoy, logrado haberlo yo', '<h3>Hola nicpas </h3><p>Para consultar tus compras finalizadas entrá en el siguiente enlace. </p></br><a href=\'http://localhost/mis_compras_finalizadas/f0f3c968aec492761254d8de33b9711e\' target=\'_blank\'>http://localhost/mis_compras_finalizadas/</a></br><p>Saludos! </p><p>Wadaboo.com </p>', 'Enviado', NULL);
+INSERT INTO `mail_mensajes` VALUES (9, '2018-11-22 01:36:50', '2018-11-22 01:36:50', 'Compra Finalizada', 1, 'nicpas@gmail.com', 'Proceso de Compra Finalizado. Conocé los resultados aquí.', '<h3>Hola nicpas </h3><p>Para consultar tus compras finalizadas entrá en el siguiente enlace. </p></br><a href=\'http://localhost/mis_compras_finalizadas/f0f3c968aec492761254d8de33b9711e\' target=\'_blank\'>http://localhost/mis_compras_finalizadas/</a></br><p>Saludos! </p><p>Wadaboo.com </p>', 'Enviado', NULL);
+INSERT INTO `mail_mensajes` VALUES (10, '2018-11-22 01:36:50', '2018-11-22 01:36:50', 'Compra Finalizada', 6, 'nicpas@gmail.com', 'Proceso de Compra Finalizado. Conocé los resultados aquí.', '<h3>Hola segupetrol </h3><p>Para consultar tus compras finalizadas entrá en el siguiente enlace. </p></br><a href=\'http://localhost/mis_compras_finalizadas/2022c0b8dc29c3d9c52237f732c4268c\' target=\'_blank\'>http://localhost/mis_compras_finalizadas/</a></br><p>Saludos! </p><p>Wadaboo.com </p>', 'Enviado', NULL);
 
 -- ----------------------------
 -- Table structure for ofertas
@@ -396,32 +385,7 @@ CREATE TABLE `ofertas`  (
   `oferta_hasta` decimal(10, 0) NULL DEFAULT NULL,
   `estado_actual` int(1) NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of ofertas
--- ----------------------------
-INSERT INTO `ofertas` VALUES (3, '2018-07-11 13:02:08', '2018-07-11 13:02:08', 1, 5, 5, 200.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (4, '2018-07-11 13:02:08', '2018-07-11 13:02:08', 1, 5, 7, 150.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (5, '2018-07-11 13:37:18', '2018-07-11 13:37:18', 1, 4, 4, 150.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (6, '2018-07-11 17:11:55', '2018-07-11 17:11:55', 13, 4, 4, 150.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (7, '2018-08-02 18:31:55', '2018-08-02 18:31:55', 1, 4, 4, 149.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (8, '2018-08-03 14:35:48', '2018-08-03 14:35:48', 14, 9, 38, 350.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (9, '2018-08-03 15:17:16', '2018-08-03 15:17:16', 14, 2, 2, 100.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (10, '2018-08-06 17:28:45', '2018-08-06 17:28:45', 14, 6, 10, 100.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (11, '2018-10-27 23:36:00', '2018-10-27 23:36:00', 1, 4, 4, 160.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (12, '2018-10-27 23:41:50', '2018-10-27 23:41:50', 1, 4, 4, 100.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (13, '2018-10-27 23:42:12', '2018-10-27 23:42:12', 1, 4, 4, 150.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (14, '2018-10-27 23:42:57', '2018-10-27 23:42:57', 1, 5, 6, 50.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (15, '2018-10-28 20:49:11', '2018-10-28 20:49:11', 2, 4, 4, 90.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (16, '2018-10-28 23:55:21', '2018-10-28 23:55:21', 1, 8, 29, 255.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (17, '2018-10-28 23:55:21', '2018-10-28 23:55:21', 1, 8, 32, 366.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (18, '2018-10-29 04:45:07', '2018-10-29 04:45:07', 3, 148, 12, 25555.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (21, '2018-11-07 21:50:12', '2018-11-07 21:50:12', 1, 8, 35, 100.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (22, '2018-11-07 21:50:12', '2018-11-07 21:50:12', 1, 8, 37, 500.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (23, '2018-11-07 21:52:30', '2018-11-07 21:52:30', 1, 5, 8, 50.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (24, '2018-11-16 23:06:29', '2018-11-16 23:06:29', 1, 5, 5, 150.00, NULL, 1);
-INSERT INTO `ofertas` VALUES (25, '2018-11-20 20:47:02', '2018-11-20 20:47:02', 1, 4, 4, 80.00, NULL, 1);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for preguntas
@@ -434,7 +398,7 @@ CREATE TABLE `preguntas`  (
   `user_id` int(11) NULL DEFAULT NULL,
   `proceso_id` int(11) NULL DEFAULT NULL,
   `estado` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `descripcion` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `pregunta` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
@@ -452,31 +416,21 @@ CREATE TABLE `procesos`  (
   `fecha_fin` date NULL DEFAULT NULL,
   `detalles` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL DEFAULT NULL,
   `fecha_entrega` date NULL DEFAULT NULL,
-  `condicion_pago` varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL DEFAULT NULL,
+  `preferencia_pago` varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL DEFAULT NULL,
   `requisitos_excluyentes` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL DEFAULT NULL,
   `estado` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 155 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of procesos
 -- ----------------------------
-INSERT INTO `procesos` VALUES (2, '2018-07-06 00:00:00', '2018-07-06 00:00:00', 12, 1, 'SERVICIO DE PROVISIÓN DE AGUA MINERAL EN BIDONES', '2018-07-27', 'Requiere muestras\r\nLugar y periodo de entrega de muestras\r\n\r\nDirección:Avenida Córdoba nº 1155 - CABA', '2018-08-16', '30-60 dias', NULL, 'Activo');
-INSERT INTO `procesos` VALUES (4, '2018-07-09 00:00:00', '2018-07-09 00:00:00', 12, 2, 'ADQUISICIÓN DE ARTEFACTOS DE ILUMINACIÓN', '2018-07-27', 'Cada renglón se adjudicará en forma total\r\nAdjudicación por renglón', '2018-09-14', '30 dias', NULL, 'Activo');
-INSERT INTO `procesos` VALUES (5, '2018-07-09 00:00:00', '2018-07-09 00:00:00', 2, 3, 'Compra de materiales eléctricos', '2018-07-20', 'Requiere muestras\r\nLugar y periodo de entrega de muestras\r\n\r\nDirección:Avenida Córdoba nº 1155 - CABA', '2018-07-27', '30-60-90 dias', NULL, 'Activo');
-INSERT INTO `procesos` VALUES (6, '2018-07-09 00:00:00', '2018-07-09 00:00:00', 12, 4, 'Adquisición de repuestos de informática para el 17', '2018-08-09', 'Se podrá adjudicar un renglón parcialmente\r\nAdjudicación por renglón', '2018-08-24', '30 dias', NULL, 'Activo');
-INSERT INTO `procesos` VALUES (7, '2018-07-09 00:00:00', '2018-07-09 00:00:00', 12, 5, 'Equipamiento para enlaces inalambricos de datos', '2018-09-13', 'Cada renglón se adjudicará en forma total\r\nAdjudicación por renglón', '2018-11-02', '30 dias', NULL, 'Activo');
-INSERT INTO `procesos` VALUES (8, '2018-07-09 00:00:00', '2018-07-09 00:00:00', 12, 6, 'Adquisición de insumos de librería', '2018-08-29', 'Requiere muestras\r\nLugar y periodo de entrega de muestras\r\n\r\nDirección:Av. Velez Sarsfield 563', '2018-08-31', 'Contado', NULL, 'Activo');
-INSERT INTO `procesos` VALUES (9, '2018-07-10 00:00:00', '2018-07-10 00:00:00', 1, 1, 'Adquisición de pintura y accesorios de uso genéric', '2018-08-16', 'Requiere muestras\r\nLugar y periodo de entrega de muestras\r\n\r\nDirección:Avenida Córdoba nº 1155 - CABA', '2018-08-30', '30-60 dias', NULL, 'Activo');
-INSERT INTO `procesos` VALUES (10, '2018-08-03 00:00:00', '2018-08-03 00:00:00', 14, 1, 'asad', '2018-08-16', 'ads', '2018-08-23', 'Contado', NULL, 'Activo');
-INSERT INTO `procesos` VALUES (125, '2018-10-17 03:16:38', '2018-10-17 03:16:38', 1, 2, 'iajsdiojaosdijasodij', '2018-11-06', 'iajsdiojaosdijasodij', '2018-11-07', 'Contado', 'Que el proveedor emita Factura A', 'Activo');
-INSERT INTO `procesos` VALUES (129, '2018-10-27 11:49:37', '2018-10-27 11:49:37', 1, 3, 'dfsdfsdf', '2018-10-31', 'dfsdfsdf', '2018-11-21', 'Contado', 'Que el proveedor emita Factura A,Que el proveedor gestione el envío', 'Activo');
-INSERT INTO `procesos` VALUES (130, '2018-10-27 18:55:59', '2018-10-27 18:55:59', 1, 4, 'Insumos oficina', '2018-11-13', 'Insumos oficina', '2018-11-14', 'Contado', 'Que el proveedor emita Factura A', 'Activo');
-INSERT INTO `procesos` VALUES (134, '2018-10-27 19:08:54', '2018-10-27 19:08:54', 1, 5, 'asddasdasd', '2018-10-31', 'asddasdasd', '2018-11-20', 'Contado', 'Que el proveedor gestione el envío', 'Activo');
-INSERT INTO `procesos` VALUES (146, '2018-10-27 20:32:41', '2018-10-27 20:32:41', 1, 6, 'Insumos de computacion', '2018-11-13', 'Insumos de computacion', '2018-11-28', 'Contado', 'Que el proveedor emita Factura A', 'Activo');
-INSERT INTO `procesos` VALUES (148, '2018-10-29 04:41:21', '2018-10-29 04:41:21', 3, 1, 'Pruebas oferta validacion', '2018-11-14', 'Pruebas oferta validacion', '2018-11-21', 'Contado', 'Que el proveedor emita Factura A', 'Activo');
-INSERT INTO `procesos` VALUES (151, '2018-11-16 23:05:12', '2018-11-16 23:05:12', 1, 7, 'dggdgdgdggdgdgdgd', '2018-11-21', 'dggdgdgdggdgdgdgd', '2018-11-28', 'Contado', 'Que el proveedor emita Factura A', 'Activo');
-INSERT INTO `procesos` VALUES (154, '2018-11-20 20:49:02', '2018-11-20 20:49:02', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Borrador');
+INSERT INTO `procesos` VALUES (1, '2018-12-24 10:32:21', '2018-12-24 10:32:21', 1, 1, 'Equipamiento para empresa de jardinería', '2019-01-04', '', '2019-01-10', 'Efectivo', 'Que el proveedor emita Factura A', 'Activo');
+INSERT INTO `procesos` VALUES (2, '2018-12-24 10:46:17', '2018-12-24 10:46:17', 1, 2, 'Compra general construccion Obra 44-N', '2019-01-16', '', '2019-01-30', 'Efectivo', 'Que el proveedor emita Factura A,Que el proveedor gestione el envío', 'Activo');
+INSERT INTO `procesos` VALUES (3, '2018-12-25 22:27:42', '2018-12-25 22:27:42', 6, 1, 'Equipos para sonido en vivo', '2019-01-16', '', '2019-01-22', 'Efectivo', 'Que el proveedor gestione el envío', 'Activo');
+INSERT INTO `procesos` VALUES (4, '2018-12-25 22:33:51', '2018-12-25 22:33:51', 6, 2, 'Equipos varios para empresa alquiler de audio y video', '2019-01-02', '', '2019-01-23', 'Efectivo', 'Que el proveedor gestione el envío', 'Activo');
+INSERT INTO `procesos` VALUES (5, '2018-12-25 22:40:21', '2018-12-25 22:40:21', 15, 1, 'varios construccion', '2019-01-09', '', '2019-01-11', 'Efectivo', 'Que el proveedor emita Factura A,Que el proveedor gestione el envío', 'Activo');
+INSERT INTO `procesos` VALUES (6, '2018-12-26 06:20:46', '2018-12-26 06:20:46', 1, NULL, NULL, NULL, NULL, NULL, 'Efectivo', NULL, 'Borrador');
 
 -- ----------------------------
 -- Table structure for prov_localidades
@@ -2955,10 +2909,9 @@ CREATE TABLE `respuestas`  (
   `created` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `modified` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `user_id` int(11) NULL DEFAULT NULL,
-  `proceso_id` int(11) NULL DEFAULT NULL,
   `pregunta_id` int(11) NULL DEFAULT NULL,
   `estado` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `descripcion` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `respuesta` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
@@ -3019,19 +2972,19 @@ CREATE TABLE `users`  (
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (1, 'nicpas', 'nicpas@gmail.com', '$2a$10$xBfZJlnJgRjugyuTveJqM.qfEdefwmdrJn1QSr4uHhKk4VlnMzbEi', '2017-12-19 08:34:56', '2018-05-20 18:23:52', 0, 1, 'Particular', 'Nicolas', 'Passerini', '30593224', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Av Mayo 762 piso 4 oficina 3', 'Mi Empresa S.A.', NULL, '30710900406', NULL, '56165565', 'asdasd', NULL);
-INSERT INTO `users` VALUES (2, 'vendedor', 'xczc@gmail.com', '$2a$10$wO54SeuhrQfsJ0ELKfaxMO1ytnuLyaRQElm4ej06O8JaCSg0VGuvK', '2017-12-19 08:35:56', '2018-05-19 21:07:34', 0, 1, 'Empresa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PetroCAL SLR', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `users` VALUES (3, 'vendedor2', 'compras@miempresa.com.ar', '$2a$10$W/cbpcG1sNHdyuHM09YzdOquLcckxOMi5e3hO7YMPoJIp2VXcULcm', '2017-12-19 08:36:22', '2017-12-19 08:36:22', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ETECH SRL', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `users` VALUES (4, 'comprador1', 'compras1@miempresa.com.ar', '$2a$10$2jMG9MNLgR7tJBiaxJiYS.u1J5yyz9pGTtRZNLnK0ApXSY95qxcTa', '2017-12-19 08:37:00', '2017-12-19 08:37:00', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PoTec S.A.', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `users` VALUES (5, 'vendedor1', 'ventas1@proveedor.com', '$2a$10$PCzmb3pcnKj7ykLt1y8YgOrKY60ci67tWuxiq.Sd4/7FC28vGLrjK', '2017-12-19 08:37:30', '2017-12-19 08:37:30', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'SisteMir', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` VALUES (2, 'vendedor', 'xczc@gmail.com', '$2a$10$xBfZJlnJgRjugyuTveJqM.qfEdefwmdrJn1QSr4uHhKk4VlnMzbEi', '2017-12-19 08:35:56', '2018-12-15 12:42:56', 0, 1, 'Empresa', '', '', '', '', '', '', '', '', 26, 0, '', 'PetroCAL SLR', '', '', '', '', '', '');
+INSERT INTO `users` VALUES (3, 'vendedor2', 'compras@miempresa.com.ar', '$2a$10$xBfZJlnJgRjugyuTveJqM.qfEdefwmdrJn1QSr4uHhKk4VlnMzbEi', '2017-12-19 08:36:22', '2017-12-19 08:36:22', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ETECH SRL', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` VALUES (4, 'comprador1', 'compras1@miempresa.com.ar', '$2a$10$xBfZJlnJgRjugyuTveJqM.qfEdefwmdrJn1QSr4uHhKk4VlnMzbEi', '2017-12-19 08:37:00', '2017-12-19 08:37:00', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PoTec S.A.', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` VALUES (5, 'vendedor1', 'ventas1@proveedor.com', '$2a$10$xBfZJlnJgRjugyuTveJqM.qfEdefwmdrJn1QSr4uHhKk4VlnMzbEi', '2017-12-19 08:37:30', '2017-12-19 08:37:30', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'SisteMir', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `users` VALUES (6, 'segupetrol', 'info@segupetrol.com.ar', '$2a$10$xBfZJlnJgRjugyuTveJqM.qfEdefwmdrJn1QSr4uHhKk4VlnMzbEi', '2018-04-10 03:08:44', '2018-04-10 03:08:44', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `users` VALUES (7, 'usina', 'hola@usinaco.work', '$2a$10$PPOZ/PcClMxXPfcAqFPr6OlTM2ZdhQN7tFbl0KJJulIhAcYTWJeUK', '2018-05-30 12:49:56', '2018-05-30 12:49:56', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `users` VALUES (8, 'avantiproduccio', 'info@avantiproducciones.com.ar', '$2a$10$P0sxpiNuen2g/4r3P7WfJ.c3bD2TddGWNW6chiuwE8JyDMvfvD5Di', '2018-05-30 18:08:10', '2018-05-30 18:08:10', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `users` VALUES (9, 'yanina', 'consultas@arte-creativo.com.ar', '$2a$10$F7XXQW/9HTMl0opmdIS7sOpDBAHSo6BCRboT1KmqoX4MMxbi3gCSK', '2018-06-01 10:58:20', '2018-06-01 10:58:20', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `users` VALUES (10, 'alejandra', 'aley.delgado@gmail.com', '$2a$10$HC63Zl4oqrhRmsMrVdMGseYMCpN/klnkIyzJ/omb8zLQIrW5kHfo.', '2018-06-02 16:39:02', '2018-06-02 16:39:02', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `users` VALUES (11, 'gikale', 'lageekmarketer@gmail.com', '$2a$10$XcIDG5qN6ot20jCF7GA3aO2AEZdAaslVgbhtE7kfT8rWzbM5OBkvG', '2018-06-05 10:30:20', '2018-06-05 10:30:20', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `users` VALUES (12, 'Daniel', 'dblitman@gmail.com', '$2a$10$dqVMHC7cCkmyJTJR4sbK2.k90zotB.JVPK3Df0hiTirEqGqP7VX7u', '2018-07-01 13:15:20', '2018-07-01 13:15:20', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `users` VALUES (13, 'yanina1', 'yaninaparga@gmail.com', '$2a$10$gafF37V0KbXkHQZCS91yWu.J.5/xFKRUFeBWVfwHjM8jweEHXApk.', '2018-07-11 17:10:32', '2018-07-11 17:10:32', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `users` VALUES (14, 'vanina', 'vanina@gmail.com', '$2a$10$EcG9ojH4Nd5R6t1zLVypReV8rLI2IGY1exih2hUkFC6OxiipcNJNG', '2018-08-03 14:32:15', '2018-08-03 14:32:15', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `users` VALUES (15, 'coprotab', 'info@coprotab.com', '$2a$10$kZ5VchandtN9XTgaQpi3EelR3BV2cAoj3T29UoBxB6C6IXImCs61S', '2018-08-22 02:23:17', '2018-08-22 02:23:17', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` VALUES (7, 'usina', 'hola@usinaco.work', '$2a$10$xBfZJlnJgRjugyuTveJqM.qfEdefwmdrJn1QSr4uHhKk4VlnMzbEi', '2018-05-30 12:49:56', '2018-05-30 12:49:56', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` VALUES (8, 'avantiproduccio', 'info@avantiproducciones.com.ar', '$2a$10$xBfZJlnJgRjugyuTveJqM.qfEdefwmdrJn1QSr4uHhKk4VlnMzbEi', '2018-05-30 18:08:10', '2018-05-30 18:08:10', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` VALUES (9, 'yanina', 'consultas@arte-creativo.com.ar', '$2a$10$xBfZJlnJgRjugyuTveJqM.qfEdefwmdrJn1QSr4uHhKk4VlnMzbEi', '2018-06-01 10:58:20', '2018-06-01 10:58:20', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` VALUES (10, 'alejandra', 'aley.delgado@gmail.com', '$2a$10$xBfZJlnJgRjugyuTveJqM.qfEdefwmdrJn1QSr4uHhKk4VlnMzbEi', '2018-06-02 16:39:02', '2018-06-02 16:39:02', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` VALUES (11, 'gikale', 'lageekmarketer@gmail.com', '$2a$10$xBfZJlnJgRjugyuTveJqM.qfEdefwmdrJn1QSr4uHhKk4VlnMzbEi', '2018-06-05 10:30:20', '2018-06-05 10:30:20', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` VALUES (12, 'Daniel', 'dblitman@gmail.com', '$2a$10$xBfZJlnJgRjugyuTveJqM.qfEdefwmdrJn1QSr4uHhKk4VlnMzbEi', '2018-07-01 13:15:20', '2018-07-01 13:15:20', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` VALUES (13, 'yanina1', 'yaninaparga@gmail.com', '$2a$10$xBfZJlnJgRjugyuTveJqM.qfEdefwmdrJn1QSr4uHhKk4VlnMzbEi', '2018-07-11 17:10:32', '2018-07-11 17:10:32', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` VALUES (14, 'vanina', 'vanina@gmail.com', '$2a$10$xBfZJlnJgRjugyuTveJqM.qfEdefwmdrJn1QSr4uHhKk4VlnMzbEi', '2018-08-03 14:32:15', '2018-08-03 14:32:15', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` VALUES (15, 'coprotab', 'info@coprotab.com', '$2a$10$xBfZJlnJgRjugyuTveJqM.qfEdefwmdrJn1QSr4uHhKk4VlnMzbEi', '2018-08-22 02:23:17', '2018-08-22 02:23:17', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;

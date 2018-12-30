@@ -83,7 +83,7 @@ function finalizarPublicacion() {
         info_general["fecha_fin"] = $("#ProcesoFechaFin").val();
         info_general["detalles"] = $("#ProcesoDetalles").val();
         info_general["fecha_entrega"] = $("#ProcesoFechaEntrega").val();
-        info_general["condicion_pago"] = $("#ProcesoCondicionPago").val();
+        info_general["preferencia_pago"] = $("#ProcesoCondicionPago").val();
         info_general["requisitos_excluyentes"] = getRequisitos();
 
         $.post("/procesos/ajax_set_info_general", info_general, function () {

@@ -36,7 +36,6 @@ class Item extends AppModel {
             'foreignKey' => 'subcategoria_id',
         ],
     ];
-   
 
     public function afterSave($created, $options = []) {
 
@@ -143,6 +142,29 @@ class Item extends AppModel {
         }
 //        die;
         return $items;
+    }
+
+    public function getInfoCategoria($categoria_id) {
+        $data = [];
+
+        $info_categoria = $this->Categoria->find('first', [
+            'conditions' => ['Categoria.id' => $categoria_id]
+        ]);
+
+        $data["nombre_cat"] = $info_categoria['Categoria']['nombre'];
+        $data["icon_cat"] = $info_categoria['Categoria']['icon'];
+        $data["descripcion"] = $info_categoria['Categoria']['descripcion'];
+
+        $subcats_id = $this->find('list', [
+            'fields' => ['subcategoria_id'],
+            'conditions' => ['estado' => 'Activo', 'categoria_id' => $categoria_id],
+            'group' => ['subcategoria_id']
+        ]);
+
+        $subcats = $this->Subcategoria->find('list', ['conditions' => ['id' => $subcats_id]]);
+       
+        $data["subcategorias"] = $subcats;
+        return $data;
     }
 
 }

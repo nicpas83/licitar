@@ -1,4 +1,6 @@
-var WWW = window.location.origin+"/";
+var WWW = window.location.origin + "/";
+var btn_download = "<i class='fas fa-download'></i>";
+
 $(function () {
     $(document).on('focus click', 'input.datepicker', function () {
         $(this).datepicker({
@@ -12,10 +14,24 @@ $(function () {
             donetext: 'Done',
         });
     });
-    
+
+    $('.initDt').DataTable({
+        pageLength: 25,
+        aaSorting: [],
+        dom: 'Bfrtip',
+        buttons: [{extend: 'excel', text: ''}],
+        ordering: false,
+        language: {
+            search: "_INPUT_",
+            searchPlaceholder: " Buscar...",
+        }
+    });
+
+    $("a.buttons-excel span").html(btn_download);
     
 
 });
+
 
 //FILES JS
 $('.dropify').dropify();

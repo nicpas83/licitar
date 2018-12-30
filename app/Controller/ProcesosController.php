@@ -8,7 +8,7 @@ class ProcesosController extends AppController {
         $this->set('categorias', $this->Categoria->options());
         $this->set('subcategorias', $this->Subcategoria->options());
         $this->set('unidades', $this->Proceso->unidades);
-        $this->set('condiciones', $this->Proceso->condicionesPago);
+        $this->set('condiciones', $this->Proceso->preferenciasPago);
         $this->set('requisitos', $this->Proceso->requisitosExcluyentes);
 
         //checkeo si el usuario tiene proceso en borrador creado
@@ -76,15 +76,21 @@ class ProcesosController extends AppController {
 
     public function categoria($categoria_id = null) {
         $procesos = $this->Proceso->getProcesosActivos($categoria_id);
-        $this->set('categorias', $procesos['categorias']);
-        $this->set('procesos', $procesos['procesos']);
+        $info_categoria = $this->Proceso->Item->getInfoCategoria($categoria_id);
+        
+        $this->set('nombre_cat', $info_categoria['nombre_cat']);
+        $this->set('icon_cat', $info_categoria['icon_cat']);
+        $this->set('descripcion', $info_categoria['descripcion']);
+        $this->set('subcats', $info_categoria['subcategorias']);
+        $this->set('procesos', $procesos);
+//        debug($info_categoria['subcategorias']);die;
     }
 
     public function edit($id = null) {
         $this->set('categorias', $this->Categoria->options());
         $this->set('subcategorias', $this->Subcategoria->options());
         $this->set('unidades', $this->Proceso->unidades);
-        $this->set('condiciones', $this->Proceso->condicionesPago);
+        $this->set('condiciones', $this->Proceso->preferenciasPago);
         $this->set('requisitos', $this->Proceso->requisitosExcluyentes);
 
         $proceso = $this->Proceso->findByIdAndUserId($id, $this->Auth->user('id'));
@@ -127,7 +133,7 @@ class ProcesosController extends AppController {
             'fecha_entrega' => "'" . $fecha_entrega . "'",
             'proceso_nro' => "'" . ($this->Proceso->getLastNroProceso() + 1) . "'",
             'detalles' => "'" . $this->request->data['detalles'] . "'",
-            'condicion_pago' => "'" . $this->request->data['condicion_pago'] . "'",
+            'preferencia_pago' => "'" . $this->request->data['preferencia_pago'] . "'",
             'requisitos_excluyentes' => "'" . $this->request->data['requisitos_excluyentes'] . "'",
             'estado' => "'Activo'"
                 ], [

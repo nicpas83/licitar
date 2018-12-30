@@ -32,7 +32,7 @@
                                 <tr>
                                     <td><a href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'view', $proceso['id']]) ?>"><?php echo $proceso['referencia'] ?></a></td>
                                     <td><?php echo $proceso['q_items'] ?></td>
-                                    <td><?php echo $proceso['condicion_pago'] ?></td>
+                                    <td><?php echo $proceso['preferencia_pago'] ?></td>
                                     <td><?php echo $proceso['fecha_fin'] ?></td>
                                     <td>
                                         <button type="button" class="btn btn-secondary btn-outline" data-toggle="button" aria-pressed="true">

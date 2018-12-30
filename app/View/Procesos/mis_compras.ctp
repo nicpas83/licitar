@@ -1,7 +1,4 @@
 <?php // debug($activos);die;                ?>
-<style>
-
-</style>
 
 <div class="row">
     <div class="col-12">
@@ -19,7 +16,7 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="activas" role="tabpanel">
                         <div class="table-responsive mt40">
-                            <table id="procesosActivos" class="table table-bordered table-striped" cellspacing="0" width="100%">
+                            <table class="table table-bordered table-striped initDt" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>Titulo de referencia</th>
@@ -58,7 +55,7 @@
 
                     <div class="tab-pane" id="finalizadas" role="tabpanel">
                         <div class="table-responsive mt40">
-                            <table id="procesosFinalizados" class="table table-bordered table-striped" cellspacing="0" width="100%">
+                            <table  class="table table-bordered table-striped initDt" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>Titulo de referencia</th>

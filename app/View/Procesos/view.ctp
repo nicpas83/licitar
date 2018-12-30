@@ -14,7 +14,7 @@
                 </li>
                 <li>
                     <span class="font-bold">Condiciones de Pago: </span> 
-                    <?php echo $proceso['condicion_pago'] ?>
+                    <?php echo $proceso['preferencia_pago'] ?>
                 </li>
                 <?php if (!empty($proceso['detalles'])) { ?>
                     <li>

@@ -1,4 +1,4 @@
-<?php echo $this->Html->script('procesos/index') ?> 
+<?php echo $this->Html->script('procesos/index', ['inline' => false]) ?> 
 <div class="row">
     <div class="col-lg-12 col-sm-12">
         <div class="card">
@@ -12,39 +12,10 @@
 
 <div class="row">
     <div class="col-12">
-
         <div class="card">
             <div class="card-block">
-                <div class="table-responsive m-t-40">
-                    <table id="procesosIndex" class="table table-bordered table-striped" cellspacing="0" width="100%">
-                        <thead>
-                            <tr>
-                                <th>Título de referencia</th>
-                                <th>Items</th>
-                                <th>Condicion de Pago</th>
-                                <th>Finaliza</th>
-                                <th>Favoritos</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($procesos as $proceso) { ?>
-                                <tr>
-                                    <td><a href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'view', $proceso['id']]) ?>"><?php echo $proceso['referencia'] ?></a></td>
-                                    <td><?php echo $proceso['q_items'] ?></td>
-                                    <td><?php echo $proceso['condicion_pago'] ?></td>
-                                    <td><?php echo $proceso['fecha_fin'] ?></td>
-                                    <td>
-                                        <button type="button" class="btn btn-secondary btn-outline" data-toggle="button" aria-pressed="true">
-                                            <i class="far fa-heart text" aria-hidden="true"></i>
-                                            <i class="fa fa-heart text-active text-danger" aria-hidden="true"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-                </div>    
-
+                <?php echo $this->element('ribbon_title', ['title' => 'Publicaciones Activas']) ?>
+                <?php echo $this->element('procesos/listado_general', $procesos); ?>
             </div>
         </div>
     </div>
