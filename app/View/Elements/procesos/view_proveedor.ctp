@@ -11,6 +11,7 @@
                 <th>Cantidad</th>
                 <th>Mejor Oferta</th>
                 <th>Tu oferta</th>
+                <th>Observaciones</th>
             </tr>
         </thead>
         <tbody>
@@ -49,6 +50,9 @@
                             <?php echo $this->element('f_input_moneda', ['params' => ['name' => "Oferta.$i.valor_oferta", 'inTable']]) ?>
                             <!--<small>auto-oferta</small>-->
                             <!--<small><?php // echo $this->element('ui_slider', ['params' => ['name' => "Oferta.$i.auto_oferta"]]) ?></small>-->
+                        </td>
+                        <td>
+                            <?php echo $this->element('f_input', ['params' => ['name' => "Oferta.$i.observaciones", 'inTable']]) ?>
                         </td>
 
                         <?php echo $this->Form->input("Oferta.$i.item_id", ['type' => 'hidden', 'value' => $item['id']]) ?>

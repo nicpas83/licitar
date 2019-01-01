@@ -1,5 +1,4 @@
 <?php
-
 $title = isset($params['title']) ? $params['title'] : "";
 $paramsUrl = isset($params['url']) ? explode('/', $params['url']) : "";
 $model_id = isset($params['id']) ? $params['id'] : "";

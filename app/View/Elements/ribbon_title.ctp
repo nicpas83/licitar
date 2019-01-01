@@ -48,7 +48,7 @@ if (is_array($subtitle)) {
         if ($icon_img) {
             $html = "<div class='  col-lg-12'>";
             $html .= "<div class='col-2 fl'>" . $icon_img . "</div>";
-            $html .= "<div class='col-10 fl'><ol class='breadcrumb'>" . $bread_list . "</ol></div>";
+            $html .= "<div class='col-10 fl'>Subcategorías: <ol class='breadcrumb'>" . $bread_list . "</ol></div>";
             $html .= "</div>";
 
             echo $html;

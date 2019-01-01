@@ -13,7 +13,7 @@ if (isset($params['style'])) {
 }
 
 $options['id'] = $options['title']."-".$model_id;
-//debug($options);die;
+debug($options);die;
 
 echo $this->Form->button('',$options);
 ?>

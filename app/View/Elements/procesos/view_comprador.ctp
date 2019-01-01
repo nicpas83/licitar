@@ -6,7 +6,6 @@
                 <th>Especificaciones</th>
                 <th>Cantidad</th>
                 <th>Mejor Oferta Recibida</th>
-                <th>Cantidad Proveedores Participando</th>
             </tr>
         </thead>
         <tbody>
@@ -42,9 +41,6 @@
                                 echo "Sin Ofertas";
                             }
                             ?>                                            
-                        </td>
-                        <td>
-                            <?php echo $item['q_proveedores'] ?>
                         </td>
 
                     </tr>

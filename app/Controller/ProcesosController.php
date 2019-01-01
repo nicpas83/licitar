@@ -75,15 +75,25 @@ class ProcesosController extends AppController {
     }
 
     public function categoria($categoria_id = null) {
-        $procesos = $this->Proceso->getProcesosActivos($categoria_id);
         $info_categoria = $this->Proceso->Item->getInfoCategoria($categoria_id);
-        
+        $procesos = $this->Proceso->getProcesosActivos($categoria_id);
+        $items = $this->Proceso->Item->getItemsActivos($categoria_id);
+
         $this->set('nombre_cat', $info_categoria['nombre_cat']);
         $this->set('icon_cat', $info_categoria['icon_cat']);
         $this->set('descripcion', $info_categoria['descripcion']);
         $this->set('subcats', $info_categoria['subcategorias']);
         $this->set('procesos', $procesos);
-//        debug($info_categoria['subcategorias']);die;
+        $this->set('items', $items);
+//        debug($items);die;
+    }
+
+    public function mis_favoritos() {
+        App::uses('Favorito', 'Model');
+        $mis_favoritos = (new Favorito())->getMisProcesosFavoritos();
+        $this->Proceso->filtroIds = ['Proceso.id' => $mis_favoritos];
+
+        $this->set('procesos', $this->Proceso->getProcesosActivos());
     }
 
     public function edit($id = null) {
@@ -120,6 +130,38 @@ class ProcesosController extends AppController {
     /**
      * METODOS AJAX
      */
+    public function ajax_set_favorito() {
+        if (!$this->request->is('post')) {
+            throw new MethodNotAllowedException();
+        }
+
+        $proceso_id = $this->request->data['proceso_id'];
+        $user_id = $this->Auth->user('id');
+
+        if ($this->Proceso->esActivo($proceso_id)) {
+            App::uses('Favorito', 'Model');
+            $favorito = new Favorito();
+            $yaExiste = $favorito->find('first', [
+                'conditions' => ['proceso_id' => $proceso_id, 'user_id' => $user_id, 'estado' => 1],
+                'recursive' => -1,
+            ]);
+
+            if ($yaExiste) {
+                $id = $yaExiste['Favorito']['id'];
+                //desactivo
+                $favorito->save(['Favorito' => ['id' => $id, 'estado' => 0]]);
+                $this->set('data', "remove");
+            } else {
+                //agrego
+                $favorito->create();
+                $favorito->save(['Favorito' => ['proceso_id' => $proceso_id, 'user_id' => $user_id]]);
+                $this->set('data', "add");
+            }
+        }
+
+        return $this->render("/ajax", "ajax");
+    }
+
     public function ajax_set_info_general() {
         if (!$this->request->is('post')) {
             throw new MethodNotAllowedException();
@@ -159,5 +201,4 @@ class ProcesosController extends AppController {
         }
     }
 
-    
 }

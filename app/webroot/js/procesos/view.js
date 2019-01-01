@@ -1,18 +1,29 @@
 $(function () {
 
     $('#itemsDelProceso').DataTable({
-        "aaSorting": [],
-        "dom": 'Bfrtip',
-        "buttons": ['print'],
-        "ordering": false,
-        "columns": [
-            null,
+        pageLength: 25,
+        aaSorting: [],
+        dom: 'Bfrtip',
+        buttons: [{
+                extend: 'excel',
+                text: '',
+
+            }],
+        language: {
+            search: "_INPUT_",
+            searchPlaceholder: " Buscar...",
+        },
+        columns: [
+            {"width": "30%"},
             {"width": "30%"},
             null,
-            {"width": "17%"},
+            null,
             {"width": "15%"},
+            {"width": "20%"},
         ]
     });
+    
+    $("a.buttons-excel span").html(btn_download);
 
 //    $(".range_01").ionRangeSlider({
 //        min: -50,
@@ -20,8 +31,8 @@ $(function () {
 //        from: 0,
 //        postfix: " %",
 //    });
-    
-    $("#ofertar").click(function(){
+
+    $("#ofertar").click(function () {
 //        event.preventDefault();
     });
 

@@ -18,7 +18,7 @@
 <?php echo $this->Html->css('/css/style') ?>
 <?php echo $this->Html->css('/css/modif') ?>
 <?php echo $this->Html->css('/css/generic') ?>
-<?php echo $this->Html->css('https://use.fontawesome.com/releases/v5.2.0/css/all.css') ?>
+<?php echo $this->Html->css('https://use.fontawesome.com/releases/v5.6.3/css/all.css') ?>
 <?php echo $this->Html->css('https://fonts.googleapis.com/css?family=Audiowide|Encode+Sans+Expanded|Rammetto+One|Special+Elite') ?>
 
 <?php echo $this->Html->meta('favicon.ico', '/assets/images/favicon.png', array('type' => 'icon')); ?>

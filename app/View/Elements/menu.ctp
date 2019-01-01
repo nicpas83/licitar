@@ -14,19 +14,19 @@
                     <li>
                         <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'pages']) ?>" aria-expanded="false"><i class="mdi mdi-home"></i><span class="hide-menu">Inicio</span></a>
                     </li>
-                    <li class="nav-devider"></li>        
                     <li>
                         <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'nuevo']) ?>" aria-expanded="false"><i class="mdi mdi-cart-outline"></i><span class="hide-menu">Comprar</span></a>
                     </li>
-                    <li class="nav-devider"></li>
                     <li>
                         <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'mis_compras']) ?>" aria-expanded="false"><i class="mdi mdi-table-edit"></i><span class="hide-menu">Mis Compras</span></a>
                     </li>
                     <li>
                         <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'ofertas', 'action' => 'mis_ofertas']) ?>" aria-expanded="false"><i class="mdi mdi-cash-multiple"></i><span class="hide-menu">Mis Ofertas</span></a>
                     </li>
+                    <li>
+                        <a class="has-arrow " href="<?php echo $this->Html->url(['controller' => 'procesos', 'action' => 'mis_favoritos']) ?>" aria-expanded="false"><i class="mdi mdi-heart-outline"></i><span class="hide-menu">Mis Favoritos</span></a>
+                    </li>
 
-                    <li class="nav-devider"></li>
 
                     <li>
                         <a class="has-arrow" href="" aria-haspopup="true"><span class="hide-menu"><i class="fas fa-user-cog"></i>Mi Cuenta</span></a>

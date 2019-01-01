@@ -6,6 +6,7 @@ App::uses('Categorias.Categoria', 'Model');
 class Proceso extends AppModel {
 
     public $useTable = 'procesos';
+    public $filtroIds = "";
     public $filtroCategoria = "";
     public $preferenciasPago = [
         'Efectivo' => 'Efectivo',
@@ -59,8 +60,17 @@ class Proceso extends AppModel {
             'className' => 'Pregunta',
             'foreignKey' => 'proceso_id',
             'dependent' => true
-        ],
+        ],        
     ];
+
+    public function esActivo($proceso_id) {
+        $proceso = $this->findById($proceso_id);
+        if ($proceso && $proceso['Proceso']['estado'] == 'Activo') {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public function getProcesosCategoria($categoria_id) {
         $procesos_id = $this->Item->find('list', [
@@ -83,17 +93,29 @@ class Proceso extends AppModel {
             'conditions' => [
                 'Proceso.estado' => 'Activo',
                 $this->filtroCategoria,
+                $this->filtroIds,
             ],
             'order' => ['Proceso.fecha_fin']
         ));
-        foreach ($results as $key => $value) {
+        
+        //favoritos
+        App::uses('Favorito','Model');
+        $mis_favoritos = (new Favorito())->getMisProcesosFavoritos();
+
+        foreach ($results as $key => $val) {
+            $requisitos = !empty($val['Proceso']['requisitos_excluyentes']) ? explode(",", $val['Proceso']['requisitos_excluyentes']) : "";
             //listado general.
-            $data[$key]['id'] = $value['Proceso']['id'];
-            $data[$key]['referencia'] = $value['Proceso']['referencia'];
-            $data[$key]['preferencia_pago'] = $value['Proceso']['preferencia_pago'];
-            $data[$key]['q_items'] = count($value['Item']);
-            $data[$key]['q_unidades'] = array_sum(array_column($value['Item'], 'cantidad'));
-            $data[$key]['fecha_fin'] = $value['Proceso']['fecha_fin'];
+            $data[$key]['id'] = $val['Proceso']['id'];
+            $data[$key]['referencia'] = $val['Proceso']['referencia'];
+            $data[$key]['detalles'] = $val['Proceso']['detalles'];
+            $data[$key]['preferencia_pago'] = $val['Proceso']['preferencia_pago'];
+            $data[$key]['q_items'] = count($val['Item']);
+            $data[$key]['q_unidades'] = array_sum(array_column($val['Item'], 'cantidad'));
+            $data[$key]['fecha_fin'] = $val['Proceso']['fecha_fin'];
+            $data[$key]['requisitos_excluyentes'] = $requisitos;
+            $data[$key]['categorias'] = array_unique(array_column($val['Item'], 'categoria'));
+            $data[$key]['favorito'] = in_array($val['Proceso']['id'], $mis_favoritos) ? "Si" : "";
+            $data[$key]['propio'] = $val['Proceso']['user_id'] == AuthComponent::user('id') ? "Si" : "";
         }
 
         return $data;
@@ -180,12 +202,13 @@ class Proceso extends AppModel {
     }
 
     public function afterFind($results, $primary = false) {
-
+        
+        //evito entrar desde los shell.
         if (isset(Router::getParams()['action'])) {
 
             $categorias = $this->Item->Categoria->find('list');
             $subcategorias = $this->Item->Categoria->Subcategoria->find('list');
-
+            
             foreach ($results as $key => $result) {
                 if (isset($results[$key]['Proceso']['fecha_fin'])) {
                     $results[$key]['Proceso']['fecha_fin'] = dateDMY($result['Proceso']['fecha_fin']);

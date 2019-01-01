@@ -19,8 +19,11 @@ $(function () {
         pageLength: 25,
         aaSorting: [],
         dom: 'Bfrtip',
-        buttons: [{extend: 'excel', text: ''}],
-        ordering: false,
+        buttons: [{
+                extend: 'excel',
+                text: '',
+                
+            }],
         language: {
             search: "_INPUT_",
             searchPlaceholder: " Buscar...",
@@ -28,7 +31,7 @@ $(function () {
     });
 
     $("a.buttons-excel span").html(btn_download);
-    
+
 
 });
 

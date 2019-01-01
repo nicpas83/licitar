@@ -8,6 +8,7 @@ class Item extends AppModel {
 
     public $useTable = 'items';
     public $files = [];
+    public $filtroCateogia = "";
     public $validate = array(
         'titulo' => array(
             'rule' => 'notBlank',
@@ -41,9 +42,6 @@ class Item extends AppModel {
 
         if ($created) {
             App::import('Vendor', 'php_image_magician');
-
-//            debug($this->data);
-//            die;
 
             if (!empty($this->files)) {
                 //defino la ruta
@@ -97,6 +95,43 @@ class Item extends AppModel {
         }
     }
 
+    public function getItemsActivos($categoria_id = null) {
+        $data = [];
+        if ($categoria_id) {
+            $this->filtroCategoria = ['Item.categoria_id' => $categoria_id];
+        }
+
+        $items = $this->find('all', [
+            'conditions' => [
+                'Item.estado' => 'Activo',
+                $this->filtroCategoria,
+            ],
+            'order' => ['Proceso.fecha_fin']
+        ]);
+
+        foreach ($items as $key => $item) {
+            $mejor_oferta = "";
+            $data[$key]['id'] = $item['Item']['id'];
+            $data[$key]['user_id'] = $item['Item']['user_id'];
+            $data[$key]['nombre'] = $item['Item']['nombre'];
+            $data[$key]['cantidad'] = $item['Item']['cantidad'];
+            $data[$key]['unidad'] = $item['Item']['unidad'];
+            $data[$key]['especificaciones'] = $item['Item']['especificaciones'];
+            $data[$key]['imagen'] = $item['Item']['imagen'];
+            $data[$key]['proceso_id'] = $item['Proceso']['id'];
+            $data[$key]['proceso_referencia'] = $item['Proceso']['referencia'];
+            $data[$key]['fecha_fin'] = $item['Proceso']['fecha_fin'];
+            $data[$key]['mejor_oferta'] = $mejor_oferta;
+            $data[$key]['fecha_entrega'] = $item['Proceso']['fecha_entrega'];
+            $data[$key]['preferencia_pago'] = $item['Proceso']['preferencia_pago'];
+            $data[$key]['requisitos_excluyentes'] = $item['Proceso']['requisitos_excluyentes'];
+            $data[$key]['categoria'] = $item['Categoria']['nombre'];
+            $data[$key]['subcategoria'] = $item['Subcategoria']['nombre'];
+        }
+
+        return $data;
+    }
+
     public function setMejoresOfertas($items, $ofertas) {
 
         foreach ($items as $key => $item) {
@@ -138,9 +173,7 @@ class Item extends AppModel {
             } else {
                 $items[$key]['q_proveedores'] = 0; //sin ofertas
             }
-//            debug($proveedores_ids);
         }
-//        die;
         return $items;
     }
 
@@ -150,7 +183,7 @@ class Item extends AppModel {
         $info_categoria = $this->Categoria->find('first', [
             'conditions' => ['Categoria.id' => $categoria_id]
         ]);
-
+        
         $data["nombre_cat"] = $info_categoria['Categoria']['nombre'];
         $data["icon_cat"] = $info_categoria['Categoria']['icon'];
         $data["descripcion"] = $info_categoria['Categoria']['descripcion'];
@@ -162,7 +195,7 @@ class Item extends AppModel {
         ]);
 
         $subcats = $this->Subcategoria->find('list', ['conditions' => ['id' => $subcats_id]]);
-       
+
         $data["subcategorias"] = $subcats;
         return $data;
     }

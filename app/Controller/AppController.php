@@ -71,6 +71,12 @@ class AppController extends Controller {
             'title' => 'Ver',
             'class' => 'btn btn-info fa fa-search-plus pull-right',
         );
+        $ofertar = array(
+            'div' => false,
+            'title' => 'Ofertar',
+            'class' => 'btn btn-success fa fa-dollar-sign pull-right',
+        );
+       
 
         //estilos para botones de acción en Formularios
         $guardar = array(
@@ -97,6 +103,7 @@ class AppController extends Controller {
         $this->set('deleteBtn', $delete);
         $this->set('editBtn', $edit);
         $this->set('viewBtn', $view);
+        $this->set('ofertarBtn', $ofertar);
         $this->set('guardar', $guardar);
         $this->set('buscar', $buscar);
         $this->set('aceptar', $aceptar);

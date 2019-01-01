@@ -16,6 +16,9 @@ foreach ($params as $val) {
         $validation = "data-validation-required-message";
         $validationMsg = "El campo " . $label . " es obligatorio.";
     }
+    if($val == 'inTable'){
+        $inTable = true;
+    }
 }
 if (!empty($maxLengthValue)) {
     $maxLength = "maxLength";
@@ -28,13 +31,24 @@ $options = [
     $validation => $validationMsg,
     $maxLength => $maxLengthValue,
 ];
-?>
 
-<div class="col-lg-<?php echo $lg ?>">
-    <div class="form-group">
-        <label><?php echo $label ?><span class="text-danger"><?php echo $validate ?></span></label>
-        <div class="controls">
-            <?php echo $this->Form->input("" . $name . "", $options) ?>
+
+if ($inTable) {
+    ?>
+    <div class="controls">
+        <?php echo $this->Form->input("" . $name . "", $options) ?>
+    </div>
+    <?php
+} else {
+    ?>
+    <div class="col-lg-<?php echo $lg ?>">
+        <div class="form-group">
+            <label><?php echo $label ?><span class="text-danger"><?php echo $validate ?></span></label>
+            <div class="controls">
+                <?php echo $this->Form->input("" . $name . "", $options) ?>
+            </div>
         </div>
     </div>
-</div>
+    <?php
+}
+?>

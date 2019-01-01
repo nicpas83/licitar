@@ -38,8 +38,8 @@
                                                 <td><?php echo $val['fecha_fin'] ?></td>
                                                 <td><?php echo $val['total_ofertas'] ?></td>
                                                 <td>
-                                                    <?php echo $this->Form->postLink('', array('action' => 'delete', $val['id']), $deleteBtn); ?>
-                                                    <?php echo $this->Html->link('', array('action' => 'edit', $val['id']), $editBtn); ?>
+                                                    <?php echo $this->Form->postLink('', ['action' => 'delete', $val['id']], $deleteBtn); ?>
+                                                    <?php echo $this->Html->link('', ['action' => 'edit', $val['id']], $editBtn); ?>
                                                 </td>
                                             </tr>
                                             <?php
