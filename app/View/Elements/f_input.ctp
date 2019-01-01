@@ -3,6 +3,7 @@ $validate = "";
 $validation = "";
 $validationMsg = "";
 $maxLength = "";
+$inTable = false;
 $lg = isset($params['lg']) ? $params['lg'] : '12';
 $label = isset($params['label']) ? $params['label'] : "";
 $name = isset($params['name']) ? $params['name'] : "";
