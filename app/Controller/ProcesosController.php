@@ -8,7 +8,7 @@ class ProcesosController extends AppController {
         $this->set('categorias', $this->Categoria->options());
         $this->set('subcategorias', $this->Subcategoria->options());
         $this->set('unidades', $this->Proceso->unidades);
-        $this->set('condiciones', $this->Proceso->preferenciasPago);
+        $this->set('preferencias', $this->Proceso->preferenciasPago);
         $this->set('requisitos', $this->Proceso->requisitosExcluyentes);
 
         //checkeo si el usuario tiene proceso en borrador creado
@@ -97,24 +97,30 @@ class ProcesosController extends AppController {
     }
 
     public function edit($id = null) {
-        $this->set('categorias', $this->Categoria->options());
-        $this->set('subcategorias', $this->Subcategoria->options());
-        $this->set('unidades', $this->Proceso->unidades);
-        $this->set('condiciones', $this->Proceso->preferenciasPago);
-        $this->set('requisitos', $this->Proceso->requisitosExcluyentes);
 
-        $proceso = $this->Proceso->findByIdAndUserId($id, $this->Auth->user('id'));
         //valido que por URL solo se pueda acceder a procesos activos y propios.
+        $proceso = $this->Proceso->findByIdAndUserId($id, $this->Auth->user('id'));
         if ($proceso && $proceso['Proceso']['estado'] == 'Activo') {
             $this->set('proceso', $proceso['Proceso']);
             $this->set('items', $proceso['Item']);
 
-            //permitir editar solamente items sin oferta. 
-//            $this->set('hidden', $this->Proceso->encodeItems($proceso['Item']));
+            //check edición
+            if ($this->Proceso->esEditableGeneral($id) == false) {
+                $this->Proceso->readonly = true;
+            }
+            
+            
+            
         } else {
             $this->Flash->error('El proceso al que intenta acceder no es válido.');
             return $this->redirect(array('controller' => 'procesos', 'action' => 'mis_procesos'));
         }
+
+        $this->set('categorias', $this->Categoria->options());
+        $this->set('subcategorias', $this->Subcategoria->options());
+        $this->set('unidades', $this->Proceso->unidades);
+        $this->set('preferencias', $this->Proceso->preferenciasPago);
+        $this->set('requisitos', $this->Proceso->requisitosExcluyentes);
     }
 
     public function delete($id) {

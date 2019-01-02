@@ -33,7 +33,7 @@ echo $this->Form->create('Oferta', $formHorizontal);
                     <td><?php echo $proceso['fecha_fin'] ?></td>
                     <td class="center">
                         <?php
-                        echo $this->Html->link('', ['action' => 'view', $proceso['id']], $viewBtn);
+                        echo $this->Html->link('', ['controller' => 'procesos', 'action' => 'view', $proceso['id']], $viewBtn);
                         if ($proceso['propio'] != 'Si') {
                             echo $this->element('btn_toggle', ['params' => ['pk' => $proceso['id'], 'icon' => "far fa-heart", 'active' => $active, 'title' => 'Agregar a Favoritos']]);
                         }

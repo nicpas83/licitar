@@ -14,6 +14,7 @@ foreach ($params as $val) {
 
 $options = [
     'type' => 'text',
+    'autocomplete' => 'off',
     'value' => $value,
     $validation => $validationMsg
 ];

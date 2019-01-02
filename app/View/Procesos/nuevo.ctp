@@ -1,6 +1,7 @@
 <?php
+echo $this->Html->script('procesos/funciones', array('inline' => false));
 echo $this->Html->script('procesos/nuevo', array('inline' => false));
-echo $this->Html->script('procesos/abm_items', array('inline' => false));
+echo $this->Html->script('categorias_change', array('inline' => false));
 
 $formHorizontal['type'] = 'file';
 
@@ -14,62 +15,66 @@ if (isset($borrador_id)) {
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <?php
-            echo $this->Form->create($formHorizontal);
-            echo $this->element('procesos/nuevo_paso1');
-            echo $this->element('procesos/nuevo_paso2');
-            echo $this->Form->end();
-            ?>
+            <?php echo $this->Form->create($formHorizontal); ?>
+
+            <div class="card-block" id="paso1_card">
+                <?php
+                $title = "Paso 1. ¿Qué necesitas comprar? ";
+                $subtitle = [
+                    'Podés <span class="text-bold">agregar hasta 15 items</span> por pedido de compra.',
+                    'Especifica los <span class="text-bold">detalles de cada uno.</span>',
+                    'Cuando estés listo,  <span class="text-bold">presioná "Siguiente".</span>'
+                ];
+                echo $this->element('ribbon_title', ['title' => $title, 'subtitle' => $subtitle]);
+
+                echo $this->element('procesos/form_items');
+                ?>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group pull-right">
+                            <?php echo $this->Form->button('Agregar Ítem', ['id' => 'addItem', 'class' => 'btn btn-info mr10', 'type' => 'button']); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-block" id="paso2_card">
+                <?php
+                $title = "Paso 2. Información general de tu compra.";
+                $subtitle = [
+                    'La publicación tendrá una <span class="text-bold">duración mínima</span> de 3 días hábiles.',
+                    'Podrás especificar una <span class="text-bold">fecha de entrega</span> (mínimo 1 día después de finalizar la subasta).',
+                    'No olvides <span class="text-bold">aclarar todo detalle</span> que sea de importancia para los proveedores.'
+                ];
+                echo $this->element('ribbon_title', ['title' => $title, 'subtitle' => $subtitle]);
+                echo $this->element('procesos/form_general');
+                ?>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group pull-right">
+                            <?php
+                            echo $this->Form->button('Atrás', ['id' => 'paso2_atras', 'class' => 'btn btn-info mr10', 'type' => 'button']);
+                            echo $this->Form->button('Guardar!', ['id' => 'publicar', 'class' => 'btn btn-success', 'type' => 'button']);
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <?php echo $this->Form->end(); ?>
         </div>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-block" id="TableItem-vista_previa">
                 <h5>Vista Previa</h5>
-                <div class="table-responsive">
-                    <table class="table" id="items_proceso">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Título</th>
-                                <th>Categoría</th>
-                                <th>Subcategoría</th>
-                                <th>Cantidad</th>
-                                <th>Unidad</th>
-                                <th>Especificaciones</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            if (isset($items)) {
-                                foreach ($items as $key => $item) {
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $key + 1; ?></td>
-                                        <td><?php echo $item['nombre']; ?></td>
-                                        <td><?php echo $categorias[$item['categoria_id']]; ?></td>
-                                        <td><?php echo $subcategorias[$item['subcategoria_id']]; ?></td>
-                                        <td><?php echo $item['cantidad']; ?></td>
-                                        <td><?php echo $item['unidad']; ?></td>
-                                        <td><?php echo $item['especificaciones']; ?></td>
-                                        <td class='acciones'><?php echo $this->Form->input("itemPk-" . $item['id'], ['type' => 'hidden', 'value' => $item['id']]); ?></td>
-                                    </tr>
-
-                                    <?php
-                                }
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
+                <?php echo $this->element('procesos/listado_items'); ?>
                 <div class="col-sm-12">
                     <div class="form-group pull-right">
-                        <?php
-                        echo $this->Form->button('Siguiente', ['id' => 'paso1_siguiente', 'class' => 'btn btn-success', 'type' => 'button']);
-                        ?>
+                        <?php echo $this->Form->button('Siguiente', ['id' => 'paso1_siguiente', 'class' => 'btn btn-success', 'type' => 'button']); ?>
                     </div>
                 </div>
             </div>

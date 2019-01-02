@@ -1,12 +1,10 @@
-var proceso_id;
-var info_general = {};
+var edit_id = false;
 
 $(function () {
-    aplicarDatePicker();
     //oculto pasos siguientes.
     $("[id^='paso2']").hide();
-
     checkBorrador();
+    aplicarDatePicker();
 
     $("#paso1_siguiente").click(function () {
         continueWithCheckItems();
@@ -27,128 +25,91 @@ $(function () {
     });
 
 
+
+    //FORMULARIO ITEMS.
+    $('#ProcesoCantidad').val(1);
+    $("#addItem").click(function () {
+        var item = {};
+        if (!validarItem()) {
+            topAlert("Para agregar un Item debe completar los campos marcados (*)", "danger");
+            return;
+        }
+        item["proceso_id"] = proceso_id;
+        item["nombre"] = $('#ProcesoNombre').val();
+        item["categoria_id"] = $('#ProcesoCategoria').val();
+        item["categoria"] = $('#ProcesoCategoria option:selected').text();
+        item["subcategoria_id"] = $('#ProcesoSubcategoria').val();
+        item["subcategoria"] = $('#ProcesoSubcategoria option:selected').text();
+        item["especificaciones"] = $('#ProcesoEspecificaciones').val();
+        item["cantidad"] = $('#ProcesoCantidad').val();
+        item["unidad"] = $('#ProcesoUnidad option:selected').text();
+
+        //UPDATE 
+        if (edit_id) {
+            item["id"] = edit_id;
+            $("[id='EditItem-" + edit_id + "']").closest("tr").find("td:eq(1)").text(item.nombre);
+            $("[id='EditItem-" + edit_id + "']").closest("tr").find("td:eq(2)").text(item.categoria);
+            $("[id='EditItem-" + edit_id + "']").closest("tr").find("td:eq(3)").text(item.subcategoria);
+            $("[id='EditItem-" + edit_id + "']").closest("tr").find("td:eq(4)").text(item.cantidad);
+            $("[id='EditItem-" + edit_id + "']").closest("tr").find("td:eq(5)").text(item.unidad);
+            $("[id='EditItem-" + edit_id + "']").closest("tr").find("td:eq(6)").text(item.especificaciones);
+
+            $.post("/items/ajax_update_item", item, function () {
+                beforeAlert("Edición realizada con éxito!", "#TableItem-vista_previa");
+                $("html, body").animate({scrollTop: $('#ProcesoNombre').offset().top - 150}, "slow");
+                edit_id = false;
+                limpiarTmpForm();
+            });
+            return;
+        }
+
+        //NEW
+        $.post("/items/ajax_add_item", item, function (item_id) {
+            var nroItem = $("#items_proceso tbody tr").length;
+            var modelPk = "Item-" + item_id;
+            var html = "";
+            html += "<tr>";
+            html += "<td>" + (nroItem + 1) + "</td>";
+            html += "<td>" + item.nombre + "</td>";
+            html += "<td>" + item.categoria + "</td>";
+            html += "<td>" + item.subcategoria + "</td>";
+            html += "<td>" + item.cantidad + "</td>";
+            html += "<td>" + item.unidad + "</td>";
+            html += "<td>" + item.especificaciones + "</td>";
+            html += "<td class='acciones'>" + edit_btn(modelPk) + del_btn(modelPk) + "</td>";
+            html += "</tr>";
+
+            $("#items_proceso tbody").append(html);
+            limpiarTmpForm();
+            beforeAlert("Bien hecho! podés seguir agregando items", "#TableItem-vista_previa");
+            $("html, body").animate({scrollTop: $('#ProcesoNombre').offset().top - 150}, "slow");
+        });
+
+    });
+
+    //Acción Editar.  
+    $(document).on("click", "[id^='EditItem']", function () {
+        edit_id = getNumeric($(this).attr('id'));
+        $('#ProcesoCategoria').select2('destroy'); //para evitar que dispare el change.
+
+        $.get("/items/ajax_get_item/" + edit_id, function (data) {
+            var jdata = $.parseJSON(data);
+            topAlert("Edita los campos y hacé click en Agregar Item");
+            $('#ProcesoNombre').val(jdata.nombre);
+            $('#ProcesoCategoria').val(jdata.categoria_id).select2();
+            $('#ProcesoEspecificaciones').val(jdata.especificaciones);
+            $('#ProcesoCantidad').val(jdata.cantidad);
+            $('#ProcesoUnidad').val(jdata.unidad);
+            change_subcategoria(jdata.categoria_id, jdata.subcategoria_id);
+        });
+    });
+    //Acción Eliminar.
+    $(document).on("click", "[id^='DeleteItem']", function () {
+        var pk = getNumeric($(this).attr('id'));
+        delete_model_id('Item', pk);
+    });
+
+
 });
 
-function getRequisitos() {
-    var requisitos = [];
-    $("[id^=ProcesoRequisitosExcluyentes]").each(function () {
-        if ($(this).prop("checked")) {
-            requisitos.push($(this).val());
-        }
-    });
-    if (requisitos.length > 0) {
-        return requisitos.toString();
-    }
-    return "";
-}
 
-function validarInfoGeneral() {
-    var validate = true;
-    if ($('#ProcesoReferencia').val() == '') {
-        validate = false;
-    }
-    if ($('#ProcesoFechaFin').val() == 0) {
-        validate = false;
-    }
-    if ($('#ProcesoFechaEntrega').val() == 0) {
-        validate = false;
-    }
-    return validate;
-}
-
-function continueWithCheckItems() {
-    //check si existen items antes de continuar
-    $.get("/items/ajax_check_items_before", function (status) {
-        if (status == "true") {
-            finalizarPublicacion();
-            continuarPaso2();
-        } else {
-            swal("Para continuar, al menos debes agregar 1 ítem a tu compra.");
-            return;
-        }
-    });
-}
-
-function continuarPaso2() {
-    if ($("[id^='paso1']").is(":visible")) {
-        $("[id^='paso1']").hide();
-        $("[id^='paso2']").show();
-        goTop();
-    }
-}
-function finalizarPublicacion() {
-    if ($("[id^='paso2']").is(":visible")) {
-        info_general["id"] = proceso_id;
-        info_general["referencia"] = $("#ProcesoReferencia").val();
-        info_general["fecha_fin"] = $("#ProcesoFechaFin").val();
-        info_general["detalles"] = $("#ProcesoDetalles").val();
-        info_general["fecha_entrega"] = $("#ProcesoFechaEntrega").val();
-        info_general["preferencia_pago"] = $("#ProcesoCondicionPago").val();
-        info_general["requisitos_excluyentes"] = getRequisitos();
-
-        $.post("/procesos/ajax_set_info_general", info_general, function () {
-            swal("Felicitaciones!");
-            $(location).attr('href', WWW);
-            return;
-        });
-    }
-}
-
-function checkBorrador() {
-    //check si es borrador
-    if ($("#borradorPk").val()) {
-        $("[id^='paso1']").hide();
-
-        $("#continuar_publicacion").click(function () {
-            proceso_id = $("#borradorPk").val();
-            $("[id='check_borrador']").closest(".row").remove();
-            $("[id^='paso1']").show();
-            $("#items_proceso tbody tr").each(function () {
-                var item_id = $(this).find("[id^='itemPk']").val();
-                var modelPk = "Item-" + item_id;
-                $(this).find(".acciones").append(edit_btn(modelPk));
-                $(this).find(".acciones").append(del_btn(modelPk));
-            });
-        });
-
-        $("#nueva_publicacion").click(function () {
-            var params = {"id": $("#borradorPk").val()};
-            $.post("/procesos/ajax_eliminar_borrador", params, function () {
-                location.reload();
-            });
-        });
-
-    } else {
-        proceso_id = $("#nuevoPk").val();
-    }
-}
-function aplicarDatePicker() {
-    var hoy = moment().format('DD/MM/YYYY');
-    var dateToday = new Date();
-    var fin_subasta = new Date(dateToday.setDate(dateToday.getDate() + 3));
-
-    $("#ProcesoFechaFin").datepicker({
-        autoclose: true,
-        todayHighlight: true,
-        format: 'dd/mm/yyyy',
-        daysOfWeekDisabled: [0, 6],
-        weekStart: [1],
-        language: 'es',
-        orientation: "bottom",
-        startDate: fin_subasta
-    });
-    $("#ProcesoFechaFin").datepicker().on('changeDate', function (e) {
-        var fechaEntrega = new Date(e.date.setDate(e.date.getDate() + 1));
-        $("#ProcesoFechaEntrega").val('');
-        $("#ProcesoFechaEntrega").datepicker('destroy');
-        $("#ProcesoFechaEntrega").datepicker({
-            autoclose: true,
-            format: 'dd/mm/yyyy',
-            daysOfWeekDisabled: [0, 6],
-            weekStart: [1],
-            language: 'es',
-            orientation: "bottom",
-            startDate: fechaEntrega
-        });
-    });
-}

@@ -7,6 +7,7 @@ class Proceso extends AppModel {
 
     public $useTable = 'procesos';
     public $filtroIds = "";
+    public $readonly = false;
     public $filtroCategoria = "";
     public $preferenciasPago = [
         'Efectivo' => 'Efectivo',
@@ -60,8 +61,21 @@ class Proceso extends AppModel {
             'className' => 'Pregunta',
             'foreignKey' => 'proceso_id',
             'dependent' => true
-        ],        
+        ],
     ];
+
+    public function esEditableGeneral($proceso_id) {
+        $proceso = $this->findById($proceso_id);
+        if ($proceso && $proceso['Proceso']['estado'] == 'Activo') {
+            if (empty($proceso['Oferta'])) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
 
     public function esActivo($proceso_id) {
         $proceso = $this->findById($proceso_id);
@@ -97,9 +111,9 @@ class Proceso extends AppModel {
             ],
             'order' => ['Proceso.fecha_fin']
         ));
-        
+
         //favoritos
-        App::uses('Favorito','Model');
+        App::uses('Favorito', 'Model');
         $mis_favoritos = (new Favorito())->getMisProcesosFavoritos();
 
         foreach ($results as $key => $val) {
@@ -202,13 +216,13 @@ class Proceso extends AppModel {
     }
 
     public function afterFind($results, $primary = false) {
-        
+
         //evito entrar desde los shell.
         if (isset(Router::getParams()['action'])) {
 
             $categorias = $this->Item->Categoria->find('list');
             $subcategorias = $this->Item->Categoria->Subcategoria->find('list');
-            
+
             foreach ($results as $key => $result) {
                 if (isset($results[$key]['Proceso']['fecha_fin'])) {
                     $results[$key]['Proceso']['fecha_fin'] = dateDMY($result['Proceso']['fecha_fin']);

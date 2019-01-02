@@ -1,34 +1,26 @@
 <?php
-debug($proceso);
+echo $this->Html->script('categorias_change', array('inline' => false));
+echo $this->Html->script('procesos/funciones', array('inline' => false));
+echo $this->Html->script('procesos/edit', array('inline' => false));
+//debug($proceso);
 //debug($items);die;       
 ?>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-block">
-                <div class="ribbon-wrapper card">
-                    <div class="ribbon ribbon-warning">Editar Proceso de Compra</div>
-                    <h2 class="ribbon-content text-justify"> 
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur, mi sit amet placerat vehicula, lorem elit ultricies nunc, sed lacinia ipsum orci ac ipsum.
-                    </h2>
-                </div>
-
-                <?php
-                echo $this->Form->create($formHorizontal);
-                echo $this->element('procesos/add_edit');
-                ?>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="form-group pull-right">
-                            <?php echo $this->Form->button('Actualizar', ['class' => 'btn btn-info']); ?>
-                        </div>
-                    </div>
-                </div>
-
-                <?php echo $this->Form->end() ?>
-
+                <?php echo $this->element('ribbon_title', ['title' => 'Editar proceso de compra']) ?>
+                <?php echo $this->Form->create($formHorizontal); ?>
+                <?php echo $this->element('procesos/form_general'); ?>
             </div>
         </div>
+        <div class="card">
+            <div class="card-block">
+                <?php echo $this->element('procesos/listado_items_editar'); ?>
+                <?php echo $this->Form->end() ?>
+            </div>
+        </div>
+        
     </div>
+
 </div>
