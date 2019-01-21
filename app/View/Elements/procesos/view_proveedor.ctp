@@ -54,7 +54,6 @@
                         <td>
                             <?php echo $this->element('f_input', ['params' => ['name' => "Oferta.$i.observaciones", 'inTable']]) ?>
                         </td>
-
                         <?php echo $this->Form->input("Oferta.$i.item_id", ['type' => 'hidden', 'value' => $item['id']]) ?>
                         <?php echo $this->Form->input("Oferta.$i.proceso_id", ['type' => 'hidden', 'value' => $proceso['id']]) ?>
                     </tr>

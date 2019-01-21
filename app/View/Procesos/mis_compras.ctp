@@ -1,11 +1,10 @@
-<?php // debug($activos);die;                ?>
-
+<?php // debug($activos);die;                 ?>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-block">
                 <?php echo $this->element('ribbon_title', ['title' => 'Mis Compras']) ?>
-
+                <?php echo $this->element('card/boxBg', ['title' => 'Cantidad Compras', 'value' => 44]) ?>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs customtab" role="tablist">
                     <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#activas" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Activas</span></a> </li>

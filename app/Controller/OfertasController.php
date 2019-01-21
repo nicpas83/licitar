@@ -6,11 +6,18 @@ class OfertasController extends AppController {
 
     public function add() {
         if ($this->request->is('post')) {
+            
+            debug($this->request->data); 
             foreach ($this->request->data['Oferta'] as $key => $oferta) {
                 if (empty($oferta['valor_oferta'])) {
                     unset($this->request->data['Oferta'][$key]);
                 }
             }
+            
+            
+            debug($this->request->data); 
+            
+//            die;
             $result = $this->Oferta->saveMany($this->request->data['Oferta']);
 
             if ($result) {

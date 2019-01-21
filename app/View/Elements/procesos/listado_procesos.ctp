@@ -31,7 +31,7 @@ echo $this->Form->create('Oferta', $formHorizontal);
                     <td><?php echo $proceso['q_items'] ?></td>
                     <td><?php echo $proceso['preferencia_pago'] ?></td>
                     <td><?php echo $proceso['fecha_fin'] ?></td>
-                    <td class="center">
+                    <td class="acciones">
                         <?php
                         echo $this->Html->link('', ['controller' => 'procesos', 'action' => 'view', $proceso['id']], $viewBtn);
                         if ($proceso['propio'] != 'Si') {

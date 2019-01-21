@@ -16,7 +16,7 @@ if (isset($params['title'])) {
 }
 
 
-$button .= "<button id='$elementId' type='button' title='$title' class='$class ml5 $active' data-toggle='button' aria-pressed='true'>";
+$button .= "<button id='$elementId' type='button' title='$title' class='$class $active' data-toggle='button' aria-pressed='true'>";
 $button .= "<i class='$icon text' aria-hidden='true'></i>";
 $button .= "<i class='$icon text-active text-danger' aria-hidden='true'></i>";
 $button .= "</button>";

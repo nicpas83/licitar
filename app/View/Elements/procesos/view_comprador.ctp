@@ -17,7 +17,6 @@
                         //defino si hay ofertas
                         $precio_unitario = $item['mejor_oferta'] > 0 ? number_format($item['mejor_oferta'], 2, ",", ".") : false;
                         $subtotal = $item['mejor_oferta'] > 0 ? number_format(($item['mejor_oferta'] * $item['cantidad']), 2, ",", ".") : false;
-                        $fecha_oferta = isset($item['fecha_oferta']) ? $item['fecha_oferta'] : false;
                     }
                     ?>
                     <tr>
@@ -33,7 +32,6 @@
                         </td>
                         <td>
                             <?php if ($precio_unitario) { ?>
-                                <small class="text-info">El <?php echo date('d/n', strtotime($fecha_oferta)) ?>, a las <?php echo date('H:i', strtotime($fecha_oferta)) ?></small>
                                 <?php echo $this->element('pst_moneda', ['params' => ['value' => $precio_unitario, 'c/u']]); ?>
                                 <small class="text-muted"><?php echo $this->element('pst_moneda', ['params' => ['value' => $subtotal, 'subtotal']]) ?></small>
                                 <?php
