@@ -1,5 +1,5 @@
 <?php
-if (isset($proceso['propio'])) {
+if ($proceso['propio'] == 'Si') {
     echo $this->element('page/title_nav', [
         'levels' => ['Mis Compras', 'Publicaciones', $proceso['referencia']],
         'links' => [0 => ['controller' => 'procesos', 'action' => 'mis_compras'], 1 => ['controller' => 'pages']]
@@ -18,6 +18,10 @@ if (isset($proceso['propio'])) {
             <div class="ribbon ribbon-warning">Detalles </div>  
             <!--<p class="ribbon-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel tellus vulputate risus finibus tristique. In ultrices tempor enim et vestibulum. Quisque in lacus nec nisl rutrum porttitor. Aliquam non turpis urna. Fusce placerat mi accumsan viverra scelerisque.</span> </p>-->                    
             <ul>
+                <li>
+                    <span class="font-bold">Título: </span> 
+                    <?php echo $proceso['referencia'] ?>
+                </li>
                 <li>
                     <span class="font-bold">La subasta finaliza el: </span> 
                     <?php echo $proceso['fecha_fin'] ?>
@@ -62,7 +66,7 @@ if (isset($proceso['propio'])) {
         <div class="card">
             <div class="card-block">
                 <?php
-                if (isset($proceso['propio'])) {
+                if ($proceso['propio'] == 'Si') {
                     echo $this->element('procesos/view_comprador');
                 } else {
                     echo $this->element('procesos/aviso_importante');

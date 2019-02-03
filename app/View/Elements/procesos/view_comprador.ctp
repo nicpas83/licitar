@@ -7,6 +7,7 @@
                 <th>Subcategogía</th>
                 <th>Especificaciones</th>
                 <th>Cantidad</th>
+                <th>Unidad</th>
                 <th>Mejor Oferta</th>
                 <th>Subtotal</th>
             </tr>
@@ -14,24 +15,21 @@
         <tbody>
             <?php
             if (!empty($items)) {
-                $i = 0;
                 foreach ($items as $item) {
-                    if (isset($item['mejor_oferta'])) {
-                        //defino si hay ofertas
-                        $precio_unitario = $item['mejor_oferta'] > 0 ? number_format($item['mejor_oferta'], 2, ",", ".") : false;
-                        $subtotal = $item['mejor_oferta'] > 0 ? number_format(($item['mejor_oferta'] * $item['cantidad']), 2, ",", ".") : false;
-                    }
+                    $mejor_oferta = $item['mejor_oferta'] > 0 ? number_format($item['mejor_oferta'], 2, ",", ".") : $item['mejor_oferta'];
+                    $subtotal = $item['mejor_oferta'] > 0 ? number_format(($item['cantidad'] * $item['mejor_oferta']), 2, ",", ".") : 0;
                     ?>
                     <tr>
-                        <td>><?php echo $item['nombre'] ?></td>
+                        <td><?php echo $item['nombre'] ?></td>
                         <td><small><?php echo $item['categoria'] ?></small></td>
                         <td><small><?php echo $item['subcategoria'] ?></small></td>
                         <td><small><?php echo $item['especificaciones'] ?></small></td>
-                        <td><small><?php echo $item['cantidad'] . " " . $item['unidad'] ?></small></td>
-                        <td><?php echo $item['mejor_oferta'] ?></td>
+                        <td><small><?php echo $item['cantidad'] ?></small></td>
+                        <td><small><?php echo $item['unidad'] ?></small></td>
+                        <td><?php echo $mejor_oferta ?></td>
+                        <td><?php echo $subtotal ?></td>
                     </tr>
                     <?php
-                    $i++;
                 }
             }
             ?>

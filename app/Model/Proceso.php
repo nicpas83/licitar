@@ -69,50 +69,45 @@ class Proceso extends AppModel {
      * Prepara la info del proceso, seteando las posibles ofertas y respuestas,
      */
 
-    public function getProcesoData($id) {
-        App::uses('Oferta', 'Model');
-
-        $this->infoGeneral = $this->findById($id)['Proceso'];
-        $this->items = $this->findById($id)['Item'];
+    public function getProcesoData() {
+        $this->infoGeneral = $this->findById($this->id)['Proceso'];
+        $this->estado = $this->infoGeneral['estado'];
+        $this->items = $this->findById($this->id)['Item'];
         $this->asignar_mejores_ofertas();
-        
 
-        $this->preguntas = $this->findById($id)['Pregunta'];
+        $this->preguntas = $this->findById($this->id)['Pregunta'];
         $this->asignar_respuestas();
 
+    }
 
-        debug($this->items);
-        die;
+    public function asignar_mejores_ofertas() {
+        App::uses('Oferta', 'Model');
 
-
-        foreach ($proceso['Item'] as $key => $item) {
-            $proceso['Item'][$key]['mejor_oferta'] = "Sin ofertas";
-
-            foreach ($mejores_ofertas as $item_id => $valor_oferta) {
-                if ($item['id'] == $item_id) {
-                    $proceso['Item'][$key]['mejor_oferta'] = $valor_oferta;
-                    continue 2;
+        $this->ofertas = (new Oferta())->find('all', [
+            'fields' => ['Oferta.item_id', 'MIN(Oferta.valor_oferta) as mejor_oferta'],
+            'conditions' => ['Oferta.proceso_id' => $this->id],
+            'group' => ['item_id']
+        ]);
+        
+        foreach ($this->items as $key => $item) {
+            $this->items[$key]['mejor_oferta'] = "Sin ofertas";
+            foreach ($this->ofertas as $oferta) {
+                if ($item['id'] == $oferta['Oferta']['item_id']) {
+                    $this->items[$key]['mejor_oferta'] = $oferta[0]['mejor_oferta'];
                 }
             }
-        }
-
-
-        return $proceso['Item'];
-    }
-    
-    public function asignar_mejores_ofertas(){
-        
+        }    
     }
 
     public function asignar_respuestas() {
         App::uses('Respuesta', 'Model');
-        
+
         $preguntasIds = array_column($this->preguntas, 'id');
         $respuestas = (new Respuesta())->find('list', [
             'fields' => ['pregunta_id', 'respuesta'],
             'conditions' => ['pregunta_id' => $preguntasIds]
         ]);
-        
+
         if ($respuestas) {
             foreach ($this->preguntas as $key => $pregunta) {
                 foreach ($respuestas as $pregunta_id => $respuesta) {
@@ -121,7 +116,7 @@ class Proceso extends AppModel {
                         $this->preguntas[$key]['respuesta'] = $respuesta;
                     }
                 }
-            }    
+            }
         }
     }
 

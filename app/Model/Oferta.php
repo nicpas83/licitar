@@ -57,16 +57,7 @@ class Oferta extends AppModel {
         return $mis_ofertas;
     }
 
-    /**
-     * @param type $itemsIds
-     * @return type $ofertas
-     */
-    public function getOfertas($itemsIds) {
-        return $this->find('all', [
-                    'conditions' => ['item_id IN' => $itemsIds],
-        ]);
-    }
-
+   
     public function getMejoresOfertas($itemsIds) {
         $this->virtualFields["mejor_oferta"] = "MIN(Oferta.valor_oferta)";
         $mejores_ofertas = $this->find('all', [

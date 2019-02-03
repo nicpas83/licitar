@@ -36,7 +36,7 @@ class ProcesosController extends AppController {
         }
     }
 
-    public function mis_compras() {     
+    public function mis_compras() {
         $activas = $this->Proceso->getComprasActivas();
         $finalizadas = $this->Proceso->getComprasFinalizadas();
         $preguntas = $this->Proceso->getPreguntasPendientes();
@@ -45,7 +45,7 @@ class ProcesosController extends AppController {
             'finalizadas' => count($finalizadas),
             'preguntas' => count($preguntas),
         ];
-        
+
         $this->set('activas', $activas);
         $this->set('finalizadas', $finalizadas);
         $this->set('preguntas', $preguntas);
@@ -57,23 +57,17 @@ class ProcesosController extends AppController {
             $this->Flash->error(__("El proceso al que intenta acceder no es un proceso válido."));
             $this->redirect($this->referer());
         }
-        $proceso = $this->Proceso->getProcesoData($id);
-        if (!$proceso || $proceso['Proceso']['estado'] !== 'Activo') {
+        $this->Proceso->id = $id;
+        $this->Proceso->getProcesoData();
+        
+        if ($this->Proceso->estado !== 'Activo') {
             $this->Flash->error(__("El proceso al que intenta acceder no es un proceso activo."));
             $this->redirect($this->referer());
         }
-        debug($proceso);die;
-        
-
-        $itemsIds = $this->Proceso->Item->getItemsIds($proceso);
-        $ofertas = $this->Proceso->Oferta->getOfertas($itemsIds);
-
-        $proceso['Item'] = $this->Proceso->Item->setMejoresOfertas($proceso['Item'], $ofertas);
-        $proceso['Item'] = $this->Proceso->Item->setCantidadProveedores($proceso['Item'], $ofertas);
-
-        $this->set('preguntas', $this->Proceso->getPreguntas($id));
-        $this->set('proceso', $proceso);
-        $this->set('items', $items);
+//        debug($this->Proceso->infoGeneral);die;
+        $this->set('preguntas', $this->Proceso->preguntas);
+        $this->set('proceso', $this->Proceso->infoGeneral);
+        $this->set('items', $this->Proceso->items);
     }
 
     //vista HOMEPAGE
@@ -116,9 +110,6 @@ class ProcesosController extends AppController {
             if ($this->Proceso->esEditableGeneral($id) == false) {
                 $this->Proceso->readonly = true;
             }
-            
-            
-            
         } else {
             $this->Flash->error('El proceso al que intenta acceder no es válido.');
             return $this->redirect(array('controller' => 'procesos', 'action' => 'mis_procesos'));
