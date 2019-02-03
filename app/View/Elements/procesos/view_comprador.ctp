@@ -1,11 +1,14 @@
 <div class="table-responsive m-t-40">
-    <table id="itemsDelProceso" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+    <table class="display nowrap table table-hover table-striped table-bordered initDt" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th>Nombre - Descripción</th>
+                <th>Producto / Servicio</th>
+                <th>Categogía</th>
+                <th>Subcategogía</th>
                 <th>Especificaciones</th>
                 <th>Cantidad</th>
-                <th>Mejor Oferta Recibida</th>
+                <th>Mejor Oferta</th>
+                <th>Subtotal</th>
             </tr>
         </thead>
         <tbody>
@@ -20,27 +23,12 @@
                     }
                     ?>
                     <tr>
-                        <td>
-                            <p><?php echo $item['nombre']; ?></p>
-                            <?php echo $this->element('pst_label', ['params' => ['value' => $item['categoria'], 'class' => 'light-info']]); ?>
-                            <?php echo $this->element('pst_label', ['params' => ['value' => $item['subcategoria'], 'class' => 'light-info']]); ?>
-                        </td>
+                        <td>><?php echo $item['nombre'] ?></td>
+                        <td><small><?php echo $item['categoria'] ?></small></td>
+                        <td><small><?php echo $item['subcategoria'] ?></small></td>
                         <td><small><?php echo $item['especificaciones'] ?></small></td>
-                        <td>
-                            <small><?php echo $item['cantidad'] ?></small>
-                            <small><?php echo $item['unidad'] ?></small>
-                        </td>
-                        <td>
-                            <?php if ($precio_unitario) { ?>
-                                <?php echo $this->element('pst_moneda', ['params' => ['value' => $precio_unitario, 'c/u']]); ?>
-                                <small class="text-muted"><?php echo $this->element('pst_moneda', ['params' => ['value' => $subtotal, 'subtotal']]) ?></small>
-                                <?php
-                            } else {
-                                echo "Sin Ofertas";
-                            }
-                            ?>                                            
-                        </td>
-
+                        <td><small><?php echo $item['cantidad'] . " " . $item['unidad'] ?></small></td>
+                        <td><?php echo $item['mejor_oferta'] ?></td>
                     </tr>
                     <?php
                     $i++;

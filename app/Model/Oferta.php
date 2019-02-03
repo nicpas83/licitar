@@ -6,7 +6,6 @@ App::uses('Categoria', 'Model');
 class Oferta extends AppModel {
 
     public $useTable = 'ofertas';
-    
     public $belongsTo = array(
         'Proceso' => [
             'className' => 'Proceso',
@@ -25,7 +24,6 @@ class Oferta extends AppModel {
         $ofertas = $this->find('all', [
             'conditions' => [
                 'Oferta.user_id' => AuthComponent::user('id'),
-                'Oferta.estado_actual' => 1
             ],
             'group' => ['Oferta.item_id'],
         ]);
@@ -42,7 +40,7 @@ class Oferta extends AppModel {
         $itemsIds = array_column(array_column($mis_ofertas, 'Item'), 'id');
         $resultados = $this->getMejoresOfertas($itemsIds);
 //        debug($itemsIds);die;
-        
+
 
         foreach ($mis_ofertas as $key => $val) {
 
@@ -77,7 +75,6 @@ class Oferta extends AppModel {
             'recursive' => -1
         ]);
 //        debug($mejores_ofertas);die;
-
         //recorro cada item y defino un array con los resultados de ofertas.  
         foreach ($itemsIds as $item) {
             $resultados[$item] = [];
@@ -100,5 +97,6 @@ class Oferta extends AppModel {
         return $resultados;
     }
 
+    
 
 }

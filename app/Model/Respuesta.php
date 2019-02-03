@@ -20,13 +20,5 @@ class Respuesta extends AppModel {
         ]
     ];
     
-    
-    public function afterFind($results, $primary = false) {
-    
-    }
-
-    public function beforeSave($options = array()) {
-    
-    }
 
 }

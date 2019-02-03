@@ -1,4 +1,10 @@
 <?php
+echo $this->element('page/title_nav', [
+    'levels' => ['Mis Compras', 'Nueva Publicación'],
+    
+]);
+?>
+<?php
 echo $this->Html->script('procesos/funciones', array('inline' => false));
 echo $this->Html->script('procesos/nuevo', array('inline' => false));
 echo $this->Html->script('categorias_change', array('inline' => false));

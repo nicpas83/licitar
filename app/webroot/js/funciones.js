@@ -21,8 +21,7 @@ $(function () {
         dom: 'Bfrtip',
         buttons: [{
                 extend: 'excel',
-                text: '',
-                
+                text: 'Bajar a Excel',           
             }],
         language: {
             search: "_INPUT_",
@@ -30,7 +29,7 @@ $(function () {
         }
     });
 
-    $("a.buttons-excel span").html(btn_download);
+//    $("a.buttons-excel span").html(btn_download);
 
 
 });

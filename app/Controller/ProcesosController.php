@@ -36,13 +36,20 @@ class ProcesosController extends AppController {
         }
     }
 
-    public function mis_compras() {
-        $activos = $this->Proceso->getInfoProcesos('Activo', $this->Auth->user('id'));
-        $finalizados = $this->Proceso->getInfoProcesos('Finalizado', $this->Auth->user('id'));
-//        debug($activos);die;
-        $this->set('activos', $activos);
-        $this->set('finalizados', $finalizados);
-        $this->set('preguntas', $this->Proceso->getMisPreguntasPendientes());
+    public function mis_compras() {     
+        $activas = $this->Proceso->getComprasActivas();
+        $finalizadas = $this->Proceso->getComprasFinalizadas();
+        $preguntas = $this->Proceso->getPreguntasPendientes();
+        $kpi = [
+            'en_curso' => count($activas),
+            'finalizadas' => count($finalizadas),
+            'preguntas' => count($preguntas),
+        ];
+        
+        $this->set('activas', $activas);
+        $this->set('finalizadas', $finalizadas);
+        $this->set('preguntas', $preguntas);
+        $this->set('kpi', $kpi);
     }
 
     public function view($id = null) {
@@ -50,12 +57,13 @@ class ProcesosController extends AppController {
             $this->Flash->error(__("El proceso al que intenta acceder no es un proceso válido."));
             $this->redirect($this->referer());
         }
-        $proceso = $this->Proceso->findById($id);
+        $proceso = $this->Proceso->getProcesoData($id);
         if (!$proceso || $proceso['Proceso']['estado'] !== 'Activo') {
             $this->Flash->error(__("El proceso al que intenta acceder no es un proceso activo."));
             $this->redirect($this->referer());
         }
-        $proceso = $this->Proceso->validarTitularidadDelProceso($proceso);
+        debug($proceso);die;
+        
 
         $itemsIds = $this->Proceso->Item->getItemsIds($proceso);
         $ofertas = $this->Proceso->Oferta->getOfertas($itemsIds);
@@ -64,8 +72,8 @@ class ProcesosController extends AppController {
         $proceso['Item'] = $this->Proceso->Item->setCantidadProveedores($proceso['Item'], $ofertas);
 
         $this->set('preguntas', $this->Proceso->getPreguntas($id));
-        $this->set('proceso', $proceso['Proceso']);
-        $this->set('items', $proceso['Item']);
+        $this->set('proceso', $proceso);
+        $this->set('items', $items);
     }
 
     //vista HOMEPAGE

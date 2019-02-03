@@ -33,7 +33,7 @@ class PreguntasController extends AppController {
 
         //seguridad. reviso que la pregunta sea una de mis preguntas pendientes.
         $checkId = false;
-        $preguntas = (new Proceso())->getMisPreguntasPendientes();
+        $preguntas = (new Proceso())->getPreguntasPendientes();
 
         foreach ($preguntas as $val) {
             if ($this->data['pk'] == $val['Pregunta']['id']) {
@@ -57,7 +57,9 @@ class PreguntasController extends AppController {
         if ($respuesta->save($data)) {
             //actualizo estado Pregunta.
             $this->Pregunta->updateAll(['estado' => "'Respondida'"], ['id' => $this->data['pk']]);
-            $this->set("data", "OK");
+            $newKpi = count($preguntas) -1;
+            
+            $this->set("data", $newKpi);
             return $this->render("/ajax", "ajax");
         }
     }

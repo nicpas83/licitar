@@ -59,6 +59,11 @@ class PagesController extends AppController {
         $this->set('procesos', $procesos);
         $this->render('/Procesos/index');
     }
+    
+    public function inicio() {
+        
+    }
+    
 
     public function landing_general() {
         $this->layout = 'agency';

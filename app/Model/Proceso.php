@@ -9,6 +9,12 @@ class Proceso extends AppModel {
     public $filtroIds = "";
     public $readonly = false;
     public $filtroCategoria = "";
+    public $esPropio = "";
+    public $infoGeneral;
+    public $items;
+    public $ofertas;
+    public $preguntas;
+    public $respuestas;
     public $preferenciasPago = [
         'Efectivo' => 'Efectivo',
         'Transferencia' => 'Transferencia',
@@ -45,15 +51,10 @@ class Proceso extends AppModel {
             'message' => 'El campo Fecha de Entrega es obligatorio'
         ),
     );
-    public $belongsTo = array('User');
+//    public $belongsTo = array('User');
     public $hasMany = [
         'Item' => [
             'className' => 'Item',
-            'foreignKey' => 'proceso_id',
-            'dependent' => true
-        ],
-        'Oferta' => [
-            'className' => 'Oferta',
             'foreignKey' => 'proceso_id',
             'dependent' => true
         ],
@@ -63,6 +64,66 @@ class Proceso extends AppModel {
             'dependent' => true
         ],
     ];
+
+    /*
+     * Prepara la info del proceso, seteando las posibles ofertas y respuestas,
+     */
+
+    public function getProcesoData($id) {
+        App::uses('Oferta', 'Model');
+
+        $this->infoGeneral = $this->findById($id)['Proceso'];
+        $this->items = $this->findById($id)['Item'];
+        $this->asignar_mejores_ofertas();
+        
+
+        $this->preguntas = $this->findById($id)['Pregunta'];
+        $this->asignar_respuestas();
+
+
+        debug($this->items);
+        die;
+
+
+        foreach ($proceso['Item'] as $key => $item) {
+            $proceso['Item'][$key]['mejor_oferta'] = "Sin ofertas";
+
+            foreach ($mejores_ofertas as $item_id => $valor_oferta) {
+                if ($item['id'] == $item_id) {
+                    $proceso['Item'][$key]['mejor_oferta'] = $valor_oferta;
+                    continue 2;
+                }
+            }
+        }
+
+
+        return $proceso['Item'];
+    }
+    
+    public function asignar_mejores_ofertas(){
+        
+    }
+
+    public function asignar_respuestas() {
+        App::uses('Respuesta', 'Model');
+        
+        $preguntasIds = array_column($this->preguntas, 'id');
+        $respuestas = (new Respuesta())->find('list', [
+            'fields' => ['pregunta_id', 'respuesta'],
+            'conditions' => ['pregunta_id' => $preguntasIds]
+        ]);
+        
+        if ($respuestas) {
+            foreach ($this->preguntas as $key => $pregunta) {
+                foreach ($respuestas as $pregunta_id => $respuesta) {
+                    $this->preguntas[$key]['respuesta'] = "";
+                    if ($pregunta['id'] == $pregunta_id) {
+                        $this->preguntas[$key]['respuesta'] = $respuesta;
+                    }
+                }
+            }    
+        }
+    }
 
     public function esEditableGeneral($proceso_id) {
         $proceso = $this->findById($proceso_id);
@@ -94,7 +155,6 @@ class Proceso extends AppModel {
                 'estado' => 'Activo'
             ]
         ]);
-
         return $procesos_id;
     }
 
@@ -144,25 +204,43 @@ class Proceso extends AppModel {
         return array_unique($procesosIds);
     }
 
-    public function validarTitularidadDelProceso($proceso) {
-        if ($proceso['User']['id'] == AuthComponent::user('id')) {
-            $proceso['Proceso']['propio'] = 'Si';
-        }
-        return $proceso;
-    }
-
-    public function getInfoProcesos($estado = 'Activo', $user_id = null) {
+    public function getComprasActivas() {
         $data = [];
-        $filtroUsuario = !empty($user_id) ? ['user_id' => $user_id] : "";
-
         $procesos = $this->find('all', [
             'conditions' => [
-                $filtroUsuario,
-                'Proceso.estado' => $estado
+                'user_id' => AuthComponent::user('id'),
+                'Proceso.estado' => 'Activo'
             ]
         ]);
         if (!$procesos) {
-            return false;
+            return $data;
+        }
+        foreach ($procesos as $key => $val) {
+
+            if (isset($val['Proceso']) && isset($val['Item'])) {
+                $data[$key]['id'] = $val['Proceso']['id'];
+                $data[$key]['referencia'] = $val['Proceso']['referencia'];
+                $data[$key]['detalles'] = $val['Proceso']['referencia'];
+                $data[$key]['fecha_fin'] = $val['Proceso']['fecha_fin'];
+                $data[$key]['fecha_entrega'] = $val['Proceso']['fecha_fin'];
+                $data[$key]['preferencia_pago'] = $val['Proceso']['preferencia_pago'];
+                $data[$key]['cant_items'] = count($val['Item']);
+                $data[$key]['cant_ofertas'] = count($val['Oferta']);
+            }
+        }
+        return $data;
+    }
+
+    public function getComprasFinalizadas() {
+        $data = [];
+        $procesos = $this->find('all', [
+            'conditions' => [
+                'user_id' => AuthComponent::user('id'),
+                'Proceso.estado' => 'Finalizado'
+            ]
+        ]);
+        if (!$procesos) {
+            return $data;
         }
 
         foreach ($procesos as $key => $val) {
@@ -174,8 +252,34 @@ class Proceso extends AppModel {
                 $data[$key]['total_ofertas'] = count($val['Oferta']);
             }
         }
-
         return $data;
+    }
+
+    public function getPreguntasPendientes() {
+        $data = [];
+        //busco mis procesos activos
+        $procesosIds = $this->find('list', [
+            'fields' => ['id'],
+            'conditions' => [
+                'user_id' => AuthComponent::user('id'),
+                'estado' => 'Activo'
+            ],
+        ]);
+        if (!$procesosIds) {
+            return $data;
+        }
+
+        $preguntas = $this->Pregunta->find('all', [
+            'conditions' => [
+                'Pregunta.proceso_id' => $procesosIds,
+                'Pregunta.estado' => 'Pendiente'
+            ]
+        ]);
+        if (!$preguntas) {
+            return $data;
+        }
+
+        return $preguntas;
     }
 
     public function getLastNroProceso() {
@@ -198,23 +302,6 @@ class Proceso extends AppModel {
         return $preguntas;
     }
 
-    public function getMisPreguntasPendientes() {
-        //busco mis procesos activos
-        $mis_procesos = $this->find('list', [
-            'fields' => ['id'],
-            'conditions' => ['user_id' => AuthComponent::user('id')],
-        ]);
-
-        $preguntas = $this->Pregunta->find('all', [
-            'conditions' => [
-                'Pregunta.proceso_id' => $mis_procesos,
-                'Pregunta.estado' => 'Pendiente'
-            ]
-        ]);
-
-        return $preguntas;
-    }
-
     public function afterFind($results, $primary = false) {
 
         //evito entrar desde los shell.
@@ -224,7 +311,10 @@ class Proceso extends AppModel {
             $subcategorias = $this->Item->Categoria->Subcategoria->find('list');
 
             foreach ($results as $key => $result) {
-                if (isset($results[$key]['Proceso']['fecha_fin'])) {
+                if (isset($result['Proceso']['user_id'])) {
+                    $results[$key]['Proceso']['propio'] = $result['Proceso']['user_id'] == AuthComponent::user('id') ? "Si" : "No";
+                }
+                if (isset($result['Proceso']['fecha_fin'])) {
                     $results[$key]['Proceso']['fecha_fin'] = dateDMY($result['Proceso']['fecha_fin']);
                     $results[$key]['Proceso']['fecha_entrega'] = dateDMY($result['Proceso']['fecha_entrega']);
                 }

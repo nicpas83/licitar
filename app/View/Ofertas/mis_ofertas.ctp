@@ -10,7 +10,7 @@ echo $this->Form->create('Oferta', $formHorizontal);
             <div class="card-block">
                 <?php echo $this->element('ribbon_title', ['title' => 'Mis Ofertas en curso']) ?>
                 <div class="table-responsive m-t-40">
-                    <table id="misOfertas" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                    <table id="misOfertas" class="initDt table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>Proceso</th>

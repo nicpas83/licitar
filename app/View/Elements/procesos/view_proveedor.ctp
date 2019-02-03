@@ -6,7 +6,7 @@
     <table id="itemsDelProceso" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th>Nombre - Descripción</th>
+                <th>Producto / Servicio</th>
                 <th>Especificaciones</th>
                 <th>Cantidad</th>
                 <th>Mejor Oferta</th>
@@ -71,7 +71,6 @@
         <div class="form-group pull-right">
             <?php
             if (!isset($proceso['propio'])) {
-
                 echo $this->Form->button('Realizar Oferta', ['id' => 'ofertar', 'class' => 'btn btn-info', 'div' => false]);
             }
             ?>

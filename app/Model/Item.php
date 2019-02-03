@@ -132,30 +132,7 @@ class Item extends AppModel {
         return $data;
     }
 
-    public function setMejoresOfertas($items, $ofertas) {
-
-        foreach ($items as $key => $item) {
-            $items[$key]['mejor_oferta'] = 0; //sin ofertas
-            $valorOferta = false; //reseteo para cada item
-
-            if ($ofertas) {
-                foreach ($ofertas as $oferta) {
-                    if ($item['id'] == $oferta['Oferta']['item_id']) {
-                        //si es primera oferta o si la nueva oferta es menor.
-                        if (!$valorOferta || $oferta['Oferta']['valor_oferta'] < $valorOferta) {
-                            //piso valor oferta
-                            $valorOferta = $oferta['Oferta']['valor_oferta']; //true
-                            $items[$key]['mejor_oferta'] = $valorOferta;
-                            $items[$key]['ganador_id'] = $oferta['Oferta']['user_id'];
-                            $items[$key]['fecha_oferta'] = $oferta['Oferta']['modified'];
-                        }
-                    }
-                }
-            }
-        }
-
-        return $items;
-    }
+    
 
     public function setCantidadProveedores($items, $ofertas) {
         foreach ($items as $key => $item) {

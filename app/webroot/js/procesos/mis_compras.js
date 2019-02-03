@@ -7,7 +7,9 @@ $(function () {
             "respuesta": $(this).closest('li').find('textarea').val()
         };
         $(this).closest('li').remove();
-        $.post("/preguntas/ajax_set_respuesta", params);
+        $.post("/preguntas/ajax_set_respuesta", params, function(kpi){
+           $("#KpiPreguntasPendientes").text(kpi);
+        });
 
     });
 

@@ -98,6 +98,7 @@ class AppController extends Controller {
             'class' => 'btn btn-info pull-right',
         );
 
+//            debug(Router::getRequest());die;
 
         //variables disponibles en todas las vistas:
         $this->set('deleteBtn', $delete);

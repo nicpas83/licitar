@@ -1,11 +1,21 @@
 <?php
-//echo date('d-n H:i:s'); die;
-// debug($proceso);die;
+if (isset($proceso['propio'])) {
+    echo $this->element('page/title_nav', [
+        'levels' => ['Mis Compras', 'Publicaciones', $proceso['referencia']],
+        'links' => [0 => ['controller' => 'procesos', 'action' => 'mis_compras'], 1 => ['controller' => 'pages']]
+    ]);
+} else {
+    echo $this->element('page/title_nav', [
+        'levels' => ['Publicaciones', $proceso['referencia']],
+        'links' => [0 => ['controller' => 'pages']]
+    ]);
+}
 ?>
+
 <div class="row">
     <div class="col-12">
         <div class="ribbon-wrapper card col-md-7 pull-left">
-            <div class="ribbon ribbon-warning"><?php echo $proceso['referencia'] ?> </div>  
+            <div class="ribbon ribbon-warning">Detalles </div>  
             <!--<p class="ribbon-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel tellus vulputate risus finibus tristique. In ultrices tempor enim et vestibulum. Quisque in lacus nec nisl rutrum porttitor. Aliquam non turpis urna. Fusce placerat mi accumsan viverra scelerisque.</span> </p>-->                    
             <ul>
                 <li>
@@ -13,7 +23,11 @@
                     <?php echo $proceso['fecha_fin'] ?>
                 </li>
                 <li>
-                    <span class="font-bold">Condiciones de Pago: </span> 
+                    <span class="font-bold">Solicita entrega el: </span> 
+                    <?php echo $proceso['fecha_entrega'] ?>
+                </li>
+                <li>
+                    <span class="font-bold">Preferencia de Pago: </span> 
                     <?php echo $proceso['preferencia_pago'] ?>
                 </li>
                 <?php if (!empty($proceso['detalles'])) { ?>
