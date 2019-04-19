@@ -32,18 +32,22 @@ class ItemsController extends AppController {
     }
 
     public function ajax_update_item() {
-        $this->Item->updateAll([
-            'categoria_id' => "'" . $this->request->data['categoria_id'] . "'",
-            'subcategoria_id' => "'" . $this->request->data['subcategoria_id'] . "'",
-            'nombre' => "'" . $this->request->data['nombre'] . "'",
-            'cantidad' => "'" . $this->request->data['cantidad'] . "'",
-            'unidad' => "'" . $this->request->data['unidad'] . "'",
-            'especificaciones' => "'" . $this->request->data['especificaciones'] . "'",
-                ], [
-            'Item.id' => $this->request->data['id']
-        ]);
 
-        $this->set("data", true);
+        if ($this->Item->esPropio($this->request->data['id'])) {
+            $this->Item->updateAll([
+                'categoria_id' => "'" . $this->request->data['categoria_id'] . "'",
+                'subcategoria_id' => "'" . $this->request->data['subcategoria_id'] . "'",
+                'nombre' => "'" . $this->request->data['nombre'] . "'",
+                'cantidad' => "'" . $this->request->data['cantidad'] . "'",
+                'unidad' => "'" . $this->request->data['unidad'] . "'",
+                'especificaciones' => "'" . $this->request->data['especificaciones'] . "'",
+                    ], [
+                'Item.id' => $this->request->data['id']
+            ]);
+            $this->set("data", "OK");
+        } else {
+            $this->set("data", "ERROR");
+        }
         return $this->render("/ajax", "ajax");
     }
 

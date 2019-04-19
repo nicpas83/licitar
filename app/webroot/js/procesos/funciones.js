@@ -98,6 +98,11 @@ function aplicarDatePicker() {
     var hoy = moment().format('DD/MM/YYYY');
     var dateToday = new Date();
     var fin_subasta = new Date(dateToday.setDate(dateToday.getDate() + 3));
+    var fecha_fin = "";
+
+    if ($("#ProcesoFechaFin").val()) {
+        fecha_fin = $("#ProcesoFechaFin").val();
+    }
 
     $("#ProcesoFechaFin").datepicker({
         autoclose: true,
@@ -107,8 +112,11 @@ function aplicarDatePicker() {
         weekStart: [1],
         language: 'es',
         orientation: "bottom",
-        startDate: fin_subasta
+        startDate: fin_subasta,
+        setDate: '02/04/2019'
     });
+
+//    $("#ProcesoFechaFin").datepicker();
     $("#ProcesoFechaFin").datepicker().on('changeDate', function (e) {
         var fechaEntrega = new Date(e.date.setDate(e.date.getDate() + 1));
         $("#ProcesoFechaEntrega").val('');

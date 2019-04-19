@@ -31,6 +31,7 @@
                         <td><?php echo $item['unidad']; ?></td>
                         <td><?php echo $item['especificaciones']; ?></td>
                         <td class='acciones'>
+                            <?php echo $this->Form->button('', $deleteBtn); ?>
                             <?php echo $this->Form->button('', $editBtn); ?>
                         </td>
                         <?php echo $this->element('procesos/modal_editar_item', ['params' => ['id' => $modalId, 'item' => $item]]); ?>

@@ -37,6 +37,8 @@ class ProcesosController extends AppController {
     }
 
     public function mis_compras() {
+        $this->Proceso->filtroUsuario = ['Proceso.user_id' => AuthComponent::user('id')];
+
         $activas = $this->Proceso->getComprasActivas();
         $finalizadas = $this->Proceso->getComprasFinalizadas();
         $preguntas = $this->Proceso->getPreguntasPendientes();
@@ -46,7 +48,8 @@ class ProcesosController extends AppController {
             'preguntas' => count($preguntas),
         ];
 
-        $this->set('activas', $activas);
+        $this->set('actions', ['finalizar', 'edit']); //define botones
+        $this->set('procesos', $activas);
         $this->set('finalizadas', $finalizadas);
         $this->set('preguntas', $preguntas);
         $this->set('kpi', $kpi);
@@ -59,7 +62,7 @@ class ProcesosController extends AppController {
         }
         $this->Proceso->id = $id;
         $this->Proceso->getProcesoData();
-        
+
         if ($this->Proceso->estado !== 'Activo') {
             $this->Flash->error(__("El proceso al que intenta acceder no es un proceso activo."));
             $this->redirect($this->referer());
@@ -68,12 +71,6 @@ class ProcesosController extends AppController {
         $this->set('preguntas', $this->Proceso->preguntas);
         $this->set('proceso', $this->Proceso->infoGeneral);
         $this->set('items', $this->Proceso->items);
-    }
-
-    //vista HOMEPAGE
-    public function index() {
-        $procesos = $this->Proceso->getProcesosActivos();
-        $this->set('procesos', $procesos);
     }
 
     public function categoria($categoria_id = null) {
@@ -99,37 +96,27 @@ class ProcesosController extends AppController {
     }
 
     public function edit($id = null) {
+        $proceso = $this->Proceso->findById($id);
+        //validaciones
+        $status = $this->Proceso->validarEdicionUsuario($proceso);
 
-        //valido que por URL solo se pueda acceder a procesos activos y propios.
-        $proceso = $this->Proceso->findByIdAndUserId($id, $this->Auth->user('id'));
-        if ($proceso && $proceso['Proceso']['estado'] == 'Activo') {
-            $this->set('proceso', $proceso['Proceso']);
-            $this->set('items', $proceso['Item']);
-
-            //check edición
-            if ($this->Proceso->esEditableGeneral($id) == false) {
-                $this->Proceso->readonly = true;
-            }
-        } else {
+        if ($status == false) {
             $this->Flash->error('El proceso al que intenta acceder no es válido.');
-            return $this->redirect(array('controller' => 'procesos', 'action' => 'mis_procesos'));
+            return $this->redirect(array('controller' => 'procesos', 'action' => 'mis_compras'));
         }
+        //check edición
+        if ($this->Proceso->esEditableGeneral($proceso) == false) {
+            $this->Proceso->readonly = true;
+        }
+
+        $this->set('proceso', $proceso['Proceso']);
+        $this->set('items', $proceso['Item']);
 
         $this->set('categorias', $this->Categoria->options());
         $this->set('subcategorias', $this->Subcategoria->options());
         $this->set('unidades', $this->Proceso->unidades);
         $this->set('preferencias', $this->Proceso->preferenciasPago);
         $this->set('requisitos', $this->Proceso->requisitosExcluyentes);
-    }
-
-    public function delete($id) {
-        if (!$this->request->is('post')) {
-            throw new MethodNotAllowedException();
-        }
-        if ($this->Proceso->delete($id)) {
-            $this->Flash->success('El proceso fue eliminado exitosamente.');
-            $this->redirect(array('action' => 'mis_compras'));
-        }
     }
 
     /**
@@ -204,6 +191,20 @@ class ProcesosController extends AppController {
             $this->set("data", true);
             return $this->render("/ajax", "ajax");
         }
+    }
+
+    public function ajax_finalizar($id) {
+        if (!$this->request->is('post')) {
+            return $this->redirect(array('controller' => 'procesos', 'action' => 'mis_compras'));
+        }
+        if ($this->Proceso->esPropio($id) && $this->Proceso->esActivo($id)) {
+            $this->Proceso->finalizar($id);
+            $this->set("data", "OK");
+        } else {
+            $this->set("data", "ERROR");
+        }
+
+        return $this->render("/ajax", "ajax");
     }
 
 }

@@ -2,6 +2,8 @@ var edit_id = false;
 
 $(function () {
 
+    aplicarDatePicker();
+
     //Acción Editar.  
     $(document).on("click", "[id^='EditItem']", function () {
         edit_id = getNumeric($(this).attr('id'));
@@ -10,7 +12,6 @@ $(function () {
         var subcat_id = $("#SubcatId-" + edit_id + "").val();
         $('#ProcesoCategoria').val(cat_id).select2();
         change_subcategoria(cat_id, subcat_id);
-
     });
 
     //Guardar Edición.  
@@ -30,7 +31,6 @@ $(function () {
         item["subcategoria_id"] = $('#ProcesoSubcategoria').val();
         item["especificaciones"] = $('#ProcesoEspecificaciones').val();
 
-
         $("[id='EditItem-" + edit_id + "']").closest("tr").find("td:eq(1)").text(item.nombre);
         $("[id='EditItem-" + edit_id + "']").closest("tr").find("td:eq(2)").text(item.categoria);
         $("[id='EditItem-" + edit_id + "']").closest("tr").find("td:eq(3)").text(item.subcategoria);
@@ -38,10 +38,14 @@ $(function () {
         $("[id='EditItem-" + edit_id + "']").closest("tr").find("td:eq(5)").text(item.unidad);
         $("[id='EditItem-" + edit_id + "']").closest("tr").find("td:eq(6)").text(item.especificaciones);
 
-        $.post("/items/ajax_update_item", item, function () {
-            $("#ModalItem-" + edit_id + "").modal('hide');
+        $.post("/items/ajax_update_item", item, function (status) {
+            if (status == "OK") {
+                topAlert("Ítem actualizado correctamente");
+            } else if (status == "ERROR") {
+                topAlert("Error al intentar actualizar", "danger");
+            }
+            $("[id^='ModalItem']").modal('hide');
         });
-
     });
 
 

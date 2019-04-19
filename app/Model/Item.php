@@ -76,6 +76,17 @@ class Item extends AppModel {
         }
     }
 
+    public function esPropio($item_id) {
+        $user_id = AuthComponent::user('id');
+        $result = $this->find('first', [
+            'conditions' => ['Item.user_id' => $user_id, 'Item.id' => $item_id]
+        ]);
+        if($result){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     public function getItemsActivos($categoria_id = null) {
         $data = [];
@@ -114,14 +125,13 @@ class Item extends AppModel {
         return $data;
     }
 
-    
     public function getInfoCategoria($categoria_id) {
         $data = [];
 
         $info_categoria = $this->Categoria->find('first', [
             'conditions' => ['Categoria.id' => $categoria_id]
         ]);
-        
+
         $data["nombre_cat"] = $info_categoria['Categoria']['nombre'];
         $data["icon_cat"] = $info_categoria['Categoria']['icon'];
         $data["descripcion"] = $info_categoria['Categoria']['descripcion'];

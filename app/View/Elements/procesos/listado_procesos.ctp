@@ -1,46 +1,55 @@
 <?php
 $this->Html->script('procesos/favoritos', ['inline' => false]);
-$formHorizontal['url'] = ['controller' => 'ofertas', 'action' => 'add']; //oferta
-echo $this->Form->create('Oferta', $formHorizontal);
 ?>
-<div class="table-responsive">
-    <table id="procesosIndex" class="table table-bordered table-striped initDt" cellspacing="0" width="100%">
+
+<div class="table-responsive mt20">
+    <table class="table table-bordered table-striped initDt" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th>Título de referencia</th>
+                <th>Titulo publicación</th>
                 <th>Detalles</th>
-                <th>Items</th>
-                <th>Preferencia de Pago</th>
                 <th>Finaliza</th>
-                <th></th>
+                <th>Fecha Entrega</th>
+                <th>Preferencia Pago</th>
+                <th>Cant. Items</th>
+                <th>Cant. Ofertas</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            foreach ($params as $proceso) {
-                $active = $proceso['favorito'] == 'Si' ? "active" : "";
+            foreach ($procesos as $val) {
                 ?>
                 <tr>
-                    <td>
-                        <?php
-                        echo $this->Html->link($proceso['referencia'], $this->Html->url(['controller' => 'procesos', 'action' => 'view', $proceso['id']]));
-                        echo $this->element('list_labels', ['params' => $proceso['categorias']]);
-                        ?>
-                    </td>
-                    <td><?php echo $proceso['detalles'] ?></td>
-                    <td><?php echo $proceso['q_items'] ?></td>
-                    <td><?php echo $proceso['preferencia_pago'] ?></td>
-                    <td><?php echo $proceso['fecha_fin'] ?></td>
+                    <td><?php echo $this->Html->link($val['referencia'], "/procesos/view/" . $val['id']) ?></td>
+                    <td><?php echo $val['detalles'] ?></td>
+                    <td><?php echo $val['fecha_fin'] ?></td>
+                    <td><?php echo $val['fecha_entrega'] ?></td>
+                    <td><?php echo $val['preferencia_pago'] ?></td>
+                    <td><?php echo $val['cant_items'] ?></td>
+                    <td><?php echo $val['cant_ofertas'] ?></td>
                     <td class="acciones">
                         <?php
-                        echo $this->Html->link('', ['controller' => 'procesos', 'action' => 'view', $proceso['id']], $viewBtn);
-                        if ($proceso['propio'] != 'Si') {
-                            echo $this->element('btn_toggle', ['params' => ['pk' => $proceso['id'], 'icon' => "far fa-heart", 'active' => $active, 'title' => 'Agregar a Favoritos']]);
+                        foreach ($actions as $action) {
+                            if ($action == 'favoritos') {
+                                echo $this->element('btn_toggle', ['pk' => $val['id'], 'icon' => "far fa-heart", 'active' => $val['favorito'], 'title' => 'Agregar a Favoritos']);
+                            }
+                            if ($action == 'view') {
+                                echo $this->Html->link('', ['controller' => 'procesos', 'action' => 'view', $val['id']], $viewBtn);
+                            }
+                            if ($action == 'edit') {
+                                echo $this->Html->link('', ['action' => 'edit', $val['id']], $editBtn);
+                            }
+                            if ($action == 'finalizar') {
+                                echo $this->Html->link('', ['action' => 'ajax_finalizar', $val['id']], $finalizarBtn);
+                            }
                         }
                         ?>
                     </td>
                 </tr>
-            <?php } ?>
+                <?php
+            }
+            ?>
         </tbody>
     </table>
 </div>    

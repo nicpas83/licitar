@@ -1,5 +1,5 @@
 <?php
-echo $this->element('page/title_nav');
+    echo $this->element('page/title_nav');
 ?>
 <div class="row">
     <div class="col-lg-12">

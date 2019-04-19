@@ -1,51 +1,79 @@
 <?php
-//debug($levels);die;
-if (isset($add)) {
-    if (empty($add['action'])) {
-        $add['action'] = "add";
+if (isset($levels)) {
+    foreach ($levels as $level => $link) {
+        //si pasa parametro array entonces especifica ruta completa
+        if (is_array($link)) {
+            $controller = isset($link['controller']) ? $link['controller'] : "";
+            $action = isset($link['action']) ? $link['action'] : "";
+        } else {
+            //considera el controller actual
+            $controller = Router::getParams()['controller'];
+            $action = $link;
+        }
+        if (empty($action)) {
+            $levels[$level] = '';
+        } else {
+            $levels[$level] = ['controller' => $controller, 'action' => $action];
+        }
     }
-    $controller = Router::getParams()['controller'];
-    $action_link = ['controller' => $controller, 'action' => $add['action']];
-    $action_label = isset($add['label']) ? $add['label'] : "Nuevo Registro";
 }
+if (isset($actions)) {
+    foreach ($actions as $title => $link) {
+        //si pasa parametro array entonces especifica ruta completa
+        if (is_array($link)) {
+            $controller = isset($link['controller']) ? $link['controller'] : "";
+            $action = isset($link['action']) ? $link['action'] : "";
+        } else {
+            //considera el controller actual
+            $controller = Router::getParams()['controller'];
+            $action = $link;
+        }
+        if (empty($action)) {
+            $actions[$title] = '';
+        } else {
+            $actions[$title] = ['controller' => $controller, 'action' => $action];
+        }
+    }
+}
+
+//debug($levels);
+//debug($actions);
+//die;
 ?> 
 <div class="row page-titles">
     <div class="col-md-6 col-8 align-self-center">
-
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?php echo $this->Html->url(['controller' => 'pages', 'action' => 'inicio']) ?>">Inicio</a></li>
+            <!--INICIO-->
+            <li class="breadcrumb-item"><a href="<?php echo $this->Html->url("/") ?>">Inicio</a></li>
             <?php
             if (isset($levels)) {
-                $niveles = count($levels);
-
-                if ($niveles == 1) {
-                    echo "<li class='breadcrumb-item active'>$levels[0]</li>";
-                } else {
-                    foreach ($levels as $key => $level) {
-                        //usar array links excepto en el ultimo nivel.
-                        if ($key < ($niveles - 1)) {
-                            echo "<li class='breadcrumb-item'>" . $this->Html->link($level, $links[$key]) . "</li>";
-                        } else {
-                            echo "<li class='breadcrumb-item active'>$level</li>";
-                        }
+                foreach ($levels as $level => $link) {
+                    if (is_array($link)) {
+                        echo "<li class='breadcrumb-item'>" . $this->Html->link($level, $link) . "</li>";
+                    } else {
+                        echo "<li class='breadcrumb-item'>$level</li>";
                     }
                 }
+            } else {
+                echo "<li class='breadcrumb-item'></li>";
             }
             ?>
         </ol>
     </div>
 
-<?php
-if (isset($add)) {
-    ?>
+    <div class="col-md-6 col-4 align-self-center">
+        <?php
+        if (isset($actions)) {
+            foreach ($actions as $title => $link) {
+                $options = [
+                    'class' => 'btn pull-right hidden-sm-down btn-success',
+                    'escape' => false
+                ];
+                $icon = !isset($link['icon']) ? ['class' => 'mdi mdi-plus-circle mr5'] : $link['icon'];
+                echo $this->Html->link($this->Html->tag('i', '', $icon) . $title, $link, $options);
+            }
+        }
+        ?>
 
-        <div class="col-md-6 col-4 align-self-center">
-            <a class="btn pull-right hidden-sm-down btn-success" href="<?php echo $this->Html->url($action_link) ?>" aria-expanded="false"><i class="mdi mdi-plus-circle"></i><?php echo $action_label ?></a>
-        </div>
-
-
-    <?php
-}
-?>
-
+    </div>
 </div>
