@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 echo $this->element('page/title_nav', [
     'actions' => [
         'Nueva Publicación' => [
@@ -6,6 +7,9 @@ echo $this->element('page/title_nav', [
             'action' => 'nuevo'
         ]
 ]]);
+=======
+echo $this->element('page/title_nav', ['actions' => ['Nueva Publicación' => 'nuevo']]);
+>>>>>>> 01b23eb9c1a725530ebd1e0d354ac918c502db64
 ?>
 
 <div class="row">

@@ -105,11 +105,21 @@ class ProcesosController extends AppController {
         if ($status == false) {
             $this->Flash->error('El proceso al que intenta acceder no es válido.');
             return $this->redirect(array('controller' => 'procesos', 'action' => 'mis_compras'));
+<<<<<<< HEAD
+=======
+        }
+        //check edición
+        if ($this->Proceso->esEditableGeneral($proceso) == false) {
+            $this->Proceso->readonly = true;
+>>>>>>> 01b23eb9c1a725530ebd1e0d354ac918c502db64
         }
         //check edición
         if ($this->Proceso->esEditableGeneral($proceso) == false) {
             $this->Proceso->readonly = true;
         }
+
+        $this->set('proceso', $proceso['Proceso']);
+        $this->set('items', $proceso['Item']);
 
         $this->set('proceso', $proceso['Proceso']);
         $this->set('items', $proceso['Item']);

@@ -113,7 +113,11 @@ function aplicarDatePicker() {
         language: 'es',
         orientation: "bottom",
         startDate: fin_subasta,
+<<<<<<< HEAD
 //        setDate: '02/04/2019'
+=======
+        setDate: '02/04/2019'
+>>>>>>> 01b23eb9c1a725530ebd1e0d354ac918c502db64
     });
 
 //    $("#ProcesoFechaFin").datepicker();
