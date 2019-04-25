@@ -25,7 +25,7 @@
         </div>
         <?php echo $this->element('footer') ?>
         <?php
-//        debug($this->params['action']); die;
+        debug(WWW_ROOT); die;
         
         if (is_file(WWW_ROOT . 'js' . DS . $this->params['controller'] . '.js')) {
             echo $this->Html->script($this->params['controller']);

@@ -17,7 +17,7 @@ if ($css == 'check-horizontal') {
     $config = [
         'type' => 'checkbox',
         'class' => 'custom-control-input',
-        'value' => $value,
+        'default' => $value,
     ];
     ?>
     <div class="col-lg-<?php echo $lg ?> col-sm-12 <?php echo $css ?>" >

@@ -9,6 +9,7 @@ class Proceso extends AppModel {
     public $filtroIds = "";
     public $readonly = false;
     public $filtroCategoria = "";
+    public $filtroUsuario = "";
     public $esPropio = "";
     public $infoGeneral;
     public $items;
@@ -77,7 +78,6 @@ class Proceso extends AppModel {
 
         $this->preguntas = $this->findById($this->id)['Pregunta'];
         $this->asignar_respuestas();
-
     }
 
     public function asignar_mejores_ofertas() {
@@ -88,7 +88,7 @@ class Proceso extends AppModel {
             'conditions' => ['Oferta.proceso_id' => $this->id],
             'group' => ['item_id']
         ]);
-        
+
         foreach ($this->items as $key => $item) {
             $this->items[$key]['mejor_oferta'] = "Sin ofertas";
             foreach ($this->ofertas as $oferta) {
@@ -96,7 +96,7 @@ class Proceso extends AppModel {
                     $this->items[$key]['mejor_oferta'] = $oferta[0]['mejor_oferta'];
                 }
             }
-        }    
+        }
     }
 
     public function asignar_respuestas() {
@@ -120,8 +120,20 @@ class Proceso extends AppModel {
         }
     }
 
-    public function esEditableGeneral($proceso_id) {
-        $proceso = $this->findById($proceso_id);
+    public function validarEdicionUsuario($proceso) {
+        if (!$proceso) {
+            return false;
+        }
+
+        if ($proceso['Proceso']['user_id'] !== AuthComponent::user('id')) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function esEditableGeneral($proceso) {
+
         if ($proceso && $proceso['Proceso']['estado'] == 'Activo') {
             if (empty($proceso['Oferta'])) {
                 return true;
@@ -140,6 +152,28 @@ class Proceso extends AppModel {
         } else {
             return false;
         }
+    }
+
+    public function esPropio($proceso_id) {
+        $user_id = AuthComponent::user('id');
+        $result = $this->find('first', [
+            'conditions' => ['Proceso.user_id' => $user_id, 'Proceso.id' => $proceso_id]
+        ]);
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function finalizar($proceso_id) {
+        $user_id = AuthComponent::user('id');
+        $this->updateAll([
+            'Proceso.estado' => "'Finalizado'"
+                ], [
+            'Proceso.id' => $proceso_id,
+            'Proceso.user_id' => $user_id
+        ]);
     }
 
     public function getProcesosCategoria($categoria_id) {
@@ -178,12 +212,12 @@ class Proceso extends AppModel {
             $data[$key]['referencia'] = $val['Proceso']['referencia'];
             $data[$key]['detalles'] = $val['Proceso']['detalles'];
             $data[$key]['preferencia_pago'] = $val['Proceso']['preferencia_pago'];
-            $data[$key]['q_items'] = count($val['Item']);
+            $data[$key]['cant_items'] = count($val['Item']);
             $data[$key]['q_unidades'] = array_sum(array_column($val['Item'], 'cantidad'));
             $data[$key]['fecha_fin'] = $val['Proceso']['fecha_fin'];
+            $data[$key]['fecha_entrega'] = $val['Proceso']['fecha_entrega'];
             $data[$key]['requisitos_excluyentes'] = $requisitos;
             $data[$key]['categorias'] = array_unique(array_column($val['Item'], 'categoria'));
-            $data[$key]['favorito'] = in_array($val['Proceso']['id'], $mis_favoritos) ? "Si" : "";
             $data[$key]['propio'] = $val['Proceso']['user_id'] == AuthComponent::user('id') ? "Si" : "";
         }
 
@@ -200,10 +234,15 @@ class Proceso extends AppModel {
     }
 
     public function getComprasActivas() {
+        App::uses('Favorito', 'Model');
+        $mis_favoritos = (new Favorito())->getMisProcesosFavoritos();
+
         $data = [];
+
+
         $procesos = $this->find('all', [
             'conditions' => [
-                'user_id' => AuthComponent::user('id'),
+                $this->filtroUsuario,
                 'Proceso.estado' => 'Activo'
             ]
         ]);
@@ -211,6 +250,7 @@ class Proceso extends AppModel {
             return $data;
         }
         foreach ($procesos as $key => $val) {
+            $cant_ofertas = isset($val['Oferta']) ? count($val['Oferta']) : 0;
 
             if (isset($val['Proceso']) && isset($val['Item'])) {
                 $data[$key]['id'] = $val['Proceso']['id'];
@@ -220,7 +260,9 @@ class Proceso extends AppModel {
                 $data[$key]['fecha_entrega'] = $val['Proceso']['fecha_fin'];
                 $data[$key]['preferencia_pago'] = $val['Proceso']['preferencia_pago'];
                 $data[$key]['cant_items'] = count($val['Item']);
-                $data[$key]['cant_ofertas'] = count($val['Oferta']);
+                $data[$key]['cant_ofertas'] = $cant_ofertas;
+                $data[$key]['propio'] = $val['Proceso']['propio'];
+                $data[$key]['favorito'] = in_array($val['Proceso']['id'], $mis_favoritos) ? "si" : "";
             }
         }
         return $data;
@@ -244,7 +286,7 @@ class Proceso extends AppModel {
                 $data[$key]['referencia'] = $val['Proceso']['referencia'];
                 $data[$key]['fecha_fin'] = $val['Proceso']['fecha_fin'];
                 $data[$key]['total_items'] = count($val['Item']);
-                $data[$key]['total_ofertas'] = count($val['Oferta']);
+                $data[$key]['total_ofertas'] = !empty($val['Oferta']) ? count($val['Oferta']) : 0;
             }
         }
         return $data;
@@ -306,8 +348,9 @@ class Proceso extends AppModel {
             $subcategorias = $this->Item->Categoria->Subcategoria->find('list');
 
             foreach ($results as $key => $result) {
-                if (isset($result['Proceso']['user_id'])) {
+                if (isset($result['Proceso']['user_id']) && isset($result['Item'])) {
                     $results[$key]['Proceso']['propio'] = $result['Proceso']['user_id'] == AuthComponent::user('id') ? "Si" : "No";
+                    $results[$key]['Proceso']['cant_items'] = count($result['Item']);
                 }
                 if (isset($result['Proceso']['fecha_fin'])) {
                     $results[$key]['Proceso']['fecha_fin'] = dateDMY($result['Proceso']['fecha_fin']);

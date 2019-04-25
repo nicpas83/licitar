@@ -7,6 +7,31 @@ function del_btn(modelPk) {
     return html;
 }
 
+function finalizar_btn(event) {
+    event.preventDefault();
+
+    swal({
+        title: "Atención",
+        text: 'Desea finalizar la publicación?',
+        type: "warning",
+        buttons: true,
+        dangerMode: true,
+        showCancelButton: true,
+        confirmButtonText: 'Ok!',
+        cancelButtonText: "Cancelar",
+    }, function () {
+        $.post(event.target.href, function (data) {
+            if (data == "OK") {
+                swal("Publicación Finalizada!", "success");
+                $(location).attr('href', WWW + "procesos/mis_compras");
+                return;
+            } else {
+
+            }
+        });
+    });
+
+}
 function delete_model_id(model, id, plugin = "") {
     var controller = underscore(getPlural(model));
     var pk = {"id": id};
@@ -18,7 +43,7 @@ function delete_model_id(model, id, plugin = "") {
         dangerMode: true,
         showCancelButton: true,
         confirmButtonText: 'Ok!',
-        cancelButtonText: "Cancelar",
+        cancelButtonText: "Cancelar"
     }, function () {
         $.post(WWW + plugin + "/" + controller + "/ajax_delete", pk, function () {
             topAlert('Registro eliminado.', 'danger');

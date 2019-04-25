@@ -83,7 +83,13 @@ td.text-limit {
     max-width: 200px;
 }
 td.acciones, th.acciones{
-    min-width: 150px;
+    min-width: 180px;
+}
+.acciones a, button{
+    margin-left: 7px;
+}
+.acciones a {
+    padding: 8px 12px;
 }
 
 .podium{
@@ -148,4 +154,9 @@ td.acciones, th.acciones{
 .dataTables_wrapper .dt-buttons {
     float:right !important;  
     text-align:center;
+}
+
+/* fix style.css*/
+.card {
+    margin-bottom: 10px;
 }

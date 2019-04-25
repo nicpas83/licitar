@@ -60,6 +60,12 @@ class AppController extends Controller {
             'class' => 'btn btn-danger fa fa-trash-alt pull-right',
             'confirm' => 'Está seguro que desea eliminar?',
         );
+        $finalizar = array(
+            'div' => false,
+            'title' => 'Finalizar',
+            'class' => 'finalizar btn btn-danger fa fa-times-circle pull-right',
+            'onclick' => "return finalizar_btn(event)",
+        );
         $edit = array(
             'div' => false,
             'title' => 'Editar',
@@ -102,6 +108,7 @@ class AppController extends Controller {
 
         //variables disponibles en todas las vistas:
         $this->set('deleteBtn', $delete);
+        $this->set('finalizarBtn', $finalizar);
         $this->set('editBtn', $edit);
         $this->set('viewBtn', $view);
         $this->set('ofertarBtn', $ofertar);

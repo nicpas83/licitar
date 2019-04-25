@@ -1,4 +1,4 @@
-$(function () {
+ $(function () {
 
     //Responder preguntas
     $("ul button").click(function () {

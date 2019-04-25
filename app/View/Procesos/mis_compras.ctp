@@ -1,16 +1,17 @@
 <?php
+
+//debug($procesos);
+//die;
+
 echo $this->element('page/title_nav', [
-    'levels' => ['Mis Compras'],
-    'add' => [
-        'action' => 'nuevo',
-        'label' => 'Nueva Publicación'
-    ],
+    'levels' => ['Mis Compras' => ''],
+    'actions' => ['Nueva Publicación' => 'nuevo']
 ]);
 ?>
 <div class="row">               
-<?php echo $this->element('page/kpi_left_icon', ['title' => 'En Curso', 'value' => $kpi['en_curso'], 'icon' => 'mdi mdi-cart-outline', 'color' => 'warning']) ?>
-<?php echo $this->element('page/kpi_left_icon', ['title' => 'Finalizadas', 'value' => $kpi['finalizadas'], 'icon' => 'mdi mdi-checkbox-marked', 'color' => 'success']) ?>
-<?php echo $this->element('page/kpi_left_icon', ['title' => 'Preguntas Pendientes', 'value' => $kpi['preguntas'], 'icon' => 'mdi mdi-comment-question-outline', 'color' => 'danger']) ?>
+    <?php echo $this->element('page/kpi_left_icon', ['title' => 'En Curso', 'value' => $kpi['en_curso'], 'icon' => 'mdi mdi-cart-outline', 'color' => 'warning']) ?>
+    <?php echo $this->element('page/kpi_left_icon', ['title' => 'Finalizadas', 'value' => $kpi['finalizadas'], 'icon' => 'mdi mdi-checkbox-marked', 'color' => 'success']) ?>
+    <?php echo $this->element('page/kpi_left_icon', ['title' => 'Preguntas Pendientes', 'value' => $kpi['preguntas'], 'icon' => 'mdi mdi-comment-question-outline', 'color' => 'danger']) ?>
 </div>
 
 <div class="row">
@@ -25,51 +26,11 @@ echo $this->element('page/title_nav', [
             <!-- Tab panes -->
             <div class="tab-content">
                 <div class="tab-pane active" id="activas" role="tabpanel">
-                    <div class="table-responsive mt40">
-                        <table class="table table-bordered table-striped initDt" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <th>Titulo de referencia</th>
-                                    <th>Detalles</th>
-                                    <th>Finaliza</th>
-                                    <th>Fecha Entrega</th>
-                                    <th>Preferencia Pago</th>
-                                    <th>Cant. Items</th>
-                                    <th>Cant. Ofertas</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                if (!empty($activas)) {
-                                    foreach ($activas as $val) {
-                                        ?>
-                                        <tr>
-                                            <td><?php echo $this->Html->link($val['referencia'], "/procesos/view/" . $val['id']) ?></td>
-                                            <td><?php echo $val['detalles'] ?></td>
-                                            <td><?php echo $val['fecha_fin'] ?></td>
-                                            <td><?php echo $val['fecha_entrega'] ?></td>
-                                            <td><?php echo $val['preferencia_pago'] ?></td>
-                                            <td><?php echo $val['cant_items'] ?></td>
-                                            <td><?php echo $val['cant_ofertas'] ?></td>
-                                            <td>
-        <?php echo $this->Form->postLink('', ['action' => 'delete', $val['id']], $deleteBtn); ?>
-                                        <?php echo $this->Html->link('', ['action' => 'edit', $val['id']], $editBtn); ?>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                    }
-                                } else {
-                                    echo "No hay compras activas.";
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
+                    <?php echo $this->element('procesos/listado_procesos', [$procesos, $actions]); ?>
                 </div>
 
                 <div class="tab-pane" id="finalizadas" role="tabpanel">
-                    <div class="table-responsive mt40">
+                    <div class="table-responsive mt20">
                         <table  class="table table-bordered table-striped initDt" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
@@ -92,7 +53,7 @@ echo $this->element('page/title_nav', [
                                             <td><?php echo $val['fecha_fin'] ?></td>
                                             <td><?php echo $val['total_ofertas'] ?></td>
                                             <td>
-                                        <?php echo $this->Html->link('Ver Resultados', array('action' => 'edit', $val['id'])); ?>
+                                                <?php echo $this->Html->link('Ver Resultados', array('action' => 'edit', $val['id'])); ?>
                                             </td>
                                         </tr>
                                         <?php
@@ -120,7 +81,7 @@ echo $this->element('page/title_nav', [
                                             <?php echo $this->Form->input('respuesta', ['type' => 'textarea', 'placeholder' => 'Escribí tu respuesta...', 'rows' => '4', 'class' => 'form-control', 'div' => false, 'label' => false]); ?>
                                         </div>
                                         <div class="form-group  pull-right">            
-        <?php echo $this->Form->button('Responder', ['id' => "responder-" . $pregunta_id, 'class' => 'btn btn-info pull-left', 'div' => false]); ?>
+                                            <?php echo $this->Form->button('Responder', ['id' => "responder-" . $pregunta_id, 'class' => 'btn btn-info pull-left', 'div' => false]); ?>
                                         </div>
                                         <div class="clearfix"></div>
                                     </li>

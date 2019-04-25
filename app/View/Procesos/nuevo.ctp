@@ -1,7 +1,6 @@
 <?php
 echo $this->element('page/title_nav', [
-    'levels' => ['Mis Compras', 'Nueva Publicación'],
-    
+    'levels' => ['Mis Compras' => 'mis_compras', 'Nueva Publicación' => ''],
 ]);
 ?>
 <?php
@@ -27,11 +26,11 @@ if (isset($borrador_id)) {
                 <?php
                 $title = "Paso 1. ¿Qué necesitas comprar? ";
                 $subtitle = [
-                    'Podés <span class="text-bold">agregar hasta 15 items</span> por pedido de compra.',
+                    'Podés <span class="text-bold">agregar hasta 10 items</span> por publicación.',
                     'Especifica los <span class="text-bold">detalles de cada uno.</span>',
                     'Cuando estés listo,  <span class="text-bold">presioná "Siguiente".</span>'
                 ];
-                echo $this->element('ribbon_title', ['title' => $title, 'subtitle' => $subtitle]);
+                echo $this->element('ribbon_title', ['title' => $title, 'subtitle' => "hola"]);
 
                 echo $this->element('procesos/form_items');
                 ?>
