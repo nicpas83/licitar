@@ -5,4 +5,6 @@
 /app/Config/database.php
 /vendors/*
 /nbproject/
-app/Config/database.php
+.idea
+docker-compose.yml
+images/
