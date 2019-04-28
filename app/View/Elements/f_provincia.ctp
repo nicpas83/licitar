@@ -1,5 +1,5 @@
 <?php
-echo $this->Html->script('elements/provincias', array('inline' => false));
+echo $this->Html->script('provincias');
 
 App::uses('Provincia', 'Ubicacion.Model');
 $provincias = (new Provincia())->find('list', [
@@ -36,7 +36,6 @@ $options = [
     $validation => $validationMsg
 ];
 ?>
-
 <div class="col-lg-<?php echo $lg ?>">
     <div class="form-group">
         <label><?php echo $label ?><span class="text-danger"><?php echo $validate ?></span></label>
