@@ -37,6 +37,8 @@
                             <li role="separator" class="divider"></li>
                             <li><a href="<?php echo $this->Html->url(['plugin' => 'mail', 'controller' => 'alertas_vendedores', 'action' => 'rubros_publicacion']) ?>"><i class="ti-settings"></i> Alertas Vendedor</a></li>
                             <li role="separator" class="divider"></li>
+                            <li><a href="<?php echo $this->Html->url(['controller' => 'users', 'action' => 'change_password']) ?>"><i class="ti-reload"></i> Cambiar contraseña</a></li>
+                            <li role="separator" class="divider"></li>
                             <li><a href="<?php echo $this->Html->url(['controller' => 'users', 'action' => 'logout']) ?>"><i class="fa fa-power-off"></i> Cerrar Sesión</a></li>
                         </ul>
                     </li>

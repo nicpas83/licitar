@@ -34,7 +34,7 @@ class User extends AppModel {
                 'message' => 'Debe ingresar una contraseña'
             ),
             'length' => array(
-                'rule' => array('minLength', '4'),
+                'rule' => array('minLength', '6'),
                 'message' => 'La contraseña debe tener al menos 4 caracteres.'
             )
         ),
@@ -68,8 +68,79 @@ class User extends AppModel {
         ],
     );
 
+    public $validationChangePassword = [
+            'password' => array(
+                'notBlank' => array(
+                    'rule' => 'notBlank',
+                    'message' => 'Debe ingresar su contraseña'
+                ),
+                'length' => array(
+                    'rule' => array('minLength', '6'),
+                    'message' => 'La contraseña debe tener al menos 6 caracteres.'
+                ),
+                'isActualPassword' => array(
+                    'rule' => ['isActualPassword'],
+                    'message' => 'La contraseña ingresada no es correcta'
+                )
+            ),
+            'new_password' => array(
+                'notBlank' => array(
+                    'rule' => 'notBlank',
+                    'message' => 'Debe ingresar su nueva contraseña'
+                ),
+                'length' => array(
+                    'rule' => array('minLength', '6'),
+                    'message' => 'La nueva contraseña debe tener al menos 6 caracteres.'
+                )
+            ),
+            'new_password_confirmation' => array(
+                'notBlank' => array(
+                    'rule' => 'notBlank',
+                    'message' => 'Debe ingresar reingresar su nueva contraseña'
+                ),
+                'length' => array(
+                    'rule' => array('minLength', '6'),
+                    'message' => 'La nueva contraseña debe tener al menos 6 caracteres.'
+                ),
+                'repeat_password' => array(
+                    'rule' => ['checkpasswords'],
+                    'message' => "La contraseña nueva ingresada no es igual a la de la confirmación"
+                )
+            ),
+
+        ];
+    
+
+    public function isActualPassword()
+    {
+        /*
+        $id = AuthComponent::user('id');
+
+        $result = $this->query("SELECT password FROM users where id = $id");
+
+        $old_password = $result[0]['users']['password'];
+        $passwordHasher = new BlowfishPasswordHasher();
+        $password = $passwordHasher->hash( $this->data[$this->alias]['password']);
+
+        return $password == $old_password;
+        */
+        return true;
+    }
+
+    public function checkpasswords(){
+
+        if(strcmp($this->data['User']['new_password'],$this->data['User']['new_password_confirmation']) == 0 )
+        {
+            return true;
+        }
+        return false;
+    }
+
     public function beforeSave($options = array()) {
 
+        if (isset($this->data[$this->alias]['new_password'])) {
+            $this->data[$this->alias]['password'] = $this->data[$this->alias]['new_password'];
+        }
         if (isset($this->data[$this->alias]['password'])) {
             $passwordHasher = new BlowfishPasswordHasher();
             $this->data[$this->alias]['password'] = $passwordHasher->hash(

@@ -20,6 +20,20 @@ class AppController extends Controller {
         )
     );
 
+    protected function dd($data)
+    {
+        if(is_array($data) || is_object($data))
+        {
+            echo "<pre>";
+            print_r($data);
+            echo "</pre>";
+            die();
+        }
+        echo "<br>";
+        echo $data;
+        echo "<br>";
+    }
+
     public function fecha($fecha) {
         return $fecha + 1;
     }

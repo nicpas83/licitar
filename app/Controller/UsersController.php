@@ -116,4 +116,38 @@ class UsersController extends AppController {
         return $this->redirect(array('action' => 'index'));
     }
 
+    public function change_password()
+    {
+
+        $user_id = AuthComponent::user('id');
+        $this->User->id = $user_id;
+
+        if ($this->request->is('post') || $this->request->is('put')) {
+
+
+            $this->User->validate = $this->User->validationChangePassword;
+
+            if ($this->User->save($this->request->data)) {
+                $this->Flash->success(__('La contraseña fue actualizada correctamente'));
+                return $this->redirect(array('action' => 'mi_cuenta'));
+            }
+            else{
+                $mensaje = "";
+                foreach($this->User->invalidFields() as $errors)
+                {
+                    foreach($errors as $error)
+                    {
+                        if($mensaje == "")
+                            $mensaje = $error;
+                    }
+                }
+                $this->Flash->error(
+                    __($mensaje)
+                );
+            }
+        }
+
+
+    }
+
 }
