@@ -4,7 +4,7 @@ $(function () {
 
     aplicarDatePicker();
 
-    //Acción Editar.  
+    //Editar Item.  
     $(document).on("click", "[id^='EditItem']", function () {
         edit_id = getNumeric($(this).attr('id'));
         $('#ProcesoCategoria').select2('destroy'); //para evitar que dispare el change.

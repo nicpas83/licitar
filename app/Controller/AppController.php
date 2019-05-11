@@ -72,6 +72,12 @@ class AppController extends Controller {
             'class' => 'btn btn-info fa fa-edit pull-right',
             'type' => 'button'
         );
+        $result = array(
+            'div' => false,
+            'title' => 'Ver Resultados',
+            'class' => 'btn btn-info fa fa-file-invoice-dollar pull-right',
+            'type' => 'button'
+        );
         $view = array(
             'div' => false,
             'title' => 'Ver',
@@ -110,6 +116,7 @@ class AppController extends Controller {
         $this->set('deleteBtn', $delete);
         $this->set('finalizarBtn', $finalizar);
         $this->set('editBtn', $edit);
+        $this->set('resultBtn', $result);
         $this->set('viewBtn', $view);
         $this->set('ofertarBtn', $ofertar);
         $this->set('guardar', $guardar);

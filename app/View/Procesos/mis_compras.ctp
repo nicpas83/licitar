@@ -1,15 +1,13 @@
 <?php
-
-//debug($procesos);
-//die;
-
 echo $this->element('page/title_nav', [
     'levels' => ['Mis Compras' => ''],
     'actions' => ['Nueva Publicación' => 'nuevo']
 ]);
+//debug($actions);
+//die;
 ?>
 <div class="row">               
-    <?php echo $this->element('page/kpi_left_icon', ['title' => 'En Curso', 'value' => $kpi['en_curso'], 'icon' => 'mdi mdi-cart-outline', 'color' => 'warning']) ?>
+    <?php echo $this->element('page/kpi_left_icon', ['title' => 'Activas', 'value' => $kpi['activas'], 'icon' => 'mdi mdi-cart-outline', 'color' => 'warning']) ?>
     <?php echo $this->element('page/kpi_left_icon', ['title' => 'Finalizadas', 'value' => $kpi['finalizadas'], 'icon' => 'mdi mdi-checkbox-marked', 'color' => 'success']) ?>
     <?php echo $this->element('page/kpi_left_icon', ['title' => 'Preguntas Pendientes', 'value' => $kpi['preguntas'], 'icon' => 'mdi mdi-comment-question-outline', 'color' => 'danger']) ?>
 </div>
@@ -19,50 +17,18 @@ echo $this->element('page/title_nav', [
         <div class="card-block">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs customtab" role="tablist">
-                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#activas" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">En Curso</span></a> </li>
+                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#activas" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Activas</span></a> </li>
                 <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#finalizadas" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Finalizadas</span></a> </li>
                 <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#preguntas" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Preguntas</span></a> </li>
             </ul>
             <!-- Tab panes -->
             <div class="tab-content">
                 <div class="tab-pane active" id="activas" role="tabpanel">
-                    <?php echo $this->element('procesos/listado_procesos', [$procesos, $actions]); ?>
+                    <?php echo $this->element('procesos/listado_procesos', ['publicaciones' => $activas, 'actions' => ['finalizar', 'edit']]); ?>
                 </div>
 
                 <div class="tab-pane" id="finalizadas" role="tabpanel">
-                    <div class="table-responsive mt20">
-                        <table  class="table table-bordered table-striped initDt" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <th>Titulo de referencia</th>
-                                    <th>Items</th>
-                                    <th>Finalizó</th>
-                                    <th>Cant. Ofertas</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                if (!empty($finalizadas)) {
-
-                                    foreach ($finalizadas as $val) {
-                                        ?>
-                                        <tr>
-                                            <td><?php echo $this->Html->link($val['referencia'], "/procesos/view/" . $val['id']) ?></td>
-                                            <td><?php echo $val['total_items'] ?></td>
-                                            <td><?php echo $val['fecha_fin'] ?></td>
-                                            <td><?php echo $val['total_ofertas'] ?></td>
-                                            <td>
-                                                <?php echo $this->Html->link('Ver Resultados', array('action' => 'edit', $val['id'])); ?>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                    }
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
+                    <?php echo $this->element('procesos/listado_procesos', ['publicaciones' => $finalizadas, 'actions' => ['resultados']]); ?>
                 </div>
 
                 <div class="tab-pane" id="preguntas" role="tabpanel">

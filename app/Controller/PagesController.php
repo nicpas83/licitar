@@ -55,9 +55,8 @@ class PagesController extends AppController {
 
     public function procesos_activos() {
         App::uses('Proceso', 'Model');
-        $procesos = (new Proceso)->getComprasActivas();
+        $procesos = (new Proceso)->getProcesosActivos();
         $this->set('procesos', $procesos);
-        $this->set('actions', ['favoritos', 'view']);
         $this->render('/Procesos/index');
     }
 

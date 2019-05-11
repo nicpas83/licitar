@@ -13,7 +13,7 @@ echo $this->element('page/title_nav', [
         <div class="card">
             <div class="card-block">
                 <?php echo $this->element('ribbon_title', ['title' => 'Publicaciones Activas']) ?>
-                <?php echo $this->element('procesos/listado_procesos', [$procesos, $actions]); ?>
+                <?php echo $this->element('procesos/listado_procesos', ['publicaciones' => $procesos, 'actions' => ['favoritos', 'view']]); ?>
             </div>
         </div>
     </div>

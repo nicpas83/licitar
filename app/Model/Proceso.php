@@ -10,6 +10,7 @@ class Proceso extends AppModel {
     public $readonly = false;
     public $filtroCategoria = "";
     public $filtroUsuario = "";
+    public $filtroEstado = "";
     public $esPropio = "";
     public $infoGeneral;
     public $items;
@@ -206,19 +207,20 @@ class Proceso extends AppModel {
         $mis_favoritos = (new Favorito())->getMisProcesosFavoritos();
 
         foreach ($results as $key => $val) {
-            $requisitos = !empty($val['Proceso']['requisitos_excluyentes']) ? explode(",", $val['Proceso']['requisitos_excluyentes']) : "";
-            //listado general.
-            $data[$key]['id'] = $val['Proceso']['id'];
-            $data[$key]['referencia'] = $val['Proceso']['referencia'];
-            $data[$key]['detalles'] = $val['Proceso']['detalles'];
-            $data[$key]['preferencia_pago'] = $val['Proceso']['preferencia_pago'];
-            $data[$key]['cant_items'] = count($val['Item']);
-            $data[$key]['q_unidades'] = array_sum(array_column($val['Item'], 'cantidad'));
-            $data[$key]['fecha_fin'] = $val['Proceso']['fecha_fin'];
-            $data[$key]['fecha_entrega'] = $val['Proceso']['fecha_entrega'];
-            $data[$key]['requisitos_excluyentes'] = $requisitos;
-            $data[$key]['categorias'] = array_unique(array_column($val['Item'], 'categoria'));
-            $data[$key]['propio'] = $val['Proceso']['user_id'] == AuthComponent::user('id') ? "Si" : "";
+            $cant_ofertas = isset($val['Oferta']) ? count($val['Oferta']) : 0;
+
+            if (isset($val['Proceso']) && isset($val['Item'])) {
+                $data[$key]['id'] = $val['Proceso']['id'];
+                $data[$key]['referencia'] = $val['Proceso']['referencia'];
+                $data[$key]['detalles'] = $val['Proceso']['referencia'];
+                $data[$key]['fecha_fin'] = $val['Proceso']['fecha_fin'];
+                $data[$key]['fecha_entrega'] = $val['Proceso']['fecha_fin'];
+                $data[$key]['preferencia_pago'] = $val['Proceso']['preferencia_pago'];
+                $data[$key]['cant_items'] = count($val['Item']);
+                $data[$key]['cant_ofertas'] = $cant_ofertas;
+                $data[$key]['propio'] = $val['Proceso']['propio'];
+                $data[$key]['favorito'] = $val['Proceso']['propio'];
+            }
         }
 
         return $data;
@@ -233,24 +235,21 @@ class Proceso extends AppModel {
         return array_unique($procesosIds);
     }
 
-    public function getComprasActivas() {
-        App::uses('Favorito', 'Model');
-        $mis_favoritos = (new Favorito())->getMisProcesosFavoritos();
-
+    public function getMisCompras($estado = null) {
         $data = [];
+        if ($estado == 'activas') {
+            $this->filtroEstado = ['Proceso.estado' => 'Activo'];
+        }
+        if ($estado == 'finalizadas') {
+            $this->filtroEstado = ['Proceso.estado' => 'Finalizado'];
+        }
 
-
-        $procesos = $this->find('all', [
-            'conditions' => [
-                $this->filtroUsuario,
-                'Proceso.estado' => 'Activo'
-            ]
-        ]);
+        $procesos = $this->find('all', ['conditions' => [$this->filtroUsuario, $this->filtroEstado]]);
         if (!$procesos) {
             return $data;
         }
+//            debug($procesos);die;
         foreach ($procesos as $key => $val) {
-            $cant_ofertas = isset($val['Oferta']) ? count($val['Oferta']) : 0;
 
             if (isset($val['Proceso']) && isset($val['Item'])) {
                 $data[$key]['id'] = $val['Proceso']['id'];
@@ -260,52 +259,30 @@ class Proceso extends AppModel {
                 $data[$key]['fecha_entrega'] = $val['Proceso']['fecha_fin'];
                 $data[$key]['preferencia_pago'] = $val['Proceso']['preferencia_pago'];
                 $data[$key]['cant_items'] = count($val['Item']);
-                $data[$key]['cant_ofertas'] = $cant_ofertas;
+                $data[$key]['cant_ofertas'] = $this->getCantidadOfertas($val['Proceso']['id']);
                 $data[$key]['propio'] = $val['Proceso']['propio'];
-                $data[$key]['favorito'] = in_array($val['Proceso']['id'], $mis_favoritos) ? "si" : "";
             }
         }
         return $data;
     }
 
-    public function getComprasFinalizadas() {
-        $data = [];
-        $procesos = $this->find('all', [
-            'conditions' => [
-                'user_id' => AuthComponent::user('id'),
-                'Proceso.estado' => 'Finalizado'
-            ]
-        ]);
-        if (!$procesos) {
-            return $data;
-        }
-
-        foreach ($procesos as $key => $val) {
-            if (isset($val['Proceso']) && isset($val['Item'])) {
-                $data[$key]['id'] = $val['Proceso']['id'];
-                $data[$key]['referencia'] = $val['Proceso']['referencia'];
-                $data[$key]['fecha_fin'] = $val['Proceso']['fecha_fin'];
-                $data[$key]['total_items'] = count($val['Item']);
-                $data[$key]['total_ofertas'] = !empty($val['Oferta']) ? count($val['Oferta']) : 0;
-            }
-        }
-        return $data;
+    public function getCantidadOfertas($proceso_id) {
+        App::uses('Oferta', 'Model');
+        return (new Oferta())->find('count', ['conditions' => ['proceso_id' => $proceso_id], 'recursive' => -1]);
     }
 
-    public function getPreguntasPendientes() {
+    public function getMisPreguntas($estado = null) {
         $data = [];
         //busco mis procesos activos
         $procesosIds = $this->find('list', [
             'fields' => ['id'],
             'conditions' => [
-                'user_id' => AuthComponent::user('id'),
-                'estado' => 'Activo'
+                $this->filtroUsuario,
             ],
         ]);
         if (!$procesosIds) {
             return $data;
         }
-
         $preguntas = $this->Pregunta->find('all', [
             'conditions' => [
                 'Pregunta.proceso_id' => $procesosIds,

@@ -41,17 +41,17 @@ class ProcesosController extends AppController {
     public function mis_compras() {
         $this->Proceso->filtroUsuario = ['Proceso.user_id' => AuthComponent::user('id')];
 
-        $activas = $this->Proceso->getComprasActivas();
-        $finalizadas = $this->Proceso->getComprasFinalizadas();
-        $preguntas = $this->Proceso->getPreguntasPendientes();
+        $activas = $this->Proceso->getMisCompras('activas');
+        $finalizadas = $this->Proceso->getMisCompras('finalizadas');
+        $preguntas = $this->Proceso->getMisPreguntas('pendientes');
+        
         $kpi = [
-            'en_curso' => count($activas),
+            'activas' => count($activas),
             'finalizadas' => count($finalizadas),
             'preguntas' => count($preguntas),
         ];
 
-        $this->set('actions', ['finalizar', 'edit']); //define botones
-        $this->set('procesos', $activas);
+        $this->set('activas', $activas);
         $this->set('finalizadas', $finalizadas);
         $this->set('preguntas', $preguntas);
         $this->set('kpi', $kpi);
