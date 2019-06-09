@@ -4,7 +4,7 @@ echo $this->element('page/title_nav', [
 ]);
 ?>
 <?php
-echo $this->Html->script('procesos/funciones', array('inline' => false));
+echo $this->Html->script('procesos/add_edit_funciones', array('inline' => false));
 echo $this->Html->script('procesos/nuevo', array('inline' => false));
 echo $this->Html->script('categorias_change', array('inline' => false));
 
@@ -30,7 +30,7 @@ if (isset($borrador_id)) {
                     'Especifica los <span class="text-bold">detalles de cada uno.</span>',
                     'Cuando estés listo,  <span class="text-bold">presioná "Siguiente".</span>'
                 ];
-                echo $this->element('ribbon_title', ['title' => $title, 'subtitle' => "hola"]);
+                echo $this->element('ribbon_title', ['title' => $title, 'subtitle' => $subtitle]);
 
                 echo $this->element('procesos/form_items');
                 ?>
