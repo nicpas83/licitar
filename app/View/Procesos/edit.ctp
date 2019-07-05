@@ -1,6 +1,6 @@
 <?php
 echo $this->Html->script('categorias_change', array('inline' => false));
-echo $this->Html->script('procesos/funciones', array('inline' => false));
+echo $this->Html->script('procesos/add_edit_funciones', array('inline' => false));
 echo $this->Html->script('procesos/edit', array('inline' => false));
 //debug($proceso);
 //debug($items);die;       
